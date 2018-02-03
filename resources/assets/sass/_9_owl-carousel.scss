@@ -1,0 +1,265 @@
+/* 9 Owl Carousel
+----------------------------------------------------------------------------- */
+.owl-carousel {
+  cursor: grab;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+}
+
+.container .owl-carousel {
+  cursor: default;
+  cursor: -moz-default;
+  cursor: -webkit-default;
+}
+
+.container .content-slider-with-large-controls,
+.container .content-slider-with-large-controls-autoplay {
+  margin-bottom: 50px;
+  border: 1px solid #f5f5f5;
+}
+/* Styling Next and Prev buttons */
+/*style-1*/
+.content-slider-with-controls .owl-nav,
+.content-slider-with-controls-autoplay .owl-nav,
+.content-slider-with-thumbs .owl-nav {
+  width: 100%;
+  height: 0;
+  position: absolute;
+  top: 50%;
+  margin-top: -15px;
+  z-index: 10;
+}
+
+.content-slider-with-controls .owl-nav div,
+.content-slider-with-controls-autoplay .owl-nav div,
+.content-slider-with-thumbs .owl-nav div {
+  display: inline-block;
+  font-size: 14px;
+  position: absolute;
+  text-transform: capitalize;
+  font-weight: 300;
+  color: transparent;
+  background: rgba($black, 0.5);
+  padding: 5px 5px;
+  @include transition (all 0.2s ease-in-out);
+}
+
+.content-slider-with-controls .owl-nav div:after,
+.content-slider-with-controls-autoplay .owl-nav div:after,
+.content-slider-with-thumbs .owl-nav div:after {
+  font-family: "FontAwesome";
+  position: absolute;
+  font-size: 16px;
+  line-height: 1;
+  top: 50%;
+  margin-top: -8px;
+}
+
+.content-slider-with-controls .owl-nav .owl-prev,
+.content-slider-with-controls-autoplay .owl-nav .owl-prev,
+.content-slider-with-thumbs .owl-nav .owl-prev {
+  left: 0;
+  padding-left: 0px;
+}
+
+.content-slider-with-controls .owl-nav .owl-prev:hover,
+.content-slider-with-controls-autoplay .owl-nav .owl-prev:hover,
+.content-slider-with-thumbs .owl-nav .owl-prev:hover {
+  padding-left: 25px;
+  padding-right: 10px;
+  color: $white;
+}
+
+.content-slider-with-controls .owl-nav .owl-prev:after,
+.content-slider-with-controls-autoplay .owl-nav .owl-prev:after,
+.content-slider-with-thumbs .owl-nav .owl-prev:after {
+  content: "\f104";
+  left: 13px;
+  color: $white;
+  @include transition (all 0.2s ease-in-out);
+}
+
+.content-slider-with-controls .owl-nav .owl-prev:hover:after,
+.content-slider-with-controls-autoplay .owl-nav .owl-prev:hover:after,
+.content-slider-with-thumbs .owl-nav .owl-prev:hover:after {
+  left: 8px;
+}
+
+.content-slider-with-controls .owl-nav .owl-next,
+.content-slider-with-controls-autoplay .owl-nav .owl-next,
+.content-slider-with-thumbs .owl-nav .owl-next {
+  right: 0px;
+  left: auto;
+  padding-right: 0px;
+}
+
+.content-slider-with-controls .owl-nav .owl-next:hover,
+.content-slider-with-controls-autoplay .owl-nav .owl-next:hover,
+.content-slider-with-thumbs .owl-nav .owl-next:hover {
+  padding-right: 25px;
+  padding-left: 10px;
+  color: $white;
+}
+
+.content-slider-with-controls .owl-nav .owl-next:after,
+.content-slider-with-controls-autoplay .owl-nav .owl-next:after,
+.content-slider-with-thumbs .owl-nav .owl-next:after {
+  content: "\f105";
+  right: 13px;
+  color: $white;
+  @include transition (all 0.2s ease-in-out);
+}
+
+.content-slider-with-controls .owl-nav .owl-next:hover:after,
+.content-slider-with-controls-autoplay .owl-nav .owl-next:hover:after,
+.content-slider-with-thumbs .owl-nav .owl-next:hover:after {
+  right: 8px;
+}
+/*style-2*/
+.content-slider-with-large-controls .owl-nav,
+.content-slider-with-large-controls-autoplay .owl-nav {
+  width: 100%;
+  height: 0;
+  position: absolute;
+  top: 50%;
+}
+
+.container .content-slider-with-large-controls .owl-nav,
+.container .content-slider-with-large-controls-autoplay .owl-nav {
+  top: auto;
+  bottom: -10px;
+}
+
+.content-slider-with-large-controls .owl-nav div,
+.content-slider-with-large-controls-autoplay .owl-nav div {
+  display: inline-block;
+  font-size: 18px;
+  position: absolute;
+  text-transform: capitalize;
+  font-weight: 300;
+  color: $gray-lighter;
+}
+
+.content-slider-with-large-controls .owl-nav div:after,
+.content-slider-with-large-controls-autoplay .owl-nav div:after {
+  font-family: "FontAwesome";
+  position: absolute;
+  font-size: 16px;
+  line-height: 1;
+  top: 50%;
+  margin-top: -8px;
+}
+
+.content-slider-with-large-controls .owl-nav .owl-prev,
+.content-slider-with-large-controls-autoplay .owl-nav .owl-prev {
+  left: 0;
+  padding-left: 30px;
+}
+
+.content-slider-with-large-controls .owl-nav .owl-prev:after,
+.content-slider-with-large-controls-autoplay .owl-nav .owl-prev:after {
+  content: "\f104";
+  left: 15px;
+  color: $base-color;
+}
+
+.content-slider-with-large-controls .owl-nav .owl-next,
+.content-slider-with-large-controls-autoplay .owl-nav .owl-next {
+  right: 0px;
+  left: auto;
+  padding-right: 30px;
+}
+
+.content-slider-with-large-controls .owl-nav .owl-next:after,
+.content-slider-with-large-controls-autoplay .owl-nav .owl-next:after {
+  content: "\f105";
+  right: 15px;
+  color: $base-color;
+}
+
+.container .content-slider-with-large-controls .owl-nav .owl-prev,
+.container .content-slider-with-large-controls-autoplay .owl-nav .owl-prev {
+  padding-left: 15px;
+}
+
+.container .content-slider-with-large-controls .owl-nav .owl-prev:after,
+.container .content-slider-with-large-controls-autoplay .owl-nav .owl-prev:after {
+  left: 0px;
+}
+
+.container .content-slider-with-large-controls .owl-nav .owl-next,
+.container .content-slider-with-large-controls-autoplay .owl-nav .owl-next {
+  padding-right: 15px;
+}
+
+.container .content-slider-with-large-controls .owl-nav .owl-next:after,
+.container .content-slider-with-large-controls-autoplay .owl-nav .owl-next:after {
+  right: 0px;
+}
+/* Large and Medium devices (desktops, tablets less than 1199px) */
+@media (max-width: 1199px) {
+  .content-slider-with-large-controls .owl-nav,
+  .content-slider-with-large-controls-autoplay .owl-nav {
+    top: 98%;
+  }
+}
+
+.buttons-hide .owl-nav {
+  display: none;
+}
+/* Styling Pagination*/
+.owl-dots,
+.owl-dots {
+  position: absolute;
+  bottom: 0px;
+  text-align: center;
+  width: 100%;
+  z-index: 10;
+}
+
+.owl-dots .owl-dot,
+.owl-dots .owl-dot {
+  display: inline-block;
+  zoom: 1;
+}
+
+.owl-dots .owl-dot span,
+.owl-dots .owl-dot span {
+  display: block;
+  width: 9px;
+  height: 9px;
+  margin: 5px 3px;
+  @include opacity(0.5);
+  @include border-radius(20px);
+  background: $white;
+}
+
+.dark-controls .owl-dots .owl-dot span,
+.dark-controls .owl-dots .owl-dot span {
+  background: $gray-dark;
+}
+
+.owl-dots .owl-dot.active span,
+.owl-dots.clickable .owl-dot:hover span,
+.owl-dots .owl-dot.active span,
+.owl-dots.clickable .owl-dot:hover span {
+  @include opacity(1);
+}
+/* Small devices (tablets, phones less than 767px) */
+@media (max-width: 767px) {
+  .owl-dots .owl-dot span,
+  .owl-dots .owl-dot span {
+    background: $black;
+  }
+}
+
+/* Styling Navigation Thumbs*/
+.content-slider-thumbs-container {
+  margin-left: -5px;
+  margin-right: -5px;
+}
+
+.owl-nav-thumb {
+  margin: 0 5px;
+  cursor: pointer;
+}

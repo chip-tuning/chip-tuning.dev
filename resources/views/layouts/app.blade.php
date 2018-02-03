@@ -1,80 +1,359 @@
 <!DOCTYPE html>
+<!--[if IE 9]> <html lang="{{ app()->getLocale() }}" class="ie9"> <![endif]-->
+<!--[if gt IE 9]> <html lang="{{ app()->getLocale() }}" class="ie"> <![endif]-->
+<!--[if !IE]><!-->
 <html lang="{{ app()->getLocale() }}">
+<!--<![endif]-->
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- CSRF Token -->
+    <title>{{ config('app.name', 'RPCT') }} - @yield('title')</title>
+
+    <meta name="description" content="@yield('description')">
+
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:type" content="webiste">
+    <meta property="og:locale" content="sr_RS">
+    <meta property="og:title" content="{{ config('app.name', 'RPCT') }}">
+    <meta property="og:description" content="Poboljšavamo performanse vašeg automobila, Chip Tuning, uklanjanje DPF filtera, gašenje EGR ventila, rešavanje problema sa toplim startom i selektivno brisanje grešaka.">
+    <meta property="og:image" content="{{ asset('images/logo.jpg') }}">
+    <meta property="og:site_name" content="{{ config('app.name', 'RPCT') }}">
+
+    <!-- za blog
+<meta property="og:url"                content="http://www.nytimes.com/2015/02/19/arts/international/when-great-minds-dont-think-alike.html" />
+<meta property="og:type"               content="article" />
+<meta property="og:title"              content="When Great Minds Don’t Think Alike" />
+<meta property="og:description"        content="How much does culture influence creative thinking?" />
+<meta property="og:image"              content="http://static01.nyt.com/images/2015/02/19/arts/international/19iht-btnumbers19A/19iht-btnumbers19A-facebookJumbo-v2.jpg" />
+-->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@chip-tuning.rs">
+    <meta name="twitter:creator" content="@{{ config('app.socials.twitter', '') }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}">
+    <link rel="apple-touch-icon" href="{{ asset('images/apple-touch-icon.png') }}">
 
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=PT+Sans|Raleway:300,400,700|Roboto:300,300i,400,400i,500,500i,700&amp;subset=latin-ext">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/vendor.css') }}">
+    @yield('styles')
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "Organization",
+        "name": "{{ config('app.name', 'RPCT') }}",
+        "url": "{{ config('app.url', 'https://www.chip-tuning.rs') }}",
+        "sameAs": [
+          "https://www.facebook.com/{{ config('app.socials.facebook', '') }}",
+          "https://www.twitter.com/{{ config('app.socials.twitter', '') }}",
+          "https://www.instagram.com/{{ config('app.socials.instagram', '') }}"
+        ]
+      }
+    </script>
 </head>
-<body>
-    <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
-                <div class="navbar-header">
-
-                    <!-- Collapsed Hamburger -->
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse" aria-expanded="false">
-                        <span class="sr-only">Toggle Navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-
-                    <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
-                    </a>
-                </div>
-
-                <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">
-                        &nbsp;
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="nav navbar-nav navbar-right">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
-                        @else
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Logout
-                                        </a>
-
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
+<body class="no-trans front-page transparent-header">
+    <div class="scrollToTop circle"><i class="fa fa-chevron-up"></i></div>
+    <div class="page-wrapper">
+        <div class="header-container">
+            <div class="header-top dark">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-9 col-sm-6 col-md-9">
+                            <div class="header-top-first clearfix">
+                                <ul class="list-inline">
+                                    <li><i class="fa fa-phone pr-5 pl-10"></i>{{ config('app.details.phone', '+381 65 55 666 14') }}</li>
+                                    <li class="hidden-xs"><i class="fa fa-map-marker pr-5 pl-10"></i>{{ config('app.details.address', 'Bore Tirića 60, 15000 Šabac') }}</li>
+                                    <li class="hidden-sm hidden-xs"><i class="fa fa-envelope-o pr-5 pl-10"></i>{{ config('app.details.email', 'office@chip-tuning.rs') }}</li>
                                 </ul>
-                            </li>
-                        @endguest
-                    </ul>
+                            </div>
+                        </div>
+                        <div class="col-xs-3 col-sm-6 col-md-3 text-right">
+                            <ul class="social-links circle small clearfix hidden-xs">
+                                <li class="facebook"><a target="_blank" href="https://www.facebook.com/{{ config('app.socials.facebook', '') }}"><i class="fa fa-facebook"></i></a></li>
+                                <li class="twitter"><a target="_blank" href="https://www.twitter.com/{{ config('app.socials.twitter', '') }}"><i class="fa fa-twitter"></i></a></li>
+                                <li class="instagram"><a target="_blank" href="{{ config('app.socials.instagram', '') }}"><i class="fa fa-instagram"></i></a></li>
+                                <li class="youtube"><a target="_blank" href="https://www.youtube.com/{{ config('app.socials.youtube', '') }}"><i class="fa fa-youtube-play"></i></a></li>
+                            </ul>
+                            <div class="social-links hidden-lg hidden-md hidden-sm circle small">
+                                <div class="btn-group dropdown">
+                                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown"><i class="fa fa-share-alt"></i></button>
+                                    <ul class="dropdown-menu dropdown-menu-right dropdown-animation">
+                                        <li class="facebook"><a target="_blank" href="https://www.facebook.com/{{ config('app.socials.facebook', '') }}"><i class="fa fa-facebook"></i></a></li>
+                                        <li class="twitter"><a target="_blank" href="https://www.twitter.com/{{ config('app.socials.twitter', '') }}"><i class="fa fa-twitter"></i></a></li>
+                                        <li class="instagram"><a target="_blank" href="{{ config('app.socials.instagram', '') }}"><i class="fa fa-instagram"></i></a></li>
+                                        <li class="youtube"><a target="_blank" href="https://www.youtube.com/{{ config('app.socials.youtube', '') }}"><i class="fa fa-youtube-play"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </nav>
-
+            <header class="header fixed">
+                <nav class="main-navigation animated navbar navbar-default">
+                    <div class="container with-mega-menu">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <div id="logo" class="logo">
+                                <a href="{{ url('/') }}"><img id="logo_img" src="public/images/logo_light_blue.png" alt="{{ config('app.name', 'RPCT') }}"></a>
+                            </div>
+                        </div>
+                        <div class="collapse navbar-collapse" id="navbar-collapse">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li class="active"><a href="#">Početna</a></li>
+                                <li class="dropdown mega-menu">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Usluge</a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <div class="ts">
+                                                <div class="col-md-12">
+                                                    <h4 class="title"><i class="fa fa-microchip pr-10"></i>Chip Tuning</h4>
+                                                    <div class="row">
+                                                        <div class="col-sm-6 col-md-3">
+                                                            <div class="divider"></div>
+                                                            <ul class="menu">
+                                                                <li><a href="#"><i class="fa fa-star pr-10"></i>Automobili</a></li>
+                                                                <li><a href="#"><i class="fa fa-star pr-10"></i>Kamioni</a></li>
+                                                                <li><a href="#"><i class="fa fa-star pr-10"></i>Poljoprivredne masine</a></li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="col-sm-6 col-md-3">
+                                                            <div class="divider"></div>
+                                                            <ul class="menu">
+                                                                <li ><a href="#"><i class="fa fa-star pr-10"></i>DPF OFF</a></li>
+                                                                <li ><a href="#"><i class="fa fa-star pr-10"></i>EGR OFF</a></li>
+                                                                <li ><a href="#"><i class="fa fa-star pr-10"></i>DTC OFF</a></li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="col-sm-6 col-md-3">
+                                                            <div class="divider"></div>
+                                                            <ul class="menu">
+                                                                <li><a href="#"><i class="fa fa-star pr-10"></i>AD Blue OFF</a></li>
+                                                                <li><a href="#"><i class="fa fa-clock-o pr-10"></i>Swirl Flaps OFF</a></li>
+                                                                <li><a href="#"><i class="fa fa-star pr-10"></i>Speed Limit OFF</a></li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="col-sm-6 col-md-3">
+                                                            <div class="divider"></div>
+                                                            <ul class="menu">
+                                                                <li><a href="#"><i class="fa fa-star pr-10"></i>Topli Start OFF</a></li>
+                                                                <li><a href="#"><i class="fa fa-clock-o pr-10"></i>GPS Pracenje</a></li>
+                                                                <li><a href="#"><i class="fa fa-star pr-10"></i>Dijagnostika</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">Blog</a></li>
+                                <li><a href="#">Naši radovi</a></li>
+                                <li><a href="#">Kontakt</a></li>
+                            </ul>
+                        </div>      
+                    </div>                      
+                </nav>
+            </header>
+        </div>
         @yield('content')
+        <footer id="footer" class="clearfix">
+            <div class="footer">
+                <div class="container">
+                    <div class="footer-inner">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="footer-content">
+                                    <div class="logo-footer">
+                                        <a href="{{ url('/') }}"><img id="logo-footer" src="public/images/logo_light_blue.png" alt="{{ config('app.name', 'RPCT') }}"></a>
+                                    </div>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus illo vel dolorum soluta consectetur doloribus sit. Delectus non tenetur odit dicta vitae debitis suscipit doloribus. Ipsa, aut voluptas quaerat... <a href="page-about.html">Learn More<i class="fa fa-long-arrow-right pl-5"></i></a></p>
+                                    <div class="separator-2"></div>
+                                    <nav>
+                                        <ul class="nav nav-pills nav-stacked">
+                                            <li><a href="#">Mapa sajta</a></li>
+                                            <li><a href="#">Česta pitanja</a></li>
+                                            <li><a href="#">Uslovi korišćenja</a></li>
+                                            <li><a href="#">Politika privatnosti</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="footer-content">
+                                    <h2 class="title">Blog</h2>
+                                    <div class="separator-2"></div>
+                                    <div class="media margin-clear">
+                                        <div class="media-left">
+                                            <div class="overlay-container">
+                                                <img class="media-object" src="public/images/blog-thumb-1.jpg" alt="blog-thumb">
+                                                <a href="blog-post.html" class="overlay-link small"><i class="fa fa-link"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="media-body">
+                                            <h6 class="media-heading"><a href="blog-post.html">Lorem ipsum dolor sit amet...</a></h6>
+                                            <p class="small margin-clear"><i class="fa fa-calendar pr-10"></i>Mar 23, 2017</p>
+                                        </div>
+                                        <hr>
+                                    </div>
+                                    <div class="media margin-clear">
+                                        <div class="media-left">
+                                            <div class="overlay-container">
+                                                <img class="media-object" src="public/images/blog-thumb-2.jpg" alt="blog-thumb">
+                                                <a href="blog-post.html" class="overlay-link small"><i class="fa fa-link"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="media-body">
+                                            <h6 class="media-heading"><a href="blog-post.html">Lorem ipsum dolor sit amet...</a></h6>
+                                            <p class="small margin-clear"><i class="fa fa-calendar pr-10"></i>Mar 22, 2017</p>
+                                        </div>
+                                        <hr>
+                                    </div>
+                                    <div class="media margin-clear">
+                                        <div class="media-left">
+                                            <div class="overlay-container">
+                                                <img class="media-object" src="public/images/blog-thumb-3.jpg" alt="blog-thumb">
+                                                <a href="blog-post.html" class="overlay-link small"><i class="fa fa-link"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="media-body">
+                                            <h6 class="media-heading"><a href="blog-post.html">Lorem ipsum dolor sit amet...</a></h6>
+                                            <p class="small margin-clear"><i class="fa fa-calendar pr-10"></i>Mar 21, 2017</p>
+                                        </div>
+                                        <hr>
+                                    </div>
+                                    <div class="media margin-clear">
+                                        <div class="media-left">
+                                            <div class="overlay-container">
+                                                <img class="media-object" src="public/images/blog-thumb-4.jpg" alt="blog-thumb">
+                                                <a href="blog-post.html" class="overlay-link small"><i class="fa fa-link"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="media-body">
+                                            <h6 class="media-heading"><a href="blog-post.html">Lorem ipsum dolor sit amet...</a></h6>
+                                            <p class="small margin-clear"><i class="fa fa-calendar pr-10"></i>Mar 21, 2017</p>
+                                        </div>
+                                    </div>
+                                    <div class="text-right space-top">
+                                        <a href="#" class="link-dark"><i class="fa fa-plus-circle pl-5 pr-5"></i>Pogledaj sve</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="footer-content">
+                                    <h2 class="title">Naši radovi</h2>
+                                    <div class="separator-2"></div>
+                                    <div class="row grid-space-10">
+                                        <div class="col-xs-4 col-md-6">
+                                            <div class="overlay-container mb-10">
+                                                <img src="public/images/gallery-1.jpg" alt="">
+                                                <a href="#" class="overlay-link small">
+                                                    <i class="fa fa-link"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-4 col-md-6">
+                                            <div class="overlay-container mb-10">
+                                                <img src="public/images/gallery-2.jpg" alt="">
+                                                <a href="#" class="overlay-link small">
+                                                    <i class="fa fa-link"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-4 col-md-6">
+                                            <div class="overlay-container mb-10">
+                                                <img src="public/images/gallery-3.jpg" alt="">
+                                                <a href="#" class="overlay-link small">
+                                                    <i class="fa fa-link"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-4 col-md-6">
+                                            <div class="overlay-container mb-10">
+                                                <img src="public/images/gallery-4.jpg" alt="">
+                                                <a href="#" class="overlay-link small">
+                                                    <i class="fa fa-link"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-4 col-md-6">
+                                            <div class="overlay-container mb-10">
+                                                <img src="public/images/gallery-5.jpg" alt="">
+                                                <a href="#" class="overlay-link small">
+                                                    <i class="fa fa-link"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-4 col-md-6">
+                                            <div class="overlay-container mb-10">
+                                                <img src="public/images/gallery-6.jpg" alt="">
+                                                <a href="#" class="overlay-link small">
+                                                    <i class="fa fa-link"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="text-right space-top">
+                                        <a href="#" class="link-dark"><i class="fa fa-plus-circle pl-5 pr-5"></i>Pogledaj sve</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="footer-content">
+                                    <h2 class="title">Kontakt</h2>
+                                    <div class="separator-2"></div>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium odio voluptatem necessitatibus illo vel dolorum soluta.</p>
+                                    <ul class="social-links circle animated-effect-1">
+                                        <li class="facebook"><a target="_blank" href="https://www.facebook.com/{{ config('app.socials.facebook', '') }}"><i class="fa fa-facebook"></i></a></li>
+                                        <li class="twitter"><a target="_blank" href="https://www.twitter.com/{{ config('app.socials.twitter', '') }}"><i class="fa fa-twitter"></i></a></li>
+                                        <li class="instagram"><a target="_blank" href="https://www.instagram.com/{{ config('app.socials.instagram', '') }}"><i class="fa fa-instagram"></i></a></li>
+                                        <li class="youtube"><a target="_blank" href="https://www.youtube.com/{{ config('app.socials.youtube', '') }}"><i class="fa fa-youtube-play"></i></a></li>
+                                    </ul>
+                                    <div class="separator-2"></div>
+                                    <ul class="list-icons">
+                                        <li><i class="fa fa-map-marker pr-10 text-default"></i> {{ config('app.details.address', 'Bore Tirića 60, 15000 Šabac') }}</li>
+                                        <li><i class="fa fa-phone pr-10 text-default"></i> {{ config('app.details.phone', '+381 65 55 666 14') }}</li>
+                                        <li><i class="fa fa-phone pr-10 text-default"></i> {{ config('app.details.phone_alt', '+381 60 02 262 17') }}</li>
+                                        <li><i class="fa fa-envelope-o pr-10 text-default"></i> <a href="mailto:{{ config('app.details.email', 'office@chip-tuning.rs') }}">{{ config('app.details.email', 'office@chip-tuning.rs') }}</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="subfooter">
+                <div class="container">
+                    <div class="subfooter-inner">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p class="text-center">Copyright &copy; 2017-{{ date('Y')}} <a href="{{ config('app.url', 'https://www.chip-tuning.rs') }}">{{ config('app.name', 'RPCT') }}</a>. All Rights Reserved</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
     </div>
+    <script type="text/javascript" src="{{ asset('js/vendor.js') }}"></script>
+    @yield('scripts')
+    <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>    
+    <!--
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-104289219-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+        gtag('config', 'UA-104289219-1');
+    </script>
+    -->
 </body>
 </html>

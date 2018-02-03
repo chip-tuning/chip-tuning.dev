@@ -1,0 +1,849 @@
+/* 6 Navigations
+----------------------------------------------------------------------------- */
+/* 6.1 Light Version
+----------------------------------------------------------------------------- */
+/* mobile menu */
+.navbar.navbar-default {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  margin: 0;
+  border-color: transparent;
+  background-color: transparent;
+  font-weight: 400;
+
+  ul {
+    &.navbar-nav {
+      margin: 0 -15px;
+    }
+  }
+}
+/* first level menu item */
+.navbar-default .navbar-nav > li > a {
+  color: $gray-dark;
+  font-size: 16px;
+
+  @media (max-width: 767px) {
+    font-size: 15px;
+  }
+
+  padding: 10px 15px 10px 15px;
+  z-index: 102;
+  border: none;
+  border-bottom: 1px solid transparent;
+  border-right: 1px solid transparent;
+  border-left: 1px solid transparent;
+  @include transition (none);
+}
+
+.with-mega-menu {
+  position: relative;
+}
+
+.main-navigation.animated .navbar-default .navbar-nav > li > a {
+  @include transition (all 0.2s ease-in-out);
+}
+
+.transparent-header .header:not(.dark) .navbar-nav > li:not(.active) > a {
+  color: $black;
+}
+
+.navbar-default .navbar-nav > li.dropdown > a {
+  // RTL support.
+  // The following mixin depends on the $text-direction variable in style.scss file OR in rtl_style.scss file.
+  // RTL related mixins are located in mixins/_rtl.scss file.
+  @include padding-right(20px);
+}
+/* first level menu item on hover/focus */
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus,
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  background-color: transparent;
+  color: $base-color;
+}
+
+.transparent-header .header:not(.dark) .navbar-nav > li.open > a,
+.transparent-header .header:not(.dark) .navbar-nav > li > a:hover,
+.transparent-header .header:not(.dark) .navbar-nav > li > a:focus {
+  color: $base-color;
+}
+/* first level menu item when opened */
+.main-navigation .navbar-nav > .open > a,
+.main-navigation .navbar-nav > .open > a:hover,
+.main-navigation .navbar-nav > .open > a:focus,
+.main-navigation .navbar-nav > .dropdown > a:focus {
+  background-color: $white;
+  color: $base-color;
+  border-bottom-color: $white;
+  border-right: 1px solid #f5f5f5;
+  border-left: 1px solid #f5f5f5;
+  z-index: 106;
+}
+
+.transparent-header.gradient-background-header .header:not(.dark) .active.dropdown > a:before {
+  color: $black;
+}
+
+.transparent-header.gradient-background-header .header:not(.dark) .main-navigation .navbar-nav > .open > a,
+.transparent-header.gradient-background-header .header:not(.dark) .main-navigation .navbar-nav > .open > a:hover,
+.transparent-header.gradient-background-header .header:not(.dark) .main-navigation .navbar-nav > .open > a:focus,
+.transparent-header.gradient-background-header .header:not(.dark) .main-navigation .navbar-nav > .dropdown > a:focus {
+  border-right-color: transparent;
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+}
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .transparent-header.gradient-background-header .header:not(.dark) .navbar-default .navbar-nav > li:not(.open) > a:hover,
+  .transparent-header.gradient-background-header .header:not(.dark) .navbar-default .navbar-nav > .active:not(.open) > a,
+  .transparent-header.gradient-background-header .header:not(.dark) .navbar-default .navbar-nav > .active:not(.open) > a:hover,
+  .transparent-header.gradient-background-header .header:not(.dark) .navbar-default .navbar-nav > .active:not(.open) > a:focus {
+    color: $black;
+    border-bottom: 1px solid #454545;
+  }
+  .transparent-header.gradient-background-header .header:not(.dark) .navbar-default .navbar-nav > li:not(.open) > a:focus {
+    color: $black;
+  }
+}
+/* first level active menu item when clicked */
+.main-navigation .navbar-nav > .open > a:active,
+.main-navigation .navbar-nav > .open.active > a:active {
+  @include transition (all 0.1s ease-in-out);
+}
+
+.main-navigation .navbar-nav > .open > a:active + ul,
+.main-navigation .navbar-nav > .open.active > a:active + ul {
+  display: none;
+}
+/* second level menu */
+.main-navigation .dropdown-menu {
+  z-index: 105;
+  top: 99.2%;
+}
+
+.dropdown-menu .divider {
+  background-color: #ededed;
+}
+
+.dropdown-menu {
+  min-width: 220px;
+  @include border-radius(0px);
+  padding: 0;
+  margin: 0;
+  background-color: $white;
+  @include box-shadow(0px 6px 24px rgba($black, 0.06));
+  border: 1px solid #f1f1f1;
+  z-index: 101;
+  // RTL support
+  // $text-direction variable is setted to "ltr" inside style.scss file and to "rtl" inside rtl_style.scss file.
+  @if $text-direction == rtl {
+    left: auto;
+    right: 0;
+    text-align: right;
+  }
+}
+/* second level menu item */
+.dropdown-menu > li > a {
+  padding: 10px 20px;
+  font-size: 14px;
+  color: $gray-dark;
+  border-bottom: 1px solid #f7f7f7;
+  @include transition (none);
+  position: relative;
+  // RTL support.
+  // The following mixin depends on the $text-direction variable in style.scss file OR in rtl_style.scss file.
+  // RTL related mixins are located in mixins/_rtl.scss file.
+  @include text-align (left);
+}
+/* second level menu item on focus/hover and when opened */
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus,
+.nav .open > a,
+.nav .open > a:hover,
+.nav .open > a:focus,
+.dropdown-menu > .active > a,
+.dropdown-menu > .active > a:hover,
+.dropdown-menu > .active > a:focus,
+.dropdown-menu .menu > .active > a,
+.dropdown-menu .menu > .active > a:hover,
+.dropdown-menu .menu > .active > a:focus {
+  background-color: #fcfcfc;
+  color: $base-color-hover;
+  border-color: #f7f7f7;
+}
+/* third level menu */
+.dropdown-menu .dropdown-menu {
+  top: -1px;
+  // RTL support
+  // $text-direction variable is setted to "ltr" inside style.scss file and to "rtl" inside rtl_style.scss file.
+  @if $text-direction == ltr {
+    left: 100% !important;
+    right: auto;
+  } @else {
+    right: 100% !important;
+    left: auto;
+  }
+  border-top: 1px solid #f7f7f7;
+}
+
+/*Large Devices less than 1610px*/
+@media (max-width: 1610px) {
+  .dropdown-menu .dropdown-menu.to-left {
+    right: 100%!important;
+    left: auto!important;
+  }
+}
+/* Mega Menu
+------------------------------ */
+.mega-menu.dropdown {
+  position: static;
+}
+
+.mega-menu .dropdown-menu {
+  left: 0;
+  width: 100%;
+  padding: 20px 15px;
+}
+/* mega menu menu item */
+.mega-menu .menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mega-menu .menu li {
+  position: relative;
+}
+
+.mega-menu h4.title {
+  margin: 5px 0;
+  font-size: 15px;
+  text-transform: uppercase;
+}
+
+.mega-menu .menu > li > a {
+  padding: 5px 0;
+  font-size: 14px;
+  color: $gray-dark;
+  border-bottom: 1px solid #f7f7f7;
+  display: block;
+  @include transition (none);
+  @include text-align (left);
+}
+
+.mega-menu .menu > li > a i,
+.dropdown-menu > li > a i {
+  // RTL support.
+  // The following mixin depends on the $text-direction variable in style.scss file OR in rtl_style.scss file.
+  // RTL related mixins are located in mixins/_rtl.scss file.
+  @include padding-left(5px);
+  font-size: 12px;
+  width: 20px;
+  position: relative;
+  top: -1px;
+  @include transition (all 0.2s ease-in-out);
+  color: $gray-lighter;
+}
+
+.mega-menu .menu > li > a i.fa,
+.dropdown-menu > li > a i.fa {
+  width: 32px;
+  text-align: center;
+}
+
+.mega-menu .menu > li > a i.fa-circle-o,
+.dropdown-menu > li > a i.fa-circle-o {
+  font-size: 7px;
+  top: -3px;
+}
+
+.mega-menu .menu > li > a i.fa-spin {
+  width: 11px;
+  padding: 0;
+  @include margin-right (13px);
+  @include margin-left (8px);
+}
+
+.mega-menu .menu > li:last-child > a {
+  border-bottom: none!important;
+}
+
+header:not(.dark) .mega-menu .menu > li > a:hover i,
+header:not(.dark) .dropdown-menu > li > a:hover i,
+header:not(.dark) .mega-menu .menu > li.active > a i,
+header:not(.dark) .dropdown-menu > li.active > a i {
+  color: $base-color;
+}
+
+header .mega-menu .menu > li > a:hover i.fa-circle-o:before,
+header .dropdown-menu > li > a:hover i.fa-circle-o:before,
+header .mega-menu .menu > li.active > a i.fa-circle-o:before,
+header .dropdown-menu > li.active > a i.fa-circle-o:before {
+  content: "\f111";
+}
+/* mega menu menu item on focus/hover*/
+.mega-menu .menu > li > a:hover,
+.mega-menu .menu > li > a:focus {
+  background-color: #fcfcfc;
+  color: $base-color-hover;
+  border-color: #f7f7f7;
+  text-decoration: none;
+}
+/* Arrow for parent menu item
+------------------------------ */
+.dropdown > a:before {
+  font-family: 'FontAwesome';
+  content: "\f107";
+  position: absolute;
+  top: 31px;
+  // RTL support
+  // $text-direction variable is setted to "ltr" inside style.scss file and to "rtl" inside rtl_style.scss file.
+  @if $text-direction == ltr {
+    left: auto;
+    right: 6px;
+  } @else {
+    right: auto;
+    left: 6px;
+  }
+  line-height: 1;
+  color: #d1d1d1;
+  font-size: 14px;
+}
+
+.header:not(.dark) .active.dropdown > a:before {
+  color: $base-color;
+}
+
+.transparent-header .header:not(.dark) .dropdown:not(.open):not(.active) > a:before {
+  color: $gray;
+}
+
+.navbar-default .navbar-nav > .dropdown.open > a:before {
+  color: #eaeaea;
+}
+
+.transparent-header .header:not(.dark) .navbar-default .navbar-nav > .dropdown.open > a:before {
+  color: $base-color;
+}
+
+.dropdown .dropdown > a:before {
+  content: "\f105";
+  right: 10px;
+  top: 13px;
+  margin-left: 0;
+  visibility: visible;
+  color: #666;
+}
+
+.dropdown .dropdown.open > a:before {
+  color: $base-color;
+}
+/* Dropdown animations
+------------------------------ */
+.animated.main-navigation .navbar-nav .open .dropdown-menu,
+#offcanvas.animated .open .dropdown-menu,
+#offcanvas.animated .dropdown-menu .open .dropdown-menu {
+  @include animation-duration(0.3s);
+  @include animation-fill-mode(both);
+  @include animation-name(fadeInUpSmall);
+}
+// RTL support
+// $text-direction variable is setted to "ltr" inside style.scss file and to "rtl" inside rtl_style.scss file.
+@if $text-direction == ltr {
+  .animated.main-navigation .dropdown-menu .open .dropdown-menu {
+    @include animation-name(fadeInLeftSmall);
+  }
+} @else {
+  .animated.main-navigation .dropdown-menu .open .dropdown-menu {
+    @include animation-name(fadeInRightSmall);
+  }
+}
+
+/*Large Devices less than 1610px*/
+@media (max-width: 1610px) {
+  .animated.main-navigation .dropdown-menu .open .dropdown-menu.to-left {
+    @include animation-name(fadeInRightSmall);
+  }
+}
+/* Mobile Menu
+------------------------------ */
+/* mobile menu toggle button on hover/focus */
+.navbar-default .navbar-toggle {
+  border-radius: 0;
+}
+
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+  background-color: #fafafa;
+  border-color: $base-color-hover;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #ccc;
+}
+
+.navbar-default .navbar-toggle:hover .icon-bar,
+.navbar-default .navbar-toggle:focus .icon-bar {
+  background-color: $base-color-hover;
+}
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .main-navigation .navbar-nav.navbar-right:last-child {
+    margin-right: 0;
+  }
+  /* first level menu */
+  .navbar.navbar-default {
+    background-color: transparent;
+    border: none;
+    margin: 0;
+  }
+
+  .navbar-default .navbar-nav > li > a {
+    padding: 28px 15px 27px 15px;
+  }
+
+  /* layout fixes */
+  header .main-navigation .container-fluid {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  header .navbar-collapse {
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+
+  header .main-navigation .navbar-right .dropdown-menu {
+    right: auto;
+    left: 0;
+  }
+
+  header .main-navigation .navbar-right > li:last-child > .dropdown-menu {
+    right: 0;
+    left: auto;
+  }
+}
+
+/* Medium desktop devices and tablets */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .navbar-default .navbar-nav > li > a {
+    font-size: 15px;
+    padding: 28px 10px 27px 10px;
+  }
+
+}
+/* Medium devices (tablets landscape to portrait) */
+@media (min-width: 768px) and (max-width: 991px) {
+  .header .main-navigation .navbar-nav {
+    @include float (left !important);
+  }
+
+  body:not(.fixed-header-on) .header:not(.dark) .navbar-default .navbar-nav > li > a {
+    border-top: 1px solid transparent;
+  }
+
+  body:not(.fixed-header-on) .header:not(.dark) .main-navigation .navbar-nav > .open > a,
+  body:not(.fixed-header-on) .header:not(.dark) .main-navigation .navbar-nav > .open > a:hover,
+  body:not(.fixed-header-on) .header:not(.dark) .main-navigation .navbar-nav > .open > a:focus,
+  body:not(.fixed-header-on) .header:not(.dark) .main-navigation .navbar-nav > .dropdown > a:focus {
+    border-top: 1px solid #f5f5f5;
+  }
+}
+/* Medium devices (desktops, tablets, 992px and up) */
+@media (min-width: 992px) {
+    .col-md-3 + .col-md-9 .mega-menu:not(.narrow) .dropdown-menu {
+      left: -243px !important;
+      width: 940px!important;
+    }
+}
+/* Large devices (Large desktops 1200px and up) */
+@media (min-width: 1200px) {
+  /* first level menu item */
+  .main-navigation .navbar-nav > li {
+    @include margin(0, 0, 0, 10px);
+  }
+  .main-navigation .navbar-nav > li:first-child {
+    margin: 0;
+  }
+  .col-md-3 + .col-md-9 .mega-menu:not(.narrow) .dropdown-menu {
+    left: -293px !important;
+    width: 1140px!important;
+  }
+}
+/* Small devices (tablets, phones less than 767px) */
+@media (max-width: 767px) {
+  /* Mobile menu
+  ------------------------------ */
+  /* active item */
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: $base-color-hover;
+    background-color: transparent;
+  }
+  /* first level item */
+  .navbar-default .navbar-nav > li > a {
+    border-bottom: 1px solid #f3f3f3;
+  }
+
+  .navbar-default .navbar-nav > li:last-child > a {
+    border-bottom: 1px solid transparent;
+  }
+  /* first level item hover and focus states */
+  .navbar-default .navbar-nav > li > a:hover,
+  .navbar-default .navbar-nav > li > a:focus,
+  .navbar-default .navbar-nav > .active > a,
+  .navbar-default .navbar-nav > .active > a:hover,
+  .navbar-default .navbar-nav > .active > a:focus {
+    color: $base-color-hover;
+    background-color: $white;
+    border-bottom-color: transparent;
+  }
+  /* second level menu */
+  .navbar-default .navbar-nav .open .dropdown-menu {
+    background-color: $white;
+  }
+  /* second level item */
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a,
+  .navbar-default .navbar-nav .open .dropdown-menu .dropdown-header {
+    @include padding (12px, 15px, 12px, 40px);
+    color: $gray-dark;
+    border-color: #f9f9f9;
+  }
+  /* second level item on hover/focus */
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: $base-color-hover;
+  }
+  /* third level item */
+  .navbar-nav .open .dropdown-menu .dropdown-menu > li > a {
+    @include padding-left(60px);
+  }
+  /* four level item */
+  .navbar-nav .open .dropdown-menu .dropdown-menu .dropdown-menu > li > a {
+    @include padding-left (80px);
+  }
+  /* Arrow for parent menu item */
+  .navbar-default .navbar-nav > .dropdown.open > a:before {
+    color: $base-color;
+  }
+
+  .dropdown > a:before {
+    color: $gray-light;
+    top: 14px;
+    @include right (32px);
+  }
+
+  .dropdown .dropdown > a:before {
+    @include right (36px);
+  }
+  /*Transparent Mobile menu*/
+  .transparent-header .main-navigation .navbar.navbar-default {
+    background-color: rgba($white, 0.9);
+    position: absolute;
+    width: 100%;
+  }
+}
+/* 6.2 Dark Version
+----------------------------------------------------------------------------- */
+/* first level menu item */
+.dark.header .navbar.navbar-default {
+  border-color: rgba($black, 0.3);
+  background-color: rgba($black, 0.2);
+}
+
+.dark.header .navbar-default .navbar-nav > li > a {
+  color: #cccccc;
+  border-bottom: 1px solid transparent;
+  text-shadow: 1px 1px rgba($black, 0.6);
+}
+
+.transparent-header .dark.header .navbar-nav > li > a {
+  color: #e1e1e1;
+}
+/* first level menu item on hover/focus */
+.dark.header .navbar-default .navbar-nav > li > a:hover,
+.dark.header .navbar-default .navbar-nav > li > a:focus,
+.dark.header .navbar-default .navbar-nav > .active > a,
+.dark.header .navbar-default .navbar-nav > .active > a:hover,
+.dark.header .navbar-default .navbar-nav > .active > a:focus {
+  background-color: transparent;
+  color: $white;
+  border-right: 1px solid transparent;
+  border-left: 1px solid transparent;
+}
+
+.dark.header .navbar-default .navbar-nav > li > a:hover,
+.dark.header .navbar-default .navbar-nav > li > a:focus {
+  z-index: 106;
+}
+/* first level active menu item when opened */
+.dark.header .main-navigation .navbar-nav > .open > a,
+.dark.header .main-navigation .navbar-nav > .open > a:hover,
+.dark.header .main-navigation .navbar-nav > .open > a:focus,
+.dark.header .main-navigation .navbar-nav > .dropdown > a:focus {
+  background-color: rgba($black, 0.15);
+  color: $white;
+  border-bottom-color: $dark-header-top;
+  border-right: 1px solid transparent;
+  border-left: 1px solid transparent;
+  z-index: 106;
+}
+
+.transparent-header.gradient-background-header .dark.header .main-navigation .navbar-nav > .open > a,
+.transparent-header.gradient-background-header .dark.header .main-navigation .navbar-nav > .open > a:hover,
+.transparent-header.gradient-background-header .dark.header .main-navigation .navbar-nav > .open > a:focus,
+.transparent-header.gradient-background-header .dark.header .main-navigation .navbar-nav > .dropdown > a:focus {
+  border-right-color: transparent;
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+}
+/* second level menu item */
+.dark.header .dropdown-menu {
+  background-color: $dark-header-top;
+  border: 1px solid rgba($dark-header, 0.80);
+  border-bottom: none;
+}
+
+.dark.header .mega-menu .dropdown-menu {
+  z-index: 103;
+}
+
+.dark.header .dropdown-menu .divider {
+  background-color: rgba($dark-header, 0.80);
+}
+
+.dark.header .dropdown-menu > li > a,
+.dark.header .mega-menu .menu > li > a {
+  color: #cccccc;
+  border-bottom: 1px solid rgba($dark-header, 0.80);
+  text-shadow: 1px 1px rgba($black, 0.7);
+}
+
+.dark.header .mega-menu .menu > li > a:hover,
+.dark.header .mega-menu .menu > li > a:focus {
+  background-color: rgba($black, 0.2);
+  color: $white;
+  border-color: rgba($dark-header, 0.80);
+}
+
+.dark.header .dropdown-menu > li > a:hover,
+.dark.header .dropdown-menu > li > a:focus,
+.dark.header .nav .open > a,
+.dark.header .nav .open > a:hover,
+.dark.header .nav .open > a:focus,
+.dark.header .dropdown-menu > .active > a,
+.dark.header .dropdown-menu > .active > a:hover,
+.dark.header .dropdown-menu > .active > a:focus,
+.dark.header .dropdown-menu .menu > .active > a,
+.dark.header .dropdown-menu .menu > .active > a:hover,
+.dark.header .dropdown-menu .menu > .active > a:focus {
+  background-color: rgba($black, 0.2);
+  color: $white;
+  border-color: rgba($dark-header, 0.80);
+}
+
+.dark.header .dropdown .dropdown > a:before {
+  color: #cccccc;
+  top: 13px;
+}
+
+.dark.header .dropdown .dropdown.open > a:before {
+  color: $white;
+}
+/* Mobile Menu
+------------------------------ */
+/*Dark mobile menu toggle button*/
+.dark .navbar-default .navbar-toggle {
+  border-color: rgba($black, 0.7);
+  background-color: rgba($black, 0.4);
+}
+
+.dark .navbar-default .navbar-toggle:hover,
+.dark .navbar-default .navbar-toggle:focus {
+  background-color: rgba($black, 0.1);
+  border-color: rgba($black, 0.7);
+}
+
+.dark .navbar-default .navbar-toggle .icon-bar {
+  background-color: #ccc;
+}
+
+.dark .navbar-default .navbar-toggle:hover .icon-bar,
+.dark .navbar-default .navbar-toggle:focus .icon-bar {
+  background-color: #ccc;
+}
+
+.dark .navbar-default .navbar-collapse,
+.dark .navbar-default .navbar-form {
+  border-color: #121212;
+}
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  /* first level menu item */
+  .dark.header .navbar.navbar-default {
+    background-color: transparent;
+    border: none;
+    margin: 0;
+  }
+}
+/* Small devices (tablets, phones less than 767px) */
+@media (max-width: 767px) {
+  /*Dark Mobile menu*/
+  /* second level menu */
+  .dark .navbar-default .navbar-nav .open .dropdown-menu {
+    background-color: rgba($black, 0.2);
+    border: none;
+  }
+  /* second level item */
+  .dark .navbar-default .navbar-nav .open .dropdown-menu > li > a,
+  .dark .navbar-default .navbar-nav .open .dropdown-menu .dropdown-header {
+    color: #cccccc;
+    border-color: rgba($white, 0.08);
+  }
+  /* item on hover/focus */
+  .dark.header .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+  .dark.header .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus,
+  .dark.header .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+  .dark.header .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+  .dark.header .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus,
+  .dark.header .navbar-default .navbar-nav > li > a:hover,
+  .dark.header .navbar-default .navbar-nav > li > a:focus,
+  .dark.header .navbar-default .navbar-nav > .active > a,
+  .dark.header .navbar-default .navbar-nav > .active > a:hover,
+  .dark.header .navbar-default .navbar-nav > .active > a:focus {
+    color: $white;
+    background-color: rgba($black, 0.2);
+  }
+  /* Arrow for parent menu item */
+  .dark .navbar-default .navbar-nav > .dropdown.open > a:before {
+    color: $white;
+  }
+
+  .transparent-header .dark .main-navigation .navbar.navbar-default {
+    background-color: rgba($dark-header, 0.90);
+    border-color: rgba($dark-header-top-border, 0.5);
+  }
+}
+/* 6.3 Subfooter navigation
+----------------------------------------------------------------------------- */
+.subfooter .navbar {
+  margin: 0;
+  min-height: 0;
+  background: transparent;
+  border-color: transparent;
+}
+
+.subfooter .navbar-default .nav > li > a {
+  padding: 10px 10px;
+  text-transform: none;
+  line-height: 1;
+  font-size: 14px;
+  font-weight: 400;
+  color: $gray-light;
+}
+
+.subfooter .navbar-default .nav li:last-child a,
+.dark .subfooter .navbar-default .nav > li:last-child > a {
+  border: none;
+}
+
+.subfooter .navbar-default .nav > li > a:hover,
+.subfooter .navbar-default .nav > .active > a:hover,
+.subfooter .navbar-default .nav > .active > a:focus {
+  background-color: transparent;
+  text-decoration: underline;
+  color: $base-color-hover;
+}
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .subfooter .navbar-nav {
+    float: none;
+    margin: 15px 0;
+    text-align: center;
+  }
+
+  .subfooter .navbar-nav > li {
+    float: none;
+    padding: 5px 0;
+  }
+
+  .subfooter .navbar-default .nav > li > a {
+    padding: 0px 10px;
+  }
+}
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .subfooter {
+    text-align: left;
+  }
+
+  .subfooter .navbar-nav {
+    float: right;
+    margin: 0;
+    text-align: left;
+  }
+
+  .subfooter .navbar-nav > li {
+    float: left;
+    padding: 0;
+    margin-top: 2px;
+  }
+
+  .dark .subfooter .navbar-default .nav > li > a {
+    border-right: 1px solid $gray-dark;
+  }
+
+  .subfooter .navbar-default .nav > li > a {
+    border-right: 1px solid $gray-lighter;
+  }
+}
+/* Small devices (tablets, phones less than 767px) */
+@media (max-width: 767px) {
+  /* subfooter nav */
+  .subfooter .navbar-default .navbar-toggle:hover,
+  .subfooter .navbar-default .navbar-toggle:focus {
+    background-color: transparent;
+    border-color: #ddd;
+  }
+
+  .dark .subfooter .navbar-default .navbar-collapse {
+    border-color: #888;
+  }
+
+  .subfooter .navbar-default .navbar-collapse {
+    border-color: $black;
+  }
+}
+
+/* 6.5 Full page navigation
+----------------------------------------------------------------------------- */
+.full-page .header-container header {
+  background-color: rgba($white, 0.1);
+  border-bottom: none;
+  border-top: none;
+  padding-bottom: 15px;
+  padding-top: 10px;
+}
+
+.full-page .header-container header.dark {
+  background-color: rgba($black, 0.1);
+  padding-bottom: 15px;
+}
+
+.transparent-header.full-page .header-container header {
+  background-color: transparent;
+  padding-bottom: 15px;
+}
+/* 6.6 Misc
+----------------------------------------------------------------------------- */
+.dropdown-header {
+  color: $gray-dark;
+  margin: -1px -1px 0 0;
+  padding: 14px 20px 9px;
+  border-bottom: 1px solid rgba($black, 0.04);
+  text-align: center;
+  background-color: rgba($black, 0.02);
+}

@@ -1,9 +1,22 @@
+// Core variables and mixins
+$text-direction: ltr;
+@import 'variables';
+@import "mixins";
 
-// Fonts
-@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+// Partials
+@import '1_elements';
+@import '2_layout';
+@import '3_sections';
+@import '4_pages';
+@import '5_components';
+@import '6_navigations';
+@import '7_blocks-widgets';
+@import '8_main-slideshow';
+@import '9_owl-carousel';
+@import '10_full-page';
 
-// Variables
-@import "variables";
+// Typography
+@import 'typography-default';
 
-// Bootstrap
-@import "~bootstrap-sass/assets/stylesheets/bootstrap";
+// Theme
+@import 'theme-red';

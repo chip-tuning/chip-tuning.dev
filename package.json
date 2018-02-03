@@ -13,9 +13,13 @@
         "axios": "^0.17",
         "bootstrap-sass": "^3.3.7",
         "cross-env": "^5.1",
-        "jquery": "^3.2",
+        "font-awesome": "^4.7.0",
+        "hover.css": "^2.2.1",
+        "isotope-layout": "^3.0.5",
+        "jquery": "^3.1.1",
         "laravel-mix": "^2.0",
         "lodash": "^4.17.4",
-        "vue": "^2.5.7"
+        "magnific-popup": "^1.1.0",
+        "owl.carousel": "^2.2.0"
     }
 }

@@ -1,5 +1,5 @@
-/node_modules
 /filkris_modules
+/node_modules
 /public/hot
 /public/storage
 /storage/*.key
