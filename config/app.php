@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'RPCT'),
 
     /*
     |--------------------------------------------------------------------------
@@ -52,7 +52,39 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'https://wwww.chip-tuning.rs'),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Application Details
+    |--------------------------------------------------------------------------
+    |
+    | Here you may specify the details for your application, which
+    | will be used by application. 
+    |
+    */
+    'details' => [
+        'address' => "Bore Tirića 60, 15000 Šabac",
+        'email' => "office@chip-tuning.rs",
+        'phone' => "+381 65 55 666 14",
+        'phone_alt' => "+381 60 02 262 17",
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Application Social Accounts
+    |--------------------------------------------------------------------------
+    |
+    | Here you may specify the social accounts for your application, which
+    | will be used by application. 
+    |
+    */
+    'socials' => [
+        'facebook' => "racing.performance.chiptuning",
+        'instagram' => "racing.performance.chiptuning",
+        'twitter' => "ChipTuningSabac",
+        'youtube' => "#",
+    ],
 
     /*
     |--------------------------------------------------------------------------
