@@ -35,4 +35,10 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    'instagram' => [
+        'id'     => env('INSTAGRAM_API_ID'),
+        'secret' => env('INSTAGRAM_API_SECRET'),
+        'token'  => env('INSTAGRAM_API_TOKEN'),
+        'api'    => 'https://api.instagram.com/v1/',
+    ],
 ];
