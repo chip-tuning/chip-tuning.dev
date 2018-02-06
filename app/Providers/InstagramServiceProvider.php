@@ -36,6 +36,15 @@ class InstagramServiceProvider extends ServiceProvider
 
             return new Instagram($config);
         });
+    }
 
+    /**
+     * Get the services provided by the provider.
+     *
+     * @return array
+     */
+    public function provides()
+    {
+        return [Instagram::class];
     }
 }
