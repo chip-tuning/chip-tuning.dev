@@ -12,7 +12,9 @@
 */
 
 // Web application routes
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home.index');
+Route::get('/nasi-radovi', 'GalleryController@index')->name('gallery.index');
+Route::get('/kontakt', 'ContactController@index')->name('contact.index');
 
 //Auth::routes();
 

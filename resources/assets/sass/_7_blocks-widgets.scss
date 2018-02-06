@@ -1202,20 +1202,6 @@ h6.media-heading {
   height: 347px;
 }
 
-#collapseMap {
-  overflow: hidden;
-  height: 0;
-  @include transition (height 0.3s ease-in-out);
-}
-
-#collapseMap.in {
-  height: 450px;
-}
-
-.footer-content #map-canvas {
-  height: 300px;
-}
-
 #map-canvas img {
   max-width: inherit;
 }

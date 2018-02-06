@@ -60,20 +60,20 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 57);
+/******/ 	return __webpack_require__(__webpack_require__.s = 56);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 57:
+/***/ 56:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(58);
+module.exports = __webpack_require__(57);
 
 
 /***/ }),
 
-/***/ 58:
+/***/ 57:
 /***/ (function(module, exports) {
 
 /**
@@ -428,19 +428,20 @@ module.exports = __webpack_require__(58);
 					$('.submit-button').button("loading");
 					$.ajax({
 						type: "POST",
-						url: "php/email-sender.php",
+						url: "api/send",
 						data: {
 							"name": $("#contact-form #name").val(),
 							"email": $("#contact-form #email").val(),
 							"subject": $("#contact-form #subject").val(),
-							"message": $("#contact-form #message").val()
+							"message": $("#contact-form #message").val(),
+							"g-recaptcha-response": $("#g-recaptcha-response").val()
 						},
 						dataType: "json",
 						success: function success(data) {
 							if (data.sent == "yes") {
 								$("#MessageSent").removeClass("hidden");
 								$("#MessageNotSent").addClass("hidden");
-								$(".submit-button").removeClass("btn-default").addClass("btn-success").prop('value', 'Message Sent');
+								$(".submit-button").removeClass("btn-default").addClass("btn-success").prop('value', 'Poslato');
 								$("#contact-form .form-control").each(function () {
 									$(this).prop('value', '').parent().removeClass("has-success").removeClass("has-error");
 								});
@@ -459,7 +460,7 @@ module.exports = __webpack_require__(58);
 				rules: {
 					name: {
 						required: true,
-						minlength: 2
+						minlength: 6
 					},
 					email: {
 						required: true,
@@ -475,100 +476,19 @@ module.exports = __webpack_require__(58);
 				},
 				messages: {
 					name: {
-						required: "Please specify your name",
-						minlength: "Your name must be longer than 2 characters"
+						required: "Molimo unesite vaše ime i prezime",
+						minlength: "Ime i prezime mora imati više od 6 karaktera"
 					},
 					email: {
-						required: "We need your email address to contact you",
-						email: "Please enter a valid email address e.g. name@domain.com"
+						required: "Molimo unsite vašu email adresu",
+						email: "Molimo unesite ispravnu email adresu"
 					},
 					subject: {
-						required: "Please enter a subject"
+						required: "Molimo unesite naslov vaše poruke"
 					},
 					message: {
-						required: "Please enter a message",
-						minlength: "Your message must be longer than 10 characters"
-					}
-				},
-				errorElement: "span",
-				highlight: function highlight(element) {
-					$(element).parent().removeClass("has-success").addClass("has-error");
-					$(element).siblings("label").addClass("hide");
-				},
-				success: function success(element) {
-					$(element).parent().removeClass("has-error").addClass("has-success");
-					$(element).siblings("label").removeClass("hide");
-				}
-			});
-		};
-
-		if ($("#contact-form-with-recaptcha").length > 0) {
-			$("#contact-form-with-recaptcha").validate({
-				submitHandler: function submitHandler(form) {
-					$('.submit-button').button("loading");
-					$.ajax({
-						type: "POST",
-						url: "php/email-sender-recaptcha.php",
-						data: {
-							"name": $("#contact-form-with-recaptcha #name").val(),
-							"email": $("#contact-form-with-recaptcha #email").val(),
-							"subject": $("#contact-form-with-recaptcha #subject").val(),
-							"message": $("#contact-form-with-recaptcha #message").val(),
-							"g-recaptcha-response": $("#g-recaptcha-response").val()
-						},
-						dataType: "json",
-						success: function success(data) {
-							if (data.sent == "yes") {
-								$("#MessageSent").removeClass("hidden");
-								$("#MessageNotSent").addClass("hidden");
-								$(".submit-button").removeClass("btn-default").addClass("btn-success").prop('value', 'Message Sent');
-								$("#contact-form-with-recaptcha .form-control").each(function () {
-									$(this).prop('value', '').parent().removeClass("has-success").removeClass("has-error");
-								});
-							} else {
-								$("#MessageNotSent").removeClass("hidden");
-								$("#MessageSent").addClass("hidden");
-							}
-						}
-					});
-				},
-				errorPlacement: function errorPlacement(error, element) {
-					error.insertBefore(element);
-				},
-				onkeyup: false,
-				onclick: false,
-				rules: {
-					name: {
-						required: true,
-						minlength: 2
-					},
-					email: {
-						required: true,
-						email: true
-					},
-					subject: {
-						required: true
-					},
-					message: {
-						required: true,
-						minlength: 10
-					}
-				},
-				messages: {
-					name: {
-						required: "Please specify your name",
-						minlength: "Your name must be longer than 2 characters"
-					},
-					email: {
-						required: "We need your email address to contact you",
-						email: "Please enter a valid email address e.g. name@domain.com"
-					},
-					subject: {
-						required: "Please enter a subject"
-					},
-					message: {
-						required: "Please enter a message",
-						minlength: "Your message must be longer than 10 characters"
+						required: "Molimo unesite vašu poruku",
+						minlength: "Vaša poruka mora biti duža od 10 karaktera"
 					}
 				},
 				errorElement: "span",
@@ -841,6 +761,35 @@ module.exports = __webpack_require__(58);
 			overlayHeight = $(".full-image-overlay").outerHeight();
 			$(".full-image-overlay").css("marginTop", -overlayHeight / 2);
 		};
+
+		// Google Maps
+		//-----------------------------------------------
+		if ($("#map-canvas").length > 0) {
+			var initialize = function initialize() {
+				var mapOptions = {
+					zoom: myZoom,
+					mapTypeId: google.maps.MapTypeId.ROADMAP,
+					center: myLatlng,
+					scrollwheel: false
+				};
+				map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+				marker = new google.maps.Marker({
+					map: map,
+					draggable: true,
+					animation: google.maps.Animation.DROP,
+					position: myLatlng
+				});
+				google.maps.event.addDomListener(window, "resize", function () {
+					map.setCenter(myLatlng);
+				});
+			};
+
+			var map, myLatlng, myZoom, marker;
+			myLatlng = new google.maps.LatLng(44.76892191864368, 19.688599705696106);
+			myZoom = 13;
+
+			google.maps.event.addDomListener(window, "load", initialize);
+		}
 	});
 })(jQuery);
 

@@ -281,10 +281,6 @@ tbody {
   padding: 50px 0;
 }
 
-.block {
-  margin-bottom: 50px;
-}
-
 .section {
   padding: 20px 0;
 }
@@ -7245,21 +7241,6 @@ h6.media-heading {
 
 #map-canvas.small {
   height: 347px;
-}
-
-#collapseMap {
-  overflow: hidden;
-  height: 0;
-  -webkit-transition: height 0.3s ease-in-out;
-  transition: height 0.3s ease-in-out;
-}
-
-#collapseMap.in {
-  height: 450px;
-}
-
-.footer-content #map-canvas {
-  height: 300px;
 }
 
 #map-canvas img {

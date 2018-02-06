@@ -216,7 +216,7 @@
 		                                data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;"
 		                                data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;"
 		                                data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;">
-		                                    <a href="#page-start" class="btn btn-lg moving smooth-scroll"><i class="fa fa-chevron-down"></i><i class="fa fa-chevron-down"></i><i class="fa fa-chevron-down"></i></a>
+		                                    <a href="#home" class="btn btn-lg moving smooth-scroll"><i class="fa fa-chevron-down"></i><i class="fa fa-chevron-down"></i><i class="fa fa-chevron-down"></i></a>
 		                            </div>
 	                            </li>
 	                        </ul>

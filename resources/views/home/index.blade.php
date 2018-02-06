@@ -12,7 +12,7 @@
 @endsection
 
 @section('content')
-<div id="index">
+<div id="home">
     @include('sections.slider')
     <section class="pv-30 clearfix">
         <div class="container">

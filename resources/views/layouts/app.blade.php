@@ -21,12 +21,12 @@
     <meta property="og:site_name" content="{{ config('app.name', 'RPCT') }}">
 
     <!-- za blog
-<meta property="og:url"                content="http://www.nytimes.com/2015/02/19/arts/international/when-great-minds-dont-think-alike.html" />
-<meta property="og:type"               content="article" />
-<meta property="og:title"              content="When Great Minds Don’t Think Alike" />
-<meta property="og:description"        content="How much does culture influence creative thinking?" />
-<meta property="og:image"              content="http://static01.nyt.com/images/2015/02/19/arts/international/19iht-btnumbers19A/19iht-btnumbers19A-facebookJumbo-v2.jpg" />
--->
+    <meta property="og:url"                content="http://www.nytimes.com/2015/02/19/arts/international/when-great-minds-dont-think-alike.html" />
+    <meta property="og:type"               content="article" />
+    <meta property="og:title"              content="When Great Minds Don’t Think Alike" />
+    <meta property="og:description"        content="How much does culture influence creative thinking?" />
+    <meta property="og:image"              content="http://static01.nyt.com/images/2015/02/19/arts/international/19iht-btnumbers19A/19iht-btnumbers19A-facebookJumbo-v2.jpg" />
+    -->
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@chip-tuning.rs">
     <meta name="twitter:creator" content="@{{ config('app.socials.twitter', '') }}">
@@ -71,19 +71,13 @@
                         </div>
                         <div class="col-xs-3 col-sm-6 col-md-3 text-right">
                             <ul class="social-links circle small clearfix hidden-xs">
-                                <li class="facebook"><a target="_blank" href="https://www.facebook.com/{{ config('app.socials.facebook', '') }}"><i class="fa fa-facebook"></i></a></li>
-                                <li class="twitter"><a target="_blank" href="https://www.twitter.com/{{ config('app.socials.twitter', '') }}"><i class="fa fa-twitter"></i></a></li>
-                                <li class="instagram"><a target="_blank" href="{{ config('app.socials.instagram', '') }}"><i class="fa fa-instagram"></i></a></li>
-                                <li class="youtube"><a target="_blank" href="https://www.youtube.com/{{ config('app.socials.youtube', '') }}"><i class="fa fa-youtube-play"></i></a></li>
+                                @include('sections.socials')
                             </ul>
                             <div class="social-links hidden-lg hidden-md hidden-sm circle small">
                                 <div class="btn-group dropdown">
                                     <button type="button" class="btn dropdown-toggle" data-toggle="dropdown"><i class="fa fa-share-alt"></i></button>
                                     <ul class="dropdown-menu dropdown-menu-right dropdown-animation">
-                                        <li class="facebook"><a target="_blank" href="https://www.facebook.com/{{ config('app.socials.facebook', '') }}"><i class="fa fa-facebook"></i></a></li>
-                                        <li class="twitter"><a target="_blank" href="https://www.twitter.com/{{ config('app.socials.twitter', '') }}"><i class="fa fa-twitter"></i></a></li>
-                                        <li class="instagram"><a target="_blank" href="{{ config('app.socials.instagram', '') }}"><i class="fa fa-instagram"></i></a></li>
-                                        <li class="youtube"><a target="_blank" href="https://www.youtube.com/{{ config('app.socials.youtube', '') }}"><i class="fa fa-youtube-play"></i></a></li>
+                                        @include('sections.socials')
                                     </ul>
                                 </div>
                             </div>
@@ -107,7 +101,7 @@
                         </div>
                         <div class="collapse navbar-collapse" id="navbar-collapse">
                             <ul class="nav navbar-nav navbar-right">
-                                <li class="active"><a href="#">Početna</a></li>
+                                <li {{ set_active('home.index') }}><a href="{{ route('home.index') }}">Početna</a></li>
                                 <li class="dropdown mega-menu">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Usluge</a>
                                     <ul class="dropdown-menu">
@@ -155,8 +149,8 @@
                                     </ul>
                                 </li>
                                 <li><a href="#">Blog</a></li>
-                                <li><a href="#">Naši radovi</a></li>
-                                <li><a href="#">Kontakt</a></li>
+                                <li{{ set_active('gallery.index') }}><a href="{{ route('gallery.index') }}">Naši radovi</a></li>
+                                <li{{ set_active('contact.index') }}><a href="{{ route('contact.index') }}">Kontakt</a></li>
                             </ul>
                         </div>      
                     </div>                      
@@ -311,10 +305,7 @@
                                     <div class="separator-2"></div>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium odio voluptatem necessitatibus illo vel dolorum soluta.</p>
                                     <ul class="social-links circle animated-effect-1">
-                                        <li class="facebook"><a target="_blank" href="https://www.facebook.com/{{ config('app.socials.facebook', '') }}"><i class="fa fa-facebook"></i></a></li>
-                                        <li class="twitter"><a target="_blank" href="https://www.twitter.com/{{ config('app.socials.twitter', '') }}"><i class="fa fa-twitter"></i></a></li>
-                                        <li class="instagram"><a target="_blank" href="https://www.instagram.com/{{ config('app.socials.instagram', '') }}"><i class="fa fa-instagram"></i></a></li>
-                                        <li class="youtube"><a target="_blank" href="https://www.youtube.com/{{ config('app.socials.youtube', '') }}"><i class="fa fa-youtube-play"></i></a></li>
+                                        @include('sections.socials')
                                     </ul>
                                     <div class="separator-2"></div>
                                     <ul class="list-icons">
