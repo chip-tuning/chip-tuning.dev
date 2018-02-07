@@ -4489,6 +4489,14 @@ fieldset[disabled] .form-control {
   line-height: 25px;
 }
 
+.overlay-link.medium i {
+  width: 50px;
+  height: 50px;
+  margin: -25px 0 0 -25px;
+  font-size: 16px;
+  line-height: 50px;
+}
+
 .overlay-container:hover .overlay-link {
   height: 100%;
   opacity: 1;
@@ -6812,18 +6820,18 @@ h6.media-heading {
   margin-bottom: 15px;
 }
 
-/* Clients
+/* Brands
 ---------------------------------- */
 
-.clients-container {
+.brands-container {
   text-align: center;
 }
 
-.clients {
+.brands {
   margin: 10px auto;
 }
 
-.clients .client-image {
+.brands .brand-image {
   text-align: center;
   width: 80px;
   height: 80px;
@@ -6831,11 +6839,11 @@ h6.media-heading {
   display: inline-block;
 }
 
-.clients img {
+.brands img {
   margin: 0px auto;
 }
 
-.owl-carousel.clients .owl-item img {
+.owl-carousel.brands .owl-item img {
   width: auto;
 }
 

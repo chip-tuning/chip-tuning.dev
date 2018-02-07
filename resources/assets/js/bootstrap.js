@@ -14,8 +14,8 @@ try {
  * Modernizr, Isotope, Magnific Popup, Waypoints, CountTo, Parallax, Validate, OwlCarousel2
  */
 require('./modernizr.js');
-require('isotope-layout');
-require('magnific-popup');
+require('./jquery/isotope.pkgd.js');
+require('./jquery/magnific-popup.js');
 require('./jquery/waypoints.js');
 require('./jquery/countTo.js');
 require('./jquery/parallax.js');

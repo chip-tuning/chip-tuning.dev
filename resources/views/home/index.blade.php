@@ -222,7 +222,7 @@
                     <p><a href="#" class="btn btn-default-transparent btn-animated">Learn More <i class="fa fa-arrow-right pl-10"></i></a></p>
                 </div>
             </div>
-            <div class="row object-non-visible">
+            <div class="row">
                 <div class="col-md-6">
                     <h2>Šta <strong>nudimo</strong></h2>
                     <div class="separator-2"></div>
@@ -301,111 +301,20 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
-                    <h2 class="text-center">Naši <strong>Radovi</strong></h2>
+                    <h2 class="object-non-visible text-center" data-animation-effect="zoomIn" data-effect-delay="100">Naši <strong>Radovi</strong></h2>
                     <div class="separator"></div>
-                    <p class="large text-center">Atque ducimus velit, earum quidem, iusto dolorem. Ex ipsam totam quas blanditiis, pariatur maxime ipsa iste, doloremque neque doloribus, error. Corrupti, tenetur.</p>
+                    <p class="large text-center object-non-visible" data-animation-effect="zoomIn" data-effect-delay="200">Atque ducimus velit, earum quidem, iusto dolorem. Ex ipsam totam quas blanditiis, pariatur maxime ipsa iste, doloremque neque doloribus, error. Corrupti, tenetur.</p>
                     <br>
                 </div>
             </div>
         </div>
         <div class="space-bottom">
             <div class="owl-carousel carousel">
-                <div class="image-box shadow text-center">
-                    <div class="overlay-container">
-                        <img src="{{ asset('images/portfolio-1.jpg') }}" alt="">
-                        <div class="overlay-top">
-                            <div class="text">
-                                <h3><a href="portfolio-item.html">Project Title</a></h3>
-                                <p class="small">Lorem ipsum dolor sit amet.</p>
-                            </div>
-                        </div>
-                        <div class="overlay-bottom">
-                            <div class="links">
-                                <a href="portfolio-item.html" class="btn btn-gray-transparent btn-animated">View Details <i class="pl-10 fa fa-arrow-right"></i></a>
-                            </div>
-                        </div>
+                @foreach ($photos as $photo)
+                    <div class="image-box shadow">
+                        <img src="{{ asset('/storage' . $photo->medium) }}" alt="{{ $photo->title }}">
                     </div>
-                </div>
-                <div class="image-box shadow text-center">
-                    <div class="overlay-container">
-                        <img src="{{ asset('images/portfolio-2.jpg') }}" alt="">
-                        <div class="overlay-top">
-                            <div class="text">
-                                <h3><a href="portfolio-item.html">Project Title</a></h3>
-                                <p class="small">Lorem ipsum dolor sit amet.</p>
-                            </div>
-                        </div>
-                        <div class="overlay-bottom">
-                            <div class="links">
-                                <a href="portfolio-item.html" class="btn btn-gray-transparent btn-animated">View Details <i class="pl-10 fa fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="image-box shadow text-center">
-                    <div class="overlay-container">
-                        <img src="{{ asset('images/portfolio-3.jpg') }}" alt="">
-                        <div class="overlay-top">
-                            <div class="text">
-                                <h3><a href="portfolio-item.html">Project Title</a></h3>
-                                <p class="small">Lorem ipsum dolor sit amet.</p>
-                            </div>
-                        </div>
-                        <div class="overlay-bottom">
-                            <div class="links">
-                                <a href="portfolio-item.html" class="btn btn-gray-transparent btn-animated">View Details <i class="pl-10 fa fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="image-box shadow text-center">
-                    <div class="overlay-container">
-                        <img src="{{ asset('images/portfolio-4.jpg') }}" alt="">
-                        <div class="overlay-top">
-                            <div class="text">
-                                <h3><a href="portfolio-item.html">Project Title</a></h3>
-                                <p class="small">Lorem ipsum dolor sit amet.</p>
-                            </div>
-                        </div>
-                        <div class="overlay-bottom">
-                            <div class="links">
-                                <a href="portfolio-item.html" class="btn btn-gray-transparent btn-animated">View Details <i class="pl-10 fa fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="image-box shadow text-center">
-                    <div class="overlay-container">
-                        <img src="{{ asset('images/portfolio-5.jpg') }}" alt="">
-                        <div class="overlay-top">
-                            <div class="text">
-                                <h3><a href="portfolio-item.html">Project Title</a></h3>
-                                <p class="small">Lorem ipsum dolor sit amet.</p>
-                            </div>
-                        </div>
-                        <div class="overlay-bottom">
-                            <div class="links">
-                                <a href="portfolio-item.html" class="btn btn-gray-transparent btn-animated">View Details <i class="pl-10 fa fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="image-box shadow text-center">
-                    <div class="overlay-container">
-                        <img src="{{ asset('images/portfolio-6.jpg') }}" alt="">
-                        <div class="overlay-top">
-                            <div class="text">
-                                <h3><a href="portfolio-item.html">Project Title</a></h3>
-                                <p class="small">Lorem ipsum dolor sit amet.</p>
-                            </div>
-                        </div>
-                        <div class="overlay-bottom">
-                            <div class="links">
-                                <a href="portfolio-item.html" class="btn btn-gray-transparent btn-animated">View Details <i class="pl-10 fa fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
             <div class="owl-carousel content-slider">
                 <div class="container">
