@@ -13,7 +13,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        view()->composer('layouts.app', function($view) {
+            $view->with('photos', \App\Photo::preview());
+        });
     }
 
     /**
