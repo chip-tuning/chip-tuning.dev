@@ -14,7 +14,7 @@ class Photo extends Model
      *
      * @var array
      */
-    protected $fillable = ['title', 'small', 'medium', 'large'];
+    protected $fillable = ['title', 'small', 'medium', 'large', 'created_at'];
 
     /**
      * The attributes that should be mutated to dates.
