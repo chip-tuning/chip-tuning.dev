@@ -9,6 +9,9 @@ if (!function_exists('set_active')) {
 	 */
 	function set_active(string $name) : string
 	{
-	    return request()->route()->named($name) ? ' class=active' : '';
+		if (!is_null(request()->route()))
+	    	return request()->route()->named($name) ? ' class=active' : '';
+	    else
+	    	return '';
 	}
 }

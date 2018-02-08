@@ -127,6 +127,16 @@ module.exports = __webpack_require__(45);
 })(jQuery);
 
 /**
+ * Center element
+ */
+(function ($) {
+	$.fn.center = function () {
+		this.css("margin-top", ($(window).height() - this.height()) / 2 + "px");
+		return this;
+	};
+})(jQuery);
+
+/**
  * Chip Tuning App
  */
 (function ($) {
@@ -561,6 +571,12 @@ module.exports = __webpack_require__(45);
 
 				google.maps.event.addDomListener(window, "load", initialize);
 			}
+		}
+
+		// Fullscreen
+		//-----------------------------------------------
+		if ($("#fullscreen").length > 0) {
+			$('#fullscreen').center();
 		}
 
 		if ($("#sidebar-form").length > 0) {

@@ -49,6 +49,16 @@
 }(jQuery));
 
 /**
+ * Center element
+ */
+(function($) {
+	$.fn.center = function() {
+		this.css("margin-top", ( $(window).height() - this.height() ) / 2  + "px");
+		return this;
+	};
+}(jQuery));
+
+/**
  * Chip Tuning App
  */
 (function($) {
@@ -490,7 +500,11 @@
 			}
 		}
 
-
+		// Fullscreen
+		//-----------------------------------------------
+		if ($("#fullscreen").length > 0) {
+			$('#fullscreen').center();
+		}
 
 
 		if($("#sidebar-form").length>0) {
