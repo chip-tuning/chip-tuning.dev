@@ -136,6 +136,40 @@ module.exports = __webpack_require__(45);
 	};
 })(jQuery);
 
+(function ($) {
+	$(window).on("load", function () {
+		$("body").removeClass("no-trans");
+
+		if ($(".transparent-header").length > 0) {
+			trHeaderHeight = $("header.header").outerHeight();
+			$(".transparent-header .tp-bannertimer").css("marginTop", trHeaderHeight + "px");
+		}
+
+		if ($("#fullscreen").length > 0) {
+			$('#fullscreen').center();
+		}
+	});
+	$(window).on("resize", function () {
+		var headerTopHeight = $(".header-top").outerHeight();
+		var headerHeight = $("header.header.fixed").outerHeight();
+
+		if ($(this).scrollTop() < headerTopHeight + headerHeight - 5 && $(window).width() > 767) {
+			headerTopHeight = $(".header-top").outerHeight(), headerHeight = $("header.header.fixed").outerHeight();
+		}
+
+		if ($(".transparent-header").length > 0) {
+			if ($(this).scrollTop() < headerTopHeight + headerHeight - 5) {
+				trHeaderHeight = $("header.header").outerHeight();
+				$(".transparent-header .tp-bannertimer").css("marginTop", trHeaderHeight + "px");
+			}
+		}
+
+		if ($("#fullscreen").length > 0) {
+			$('#fullscreen').center();
+		}
+	});
+})(jQuery);
+
 /**
  * Chip Tuning App
  */
@@ -143,24 +177,11 @@ module.exports = __webpack_require__(45);
 	$(document).ready(function () {
 		// Setup
 		//-----------------------------------------------
-		$(window).on("load", function () {
-			$("body").removeClass("no-trans");
-		});
-
 		var timer_tr;
+		var headerTopHeight = $(".header-top").outerHeight();
+		var headerHeight = $("header.header.fixed").outerHeight();
+
 		if ($(".transparent-header").length > 0) {
-			$(window).on("load", function () {
-				trHeaderHeight = $("header.header").outerHeight();
-				$(".transparent-header .tp-bannertimer").css("marginTop", trHeaderHeight + "px");
-			});
-
-			$(window).resize(function () {
-				if ($(this).scrollTop() < headerTopHeight + headerHeight - 5) {
-					trHeaderHeight = $("header.header").outerHeight();
-					$(".transparent-header .tp-bannertimer").css("marginTop", trHeaderHeight + "px");
-				}
-			});
-
 			$(window).scroll(function () {
 				if ($(this).scrollTop() == 0) {
 					if (timer_tr) {
@@ -179,15 +200,6 @@ module.exports = __webpack_require__(45);
 		} else {
 			$(".header-container header.header").removeClass("transparent-header-on");
 		}
-
-		// Fixed header
-		//-----------------------------------------------
-		headerTopHeight = $(".header-top").outerHeight(), headerHeight = $("header.header.fixed").outerHeight();
-		$(window).resize(function () {
-			if ($(this).scrollTop() < headerTopHeight + headerHeight - 5 && $(window).width() > 767) {
-				headerTopHeight = $(".header-top").outerHeight(), headerHeight = $("header.header.fixed").outerHeight();
-			}
-		});
 
 		$(window).scroll(function () {
 			if ($(".header.fixed:not(.fixed-before)").length > 0 && !($(".transparent-header .slideshow").length > 0)) {
@@ -571,12 +583,6 @@ module.exports = __webpack_require__(45);
 
 				google.maps.event.addDomListener(window, "load", initialize);
 			}
-		}
-
-		// Fullscreen
-		//-----------------------------------------------
-		if ($("#fullscreen").length > 0) {
-			$('#fullscreen').center();
 		}
 
 		if ($("#sidebar-form").length > 0) {

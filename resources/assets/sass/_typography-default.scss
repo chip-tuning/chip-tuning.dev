@@ -140,12 +140,14 @@ h6 {
 }
 /* Small devices (tablets, 768px and up) */
 @media screen and (min-width: 768px) {
+  .info-block h1,
   .jumbotron h1 {
     font-size: 130px;
   }
 }
 /* Small devices (tablets, phones less than 767px) */
 @media screen and (max-width: 767px) {
+  .info-block h1,
   .jumbotron h1 {
     font-size: 60px;
   }

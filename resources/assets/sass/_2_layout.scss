@@ -44,6 +44,17 @@
   padding: 10px 0;
 }
 
+.dark {
+  .footer {
+    background-color: #222222;
+  }
+
+  .subfooter {
+    background-color: #373737;
+    border-color: #454545;
+  }
+}
+
 /*Transparent Header*/
 .transparent-header {
   .header-top {
@@ -85,14 +96,6 @@
     border-bottom: none;
     border-top: none;
   }
-}
-
-.header-first {
-  padding: 12px 0 0 0;
-}
-
-.header-second {
-  position: relative;
 }
 
 .scroll-spy .banner {
@@ -176,6 +179,13 @@
   .transparent-header {
     .header-first {
       padding: 12px 0 12px;
+    }
+  }
+  /*Full width Header*/
+  .header.full-width {
+    padding: 0 15px;
+    .header-first {
+      padding: 8px 0 0;
     }
   }
 }
@@ -641,7 +651,13 @@
     position: absolute !important;
   }
 }
-
+/* Fullpage navigation
+---------------------------------- */
+.full-page .header-container {
+  position: fixed;
+  width: 100%;
+  top: 0;
+}
 /* Custom Grid
 ---------------------------------- */
 .grid-space-20 {
@@ -753,6 +769,16 @@
   background: linear-gradient(to $ltr-to-rtl-right, #373737 0%, #505050 35%, #505050 70%, #373737 100%);
 }
 
+#footer.dark .separator:after {
+  background: #505050;
+  background: -moz-linear-gradient($ltr-to-rtl-left, #222222 0%, #505050 35%, #505050 70%, #222222 100%);
+  background: -webkit-gradient(linear, $ltr-to-rtl-left top, $ltr-to-rtl-right top, color-stop(0%, #222222), color-stop(35%, #505050), color-stop(70%, #505050), color-stop(100%, #222222));
+  background: -webkit-linear-gradient($ltr-to-rtl-left, #222222 0%, #505050 35%, #505050 70%, #222222 100%);
+  background: -o-linear-gradient($ltr-to-rtl-left, #222222 0%, #505050 35%, #505050 70%, #222222 100%);
+  background: -ms-linear-gradient($ltr-to-rtl-left, #222222 0%, #505050 35%, #505050 70%, #222222 100%);
+  background: linear-gradient(to $ltr-to-rtl-right, #222222 0%, #505050 35%, #505050 70%, #222222 100%);
+}
+
 .default-bg .separator:after,
 .dark-translucent-bg .separator:after,
 .default-translucent-bg .separator:after,
@@ -830,6 +856,16 @@ h5 + .separator {
   background: linear-gradient(to $ltr-to-rtl-right, #666666 0%, #555555 35%, #444444 70%, #373737 100%);
 }
 
+#footer.dark .separator-2:after {
+  background: #444444;
+  background: -moz-linear-gradient($ltr-to-rtl-left, #444444 0%, #393939 35%, #323232 70%, #222222 100%);
+  background: -webkit-gradient(linear, $ltr-to-rtl-left top, $ltr-to-rtl-right top, color-stop(0%, #444444), color-stop(35%, #393939), color-stop(70%, #323232), color-stop(100%, #222222));
+  background: -webkit-linear-gradient($ltr-to-rtl-left, #444444 0%, #393939 35%, #323232 70%, #222222 100%);
+  background: -o-linear-gradient($ltr-to-rtl-left, #444444 0%, #393939 35%, #323232 70%, #222222 100%);
+  background: -ms-linear-gradient($ltr-to-rtl-left, #444444 0%, #393939 35%, #323232 70%, #222222 100%);
+  background: linear-gradient(to $ltr-to-rtl-right, #444444 0%, #393939 35%, #323232 70%, #222222 100%);
+}
+
 .light-translucent-bg .separator-2:after,
 .two-col-translucent-bg .container > .row > div .separator-2:after,
 .dark.separator-2:after {
@@ -891,6 +927,16 @@ h5 + .separator {
   background: -o-linear-gradient($ltr-to-rtl-right, #666666 0%, #555555 35%, #444444 70%, #373737 100%);
   background: -ms-linear-gradient($ltr-to-rtl-right, #666666 0%, #555555 35%, #444444 70%, #373737 100%);
   background: linear-gradient(to $ltr-to-rtl-left, #666666 0%, #555555 35%, #444444 70%, #373737 100%);
+}
+
+#footer.dark .separator-3:after {
+  background: #444444;
+  background: -moz-linear-gradient($ltr-to-rtl-right, #444444 0%, #393939 35%, #323232 70%, #222222 100%);
+  background: -webkit-gradient(linear, $ltr-to-rtl-right top, $ltr-to-rtl-left top, color-stop(0%, #444444), color-stop(35%, #393939), color-stop(70%, #323232), color-stop(100%, #222222));
+  background: -webkit-linear-gradient($ltr-to-rtl-right, #444444 0%, #393939 35%, #323232 70%, #222222 100%);
+  background: -o-linear-gradient($ltr-to-rtl-right, #444444 0%, #393939 35%, #323232 70%, #222222 100%);
+  background: -ms-linear-gradient($ltr-to-rtl-right, #444444 0%, #393939 35%, #323232 70%, #222222 100%);
+  background: linear-gradient(to $ltr-to-rtl-left, #444444 0%, #393939 35%, #323232 70%, #222222 100%);
 }
 
 .light-translucent-bg .separator-3:after,
@@ -956,6 +1002,16 @@ h5 + .separator {
   background: -o-linear-gradient($ltr-to-rtl-left, #373737 0%, #505050 25%, #373737 45%, #373737 55%, #505050 75%, #373737 100%);
   background: -ms-linear-gradient($ltr-to-rtl-left, #373737 0%, #505050 25%, #373737 45%, #373737 55%, #505050 75%, #373737 100%);
   background: linear-gradient(to $ltr-to-rtl-right, #373737 0%, #505050 25%, #373737 45%, #373737 55%, #505050 75%, #373737 100%);
+}
+
+#footer.dark .separator.with-icon:after {
+  background: #505050;
+  background: -moz-linear-gradient($ltr-to-rtl-left, #222222 0%, #505050 25%, #222222 45%, #222222 55%, #505050 75%, #222222 100%);
+  background: -webkit-gradient(linear, $ltr-to-rtl-left top, $ltr-to-rtl-right top, color-stop(0%, #222222), color-stop(25%, #505050), color-stop(45%, #222222), color-stop(55%, #222222), color-stop(75%, #505050), color-stop(100%, #222222));
+  background: -webkit-linear-gradient($ltr-to-rtl-left, #222222 0%, #505050 25%, #222222 45%, #222222 55%, #505050 75%, #222222 100%);
+  background: -o-linear-gradient($ltr-to-rtl-left, #222222 0%, #505050 25%, #222222 45%, #222222 55%, #505050 75%, #222222 100%);
+  background: -ms-linear-gradient($ltr-to-rtl-left, #222222 0%, #505050 25%, #222222 45%, #222222 55%, #505050 75%, #222222 100%);
+  background: linear-gradient(to $ltr-to-rtl-right, #222222 0%, #505050 25%, #222222 45%, #222222 55%, #505050 75%, #222222 100%);
 }
 
 .default-bg .separator.with-icon:after,

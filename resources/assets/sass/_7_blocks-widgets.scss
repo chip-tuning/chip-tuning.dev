@@ -512,9 +512,6 @@
 }
 
 .header-dropdown-buttons .btn-group:first-child {
-  // RTL support.
-  // The following mixin depends on the $text-direction variable in style.scss file OR in rtl_style.scss file.
-  // RTL related mixins are located in mixins/_rtl.scss file.
   @include margin-right (5px);
 }
 
@@ -544,16 +541,7 @@
   margin-top: 18px;
   top: 100%;
   border: none;
-  // RTL support.
-  // The following mixin depends on the $text-direction variable in style.scss file OR in rtl_style.scss file.
-  // RTL related mixins are located in mixins/_rtl.scss file.
   @include border-radius(0 0 5px 5px);
-  // RTL support
-  // $text-direction variable is setted to "ltr" inside style.scss file and to "rtl" inside rtl_style.scss file.
-  @if $text-direction == rtl {
-    right: auto;
-    left: 0;
-  }
 }
 
 .header-dropdown-buttons .btn-group.open > .btn {
@@ -655,6 +643,28 @@
     color: $white;
   }
 }
+
+/* Info block */
+.info-block {
+  @include border-radius(10px);
+  width: 720px;
+  color: #333333;
+
+  h2 {
+    color: #333333;
+  }
+
+  p {
+    margin-bottom: 15px;
+    font-size: 21px;
+    font-weight: 200;
+  }
+
+  @media (max-width: 767px) {
+    width: 90%;
+  }
+}
+
 /* Login/Register Forms
 ---------------------------------- */
 .form-block {
@@ -664,16 +674,10 @@
 
 .form-block .social-links {
   display: inline-block;
-  // RTL support.
-  // The following mixin depends on the $text-direction variable in style.scss file OR in rtl_style.scss file.
-  // RTL related mixins are located in mixins/_rtl.scss file.
   @include margin(0, 0, 0, 5px);
 }
 
 .form-block ul {
-  // RTL support.
-  // The following mixin depends on the $text-direction variable in style.scss file OR in rtl_style.scss file.
-  // RTL related mixins are located in mixins/_rtl.scss file.
   @include padding-left(0);
   list-style-position: inside;
 }
@@ -698,18 +702,12 @@ ul.tweets {
   li {
     margin-bottom: 20px;
     position: relative;
-  // RTL support.
-  // The following mixin depends on the $text-direction variable in style.scss file OR in rtl_style.scss file.
-  // RTL related mixins are located in mixins/_rtl.scss file.
     @include padding-left(35px);
   }
 
   li i {
     position: absolute;
     top: 4px;
-    // RTL support.
-    // The following mixin depends on the $text-direction variable in style.scss file OR in rtl_style.scss file.
-    // RTL related mixins are located in mixins/_rtl.scss file.
     @include left(0);
     width: 25px;
     height: 25px;

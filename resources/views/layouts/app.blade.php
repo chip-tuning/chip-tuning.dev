@@ -95,9 +95,7 @@
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
 							</button>
-							<div id="logo" class="logo">
-								<a href="{{ url('/') }}"><img id="logo_img" src="{{ asset('images/logo_light_blue.png') }}" alt="{{ config('app.name', 'RPCT') }}"></a>
-							</div>
+							@include('sections.logo')
 						</div>
 						<div class="collapse navbar-collapse" id="navbar-collapse">
 							<ul class="nav navbar-nav navbar-right">

@@ -1302,6 +1302,20 @@ ul.pagination li.active a,
   }
 }
 
+.dark .footer-content .nav-pills {
+  & > li > a,
+  & > li.active > a,
+  & > li.active > a:focus,
+  & > li > a:focus {
+    color: $gray-light;
+  }
+
+  & > li.active > a:hover,
+  & > li > a:hover {
+    color: $base-color-hover;
+  }
+}
+
 /* Collapse
 ---------------------------------- */
 .panel-group .panel-default {

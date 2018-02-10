@@ -15,6 +15,7 @@
 Route::get('/', 'HomeController@index')->name('home.index');
 Route::get('/nasi-radovi', 'GalleryController@index')->name('gallery.index');
 Route::get('/kontakt', 'ContactController@index')->name('contact.index');
+Route::get('/uslovi-koriscenja', 'TermsOfUseController@index')->name('terms.index');
+Route::get('/politika-privatnosti', 'PrivacyPolicyController@index')->name('privacy.index');
 
 //Auth::routes();
-
