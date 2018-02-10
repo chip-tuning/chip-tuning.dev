@@ -958,13 +958,8 @@ fieldset[disabled] .btn-default {
 ---------------------------------- */
 ul.pagination,
 ul.pager {
-  margin: 20px 0 40px;
+  margin: 20px 0 20px;
   text-align: left;
-  // RTL support
-  // $text-direction variable is setted to "ltr" inside style.scss file and to "rtl" inside rtl_style.scss file.
-  @if $text-direction == rtl {
-    padding-right: 0;
-  }
 }
 
 ul.pagination li {
@@ -986,12 +981,12 @@ ul.pager li > a {
   padding: 0;
   height: 40px;
   width: 40px;
-  border: 1px solid $gray;
+  border: 1px solid #e1e1e1;
   line-height: 39px;
-  background-color: $gray;
-  color: $white;
+  background-color: $white;
+  color: $gray;
   display: inline-block;
-  @include border-radius(100%);
+  @include border-radius(5px);
 }
 
 ul.pagination li > a:hover,
