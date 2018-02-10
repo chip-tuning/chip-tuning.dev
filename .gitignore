@@ -1,8 +1,8 @@
 /filkris_modules
 /node_modules
 /public/hot
-/public/css
-/public/js
+/public/css/*.css
+/public/js/*.js
 /public/storage
 /storage/*.key
 /vendor

@@ -396,7 +396,7 @@ tbody {
 }
 
 .fullscreen-bg {
-  background: url(/images/fullscreen-bg.jpg?01fd6cadde9ebf1c8f0ad5acfc459c86) 50% 0px no-repeat;
+  background: url(/images/fullscreen-bg.jpg?755539d53f227d7c0046cfa6c97ac6fe) 50% 0px no-repeat;
   position: fixed;
   top: 0;
   left: 0;
@@ -2933,7 +2933,7 @@ fieldset[disabled] .btn-default {
 
 ul.pagination,
 ul.pager {
-  margin: 20px 0 40px;
+  margin: 20px 0 20px;
   text-align: left;
 }
 
@@ -2953,12 +2953,12 @@ ul.pager li > a {
   padding: 0;
   height: 40px;
   width: 40px;
-  border: 1px solid #777777;
+  border: 1px solid #e1e1e1;
   line-height: 39px;
-  background-color: #777777;
-  color: #ffffff;
+  background-color: #ffffff;
+  color: #777777;
   display: inline-block;
-  border-radius: 100%;
+  border-radius: 5px;
 }
 
 ul.pagination li > a:hover,

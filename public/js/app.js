@@ -245,6 +245,12 @@ module.exports = __webpack_require__(45);
 			};
 		});
 
+		if ($('.pagination').length > 0) {
+			$('ul.pagination li.active a, ul.pagination li.disabled a').on('click', function (event) {
+				event.preventDefault();
+			});
+		}
+
 		// Animations
 		//-----------------------------------------------
 		if ($("[data-animation-effect]").length > 0) {
@@ -534,7 +540,7 @@ module.exports = __webpack_require__(45);
 						minlength: "Ime i prezime mora imati više od 6 karaktera"
 					},
 					email: {
-						required: "Molimo unsite vašu email adresu",
+						required: "Molimo unesite vašu email adresu",
 						email: "Molimo unesite ispravnu email adresu"
 					},
 					subject: {
@@ -585,6 +591,76 @@ module.exports = __webpack_require__(45);
 			}
 		}
 
+		if ($('#faq').length > 0) {
+			// Contact form
+			$("#faq-form").validate({
+				submitHandler: function submitHandler(form) {
+					$('.submit-button').button("loading");
+					$.ajax({
+						type: "POST",
+						url: "api/send",
+						data: {
+							"name": $("#faq-form #name").val(),
+							"email": $("#faq-form #email").val(),
+							"question": $("#faq-form #question").val(),
+							"g-recaptcha-response": $("#g-recaptcha-response").val()
+						},
+						dataType: "json",
+						success: function success(data) {
+							if (data.sent == "yes") {
+								$("#MessageSent").removeClass("hidden");
+								$("#MessageNotSent").addClass("hidden");
+								$(".submit-button").removeClass("btn-default").addClass("btn-success").prop('value', 'Poslato');
+								$("#faq-form .form-control").each(function () {
+									$(this).prop('value', '').parent().removeClass("has-success").removeClass("has-error");
+								});
+							} else {
+								$("#MessageNotSent").removeClass("hidden");
+								$("#MessageSent").addClass("hidden");
+							}
+						}
+					});
+				},
+				errorPlacement: function errorPlacement(error, element) {
+					error.insertBefore(element);
+				},
+				onkeyup: false,
+				onclick: false,
+				rules: {
+					name: {
+						required: true
+					},
+					email: {
+						required: true,
+						email: true
+					},
+					message: {
+						required: true
+					}
+				},
+				messages: {
+					name: {
+						required: "Unesite vaše ime i prezime"
+					},
+					email: {
+						required: "Unesite vašu email adresu",
+						email: "Unesite ispravnu email adresu"
+					},
+					message: {
+						required: "Unesite vaše pitanje"
+					}
+				},
+				errorElement: "span",
+				highlight: function highlight(element) {
+					$(element).parent().removeClass("has-success").addClass("has-error");
+					$(element).siblings("label").addClass("hide");
+				},
+				success: function success(element) {
+					$(element).parent().removeClass("has-error").addClass("has-success");
+					$(element).siblings("label").removeClass("hide");
+				}
+			});
+		}
 		if ($("#sidebar-form").length > 0) {
 
 			$("#sidebar-form").validate({
