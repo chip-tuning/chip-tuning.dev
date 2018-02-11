@@ -6,8 +6,8 @@
 @section('content')
 <div id="gallery">
 	<div class="banner pv-45 dark-translucent-bg background-img-2" style="background-position: 50% 30%;">
-		@component('components.breadcrumb', ['parent' => 'Početna', 'parent_url' => route('home.index')])
-		    Naši radovi
+		@component('components.breadcrumbs')
+		    <li class="active">Naši radovi</li>
 		@endcomponent
 		<div class="container">
 			<div class="row">

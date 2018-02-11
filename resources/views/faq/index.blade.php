@@ -9,8 +9,8 @@
 
 @section('content')
 <div id="faq">
-	@component('components.breadcrumb', ['parent' => 'Početna', 'parent_url' => route('home.index')])
-	    Česta pitanja
+	@component('components.breadcrumbs')
+	    <li class="active">Česta pitanja</li>
 	@endcomponent
 	<section class="main-container">
 		<div class="container">

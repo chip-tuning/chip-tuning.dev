@@ -5,8 +5,8 @@
 
 @section('content')
 <div id="privacy">
-	@component('components.breadcrumb', ['parent' => 'Početna', 'parent_url' => route('home.index')])
-	    Politika privatnosti
+	@component('components.breadcrumbs')
+	    <li class="active">Politika privatnosti</li>
 	@endcomponent
 	<section class="main-container">
 		<div class="container">

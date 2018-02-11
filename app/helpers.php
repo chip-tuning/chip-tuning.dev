@@ -4,14 +4,11 @@ if (!function_exists('set_active')) {
 	/**
 	 * Set active page
 	 *
-	 * @param string $name
+	 * @param string $pattern
 	 * @return string
 	 */
-	function set_active(string $name) : string
+	function set_active(string $pattern = '/') : string
 	{
-		if (!is_null(request()->route()))
-	    	return request()->route()->named($name) ? ' class=active' : '';
-	    else
-	    	return '';
+		return (request()->is($pattern)) ? 'active' : '';
 	}
 }

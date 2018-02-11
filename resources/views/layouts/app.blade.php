@@ -99,8 +99,8 @@
 						</div>
 						<div class="collapse navbar-collapse" id="navbar-collapse">
 							<ul class="nav navbar-nav navbar-right">
-								<li{{ set_active('home.index') }}><a href="{{ route('home.index') }}">Početna</a></li>
-								<li class="dropdown mega-menu">
+								<li class="{{ set_active() }}"><a href="{{ route('home.index') }}">Početna</a></li>
+								<li class="dropdown mega-menu {{ set_active('usluge*') }}">
 									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Usluge</a>
 									<ul class="dropdown-menu">
 										<li>
@@ -146,9 +146,9 @@
 										</li>
 									</ul>
 								</li>
-								<li><a href="#">Blog</a></li>
-								<li{{ set_active('gallery.index') }}><a href="{{ route('gallery.index') }}">Naši radovi</a></li>
-								<li{{ set_active('contact.index') }}><a href="{{ route('contact.index') }}">Kontakt</a></li>
+								<li class="{{ set_active('blog*') }}"><a href="{{ route('blog.index') }}">Blog</a></li>
+								<li class="{{ set_active('nasi-radovi*') }}"><a href="{{ route('gallery.index') }}">Naši radovi</a></li>
+								<li class="{{ set_active('kontakt*') }}"><a href="{{ route('contact.index') }}">Kontakt</a></li>
 							</ul>
 						</div>      
 					</div>                      

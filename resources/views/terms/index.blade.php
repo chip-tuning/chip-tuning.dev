@@ -5,8 +5,8 @@
 
 @section('content')
 <div id="terms">
-	@component('components.breadcrumb', ['parent' => 'Početna', 'parent_url' => route('home.index')])
-	    Uslovi korišćenja
+	@component('components.breadcrumbs')
+		    <li class="active">Uslovi korišćenja</li>
 	@endcomponent
 	<section class="main-container">
 		<div class="container">

@@ -282,6 +282,16 @@ tbody {
   padding: 50px 0;
 }
 
+.block {
+  margin-bottom: 50px;
+}
+
+@media (max-width: 767px) {
+  .block {
+    margin-bottom: 0;
+  }
+}
+
 .section {
   padding: 20px 0;
 }

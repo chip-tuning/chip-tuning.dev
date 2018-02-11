@@ -11,8 +11,8 @@
 @section('content')
 <div id="contact">
 	<div class="banner dark-translucent-bg background-img-3" style="background-position: 50% 30%;">
-		@component('components.breadcrumb', ['parent' => 'Početna', 'parent_url' => route('home.index')])
-		    Kontakt
+		@component('components.breadcrumbs')
+		    <li class="active">Kontakt</li>
 		@endcomponent
 		<div class="container">
 			<div class="row">
