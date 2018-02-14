@@ -3,6 +3,13 @@
 @section('title', 'Kontakt')
 @section('description', 'Chip tuning, profesionalno uklanjanje DPF filtera i gašenje EGR ventila, rešenje problema sa toplim startom, brisanje grešaka, Sabac, Srbija i okolina.')
 
+@section('facebook')
+	<meta property="og:type" content="webiste">
+	<meta property="og:title" content="{{ config('app.name', 'RPCT') }}">
+	<meta property="og:description" content="Poboljšavamo performanse vašeg automobila, Chip Tuning, uklanjanje DPF filtera, gašenje EGR ventila, rešavanje problema sa toplim startom i selektivno brisanje grešaka.">
+	<meta property="og:image" content="{{ asset('images/logo.jpg') }}">
+@endsection
+
 @section('scripts')
 <!--<script src="https://www.google.com/recaptcha/api.js" async defer></script>-->
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;key=AIzaSyCxZ57FI-nzDlM7PmBJUgEzEe_ARclGoR4"></script>

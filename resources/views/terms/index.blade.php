@@ -3,6 +3,13 @@
 @section('title', 'Uslovi koriscenja')
 @section('description', 'Uslovi koriscenja...')
 
+@section('facebook')
+	<meta property="og:type" content="webiste">
+	<meta property="og:title" content="{{ config('app.name', 'RPCT') }}">
+	<meta property="og:description" content="Poboljšavamo performanse vašeg automobila, Chip Tuning, uklanjanje DPF filtera, gašenje EGR ventila, rešavanje problema sa toplim startom i selektivno brisanje grešaka.">
+	<meta property="og:image" content="{{ asset('images/logo.jpg') }}">
+@endsection
+
 @section('content')
 <div id="terms">
 	@component('components.breadcrumbs')

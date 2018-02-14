@@ -24,19 +24,12 @@ class Album extends Model
 	protected $dates = ['deleted_at'];
 
     /**
-     * The relationships to always eager-load.
-     *
-     * @var array
-     */
-    protected $with = ['photos'];
-
-    /**
      * An album may have many photos.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function photos()
     {
-        return $this->hasMany(Photo::class)->take(32)->latest();
+        return $this->hasMany(Photo::class);
     }
 }

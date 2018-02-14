@@ -3,6 +3,13 @@
 @section('title', 'Česta pitanja')
 @section('description', 'Chip tuning, profesionalno uklanjanje DPF filtera i gašenje EGR ventila, rešenje problema sa toplim startom, brisanje grešaka, Sabac, Srbija i okolina.')
 
+@section('facebook')
+	<meta property="og:type" content="webiste">
+	<meta property="og:title" content="{{ config('app.name', 'RPCT') }}">
+	<meta property="og:description" content="Poboljšavamo performanse vašeg automobila, Chip Tuning, uklanjanje DPF filtera, gašenje EGR ventila, rešavanje problema sa toplim startom i selektivno brisanje grešaka.">
+	<meta property="og:image" content="{{ asset('images/logo.jpg') }}">
+@endsection
+
 @section('scripts')
 <!--<script src="https://www.google.com/recaptcha/api.js" async defer></script>-->
 @endsection
@@ -19,29 +26,29 @@
 					<h1 class="page-title">Često postavljana pitanja</h1>
 					<div class="separator-2"></div>
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ut quisquam ab harum hic enim quibusdam aut quasi recusandae temporibus quo voluptatibus, dolorem consectetur ipsam facere ipsa. Commodi sunt, inventore!</p>
-					<div class="panel-group collapse-style-2" id="faq-accordion">
-						@foreach($faqs as $key => $faq)
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title">
-										<a class="{{ $key == 0 ? '' : 'collapsed' }}" data-toggle="collapse" data-parent="#faq-accordion" href="#ans-{{ $faq->id }}" aria-expanded="{{ $key == 0 ? 'true' : 'false' }}">
-											<i class="fa fa-question-circle pr-10"></i>{{ $faq->question }}
-										</a>
-									</h4>
-								</div>
-								<div id="ans-{{ $faq->id }}" class="panel-collapse collapse {{ $key == 0 ? 'in' : '' }}" aria-expanded="{{ $key == 0 ? 'true' : 'false' }}">
-									<div class="panel-body">
-										{{ $faq->answer }}
+					@if ($faqs->isNotEmpty())
+						<div class="panel-group collapse-style-2" id="faq-accordion">
+							@foreach($faqs as $key => $faq)
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h4 class="panel-title">
+											<a @if (!$loop->first) class="collapsed" @endif data-toggle="collapse" data-parent="#faq-accordion" href="#ans-{{ $faq->id }}" @if ($loop->first) aria-expanded="true" @else aria-expanded="false" @endif>
+												<i class="fa fa-question-circle pr-10"></i>{{ $faq->question }}
+											</a>
+										</h4>
+									</div>
+									<div id="ans-{{ $faq->id }}" @if ($loop->first) class="panel-collapse collapse in" aria-expanded="true" @else class="panel-collapse collapse" aria-expanded="false" @endif>
+										<div class="panel-body">
+											{{ $faq->answer }}
+										</div>
 									</div>
 								</div>
-							</div>
-						@endforeach
+							@endforeach
 
-					</div>
-					{{ $faqs->links('sections.pagination') }}
+						</div>
+						{{ $faqs->links('sections.pagination') }}
+					@endif
 				</div>
-				<!-- sidebar start -->
-				<!-- ================ -->
 				<aside class="col-md-4 col-lg-3 col-lg-offset-1">
 					<div class="sidebar">
 						<div class="block clearfix">
@@ -54,17 +61,17 @@
 							<div class="separator-2"></div>
 							<form role="form" id="faq-form" class="margin-clear">
 								<div class="form-group has-feedback">
-									<label for="name">Ime i prezime</label>
+									<label for="name">Ime i prezime*</label>
 									<input id="name" class="form-control" name="name" type="text" placeholder="Unesite vaše ime i prezime">
 									<i class="fa fa-user form-control-feedback"></i>
 								</div>
 								<div class="form-group has-feedback">
-									<label for="email">Email adresa</label>
+									<label for="email">Email adresa*</label>
 									<input id="email" class="form-control" name="email" type="email" placeholder="Unesite vašu email adresu">
 									<i class="fa fa-envelope form-control-feedback"></i>
 								</div>
 								<div class="form-group has-feedback">
-									<label for="question">Pitanje</label>
+									<label for="question">Pitanje*</label>
 									<textarea id="question" class="form-control" name="question" rows="4" placeholder="Unesite vaše pitanje"></textarea>
 									<i class="fa fa-pencil form-control-feedback"></i>
 								</div>

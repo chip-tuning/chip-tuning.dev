@@ -5,7 +5,7 @@
             <div id="slider-banner-fullscreen" class="slider-banner-fullscreen rev_slider" data-version="5.0">
                 <ul class="slides">
                     <li data-transition="random" data-slotamount="7" data-masterspeed="default" data-title="Premium HTML5 Bootstrap Theme">
-                        <img src="public/images/bg.jpg" alt="slidebg1" data-bgposition="center center" data-bgrepeat="no-repeat" data-bgfit="cover" class="rev-slidebg">
+                        <img src="images/slider/slider-1.jpg" alt="slidebg1" data-bgposition="center center" data-bgrepeat="no-repeat" data-bgfit="cover" class="rev-slidebg">
                         <!-- Transparent Background -->
                         <div class="tp-caption dark-translucent-bg"
                             data-x="center"
@@ -90,7 +90,7 @@
                         </div>
                     </li>
                     <li class="text-center" data-transition="random" data-slotamount="default" data-masterspeed="default" data-title="Unlimited Options and Layouts">
-						<img src="public/images/slider-fullscreen-slide-2.jpg" alt="slidebg2" data-bgposition="center center" data-bgrepeat="no-repeat" data-bgfit="cover" class="rev-slidebg">
+						<img src="images/slider/slider-2.jpg" alt="slidebg2" data-bgposition="center center" data-bgrepeat="no-repeat" data-bgfit="cover" class="rev-slidebg">
                         <!-- Transparent Background -->
                         <div class="tp-caption dark-translucent-bg"
                             data-x="center"

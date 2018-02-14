@@ -7,34 +7,16 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 	<title>{{ config('app.name', 'RPCT') }} - @yield('title')</title>
-
 	<meta name="description" content="@yield('description')">
-
-	<meta property="og:url" content="{{ url()->current() }}">
-	<meta property="og:type" content="webiste">
-	<meta property="og:locale" content="sr_RS">
-	<meta property="og:title" content="{{ config('app.name', 'RPCT') }}">
-	<meta property="og:description" content="Poboljšavamo performanse vašeg automobila, Chip Tuning, uklanjanje DPF filtera, gašenje EGR ventila, rešavanje problema sa toplim startom i selektivno brisanje grešaka.">
-	<meta property="og:image" content="{{ asset('images/logo.jpg') }}">
-	<meta property="og:site_name" content="{{ config('app.name', 'RPCT') }}">
-
-	<!-- za blog
-	<meta property="og:url"                content="http://www.nytimes.com/2015/02/19/arts/international/when-great-minds-dont-think-alike.html" />
-	<meta property="og:type"               content="article" />
-	<meta property="og:title"              content="When Great Minds Don’t Think Alike" />
-	<meta property="og:description"        content="How much does culture influence creative thinking?" />
-	<meta property="og:image"              content="http://static01.nyt.com/images/2015/02/19/arts/international/19iht-btnumbers19A/19iht-btnumbers19A-facebookJumbo-v2.jpg" />
-	-->
-	<meta name="twitter:card" content="summary">
-	<meta name="twitter:site" content="@chip-tuning.rs">
-	<meta name="twitter:creator" content="{{ config('app.socials.twitter', '') }}">
 	<meta name="csrf-token" content="{{ csrf_token() }}">
-
+	<meta property="og:url" content="{{ url()->current() }}">
+@yield('facebook')
+	<meta property="og:locale" content="sr_RS">
+	<meta property="og:site_name" content="{{ config('app.name', 'RPCT') }}">
+@yield('twitter')
 	<link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}">
 	<link rel="apple-touch-icon" href="{{ asset('images/apple-touch-icon.png') }}">
-
 	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=PT+Sans|Raleway:300,400,700|Roboto:300,300i,400,400i,500,500i,700&amp;subset=latin-ext">
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/vendor.css') }}">
 	@yield('styles')
@@ -113,7 +95,7 @@
 															<ul class="menu">
 																<li><a href="#"><i class="fa fa-star pr-10"></i>Automobili</a></li>
 																<li><a href="#"><i class="fa fa-star pr-10"></i>Kamioni</a></li>
-																<li><a href="#"><i class="fa fa-star pr-10"></i>Poljoprivredne masine</a></li>
+																<li><a href="#"><i class="fa fa-star pr-10"></i>Poljoprivredne mašine</a></li>
 															</ul>
 														</div>
 														<div class="col-sm-6 col-md-3">

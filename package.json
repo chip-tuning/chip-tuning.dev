@@ -11,13 +11,21 @@
     },
     "devDependencies": {
         "axios": "^0.17",
+        "bootstrap": "^4.0.0",
+        "bootstrap-datepicker": "^1.7.1",
         "bootstrap-sass": "^3.3.7",
         "cross-env": "^5.1",
         "font-awesome": "^4.7.0",
         "hover.css": "^2.2.1",
         "jquery": "^3.2",
+        "jquery-sparkline": "^2.4.0",
         "laravel-mix": "^2.0",
         "lodash": "^4.17.4",
-        "owl.carousel": "^2.2.0"
+        "magnific-popup": "^1.1.0",
+        "masonry-layout": "^4.2.1",
+        "moment": "^2.20.1",
+        "owl.carousel": "^2.2.0",
+        "popper.js": "^1.12.9",
+        "sweetalert": "^2.1.0"
     }
 }
