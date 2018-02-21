@@ -22,4 +22,26 @@ class Faq extends Model
      * @var array
      */
 	protected $dates = ['deleted_at'];
+
+    /**
+     * Set the question.
+     *
+     * @param  string  $value
+     * @return void
+     */
+    public function setQuestionAttribute($value)
+    {
+        $this->attributes['question'] = ucfirst($value);
+    }
+
+    /**
+     * Set the answer.
+     *
+     * @param  string  $value
+     * @return void
+     */
+    public function setAnswerAttribute($value)
+    {
+        $this->attributes['answer'] = ucfirst($value);
+    }
 }
