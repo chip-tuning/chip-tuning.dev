@@ -27,7 +27,7 @@
                 <div class="col-md-8 col-md-offset-2">
                     <h2 class="text-center">Naše <strong>Usluge</strong></h2>
                     <div class="separator"></div>
-                    <p class="large text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam voluptas facere vero ex tempora saepe perspiciatis ducimus sequi animi.</p>
+                    <p class="large text-center">Racing performance Chip Tuning bavi se prvenstveno povecanjem snage vozila. Pored toga nudimo i niz propratnih usluga.</p>
                 </div>
                 <div class="col-md-12">
                     <h3 class="title">Chip Tuning</h3>
@@ -146,7 +146,7 @@
                         <span class="icon without-bg"><i class="fa fa-diamond"></i></span>
                         <div class="body">
                             <h4 class="title">Dijagnostika</h4>
-                            <p>Voluptatem ad provident non repudiandae beatae cupiditate amet reiciendis lorem dolor consectetur.</p>
+                            <p>Posedujemo najsavremenije dijagnostičke uređaje koji nam omogućavaju rad na vozilima poslednje generacije. .</p>
                             <a href="#">Saznaj više<i class="pl-5 fa fa-angle-double-right"></i></a>
                         </div>
                     </div>
@@ -185,7 +185,7 @@
                 <div class="col-md-8 col-md-offset-2">
                     <h2 class="text-center">Zašto <strong>baš</strong> mi</h2>
                     <div class="separator"></div>
-                    <p class="large text-center">Atque ducimus velit, earum quidem, iusto dolorem. Ex ipsam totam quas blanditiis, pariatur maxime ipsa iste, doloremque neque doloribus, error. Corrupti, tenetur.</p>
+                    <p class="large text-center">Firma Racing Performance Chip Tuning bavi se prvenstveno povećanjem snage vozila uz smanjenje potrošnje. Ono što nas izdvaja u odnosu na ostale firme jeste oprema i software poslednje generacije koji nam omogućava brz, kvalitetan i efikasan rad.</p>
                     <br>
                 </div>
                 <div class="col-md-6">
@@ -200,8 +200,8 @@
                             </a>
                         </div>
                         <div class="media-body">
-                            <h4 class="media-heading">Extremely Flexible</h4>
-                            Cras sit amet nibh libero, in gravida nulla. Sollicitudin.
+                            <h4 class="media-heading">Brzo i efikasno</h4>
+                            Čitanje i upis vrši se putem obd konektora bez skidanja računara, uređajima poslednje generacije.
                         </div>
                     </div>
                     <div class="media object-non-visible animated object-visible" data-animation-effect="fadeInDownSmall" data-effect-delay="100">
@@ -211,8 +211,8 @@
                             </a>
                         </div>
                         <div class="media-body">
-                            <h4 class="media-heading">Packed Full Of Features</h4>
-                            Cras sit amet nibh libero. Nulla vel metus scelerisque.
+                            <h4 class="media-heading">Detaljna provera vozila</h4>
+                            Kompletna dijagnostika uređajima poslednje generacije.
                         </div>
                     </div>
                     <div class="media object-non-visible animated object-visible" data-animation-effect="fadeInDownSmall" data-effect-delay="100">
@@ -222,8 +222,8 @@
                             </a>
                         </div>
                         <div class="media-body">
-                            <h4 class="media-heading">24/7 Support</h4>
-                            Cras sit amet nibh libero. Nulla vel metus scelerisque.
+                            <h4 class="media-heading">Izlazak na teren</h4>
+                            Naša ekipa po potrebi izalzi na teren. 
                         </div>
                     </div>
                     <p><a href="#" class="btn btn-default-transparent btn-animated">Learn More <i class="fa fa-arrow-right pl-10"></i></a></p>
@@ -292,7 +292,7 @@
                         <div class="row">
                             <div class="col-sm-8">
                                 <h1 class="title">Kontaktirajte nas</h1>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem quasi explicabo consequatur consectetur, a atque voluptate officiis eligendi nostrum.</p>
+                                <p>Ukoliko imate bilo kakve nedoumice vezane za naše usluge, kontaktirajte nas. Rado ćemo odgovoriti na sva Vaša pitanja.</p>
                             </div>
                             <div class="col-sm-4">
                                 <br>
