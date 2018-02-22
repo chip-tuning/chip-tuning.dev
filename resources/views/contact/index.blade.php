@@ -39,7 +39,7 @@
 				<div class="main col-md-8">
 					<h3 class="title">Pošaljite nam poruku</h3>
 					<div class="separator-2"></div>
-					<p>It would be great to hear from you! Just drop us a line and ask for anything with which you think we could be helpful. We are looking forward to hearing from you!</p>
+					<p>Ukoliko imate bilo kakvih pitanja u vezi naših usluga, pošaljite nam poruku a mi ćemo odgovoriti u najkraćem mogućem roku!</p>
 					<div class="contact-form">
 						<form id="contact-form" class="margin-clear" role="form">
 							<div class="form-group has-feedback">
