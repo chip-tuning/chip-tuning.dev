@@ -4,10 +4,11 @@ namespace App\Console\Commands;
 
 use App\Album;
 use App\Photo;
-use Illuminate\Console\Command;
 use App\Services\Instagram\Instagram;
-use Intervention\Image\Facades\Image;
+use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Cache;
+use Intervention\Image\Facades\Image;
 use Symfony\Component\HttpFoundation\File\MimeType\ExtensionGuesser;
 
 class InstagramFetcher extends Command
@@ -67,7 +68,7 @@ class InstagramFetcher extends Command
      */
     protected function makePath(string $hash, string $size, string $ext) : string
     {
-    	return "/photos/{$hash}_{$size}.{$ext}";
+    	return "photos/{$hash}_{$size}.{$ext}";
     }
 
     /**
@@ -118,6 +119,18 @@ class InstagramFetcher extends Command
     	return 1;
     }
 
+    /**
+     * Forget cached photos
+     * 
+     * @param  string $key
+     * @return void
+     */
+    protected function forgetCache($key)
+    {
+    	if (Cache::has($key))
+    		Cache::forget($key);
+    }
+
 	/**
 	 * Execute the console command.
 	 *
@@ -144,6 +157,8 @@ class InstagramFetcher extends Command
 						)
 					);
 				}
+
+				$this->forgetCache('photos');
 			}
 			else
 			{
@@ -163,6 +178,8 @@ class InstagramFetcher extends Command
 							);
 						}
 					}
+
+					$this->forgetCache('photos');
 				}
 			}
 		}
