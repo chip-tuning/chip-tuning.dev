@@ -15,7 +15,7 @@ class GalleryController extends Controller
     public function index()
     {
         $albums = Album::with(['photos' => function ($query) {
-            $query->limit(32)->orderByDesc('created_at');
+            $query->orderByDesc('created_at')->limit(32);
         }])->get();
 
         return view('gallery.index', compact('albums'));

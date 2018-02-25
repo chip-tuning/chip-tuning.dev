@@ -29,7 +29,7 @@ trait Taggable
 			$ids = [];
 			foreach ($tags as $value)
 			{
-				$tag = Tag::firstOrCreate(['name' => $value]);
+				$tag = Tag::firstOrCreate(['name' => str_slug($value, '_')]);
 				$ids[] = $tag->id;
 			}
 

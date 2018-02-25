@@ -18,10 +18,10 @@ class CreateArticlesTable extends Migration
             $table->unsignedInteger('user_id');
             $table->string('title')->unique();
             $table->string('slug')->unique();
+            $table->string('picture');
             $table->text('summary');
             $table->text('content');
             $table->timestamps();
-            $table->timestamp('published_at')->nullable();
             $table->softDeletes();
         });
     }

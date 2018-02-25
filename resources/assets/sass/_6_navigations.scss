@@ -377,6 +377,8 @@ header .dropdown-menu > li.active > a i.fa-circle-o:before {
 /* mobile menu toggle button on hover/focus */
 .navbar-default .navbar-toggle {
   border-radius: 0;
+  border-color: #ccc;
+  background: $white;
 }
 
 .navbar-default .navbar-toggle:hover,
@@ -617,13 +619,15 @@ header .dropdown-menu > li.active > a i.fa-circle-o:before {
 }
 
 .dark.header .dropdown-menu .divider {
-  background-color: rgba($dark-header, 0.80);
+  //background-color: rgba($dark-header, 0.80);
+  background-color: $dark-header;
 }
 
 .dark.header .dropdown-menu > li > a,
 .dark.header .mega-menu .menu > li > a {
   color: #cccccc;
-  border-bottom: 1px solid rgba($dark-header, 0.80);
+  //border-bottom: 1px solid rgba($dark-header, 0.80);
+  border-bottom: 1px solid $dark-navigation-item-border;
   text-shadow: 1px 1px rgba($black, 0.7);
 }
 
@@ -647,7 +651,8 @@ header .dropdown-menu > li.active > a i.fa-circle-o:before {
 .dark.header .dropdown-menu .menu > .active > a:focus {
   background-color: rgba($black, 0.2);
   color: $white;
-  border-color: rgba($dark-header, 0.80);
+  //border-color: rgba($dark-header, 0.80);
+  border-color: $dark-navigation-item-border;
 }
 
 .dark.header .dropdown .dropdown > a:before {

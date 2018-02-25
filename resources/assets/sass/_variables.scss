@@ -12,9 +12,9 @@ $gray-lighter: #cdcdcd !default;
 $white: #ffffff !default;
 $black: #000000 !default;
 
-// Base Colors of Light Blue Skin.
-$base-color: #09afdf !default;
-$base-color-hover: #0c9ec7 !default;
+// Base Colors of Dark Red Skin.
+$base-color: #992020 !default;
+$base-color-hover: #681313 !default;
 
 // Background color for `<body>`.
 $body-bg: #ffffff !default;
@@ -29,9 +29,9 @@ $link-color: $base-color !default;
 $link-color-hover: $base-color-hover !default;
 
 // Dark Header Top and Header
-$dark-header: #394245 !default;
-$dark-header-top: #2e3537 !default;
-$dark-header-top-border: #252a2c !default;
+$dark-header: #393232 !default;
+$dark-header-top: #2c2727 !default;
+$dark-header-top-border: #201c1c !default;
 $dark-navigation-item-border: rgba($dark-header, 0.8) !default;
 
 // Backgrounds colors of sections

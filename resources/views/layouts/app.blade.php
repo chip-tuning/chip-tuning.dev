@@ -21,6 +21,8 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/vendor.css') }}">
 	@yield('styles')
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
+	<link rel="alternate" type="application/json" title="{{ config('app.name', 'RPCT') }}" href="{{ route('feeds.json') }}">
+	<link rel="alternate" type="application/atom+xml" title="{{ config('app.name', 'RPCT') }}" href="{{ route('feeds.rss') }}">
 	<script type="application/ld+json">
 	  {
 		"@context": "http://schema.org",
@@ -53,13 +55,13 @@
 						</div>
 						<div class="col-xs-3 col-sm-6 col-md-3 text-right">
 							<ul class="social-links circle small clearfix hidden-xs">
-								@include('sections.socials')
+								@include('partials.socials')
 							</ul>
 							<div class="social-links hidden-lg hidden-md hidden-sm circle small">
 								<div class="btn-group dropdown">
 									<button type="button" class="btn dropdown-toggle" data-toggle="dropdown"><i class="fa fa-share-alt"></i></button>
 									<ul class="dropdown-menu dropdown-menu-right dropdown-animation">
-										@include('sections.socials')
+										@include('partials.socials')
 									</ul>
 								</div>
 							</div>
@@ -77,7 +79,7 @@
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
 							</button>
-							@include('sections.logo')
+							@include('partials.logo')
 						</div>
 						<div class="collapse navbar-collapse" id="navbar-collapse">
 							<ul class="nav navbar-nav navbar-right">
@@ -152,7 +154,7 @@
 									<div class="separator-2"></div>
 									<nav>
 										<ul class="nav nav-pills nav-stacked">
-											<li><a href="#">Mapa sajta</a></li>
+											<li><a href="{{ route('feeds.rss') }}">RSS</a></li>
 											<li><a href="{{ route('faq.index') }}">Česta pitanja</a></li>
 											<li><a href="{{ route('terms.index') }}">Uslovi korišćenja</a></li>
 											<li><a href="{{ route('privacy.index') }}">Politika privatnosti</a></li>
@@ -164,74 +166,35 @@
 								<div class="footer-content">
 									<h2 class="title">Blog</h2>
 									<div class="separator-2"></div>
-									<div class="media margin-clear">
-										<div class="media-left">
-											<div class="overlay-container">
-												<img class="media-object" src="public/images/blog-thumb-1.jpg" alt="blog-thumb">
-												<a href="blog-post.html" class="overlay-link small"><i class="fa fa-link"></i></a>
+									@if ($articles->isNotEmpty())
+										@foreach($articles as $article)
+											<div class="media margin-clear">
+												<div class="media-body">
+													<h6 class="media-heading"><a href="{{ route('blog.show', $article->slug) }}">{{ words($article->title, 6, "...") }}</a></h6>
+													<p class="small margin-clear"><i class="fa fa-calendar pr-10"></i>Objavljeno {{ $article->published_at->diffForHumans() }}</p>
+												</div>
+												<hr>
 											</div>
-										</div>
-										<div class="media-body">
-											<h6 class="media-heading"><a href="blog-post.html">Lorem ipsum dolor sit amet...</a></h6>
-											<p class="small margin-clear"><i class="fa fa-calendar pr-10"></i>Mar 23, 2017</p>
-										</div>
-										<hr>
-									</div>
-									<div class="media margin-clear">
-										<div class="media-left">
-											<div class="overlay-container">
-												<img class="media-object" src="public/images/blog-thumb-2.jpg" alt="blog-thumb">
-												<a href="blog-post.html" class="overlay-link small"><i class="fa fa-link"></i></a>
-											</div>
-										</div>
-										<div class="media-body">
-											<h6 class="media-heading"><a href="blog-post.html">Lorem ipsum dolor sit amet...</a></h6>
-											<p class="small margin-clear"><i class="fa fa-calendar pr-10"></i>Mar 22, 2017</p>
-										</div>
-										<hr>
-									</div>
-									<div class="media margin-clear">
-										<div class="media-left">
-											<div class="overlay-container">
-												<img class="media-object" src="public/images/blog-thumb-3.jpg" alt="blog-thumb">
-												<a href="blog-post.html" class="overlay-link small"><i class="fa fa-link"></i></a>
-											</div>
-										</div>
-										<div class="media-body">
-											<h6 class="media-heading"><a href="blog-post.html">Lorem ipsum dolor sit amet...</a></h6>
-											<p class="small margin-clear"><i class="fa fa-calendar pr-10"></i>Mar 21, 2017</p>
-										</div>
-										<hr>
-									</div>
-									<div class="media margin-clear">
-										<div class="media-left">
-											<div class="overlay-container">
-												<img class="media-object" src="public/images/blog-thumb-4.jpg" alt="blog-thumb">
-												<a href="blog-post.html" class="overlay-link small"><i class="fa fa-link"></i></a>
-											</div>
-										</div>
-										<div class="media-body">
-											<h6 class="media-heading"><a href="blog-post.html">Lorem ipsum dolor sit amet...</a></h6>
-											<p class="small margin-clear"><i class="fa fa-calendar pr-10"></i>Mar 21, 2017</p>
-										</div>
-									</div>
-									<div class="text-right space-top">
-										<a href="#" class="link-dark"><i class="fa fa-plus-circle pl-5 pr-5"></i>Pogledaj sve</a>
-									</div>
+										@endforeach
+										<div class="text-right space-top">
+											<a href="{{ route('blog.index') }}" class="link-dark"><i class="fa fa-plus-circle pl-5 pr-5"></i>Pogledaj sve</a>
+										</div>										
+									@else
+										<p>Trenutno ne postoji nijedan članak</p>
+									@endif
 								</div>
 							</div>
 							<div class="col-md-3">
 								<div id="mini-gallery" class="footer-content">
 									<h2 class="title">Naši radovi</h2>
 									<div class="separator-2"></div>
+									@if ($photos->isNotEmpty())
 									<div class="mini-magnific row grid-space-10">
 										@foreach ($photos as $photo)
 											<div class="col-xs-4 col-md-6">
 												<div class="overlay-container mb-10">
-													<img src="{{ asset('/storage' . $photo->small) }}" alt="{{ $photo->title }}">
-													<a href="{{ asset('/storage' . $photo->large) }}" class="overlay-link small">
-														<i class="fa fa-image"></i>
-													</a>
+													<img src="{{ asset('/storage/' . $photo->small) }}" alt="{{ $photo->title }}">
+													<a href="{{ asset('/storage/' . $photo->large) }}" class="overlay-link small"><i class="fa fa-image"></i></a>
 												</div>
 											</div>                                
 										@endforeach
@@ -239,6 +202,9 @@
 									<div class="text-right space-top">
 										<a href="{{ route('gallery.index') }}" class="link-dark"><i class="fa fa-plus-circle pl-5 pr-5"></i>Pogledaj sve</a>
 									</div>
+									@else
+										<p>Trenutno ne postoji nijedna fotografija</p>
+									@endif
 								</div>
 							</div>
 							<div class="col-md-3">
@@ -247,7 +213,7 @@
 									<div class="separator-2"></div>
 									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium odio voluptatem necessitatibus illo vel dolorum soluta.</p>
 									<ul class="social-links circle animated-effect-1">
-										@include('sections.socials')
+										@include('partials.socials')
 									</ul>
 									<div class="separator-2"></div>
 									<ul class="list-icons">
@@ -267,7 +233,7 @@
 					<div class="subfooter-inner">
 						<div class="row">
 							<div class="col-md-12">
-								@include('sections.copyright')
+								@include('partials.copyright')
 							</div>
 						</div>
 					</div>

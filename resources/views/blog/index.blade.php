@@ -13,7 +13,7 @@
 @section('content')
 <div id="blog">
 	<div class="banner dark-translucent-bg background-img-3" style="background-position: 50% 30%;">
-		@component('components.breadcrumbs')
+		@component('components.breadcrumb')
 			<li class="active">Blog</li>
 		@endcomponent
 		<div class="container">
@@ -29,7 +29,7 @@
 					</ul>
 					<div class="separator"></div>
 					<ul class="social-links circle animated-effect-1 margin-clear text-center space-bottom">
-						@include('sections.socials')
+						@include('partials.socials')
 					</ul>
 				</div>
 			</div>
@@ -39,39 +39,44 @@
 		<div class="container">
 			<div class="row">
 				<div class="main col-md-8">
-					<h1 class="page-title">Najnoviji članci</h1>
+					<h3 class="title">Najnoviji članci</h3>
 					<div class="separator-2"></div>
-					<!-- blogpost start -->
-					<article class="blogpost">
-						<div class="overlay-container">
-							<img src="{{ asset('images/blog-2.jpg') }}" alt="">
-							<a class="overlay-link" href="blog-post.html"><i class="fa fa-link"></i></a>
-						</div>
-						<header>
-							<h2><a href="blog-post.html">Cute Robot</a></h2>
-							<div class="post-info">
-								<span class="post-date">
-									<i class="icon-calendar"></i>
-									<span class="day">08</span>
-									<span class="month">May 2015</span>
-								</span>
-								<span class="submitted"><i class="icon-user-1"></i> by <a href="#">John Doe</a></span>
-								<span class="comments"><i class="icon-chat"></i> <a href="#">22 comments</a></span>
-							</div>
-						</header>
-						<div class="blogpost-content">
-							<p>Mauris dolor sapien, malesuada at interdum ut, hendrerit eget lorem. Nunc interdum mi neque, et  sollicitudin purus fermentum ut. Suspendisse faucibus nibh odio, a vehicula eros pharetra in. Maecenas  ullamcorper commodo rutrum. In iaculis lectus vel augue eleifend dignissim. Aenean viverra semper sollicitudin.</p>
-						</div>
-						<footer class="clearfix">
-							<div class="tags pull-left"><i class="fa fa-tags"></i> <a href="#">tag 1</a>, <a href="#">tag 2</a>, <a href="#">long tag 3</a></div>
-							<div class="link pull-right"><i class="fa fa-link"></i> <a href="#">Pročitaj ceo članak</a></div>
-						</footer>
-					</article>
-					<!-- blogpost end -->
+						@if ($articles->isNotEmpty())
+							@foreach ($articles as $article)
+								<article class="blogpost">
+									<div class="overlay-container">
+										<img src="{{ asset('/storage/' . $article->picture) }}" alt="{{ $article->title }}">
+										<a class="overlay-link" href="{{ route('blog.show', $article->slug) }}"><i class="fa fa-link"></i></a>
+									</div>
+									<header>
+										<h2><a href="{{ route('blog.show', $article->slug) }}">{{ $article->title }}</a></h2>
+										@component('components.articles.info')
+											@slot('date', $article->created_at->diffForHumans())
+											@slot('author', $article->author->name)
+										@endcomponent
+									</header>
+									<div class="blogpost-content text-justify">{!! $article->summary !!}</div>
+									<footer class="clearfix">
+										@if ($article->tags->isNotEmpty())
+											@component('components.articles.tags')
+												@slot('tags', $article->tags)
+											@endcomponent
+										@endif
+										<div class="link pull-right">
+											<i class="fa fa-link"></i> <a href="{{ route('blog.show', $article->slug) }}">Pročitaj ceo članak</a>
+										</div>
+									</footer>
+								</article>
+							@endforeach
+							{{ $articles->links('partials.pagination') }}
+						@else
+							<p>Trenutno ne postoji nijedan članak</p>
+						@endif	
 				</div>
-				@include('sections.sidebar')
+				@include('partials.sidebar')
 			</div>
 		</div>
 	</section>
+	@include('partials.subscribe')
 </div>
 @endsection

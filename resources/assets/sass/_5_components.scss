@@ -49,7 +49,7 @@ fieldset[disabled] .btn-default {
 .open > .dropdown-toggle.btn-default-transparent {
   color: $white;
   background-color: $base-color-hover;
-  border-color: #0781a4;
+  border-color: darken($base-color, 12%);
 }
 
 .dark-bg .btn-default-transparent {

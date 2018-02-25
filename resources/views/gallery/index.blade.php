@@ -13,7 +13,7 @@
 @section('content')
 <div id="gallery">
 	<div class="banner pv-45 dark-translucent-bg background-img-2" style="background-position: 50% 30%;">
-		@component('components.breadcrumbs')
+		@component('components.breadcrumb')
 		    <li class="active">Naši radovi</li>
 		@endcomponent
 		<div class="container">
@@ -31,7 +31,8 @@
 		<div class="container">
 			<div class="row">
 				<div class="main col-md-12">
-					<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit Illo quaerat <br> commodi excepturi dignissimos!</p>
+					<h3 class="title">Najnoviji radovi</h3>
+					<div class="separator-2"></div>
 					<div class="filters">
 						<ul class="nav nav-pills">
 							<li class="active"><a href="#" data-filter="*">Sve</a></li>
@@ -46,8 +47,8 @@
 							<div class="col-md-3 col-sm-6 isotope-item {{ strtolower($album->title) }}">
 								<div class="image-box shadow bordered mb-20">
 									<div class="overlay-container">
-										<img src="{{ asset('/storage' . $photo->medium) }}" alt="{{ $photo->title }}">
-										<a href="{{ asset('/storage' . $photo->large) }}" class="overlay-link medium" title="{{ $photo->title }}"><i class="fa fa-image"></i></a>
+										<img src="{{ asset('/storage/' . $photo->medium) }}" alt="{{ $photo->title }}">
+										<a href="{{ asset('/storage/' . $photo->large) }}" class="overlay-link medium" title="{{ $photo->title }}"><i class="fa fa-image"></i></a>
 	                                </div>
 								</div>
 							</div>						

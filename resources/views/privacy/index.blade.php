@@ -12,7 +12,7 @@
 
 @section('content')
 <div id="privacy">
-	@component('components.breadcrumbs')
+	@component('components.breadcrumb')
 	    <li class="active">Politika privatnosti</li>
 	@endcomponent
 	<section class="main-container">

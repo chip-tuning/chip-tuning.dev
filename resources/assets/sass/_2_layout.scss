@@ -58,7 +58,7 @@
 /*Transparent Header*/
 .transparent-header {
   .header-top {
-    z-index: 3072;
+    z-index: 1036;
     position: relative;
   }
 
@@ -126,11 +126,7 @@
 }
 
 .block {
-  margin-bottom: 50px;
-
-  @media (max-width: 767px) {
-    margin-bottom: 0;
-  }
+  margin-bottom: 25px;
 }
 
 .section {

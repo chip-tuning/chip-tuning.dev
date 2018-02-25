@@ -18,7 +18,7 @@
 @section('content')
 <div id="contact">
 	<div class="banner dark-translucent-bg background-img-3" style="background-position: 50% 30%;">
-		@component('components.breadcrumbs')
+		@component('components.breadcrumb')
 		    <li class="active">Kontakt</li>
 		@endcomponent
 		<div class="container">
@@ -34,7 +34,7 @@
 					</ul>
 					<div class="separator"></div>
 					<ul class="social-links circle animated-effect-1 margin-clear text-center space-bottom">
-						@include('sections.socials')
+						@include('partials.socials')
 					</ul>
 				</div>
 			</div>

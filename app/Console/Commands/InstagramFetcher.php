@@ -158,7 +158,7 @@ class InstagramFetcher extends Command
 					);
 				}
 
-				$this->forgetCache('photos');
+				$this->forgetCache('latest_photos');
 			}
 			else
 			{
@@ -179,7 +179,7 @@ class InstagramFetcher extends Command
 						}
 					}
 
-					$this->forgetCache('photos');
+					$this->forgetCache('latest_photos');
 				}
 			}
 		}

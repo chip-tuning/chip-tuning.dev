@@ -12,7 +12,7 @@
 
 @section('content')
 <div id="terms">
-	@component('components.breadcrumbs')
+	@component('components.breadcrumb')
 		    <li class="active">Uslovi korišćenja</li>
 	@endcomponent
 	<section class="main-container">

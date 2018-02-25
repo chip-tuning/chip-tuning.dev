@@ -3,7 +3,7 @@
 /* Blog pages
 ---------------------------------- */
 .blogpost {
-  margin: 0 0 70px;
+  margin: 0 0 50px;
   header {
     padding: 20px 10px 20px;
   }
@@ -62,7 +62,25 @@
   &.full .blogpost-content {
     padding: 0 0 5px;
   }
+  
+  &.full .blogpost-content {
+    .summary {
+        margin-top: 15px;
+        margin-bottom: 20px;      
+        
+        > p {
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 1.4;
+        text-align: justify;
 
+        @media (min-width: 768px) {
+          font-size: 21px;
+        }
+      }
+    }
+  }
+  
   &.full footer {
     padding: 10px 0;
   }

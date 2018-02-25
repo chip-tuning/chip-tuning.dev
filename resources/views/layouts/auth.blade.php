@@ -28,12 +28,12 @@
 			<div class="container">
 				<div class="row">
 					<div class="text-center">
-						@include('sections.logo')
+						@include('partials.logo')
 						<div class="form-block center-block p-30 light-gray-bg border-clear">
 							@yield('content')
 						</div>		
 						<div class="mt-20">
-							@include('sections.copyright')
+							@include('partials.copyright')
 						</div>
 					</div>
 				</div>

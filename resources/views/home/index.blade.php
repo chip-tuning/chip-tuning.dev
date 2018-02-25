@@ -20,7 +20,7 @@
 
 @section('content')
 <div id="home">
-    @include('sections.slider')
+    @include('partials.slider')
     <section class="pv-30 clearfix">
         <div class="container">
             <div class="row">
@@ -34,151 +34,113 @@
                     <div class="separator-2"></div>
                 </div>
                 <div class="col-md-6 space-top">
-                    <div class="feature-box-2 right" data-animation-effect="fadeInDownSmall" data-effect-delay="25">
-                        <span class="icon without-bg"><i class="fa fa-arrows"></i></span>
-                        <div class="body">
-                            <h4 class="title text-default">Automobili</h4>
-                            <p>Our design is with responsive in mind. Our themes are compatible with various desktop, tablet, and mobile devices. <a href="#">Saznaj više<i class="pl-5 fa fa-angle-double-right"></i></a></p>
-                            <div class="separator-3"></div>
-                        </div>
-                    </div>
-                    <div class="feature-box-2 right" data-animation-effect="fadeInDownSmall" data-effect-delay="50">
-                        <span class="icon without-bg"><i class="fa fa-arrows"></i></span>
-                        <div class="body">
-                            <h4 class="title text-default">Kamioni</h4>
-                            <p>Our design is with responsive in mind. Our themes are compatible with various desktop, tablet, and mobile devices. <a href="#">Saznaj više<i class="pl-5 fa fa-angle-double-right"></i></a></p>
-                            <div class="separator-3"></div>
-                        </div>
-                    </div>
-                    <div class="feature-box-2 right" data-animation-effect="fadeInDownSmall" data-effect-delay="75">
-                        <span class="icon without-bg"><i class="fa fa-arrows"></i></span>
-                        <div class="body">
-                            <h4 class="title text-default">Poljoprivredne masine</h4>
-                            <p>Our design is with responsive in mind. Our themes are compatible with various desktop, tablet, and mobile devices. <a href="#">Saznaj više<i class="pl-5 fa fa-angle-double-right"></i></a></p>
-                        </div>
-                    </div>
+                    @component('components.groups')
+                        @slot('delay', 25)
+                        @slot('icon')
+                            <i class="fa fa-arrows"></i>
+                        @endslot
+                        @slot('title', 'Automobili')
+                        @slot('description', 'Our design is with responsive in mind. Our themes are compatible with various desktop, tablet, and mobile devices.')
+                        @slot('link', '#')
+                    @endcomponent
+                    @component('components.groups')
+                        @slot('delay', 50)
+                        @slot('icon')
+                            <i class="fa fa-arrows"></i>
+                        @endslot
+                        @slot('title', 'Kamioni')
+                        @slot('description', 'Our design is with responsive in mind. Our themes are compatible with various desktop, tablet, and mobile devices.')
+                        @slot('link', '#')
+                    @endcomponent
+                    @component('components.groups')
+                        @slot('delay', 25)
+                        @slot('icon')
+                            <i class="fa fa-arrows"></i>
+                        @endslot
+                        @slot('title', 'Poljoprivredne mašine')
+                        @slot('description', 'Our design is with responsive in mind. Our themes are compatible with various desktop, tablet, and mobile devices.')
+                        @slot('link', '#')
+                    @endcomponent
                 </div>
                 <div class="col-md-6">
                     <img src="{{ asset('images/service-image-1.png') }}" alt="Nase usluge">
                 </div>
-                <div class="col-md-4 ">
-                    <div class="pv-20 ph-20 feature-box-2 boxed shadow" data-animation-effect="fadeInDownSmall" data-effect-delay="100">
-                        <span class="icon without-bg"><i class="fa fa-diamond"></i></span>
-                        <div class="body">
-                            <h4 class="title">DPF OFF</h4>
-                            <p>Voluptatem ad provident non repudiandae beatae cupiditate amet reiciendis lorem dolor consectetur.</p>
-                            <a href="#">Saznaj više<i class="pl-5 fa fa-angle-double-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 ">
-                    <div class="pv-20 ph-20 feature-box-2 boxed shadow" data-animation-effect="fadeInDownSmall" data-effect-delay="100">
-                        <span class="icon without-bg"><i class="fa fa-diamond"></i></span>
-                        <div class="body">
-                            <h4 class="title">EGR OFF</h4>
-                            <p>Voluptatem ad provident non repudiandae beatae cupiditate amet reiciendis lorem dolor consectetur.</p>
-                            <a href="#">Saznaj više<i class="pl-5 fa fa-angle-double-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 ">
-                    <div class="pv-20 ph-20 feature-box-2 boxed shadow" data-animation-effect="fadeInDownSmall" data-effect-delay="100">
-                        <span class="icon without-bg"><i class="fa fa-diamond"></i></span>
-                        <div class="body">
-                            <h4 class="title">DTC OFF</h4>
-                            <p>Voluptatem ad provident non repudiandae beatae cupiditate amet reiciendis lorem dolor consectetur.</p>
-                            <a href="#">Saznaj više<i class="pl-5 fa fa-angle-double-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 ">
-                    <div class="pv-20 ph-20 feature-box-2 boxed shadow" data-animation-effect="fadeInDownSmall" data-effect-delay="100">
-                        <span class="icon without-bg"><i class="fa fa-diamond"></i></span>
-                        <div class="body">
-                            <h4 class="title">AD Blue OFF</h4>
-                            <p>Voluptatem ad provident non repudiandae beatae cupiditate amet reiciendis lorem dolor consectetur.</p>
-                            <a href="#">Saznaj više<i class="pl-5 fa fa-angle-double-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 ">
-                    <div class="pv-20 ph-20 feature-box-2 boxed shadow" data-animation-effect="fadeInDownSmall" data-effect-delay="100">
-                        <span class="icon without-bg"><i class="fa fa-diamond"></i></span>
-                        <div class="body">
-                            <h4 class="title">Swirl Flaps OFF</h4>
-                            <p>Voluptatem ad provident non repudiandae beatae cupiditate amet reiciendis lorem dolor consectetur.</p>
-                            <a href="#">Saznaj više<i class="pl-5 fa fa-angle-double-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 ">
-                    <div class="pv-20 ph-20 feature-box-2 boxed shadow" data-animation-effect="fadeInDownSmall" data-effect-delay="100">
-                        <span class="icon without-bg"><i class="fa fa-diamond"></i></span>
-                        <div class="body">
-                            <h4 class="title">Speed Limit OFF</h4>
-                            <p>Voluptatem ad provident non repudiandae beatae cupiditate amet reiciendis lorem dolor consectetur.</p>
-                            <a href="#">Saznaj više<i class="pl-5 fa fa-angle-double-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 ">
-                    <div class="pv-20 ph-20 feature-box-2 boxed shadow" data-animation-effect="fadeInDownSmall" data-effect-delay="100">
-                        <span class="icon without-bg"><i class="fa fa-diamond"></i></span>
-                        <div class="body">
-                            <h4 class="title">Topli Start OFF</h4>
-                            <p>Voluptatem ad provident non repudiandae beatae cupiditate amet reiciendis lorem dolor consectetur.</p>
-                            <a href="#">Saznaj više<i class="pl-5 fa fa-angle-double-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 ">
-                    <div class="pv-20 ph-20 feature-box-2 boxed shadow" data-animation-effect="fadeInDownSmall" data-effect-delay="100">
-                        <span class="icon without-bg"><i class="fa fa-diamond"></i></span>
-                        <div class="body">
-                            <h4 class="title">GPS Praćenje</h4>
-                            <p>Voluptatem ad provident non repudiandae beatae cupiditate amet reiciendis lorem dolor consectetur.</p>
-                            <a href="#">Saznaj više<i class="pl-5 fa fa-angle-double-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 ">
-                    <div class="pv-20 ph-20 feature-box-2 boxed shadow" data-animation-effect="fadeInDownSmall" data-effect-delay="100">
-                        <span class="icon without-bg"><i class="fa fa-diamond"></i></span>
-                        <div class="body">
-                            <h4 class="title">Dijagnostika</h4>
-                            <p>Posedujemo najsavremenije dijagnostičke uređaje koji nam omogućavaju rad na vozilima poslednje generacije. .</p>
-                            <a href="#">Saznaj više<i class="pl-5 fa fa-angle-double-right"></i></a>
-                        </div>
-                    </div>
-                </div>
+                @component('components.service')
+                    @slot('icon')
+                        <i class="fa fa-diamond"></i>
+                    @endslot
+                    @slot('title', 'DPF OFF')
+                    @slot('description', 'Voluptatem ad provident non repudiandae beatae cupiditate amet reiciendis lorem dolor consectetur.')
+                    @slot('link', '#')
+                @endcomponent
+                @component('components.service')
+                    @slot('icon')
+                        <i class="fa fa-diamond"></i>
+                    @endslot
+                    @slot('title', 'EGR OFF')
+                    @slot('description', 'Voluptatem ad provident non repudiandae beatae cupiditate amet reiciendis lorem dolor consectetur.')
+                    @slot('link', '#')
+                @endcomponent
+                @component('components.service')
+                    @slot('icon')
+                        <i class="fa fa-diamond"></i>
+                    @endslot
+                    @slot('title', 'DTC OFF')
+                    @slot('description', 'Voluptatem ad provident non repudiandae beatae cupiditate amet reiciendis lorem dolor consectetur.')
+                    @slot('link', '#')
+                @endcomponent
+                @component('components.service')
+                    @slot('icon')
+                        <i class="fa fa-diamond"></i>
+                    @endslot
+                    @slot('title', 'AD Blue OFF')
+                    @slot('description', 'Voluptatem ad provident non repudiandae beatae cupiditate amet reiciendis lorem dolor consectetur.')
+                    @slot('link', '#')
+                @endcomponent
+                @component('components.service')
+                    @slot('icon')
+                        <i class="fa fa-diamond"></i>
+                    @endslot
+                    @slot('title', 'Swirl Flaps OFF')
+                    @slot('description', 'Voluptatem ad provident non repudiandae beatae cupiditate amet reiciendis lorem dolor consectetur.')
+                    @slot('link', '#')
+                @endcomponent
+                @component('components.service')
+                    @slot('icon')
+                        <i class="fa fa-diamond"></i>
+                    @endslot
+                    @slot('title', 'Speed Limit OFF')
+                    @slot('description', 'Voluptatem ad provident non repudiandae beatae cupiditate amet reiciendis lorem dolor consectetur.')
+                    @slot('link', '#')
+                @endcomponent
+                @component('components.service')
+                    @slot('icon')
+                        <i class="fa fa-diamond"></i>
+                    @endslot
+                    @slot('title', 'Topli Start OFF')
+                    @slot('description', 'Voluptatem ad provident non repudiandae beatae cupiditate amet reiciendis lorem dolor consectetur.')
+                    @slot('link', '#')
+                @endcomponent
+                @component('components.service')
+                    @slot('icon')
+                        <i class="fa fa-diamond"></i>
+                    @endslot
+                    @slot('title', 'GPS Praćenje')
+                    @slot('description', 'Voluptatem ad provident non repudiandae beatae cupiditate amet reiciendis lorem dolor consectetur.')
+                    @slot('link', '#')
+                @endcomponent
+                @component('components.service')
+                    @slot('icon')
+                        <i class="fa fa-diamond"></i>
+                    @endslot
+                    @slot('title', 'Dijagnostika')
+                    @slot('description', 'Posedujemo najsavremenije dijagnostičke uređaje koji nam omogućavaju rad na vozilima poslednje generacije.')
+                    @slot('link', '#')
+                @endcomponent
             </div>
         </div>
     </section>
-    <section class="section dark-bg pv-40 clearfix">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="call-to-action text-center">
-                        <div class="row">
-                            <div class="col-sm-8 col-sm-offset-2">
-                                <h2 class="title">Cene usluga</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus error pariatur deserunt laudantium nam, mollitia quas nihil inventore, quibusdam?</p>
-                                <div class="separator"></div>
-                                <form class="form-inline margin-clear">
-                                    <div class="form-group has-feedback">
-                                        <label class="sr-only" for="subscribe2">Email address</label>
-                                        <input class="form-control" id="subscribe2" placeholder="Enter email" name="subscribe2" required="" type="email">
-                                        <i class="fa fa-envelope form-control-feedback"></i>
-                                    </div>
-                                    <button type="submit" class="btn btn-gray-transparent btn-animated margin-clear">Submit <i class="fa fa-send"></i></button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    @include('partials.calculator')
     <section class="pv-30">
         <div class="container">
             <div class="row">
@@ -193,40 +155,30 @@
                 </div>
                 <div class="col-md-6">
                     <p class="space-top">Lorem ipsum dolor sit amet, consectetur adipisicing elit. At provident modi nobis dolores ratione, maiores beatae vel iste illo incidunt officia sed id cupiditate quasi excepturi</p>
-                    <div class="media object-non-visible animated object-visible" data-animation-effect="fadeInDownSmall" data-effect-delay="100">
-                        <div class="media-left pr-20">
-                            <a href="#">
-                                <span class="icon circle small default-bg"><i class="fa fa-eye"></i></span>
-                            </a>
-                        </div>
-                        <div class="media-body">
-                            <h4 class="media-heading">Brzo i efikasno</h4>
-                            Čitanje i upis vrši se putem obd konektora bez skidanja računara, uređajima poslednje generacije.
-                        </div>
-                    </div>
-                    <div class="media object-non-visible animated object-visible" data-animation-effect="fadeInDownSmall" data-effect-delay="100">
-                        <div class="media-left pr-20">
-                            <a href="#">
-                                <span class="icon circle small default-bg"><i class="fa fa-calendar"></i></span>
-                            </a>
-                        </div>
-                        <div class="media-body">
-                            <h4 class="media-heading">Detaljna provera vozila</h4>
-                            Kompletna dijagnostika uređajima poslednje generacije.
-                        </div>
-                    </div>
-                    <div class="media object-non-visible animated object-visible" data-animation-effect="fadeInDownSmall" data-effect-delay="100">
-                        <div class="media-left pr-20">
-                            <a href="#">
-                                <span class="icon circle small default-bg"><i class="fa fa-car"></i></span>
-                            </a>
-                        </div>
-                        <div class="media-body">
-                            <h4 class="media-heading">Izlazak na teren</h4>
-                            Naša ekipa po potrebi izalzi na teren. 
-                        </div>
-                    </div>
-                    <p><a href="#" class="btn btn-default-transparent btn-animated">Learn More <i class="fa fa-arrow-right pl-10"></i></a></p>
+                    @component('components.feature')
+                        @slot('delay', 100)
+                        @slot('icon')
+                            <i class="fa fa-clock-o"></i>
+                        @endslot
+                        @slot('title', 'Brzina i efikasnost')
+                        @slot('description', 'Čitanje i upis vrši se putem ODB konektora bez skidanja računara, uređajima poslednje generacije.')
+                    @endcomponent
+                    @component('components.feature')
+                        @slot('delay', 100)
+                        @slot('icon')
+                            <i class="fa fa-tachometer"></i>
+                        @endslot
+                        @slot('title', 'Detaljna provera vozila')
+                        @slot('description', 'Posedujemo uređaje poslednje generacije za kompletnu dijagnostiku vašeg vozila.')
+                    @endcomponent
+                    @component('components.feature')
+                        @slot('delay', 100)
+                        @slot('icon')
+                            <i class="fa fa-car"></i>
+                        @endslot
+                        @slot('title', 'Rad na terenu')
+                        @slot('description', 'Po potrebi, naša ekipa izalzi na teren na području Srbije, Hrvatske, Bosne i Hercegovine i ostalih EX-YU republika.')
+                    @endcomponent
                 </div>
             </div>
             <div class="row">
@@ -319,7 +271,7 @@
             <div class="owl-carousel carousel">
                 @foreach ($photos as $photo)
                     <div class="image-box shadow">
-                        <img src="{{ asset('/storage' . $photo->medium) }}" alt="{{ $photo->title }}">
+                        <img src="{{ asset('/storage/' . $photo->medium) }}" alt="{{ $photo->title }}">
                     </div>
                 @endforeach
             </div>

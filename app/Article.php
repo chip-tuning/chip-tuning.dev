@@ -2,14 +2,15 @@
 
 namespace App;
 
-use App\Traits\Taggable;
 use Illuminate\Database\Eloquent\Model;
+use App\Traits\Taggable;
+use App\Traits\Fileable;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Support\Carbon;
 
 class Article extends Model
 {
 	use Taggable;
+	use Fileable;
 	use SoftDeletes;
 
 	/**
@@ -17,21 +18,37 @@ class Article extends Model
 	 *
 	 * @var array
 	 */
-	protected $fillable = ['user_id', 'title', 'slug', 'summary', 'content', 'published_at'];
+	protected $fillable = ['user_id', 'title', 'slug', 'summary', 'content'];
+
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = ['user_id'];
 
 	/**
 	 * The attributes that should be mutated to dates.
 	 *
 	 * @var array
 	 */
-	protected $dates = ['deleted_at', 'published_at'];
+	protected $dates = ['deleted_at'];
 
 	/**
-	 * The relationships to always eager-load.
-	 *
-	 * @var array
+	 * Boot the model.
 	 */
-	protected $with = ['user', 'pictures', 'tags'];
+	public static function boot() 
+	{
+		parent::boot();
+
+		static::AddGlobalScope('author', function($builder) {
+			$builder->with('author:id,name');
+		});
+
+		static::AddGlobalScope('tags', function($builder) {
+			$builder->with('tags:name');
+		});
+	}
 
 	/**
 	 * Get the route key name.
@@ -41,26 +58,6 @@ class Article extends Model
 	public function getRouteKeyName()
 	{
 		return 'slug';
-	}
-
-	/**
-	 * A thread belongs to a user.
-	 *
-	 * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-	 */
-	public function user()
-	{
-		return $this->belongsTo(User::class);
-	}
-
-	/**
-	 * An article may have many pictures.
-	 *
-	 * @return \Illuminate\Database\Eloquent\Relations\HasMany
-	 */
-	public function pictures()
-	{
-		return $this->hasMany(Picture::class);
 	}
 
 	/**
@@ -86,37 +83,26 @@ class Article extends Model
 	}
 
 	/**
-	 * Set the published at.
+	 * A thread belongs to a author.
 	 *
-	 * @param  string  $value
-	 * @return void
+	 * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
 	 */
-	public function setPublishedAtAttribute($value)
+	public function author()
 	{
-		$this->attributes['published_at'] = isset($value) 
-		? Carbon::createFromFormat('d/m/Y H:i:s', $value) 
-		: Carbon::now();
-	}
-
-
-	/**
-	 * Scope queries to articles that have been published.
-	 * 
-	 * @param  $query
-	 */    
-	public function scopePublished($query)
-	{
-		$query->where('published_at', '<=', Carbon::now());
+		return $this->belongsTo(User::class, 'user_id');
 	}
 
 	/**
-	 * Scope queries to articles that are unpublished.
-	 * 
-	 * @param  $query
+	 * Get latest articles
+	 *
+	 * @param  int limit
 	 */
-	public function scopeUnpublished($query)
+	public static function fetchLatest(int $limit)
 	{
-		$query->where('published_at', '>', Carbon::now());
+		return static::withoutGlobalScopes()
+			->take($limit)
+			->latest('created_at')
+			->get(['id', 'title', 'slug', 'created_at']);
 	}
 
 	/**
@@ -124,10 +110,9 @@ class Article extends Model
 	 */
 	public static function archives()
 	{
-		return static::selectRaw('year(created_at) year, monthname(created_at) month, count(*) published_at')
-			->groupBy('year', 'month')
+		return static::selectRaw('year(created_at) year, month(created_at) as month, monthname(created_at) month_name, count(*) published')
+			->groupBy('year', 'month', 'month_name')
 			->orderByRaw('min(created_at) desc')
-			->get()
-			->toArray();
+			->get();
 	}
 }

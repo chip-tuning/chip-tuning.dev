@@ -16,7 +16,7 @@
 
 @section('content')
 <div id="faq">
-	@component('components.breadcrumbs')
+	@component('components.breadcrumb')
 	    <li class="active">Česta pitanja</li>
 	@endcomponent
 	<section class="main-container">
@@ -44,9 +44,8 @@
 									</div>
 								</div>
 							@endforeach
-
 						</div>
-						{{ $faqs->links('sections.pagination') }}
+						{{ $faqs->links('partials.pagination') }}
 					@endif
 				</div>
 				<aside class="col-md-4 col-lg-3 col-lg-offset-1">

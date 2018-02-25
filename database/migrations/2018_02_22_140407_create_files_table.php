@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTaggablesTable extends Migration
+class CreateFilesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateTaggablesTable extends Migration
      */
     public function up()
     {
-        Schema::create('taggables', function (Blueprint $table) {
+        Schema::create('files', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('tag_id');
-            $table->morphs('taggable');
+            $table->string('path');
+            $table->string('fileable_type')->nullable();
+            $table->integer('fileable_id')->nullable();
             $table->timestamps();
-            $table->unique(['tag_id', 'taggable_type', 'taggable_id']);
         });
     }
 
@@ -29,6 +29,6 @@ class CreateTaggablesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('taggables');
+        Schema::dropIfExists('files');
     }
 }

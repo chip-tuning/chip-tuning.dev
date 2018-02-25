@@ -27,12 +27,12 @@
 			<div class="container">
 				<div class="row">
 					<div class="text-center object-non-visible" data-animation-effect="fadeInDownSmall" data-effect-delay="100">
-						@include('sections.logo')
+						@include('partials.logo')
 						<div class="info-block center-block p-30 light-gray-bg text-center border-clear">
 							@yield('content')
 						</div>				
 						<div class="mt-20">
-							@include('sections.copyright')
+							@include('partials.copyright')
 						</div>
 					</div>			
 				</div>
