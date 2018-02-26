@@ -1,14 +1,10 @@
 ﻿@extends('layouts.app')
 
-@section('title', 'Česta pitanja')
-@section('description', 'Chip tuning, profesionalno uklanjanje DPF filtera i gašenje EGR ventila, rešenje problema sa toplim startom, brisanje grešaka, Sabac, Srbija i okolina.')
-
-@section('facebook')
-	<meta property="og:type" content="webiste">
-	<meta property="og:title" content="{{ config('app.name', 'RPCT') }}">
-	<meta property="og:description" content="Poboljšavamo performanse vašeg automobila, Chip Tuning, uklanjanje DPF filtera, gašenje EGR ventila, rešavanje problema sa toplim startom i selektivno brisanje grešaka.">
-	<meta property="og:image" content="{{ asset('images/logo.jpg') }}">
-@endsection
+@section('title', config('app.name', 'RPCT') . ' - Cesto postavljana pitanja')
+@section('description', 'Opis stranice, iskoristiti rec koja je u title-u.')
+@section('facebook_type', 'website')
+@section('twitter_card', 'summary_large_image')
+@section('twitter_image', asset('images/logo-600x304.jpg'))
 
 @section('scripts')
 <!--<script src="https://www.google.com/recaptcha/api.js" async defer></script>-->

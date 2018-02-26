@@ -1,22 +1,13 @@
 @extends('layouts.app')
 
-@section('title', 'Blog')
-@section('description', 'Chip tuning, profesionalno uklanjanje DPF filtera i gašenje EGR ventila, rešenje problema sa toplim startom, brisanje grešaka, Sabac, Srbija i okolina.')
-
-@section('facebook')
-	<meta property="og:type" content="article">
-	<meta property="og:title" content="When Great Minds Don’t Think Alike">
-	<meta property="og:description" content="How much does culture influence creative thinking?">
-	<meta property="og:image" content="http://static01.nyt.com/international/19iht-btnumbers19A/19iht-btnumbers19A-facebookJumbo-v2.jpg">
+@section('title', $article->title . ' - ' . config('app.name', 'RPCT'))
+@section('description', str_limit(strip_tags($article->summary), 317))
+@section('facebook_type', 'article')
+@section('facebook_image')
+<meta property="og:image" content="{{ asset('/storage/' . $article->picture) }}">
 @endsection
-
-@section('twitter')
-	<meta name="twitter:card" content="summary">
-	<meta name="twitter:site" content="{{ "@".config('app.socials.twitter', '') }}">
-	<meta name="twitter:title" content="Small Island Developing States Photo Submission">
-	<meta name="twitter:description" content="View the album on Flickr.">
-	<meta name="twitter:image" content="https://farm6.staticflickr.com/5510/14338202952_93595258ff_z.jpg">
-@endsection
+@section('twitter_card', 'summary')
+@section('twitter_image', asset('/storage/' . $article->picture))
 
 @section('content')
 <div id="blog">
