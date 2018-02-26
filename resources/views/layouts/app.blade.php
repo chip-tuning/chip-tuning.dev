@@ -211,7 +211,7 @@
 								<div class="footer-content">
 									<h2 class="title">Kontakt</h2>
 									<div class="separator-2"></div>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium odio voluptatem necessitatibus illo vel dolorum soluta.</p>
+									<p>Naše radove možete pratiti i putem svih popularnih društvenih mreža. Pridružite nam se na nekoj od njih i budite uvek u toku.</p>
 									<ul class="social-links circle animated-effect-1">
 										@include('partials.socials')
 									</ul>

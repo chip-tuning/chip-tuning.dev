@@ -40,7 +40,7 @@
                             <i class="fa fa-arrows"></i>
                         @endslot
                         @slot('title', 'Automobili')
-                        @slot('description', 'Our design is with responsive in mind. Our themes are compatible with various desktop, tablet, and mobile devices.')
+                        @slot('description', 'Chip Tuning za vozila koja poseduju turbo dizel ili turbo benzinski motor. Povećanje snage uz smanjenje potrošnje.')
                         @slot('link', '#')
                     @endcomponent
                     @component('components.groups')
@@ -49,7 +49,7 @@
                             <i class="fa fa-arrows"></i>
                         @endslot
                         @slot('title', 'Kamioni')
-                        @slot('description', 'Our design is with responsive in mind. Our themes are compatible with various desktop, tablet, and mobile devices.')
+                        @slot('description', 'Chip Tuningom kamiona dobija se značajno povećanje snage dok se potrošnja smanjuje do 3l, čime se postiže velika ušteda.')
                         @slot('link', '#')
                     @endcomponent
                     @component('components.groups')
@@ -58,7 +58,7 @@
                             <i class="fa fa-arrows"></i>
                         @endslot
                         @slot('title', 'Poljoprivredne mašine')
-                        @slot('description', 'Our design is with responsive in mind. Our themes are compatible with various desktop, tablet, and mobile devices.')
+                        @slot('description', 'Povećanje snage i smanjenje potrošnje moguće je postići i na poljoprivrednim mašinama.')
                         @slot('link', '#')
                     @endcomponent
                 </div>
@@ -70,7 +70,7 @@
                         <i class="fa fa-diamond"></i>
                     @endslot
                     @slot('title', 'DPF OFF')
-                    @slot('description', 'Voluptatem ad provident non repudiandae beatae cupiditate amet reiciendis lorem dolor consectetur.')
+                    @slot('description', 'Problem sa DPF filterom rešavamo trajno softverskim i fizičkim uklanjanjem.')
                     @slot('link', '#')
                 @endcomponent
                 @component('components.service')
@@ -78,7 +78,7 @@
                         <i class="fa fa-diamond"></i>
                     @endslot
                     @slot('title', 'EGR OFF')
-                    @slot('description', 'Voluptatem ad provident non repudiandae beatae cupiditate amet reiciendis lorem dolor consectetur.')
+                    @slot('description', 'Problem sa EGR ventilom rešavamo trajno softverskim gašenjem i fizičkim zatvaranjem.')
                     @slot('link', '#')
                 @endcomponent
                 @component('components.service')
@@ -86,7 +86,7 @@
                         <i class="fa fa-diamond"></i>
                     @endslot
                     @slot('title', 'DTC OFF')
-                    @slot('description', 'Voluptatem ad provident non repudiandae beatae cupiditate amet reiciendis lorem dolor consectetur.')
+                    @slot('description', 'Ukoliko se javi potreba vršimo selektivno brisanje grešaka iz motornog računara vozila.')
                     @slot('link', '#')
                 @endcomponent
                 @component('components.service')
@@ -94,7 +94,7 @@
                         <i class="fa fa-diamond"></i>
                     @endslot
                     @slot('title', 'AD Blue OFF')
-                    @slot('description', 'Voluptatem ad provident non repudiandae beatae cupiditate amet reiciendis lorem dolor consectetur.')
+                    @slot('description', 'Softversko gašenje AdBlue sistema kojim je opremljena većina vozila novije proizvodnje.')
                     @slot('link', '#')
                 @endcomponent
                 @component('components.service')
@@ -102,7 +102,7 @@
                         <i class="fa fa-diamond"></i>
                     @endslot
                     @slot('title', 'Swirl Flaps OFF')
-                    @slot('description', 'Voluptatem ad provident non repudiandae beatae cupiditate amet reiciendis lorem dolor consectetur.')
+                    @slot('description', 'Klapne usisne grane – Swirl/Flaps su veoma osetljive i često prouzrokuju probleme u radu motora.')
                     @slot('link', '#')
                 @endcomponent
                 @component('components.service')
@@ -110,7 +110,7 @@
                         <i class="fa fa-diamond"></i>
                     @endslot
                     @slot('title', 'Speed Limit OFF')
-                    @slot('description', 'Voluptatem ad provident non repudiandae beatae cupiditate amet reiciendis lorem dolor consectetur.')
+                    @slot('description', 'Neki proizvođači postavljaju ograničenje brzine na svoja vozila, taj limit je moguće ukinuti.')
                     @slot('link', '#')
                 @endcomponent
                 @component('components.service')
@@ -118,7 +118,7 @@
                         <i class="fa fa-diamond"></i>
                     @endslot
                     @slot('title', 'Topli Start OFF')
-                    @slot('description', 'Voluptatem ad provident non repudiandae beatae cupiditate amet reiciendis lorem dolor consectetur.')
+                    @slot('description', 'Veoma čest problem kod VAG grupacije. Kad motor postigne radnu temperaturu ne može da upali ili jako dugo vergla da bi upalio.')
                     @slot('link', '#')
                 @endcomponent
                 @component('components.service')
@@ -126,7 +126,7 @@
                         <i class="fa fa-diamond"></i>
                     @endslot
                     @slot('title', 'GPS Praćenje')
-                    @slot('description', 'Voluptatem ad provident non repudiandae beatae cupiditate amet reiciendis lorem dolor consectetur.')
+                    @slot('description', 'Satelitsko praćenje vozila u zemilji i inostranstvu, praćenje parametara motora, potrošnje, pređenog puta.')
                     @slot('link', '#')
                 @endcomponent
                 @component('components.service')
