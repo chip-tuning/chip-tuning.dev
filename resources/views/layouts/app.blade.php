@@ -7,19 +7,29 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>{{ config('app.name', 'RPCT') }} - @yield('title')</title>
+	<title>@yield('title')</title>
 	<meta name="description" content="@yield('description')">
-	<meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta property="og:type" content="@yield('facebook_type')">
 	<meta property="og:url" content="{{ url()->current() }}">
-@yield('facebook')
-	<meta property="og:locale" content="sr_RS">
+    <meta property="og:title" content="@yield('title')">
+	<meta property="og:description" content="@yield('description')">
+	@yield('facebook_image')
+    <meta property="og:image" content="{{ asset('images/logo-600x304.jpg') }}">
+    <meta property="og:locale" content="sr_RS">
 	<meta property="og:site_name" content="{{ config('app.name', 'RPCT') }}">
-@yield('twitter')
+	<meta property="fb:admins" content="">
+	<meta property="fb:app_id" content="">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:site" content="{{ "@".config('app.socials.twitter', '') }}">
+	<meta name="twitter:title" content="@yield('title')">
+    <meta name="twitter:description" content="@yield('description')">
+	<meta name="twitter:image" content="@yield('twitter_image')">
+	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}">
 	<link rel="apple-touch-icon" href="{{ asset('images/apple-touch-icon.png') }}">
 	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=PT+Sans|Raleway:300,400,700|Roboto:300,300i,400,400i,500,500i,700&amp;subset=latin-ext">
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/vendor.css') }}">
-	@yield('styles')
+@yield('styles')
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
 	<link rel="alternate" type="application/json" title="{{ config('app.name', 'RPCT') }}" href="{{ route('feed.json') }}">
 	<link rel="alternate" type="application/atom+xml" title="{{ config('app.name', 'RPCT') }}" href="{{ route('feed.rss') }}">
@@ -171,7 +181,7 @@
 											<div class="media margin-clear">
 												<div class="media-body">
 													<h6 class="media-heading"><a href="{{ route('blog.show', $article->slug) }}">{{ words($article->title, 6, "...") }}</a></h6>
-													<p class="small margin-clear"><i class="fa fa-calendar pr-10"></i>Objavljeno {{ $article->published_at->diffForHumans() }}</p>
+													<p class="small margin-clear"><i class="fa fa-calendar pr-10"></i>Objavljeno {{ $article->created_at->diffForHumans() }}</p>
 												</div>
 												<hr>
 											</div>

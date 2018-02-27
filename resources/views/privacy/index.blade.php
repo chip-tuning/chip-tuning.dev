@@ -1,14 +1,10 @@
 @extends('layouts.app')
 
-@section('title', 'Politika privatnosti')
-@section('description', 'Politika privatnosti...')
-
-@section('facebook')
-	<meta property="og:type" content="webiste">
-	<meta property="og:title" content="{{ config('app.name', 'RPCT') }}">
-	<meta property="og:description" content="Poboljšavamo performanse vašeg automobila, Chip Tuning, uklanjanje DPF filtera, gašenje EGR ventila, rešavanje problema sa toplim startom i selektivno brisanje grešaka.">
-	<meta property="og:image" content="{{ asset('images/logo.jpg') }}">
-@endsection
+@section('title', config('app.name', 'RPCT') . ' - Politika privatnosti')
+@section('description', 'Opis stranice, iskoristiti rec koja je u title-u.')
+@section('facebook_type', 'website')
+@section('twitter_card', 'summary_large_image')
+@section('twitter_image', asset('images/logo-600x304.jpg'))
 
 @section('content')
 <div id="privacy">
