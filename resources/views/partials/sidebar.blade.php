@@ -52,7 +52,7 @@
 						<ul class="nav nav-pills nav-stacked list-style-icons">
 							@foreach ($archives as $archive)	
 								<li>
-									<a href="{{ route('blog.index') }}?mesec={{ strtolower(__($archive->month)) }}&godina={{ $archive->year }}">
+									<a href="{{ route('blog.index') }}?datum={{ strtolower(__($archive->month)) }}/{{ $archive->year }}">
 										<i class="fa fa-caret-right pr-10"></i>{{ __($archive->month_name) }} {{ $archive->year }} ({{ $archive->published }})
 									</a>
 								</li>

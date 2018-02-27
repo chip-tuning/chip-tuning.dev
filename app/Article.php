@@ -2,9 +2,10 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
-use App\Traits\Taggable;
+use App\Filters\ArticleFilters;
 use App\Traits\Fileable;
+use App\Traits\Taggable;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Article extends Model
@@ -33,22 +34,6 @@ class Article extends Model
 	 * @var array
 	 */
 	protected $dates = ['deleted_at'];
-
-	/**
-	 * Boot the model.
-	 */
-	public static function boot() 
-	{
-		parent::boot();
-
-		static::AddGlobalScope('author', function($builder) {
-			$builder->with('author:id,name');
-		});
-
-		static::AddGlobalScope('tags', function($builder) {
-			$builder->with('tags:name');
-		});
-	}
 
 	/**
 	 * Get the route key name.
@@ -92,6 +77,18 @@ class Article extends Model
 		return $this->belongsTo(User::class, 'user_id');
 	}
 
+    /**
+     * Apply all relevant article filters.
+     *
+     * @param  Builder       $query
+     * @param  ThreadFilters $filters
+     * @return Builder
+     */
+    public function scopeFilter($query, ArticleFilters $filters)
+    {
+        return $filters->apply($query);
+    }
+
 	/**
 	 * Get latest articles
 	 *
@@ -99,10 +96,7 @@ class Article extends Model
 	 */
 	public static function fetchLatest(int $limit)
 	{
-		return static::withoutGlobalScopes()
-			->take($limit)
-			->latest('created_at')
-			->get(['id', 'title', 'slug', 'created_at']);
+		return static::take($limit)->latest()->get(['id', 'title', 'slug', 'created_at']);
 	}
 
 	/**

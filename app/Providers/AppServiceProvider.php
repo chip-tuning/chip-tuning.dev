@@ -38,7 +38,6 @@ class AppServiceProvider extends ServiceProvider
             });
             $view->with('tags', $popularTags);
 
-
             $archives = \Cache::rememberForever('archives', function() {
                 return \App\Article::archives();
             });

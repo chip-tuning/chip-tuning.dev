@@ -57,6 +57,25 @@ class Tag extends Model
      */
     public static function fetchLatest(int $limit)
     {
-        return static::has('articles')->take($limit)->pluck('name');        
+        return static::has('articles')->latest()->take($limit)->pluck('name');        
     }
+
+    /**
+     * Get tags associated with model sorted by most used
+     * 
+     * @param  int|integer $limit
+     * @param  string      $model
+     * @return Illuminate\Database\Eloquent\Collection
+    public static function fetchByMostUsed(int $limit = 15, string $model = 'App\Article')
+    {
+        return static::select('tags.id', 'tags.name')
+            ->join('taggables', 'tags.id', '=', 'taggables.tag_id')
+            ->selectRaw('count(taggables.tag_id) aggregate')
+            ->where('taggables.taggable_type', '=', $model)
+            ->groupBy('tags.id', 'tags.name')
+            ->orderBy('aggregate', 'desc')
+            ->limit($limit)
+            ->pluck('name');
+    }
+    */
 }
