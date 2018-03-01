@@ -181,14 +181,14 @@
                 <div class="col-md-6">
                     <h2>Šta <strong>nudimo</strong></h2>
                     <div class="separator-2"></div>
-                    <p>Lorem ipsum dolor sit amet, lotrem <span class="text-default">some colored text</span>. Nulla explicabo <strong>attention to this</strong> blanditiis, ex cupiditate ipsam debitis rem.</p>
+                    <p>Nudimo jedinstveno rešenje za svako vozilo. Za razliku od ostalih Tuning kuca ne učitavamo gotove mape već svako vozilo mapiramo posebno. </p>
                     <ul class="list-icons">
-                        <li class="object-non-visible animated object-visible fadeInUpSmall" data-animation-effect="fadeInUpSmall" data-effect-delay="100"><i class="fa fa-check-square-o"></i> 27 Predifined Home Pages</li>
-                        <li class="object-non-visible animated object-visible fadeInUpSmall" data-animation-effect="fadeInUpSmall" data-effect-delay="150"><i class="fa fa-check-square-o"></i> 14 Header Options</li>
-                        <li class="object-non-visible animated object-visible fadeInUpSmall" data-animation-effect="fadeInUpSmall" data-effect-delay="200"><i class="fa fa-check-square-o"></i> 8 Footer Options</li>
-                        <li class="object-non-visible animated object-visible fadeInUpSmall" data-animation-effect="fadeInUpSmall" data-effect-delay="250"><i class="fa fa-check-square-o"></i> 200+ HTML files</li>
+                        <li class="object-non-visible animated object-visible fadeInUpSmall" data-animation-effect="fadeInUpSmall" data-effect-delay="100"><i class="fa fa-check-square-o"></i> Oprema poslednje generacije</li>
+                        <li class="object-non-visible animated object-visible fadeInUpSmall" data-animation-effect="fadeInUpSmall" data-effect-delay="150"><i class="fa fa-check-square-o"></i> Profesionalnost</li>
+                        <li class="object-non-visible animated object-visible fadeInUpSmall" data-animation-effect="fadeInUpSmall" data-effect-delay="200"><i class="fa fa-check-square-o"></i> Efikasnost</li>
+                        <li class="object-non-visible animated object-visible fadeInUpSmall" data-animation-effect="fadeInUpSmall" data-effect-delay="250"><i class="fa fa-check-square-o"></i> Iskustvo</li>
                     </ul>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. <strong>Some bold text</strong>, unde voluptatum quidem explicabo et eius aut nisi dolore ut.</p>
+                    <p>Chip Tuning za kompletan teretni i putnički program. <strong>Značajno smanjenje potrošnje kod kamiona</strong>, koje ide od 1 do 3l na 100 km u zavisnosti od vozila.</p>
                     <a href="page-about.html" class="btn btn-default btn-hvr hvr-shutter-out-horizontal btn-lg"><i class="fa fa-users pr-10"></i>Learn More</a>
                 </div>
                 <div class="col-md-6">
@@ -221,10 +221,10 @@
                                 </div>
                             </div>
                             <div role="tabpanel" class="tab-pane fade" id="messages">
-                                <h3>Lorem ipsum dolor sit amet</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium voluptas excepturi hic eveniet deleniti, voluptate fugit quod sapiente ut nulla voluptates neque a rerum! Sed dolores enim veniam, dolor minus.</p>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui quos quidem amet sapiente praesentium unde, vel corrupti, vero dicta velit fuga ut at accusantium expedita inventore fugit perferendis non reprehenderit.</p>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente tempore ipsam tenetur molestias eligendi provident! Itaque sapiente neque esse expedita voluptatibus qui officia, fuga a tempora! Alias voluptate pariatur quo.</p>
+                                <h3>Šta je Chip Tuning?</h3>
+                                <p>Chip tuning je nova definicija za ECU Remapping. Chip tuning je ranije zahtevao skidanje EEprom ili Flash memorije sa ECU-a, isčitavanje softvera na nekom programatoru, editovanje i vraćanje nazad u motorni računar (ECU).</p>
+                                <p>Softver unutar čipa je ono što se obično nazivamo “mapom”, a menjanje sadržaja te “mape” nazivamo remap. Ovakav vid chip tuning, isčitavanje programatorom, je sve manje zastupljen jer motorni računari od 2000.godine dobijaju nove protokole za komuniciranje preko ODB dijagnostičkog priključka, koji je danas već duži niz godina standard u autoindustriji. </p>
+                                <p>Ti protokoli (K-linija, L-linija, CAN-L, CAH-h…) omogućili su isčitavanje sadržaja ECU-a (“mape”) preko OBD porta što je u mnogome uticalo na popularizaciju Chip tuninga.</p>
                             </div>
                         </div>
                     </div>
@@ -258,7 +258,7 @@
                 <div class="col-md-8 col-md-offset-2">
                     <h2 class="object-non-visible text-center" data-animation-effect="zoomIn" data-effect-delay="100">Naši <strong>Radovi</strong></h2>
                     <div class="separator"></div>
-                    <p class="large text-center object-non-visible" data-animation-effect="zoomIn" data-effect-delay="200">Atque ducimus velit, earum quidem, iusto dolorem. Ex ipsam totam quas blanditiis, pariatur maxime ipsa iste, doloremque neque doloribus, error. Corrupti, tenetur.</p>
+                    <p class="large text-center object-non-visible" data-animation-effect="zoomIn" data-effect-delay="200">Koristeći savremeni software I originalne interfejse naši radovi govore sami za sebe. Trudimo se da sve detaljno zabeležimo i opišemo kako bi budućim klijentima pokazali zašto smo drugačiji od drugih.</p>
                     <br>
                 </div>
             </div>
@@ -279,14 +279,14 @@
                                 <div class="testimonial-image">
                                     <img src="{{ asset('images/testimonial-1.jpg') }}" alt="Jane Doe" title="Jane Doe" class="img-circle">
                                 </div>
-                                <h3>Just Perfect!</h3>
+                                <h3>Racing Performance</h3>
                                 <div class="separator"></div>
                                 <div class="testimonial-body">
                                     <blockquote>
-                                        <p>Sed ut perspiciatis unde omnis iste natu error sit voluptatem accusan tium dolore laud antium, totam rem dolor sit amet tristique pulvinar, turpis arcu rutrum nunc, ac laoreet turpis augue a justo.</p>
+                                        <p>“Nikad nisam išao na pravi izlet, nikad nisam išao na odmor. Najbolji odmor je za mene u mojoj garaži kad su svi drugi na godišnjem.”</p>
                                     </blockquote>
-                                    <div class="testimonial-info-1">- Jane Doe</div>
-                                    <div class="testimonial-info-2">via Facebook Reviews</div>
+                                    <div class="testimonial-info-1">Enzo Ferrari</div>
+                                    <div class="testimonial-info-2">Osnivač Italijanske fabrike sportskih automobila.</div>
                                 </div>
                             </div>
                         </div>
@@ -299,14 +299,14 @@
                                 <div class="testimonial-image">
                                     <img src="{{ asset('images/testimonial-2.jpg') }}" alt="Jane Doe" title="Jane Doe" class="img-circle">
                                 </div>
-                                <h3>Amazing!</h3>
+                                <h3>Chip Tuning</h3>
                                 <div class="separator"></div>
                                 <div class="testimonial-body">
                                     <blockquote>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et cupiditate deleniti ratione in. Expedita nemo, quisquam, fuga adipisci omnis ad mollitia libero culpa nostrum est quia eos esse vel!</p>
+                                        <p>"Osvajao sam titule jer sam davao gas tamo gde su drugi kocili."</p>
                                     </blockquote>
-                                    <div class="testimonial-info-1">- Jane Doe</div>
-                                    <div class="testimonial-info-2">By Company</div>
+                                    <div class="testimonial-info-1">Michael Schumacher</div>
+                                    <div class="testimonial-info-2">Vozač F1</div>
                                 </div>
                             </div>
                         </div>
