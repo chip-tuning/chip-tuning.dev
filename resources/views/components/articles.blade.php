@@ -12,16 +12,8 @@
 	</header>
 	<div class="blogpost-content text-justify">{!! $summary !!}</div>
 	<footer class="clearfix">
-		@if ($tags->isNotEmpty())
-			<div class="tags pull-left">
-				<i class="fa fa-tags"></i> 
-				@foreach($tags as $tag)
-					<a href="{{ route('blog.index') }}?tag={{ $tag->name }}">#{{ $tag->name }}</a>@if (!$loop->last),@endif
-				@endforeach
-			</div>
-		@endif
-		<div class="link pull-right">
-			<i class="fa fa-link"></i> <a href="{{ route('blog.show', $slug) }}">Pročitaj ceo članak</a>
+		<div class="pull-right">
+			<a href="{{ route('blog.show', $slug) }}" class="btn btn-animated btn-default btn-sm">Pročitaj <i class="fa fa-arrow-right"></i></a>
 		</div>
 	</footer>
 </article>

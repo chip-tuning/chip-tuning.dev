@@ -15,8 +15,7 @@ class ArticleController extends Controller
 	 */
 	public function index()
 	{
-		$articles = Article::with(['author:id,name', 'tags'])
-		->select(['id', 'user_id', 'title', 'slug', 'picture', 'summary', 'published_at'])
+		$articles = Article::select(['id', 'user_id', 'title', 'slug', 'picture', 'summary', 'published_at'])
 		->latest()
 		->paginate(5);
 	
@@ -59,8 +58,7 @@ class ArticleController extends Controller
 	 */
 	public function tags(ArticleFilters $filters)
 	{
-		$articles = Article::with(['author:id,name', 'tags'])
-			->select(['id', 'user_id', 'title', 'slug', 'picture', 'summary', 'published_at'])
+		$articles = Article::select(['id', 'user_id', 'title', 'slug', 'picture', 'summary', 'published_at'])
 			->latest()
 			->filter($filters)
 			->paginate(5);
@@ -76,8 +74,7 @@ class ArticleController extends Controller
 	 */
 	public function archive(ArticleFilters $filters)
 	{
-		$articles = Article::with(['author:id,name', 'tags'])
-			->select(['id', 'user_id', 'title', 'slug', 'picture', 'summary', 'published_at'])
+		$articles = Article::select(['id', 'user_id', 'title', 'slug', 'picture', 'summary', 'published_at'])
 			->latest()
 			->filter($filters)
 			->paginate(5);

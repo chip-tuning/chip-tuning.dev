@@ -40,7 +40,7 @@
 					<div class="separator-2"></div>
 						@if ($articles->isNotEmpty())
 							@foreach ($articles as $article)
-								@component('components.articles', ['date' => $article->published_at->diffForHumans(), 'author' => $article->author->name, 'tags' => $article->tags])
+								@component('components.articles', ['date' => $article->published_at->diffForHumans(), 'author' => $article->author->name])
 									@slot('picture', $article->picture)
 									@slot('title', $article->title)
 									@slot('summary', $article->summary)

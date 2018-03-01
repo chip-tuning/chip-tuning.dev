@@ -63,6 +63,10 @@ class Article extends Model
 			Cache::forget('articles');
 			Cache::forget('archives');
 		});
+
+		static::addGlobalScope('author', function($builder) {
+			$builder->with('author:id,name');
+		});
 	}
 
 	/**
@@ -148,7 +152,10 @@ class Article extends Model
 	 */
 	public static function fetchLatest(int $limit)
 	{
-		return static::take($limit)->latest()->get(['id', 'title', 'slug', 'published_at']);
+		return static::withoutGlobalScopes()
+		->take($limit)
+		->latest()
+		->get(['id', 'title', 'slug', 'published_at']);
 	}
 
 	/**

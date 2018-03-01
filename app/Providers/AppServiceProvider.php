@@ -19,29 +19,28 @@ class AppServiceProvider extends ServiceProvider
             $articles = \Cache::rememberForever('articles', function() {
                 return \App\Article::fetchLatest(4);
             });
-            $view->with('articles', $articles);
 
             $photos = \Cache::rememberForever('photos', function() {
                 return \App\Photo::fetchLatest(6);
             });
-            $view->with('photos', $photos);
+
+            $view->with(compact(['articles', 'photos']));
         });
 
         view()->composer('partials.sidebar', function($view) {
-            $popular = \Cache::rememberForever('popular', function() {
+            $articles = \Cache::rememberForever('popular', function() {
                 return \App\Article::fetchLatest(4);
             });
-            $view->with('articles', $popular);
             
             $tags = \Cache::rememberForever('tags', function() {
                 return \App\Tag::fetchLatest(20);
             });
-            $view->with('tags', $tags);
 
             $archives = \Cache::rememberForever('archives', function() {
                 return \App\Article::archives();
             });
-            $view->with('archives', $archives);
+            
+            $view->with(compact(['articles', 'tags', 'archives']));
         });
     }
 

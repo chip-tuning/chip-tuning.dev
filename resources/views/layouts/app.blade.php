@@ -164,7 +164,7 @@
 									<div class="separator-2"></div>
 									<nav>
 										<ul class="nav nav-pills nav-stacked">
-											<li><a href="{{ route('feed.rss') }}">RSS</a></li>
+											<li><a href="{{ route('feed.rss') }}">RSS/ATOM</a></li>
 											<li><a href="{{ route('faq.index') }}">Česta pitanja</a></li>
 											<li><a href="{{ route('terms.index') }}">Uslovi korišćenja</a></li>
 											<li><a href="{{ route('privacy.index') }}">Politika privatnosti</a></li>

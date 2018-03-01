@@ -6,7 +6,7 @@
 			<form name="search" method="GET" action="{{ route('blog.search') }}">
 				<div class="form-group{{ $errors->has('upit') ? ' has-error' : '' }}">
 					<div class="input-group">
-						<input class="form-control" name="upit" type="text" placeholder="Unesite upit..." required>
+						<input class="form-control" name="upit" type="text" placeholder="Unesite pojmove..." required>
 						<span class="input-group-btn">
 							<button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
 						</span>
@@ -75,6 +75,16 @@
 				@else
 					<p>Arhiva je trenutno prazna.</p>
 				@endif	
-		</div>			
+		</div>		
+		<div class="block clearfix">
+			<h3 class="title">Feeds</h3>
+			<div class="separator-2"></div>
+			<nav>
+				<ul class="nav nav-pills nav-stacked">
+					<li><a href="{{ route('feed.rss') }}">RSS/ATOM</a></li>
+					<li><a href="{{ route('feed.json') }}">JSON</a></li>
+				</ul>
+			</nav>
+		</div>	
 	</div>
 </aside>
