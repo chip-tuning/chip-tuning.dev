@@ -16,27 +16,27 @@ class AppServiceProvider extends ServiceProvider
         \Illuminate\Support\Carbon::setLocale(config('app.locale'));
 
         view()->composer('layouts.app', function($view) {
-            $latestArticles = \Cache::rememberForever('latest_articles', function() {
+            $articles = \Cache::rememberForever('articles', function() {
                 return \App\Article::fetchLatest(4);
             });
-            $view->with('articles', $latestArticles);
+            $view->with('articles', $articles);
 
-            $latestPhotos = \Cache::rememberForever('latest_photos', function() {
+            $photos = \Cache::rememberForever('photos', function() {
                 return \App\Photo::fetchLatest(6);
             });
-            $view->with('photos', $latestPhotos);
+            $view->with('photos', $photos);
         });
 
         view()->composer('partials.sidebar', function($view) {
-            $popularArticles = \Cache::rememberForever('popular_articles', function() {
+            $popular = \Cache::rememberForever('popular', function() {
                 return \App\Article::fetchLatest(4);
             });
-            $view->with('articles', $popularArticles);
+            $view->with('articles', $popular);
             
-            $popularTags = \Cache::rememberForever('popular_tags', function() {
+            $tags = \Cache::rememberForever('tags', function() {
                 return \App\Tag::fetchLatest(20);
             });
-            $view->with('tags', $popularTags);
+            $view->with('tags', $tags);
 
             $archives = \Cache::rememberForever('archives', function() {
                 return \App\Article::archives();

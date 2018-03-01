@@ -16,7 +16,7 @@ class File extends Model
 	/**
 	 * Get all of the owning fileable models.
 	 * 
-     * @return \Illuminate\Database\Eloquent\Relations\morphTo
+	 * @return \Illuminate\Database\Eloquent\Relations\morphTo
 	 */
 	public function fileable()
 	{

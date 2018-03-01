@@ -15,16 +15,16 @@ if (!function_exists('set_active')) {
 }
 
 if (! function_exists('words')) {
-    /**
-     * Limit the number of words in a string.
-     *
-     * @param  string  $value
-     * @param  int     $words
-     * @param  string  $end
-     * @return string
-     */
-    function words($value, $words = 100, $end = '...')
-    {
-        return \Illuminate\Support\Str::words($value, $words, $end);
-    }
+	/**
+	 * Limit the number of words in a string.
+	 *
+	 * @param  string  $value
+	 * @param  int     $words
+	 * @param  string  $end
+	 * @return string
+	 */
+	function words($value, $words = 100, $end = '...')
+	{
+		return \Illuminate\Support\Str::words($value, $words, $end);
+	}
 }

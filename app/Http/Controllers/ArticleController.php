@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Article;
+use App\Filters\ArticleFilters;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -14,17 +15,11 @@ class ArticleController extends Controller
 	 */
 	public function index()
 	{
-		$articles = Article::select([
-			'id', 
-			'user_id', 
-			'title', 
-			'slug', 
-			'picture',
-			'summary',
-			'created_at',
-		])->latest('created_at')
+		$articles = Article::with(['author:id,name', 'tags'])
+		->select(['id', 'user_id', 'title', 'slug', 'picture', 'summary', 'published_at'])
+		->latest()
 		->paginate(5);
-
+	
 		return view('blog.index', compact('articles'));
 	}
 
@@ -37,5 +32,56 @@ class ArticleController extends Controller
 	public function show(Article $article)
 	{
 		return view('blog.show', compact('article'));
+	}
+
+	/**
+	 * Search a listing of resources.
+	 *
+	 * @return \Illuminate\Http\Response
+	 */
+	public function search()
+	{
+        request()->validate([
+            'upit' => 'required'
+        ]);
+
+		$query = request('upit');
+		$articles = Article::search($query)->paginate(5);
+
+		return view('blog.search', compact('articles'));
+	}
+
+	/**
+	 * Display a listing of the resource.
+	 *
+	 * @param ArticleFilters $filters
+	 * @return \Illuminate\Http\Response
+	 */
+	public function tags(ArticleFilters $filters)
+	{
+		$articles = Article::with(['author:id,name', 'tags'])
+			->select(['id', 'user_id', 'title', 'slug', 'picture', 'summary', 'published_at'])
+			->latest()
+			->filter($filters)
+			->paginate(5);
+	
+		return view('blog.tags', compact('articles'));
+	}
+
+	/**
+	 * Display a listing of the resource.
+	 *
+	 * @param ArticleFilters $filters
+	 * @return \Illuminate\Http\Response
+	 */
+	public function archive(ArticleFilters $filters)
+	{
+		$articles = Article::with(['author:id,name', 'tags'])
+			->select(['id', 'user_id', 'title', 'slug', 'picture', 'summary', 'published_at'])
+			->latest()
+			->filter($filters)
+			->paginate(5);
+	
+		return view('blog.archive', compact('articles'));
 	}
 }

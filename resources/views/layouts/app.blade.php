@@ -181,7 +181,7 @@
 											<div class="media margin-clear">
 												<div class="media-body">
 													<h6 class="media-heading"><a href="{{ route('blog.show', $article->slug) }}">{{ words($article->title, 6, "...") }}</a></h6>
-													<p class="small margin-clear"><i class="fa fa-calendar pr-10"></i>Objavljeno {{ $article->created_at->diffForHumans() }}</p>
+													<p class="small margin-clear"><i class="fa fa-calendar pr-10"></i>Objavljeno {{ $article->published_at->diffForHumans() }}</p>
 												</div>
 												<hr>
 											</div>

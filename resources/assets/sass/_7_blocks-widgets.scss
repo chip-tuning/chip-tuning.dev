@@ -1447,3 +1447,15 @@ h6.media-heading {
     font-size: 20px;
   }
 }
+
+.algolia {
+    img {
+      display: inline-block;
+      max-height: 16px;
+    }
+    p {
+      margin: 0;
+      display: inline-block;
+      font-size: 11px;
+    }
+}

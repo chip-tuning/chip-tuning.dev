@@ -4,10 +4,31 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Cache;
 
 class Photo extends Model
 {
 	use SoftDeletes;
+
+	/**
+	 * Boot the model.
+	 */
+	protected static function boot()
+	{
+		parent::boot();
+
+		static::saved(function () {
+			Cache::forget('photos');
+		});
+
+		static::deleted(function () {
+			Cache::forget('photos');
+		});
+
+		static::restored(function () {
+			Cache::forget('photos');
+		});
+	}
 
 	/**
 	 * The attributes that are mass assignable.

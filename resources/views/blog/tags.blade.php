@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', config('app.name', 'RPCT') . ' - Blog')
+@section('title', config('app.name', 'RPCT') . ' - Blog - Tagovani clanci')
 @section('description', 'Opis stranice, iskoristiti rec koja je u title-u.')
 @section('facebook_type', 'website')
 @section('twitter_card', 'summary_large_image')
@@ -10,7 +10,8 @@
 <div id="blog">
 	<div class="banner dark-translucent-bg background-img-3" style="background-position: 50% 30%;">
 		@component('components.breadcrumb')
-			<li class="active">Blog</li>
+		<li><a class="link-dark" href="{{ route('blog.index') }}">Blog</a></li>
+		<li class="active">Tagovi</li>
 		@endcomponent
 		<div class="container">
 			<div class="row">
@@ -35,7 +36,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="main col-md-8">
-					<h3 class="title">Najnoviji članci</h3>
+					<h3 class="title">Tagovani članci</h3>
 					<div class="separator-2"></div>
 						@if ($articles->isNotEmpty())
 							@foreach ($articles as $article)
@@ -48,8 +49,8 @@
 							@endforeach
 							{{ $articles->links('partials.pagination') }}
 						@else
-							<p>Trenutno ne postoji nijedan članak</p>
-						@endif
+							<p>Trenutno ne postoji nijedan članak sa odabranim tagom.</p>
+						@endif	
 				</div>
 				@include('partials.sidebar')
 			</div>

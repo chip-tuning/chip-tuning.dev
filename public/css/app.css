@@ -283,7 +283,7 @@ tbody {
 }
 
 .block {
-  margin-bottom: 25px;
+  margin-bottom: 30px;
 }
 
 .section {
@@ -1519,7 +1519,7 @@ h5 + .separator {
 
 @media (min-width: 768px) {
   .blogpost.full .blogpost-content .summary > p {
-    font-size: 21px;
+    font-size: 18px;
   }
 }
 
@@ -3566,8 +3566,20 @@ textarea {
   resize: vertical;
 }
 
-.sidebar form {
-  margin: 5px 0 20px 0;
+.sidebar form[name='search'] {
+  margin: 5px 0;
+}
+
+.sidebar form[name='search'] .form-group {
+  margin-bottom: 0;
+}
+
+.sidebar form[name='search'] button {
+  margin: 0;
+  padding: 9px 18px;
+  border-radius: 5px;
+  border-color: #e1e1e1;
+  border: 1px solid #ccc;
 }
 
 .form-control {
@@ -7617,6 +7629,17 @@ h6.media-heading {
     line-height: 36px;
     font-size: 20px;
   }
+}
+
+.algolia img {
+  display: inline-block;
+  max-height: 16px;
+}
+
+.algolia p {
+  margin: 0;
+  display: inline-block;
+  font-size: 11px;
 }
 
 /* 8 Main Slideshow

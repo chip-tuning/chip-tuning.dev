@@ -7,11 +7,15 @@ use App\Traits\Fileable;
 use App\Traits\Taggable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Cache;
+use Laravel\Scout\Searchable;
+use Stevebauman\Purify\Facades\Purify;
 
 class Article extends Model
 {
 	use Taggable;
 	use Fileable;
+	use Searchable;
 	use SoftDeletes;
 
 	/**
@@ -19,21 +23,47 @@ class Article extends Model
 	 *
 	 * @var array
 	 */
-	protected $fillable = ['user_id', 'title', 'slug', 'summary', 'content'];
+	protected $fillable = ['user_id', 'title', 'slug', 'picture', 'summary', 'content', 'published_at'];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = ['user_id'];
+	/**
+	 * The attributes that should be hidden for arrays.
+	 *
+	 * @var array
+	 */
+	protected $hidden = ['user_id'];
 
 	/**
 	 * The attributes that should be mutated to dates.
 	 *
 	 * @var array
 	 */
-	protected $dates = ['deleted_at'];
+	protected $dates = ['published_at', 'deleted_at'];
+
+	/**
+	 * Boot the model.
+	 */
+	protected static function boot()
+	{
+		parent::boot();
+
+		static::saved(function () {
+			Cache::forget('archives');
+			Cache::forget('popular');
+			Cache::forget('articles');
+		});
+
+		static::deleted(function () {
+			Cache::forget('popular');
+			Cache::forget('articles');
+			Cache::forget('archives');
+		});
+
+		static::restored(function () {
+			Cache::forget('popular');
+			Cache::forget('articles');
+			Cache::forget('archives');
+		});
+	}
 
 	/**
 	 * Get the route key name.
@@ -68,6 +98,28 @@ class Article extends Model
 	}
 
 	/**
+	 * Set the summary.
+	 *
+	 * @param  string  $value
+	 * @return void
+	 */
+	public function setSummaryAttribute($value)
+	{
+		$this->attributes['summary'] = preg_replace("/[\n\r]/", "", Purify::clean($value));
+	}
+
+	/**
+	 * Set the content.
+	 *
+	 * @param  string  $value
+	 * @return void
+	 */
+	public function setContentAttribute($value)
+	{
+		$this->attributes['content'] = Purify::clean($value);
+	}
+
+	/**
 	 * A thread belongs to a author.
 	 *
 	 * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -77,17 +129,17 @@ class Article extends Model
 		return $this->belongsTo(User::class, 'user_id');
 	}
 
-    /**
-     * Apply all relevant article filters.
-     *
-     * @param  Builder       $query
-     * @param  ThreadFilters $filters
-     * @return Builder
-     */
-    public function scopeFilter($query, ArticleFilters $filters)
-    {
-        return $filters->apply($query);
-    }
+	/**
+	 * Apply all relevant article filters.
+	 *
+	 * @param  Builder       $query
+	 * @param  ThreadFilters $filters
+	 * @return Builder
+	 */
+	public function scopeFilter($query, ArticleFilters $filters)
+	{
+		return $filters->apply($query);
+	}
 
 	/**
 	 * Get latest articles
@@ -96,7 +148,7 @@ class Article extends Model
 	 */
 	public static function fetchLatest(int $limit)
 	{
-		return static::take($limit)->latest()->get(['id', 'title', 'slug', 'created_at']);
+		return static::take($limit)->latest()->get(['id', 'title', 'slug', 'published_at']);
 	}
 
 	/**
@@ -104,9 +156,9 @@ class Article extends Model
 	 */
 	public static function archives()
 	{
-		return static::selectRaw('year(created_at) year, month(created_at) as month, monthname(created_at) month_name, count(*) published')
+		return static::selectRaw('year(published_at) year, month(published_at) as month, monthname(published_at) month_name, count(*) published')
 			->groupBy('year', 'month', 'month_name')
-			->orderByRaw('min(created_at) desc')
+			->orderByRaw('min(published_at) desc')
 			->get();
 	}
 }
