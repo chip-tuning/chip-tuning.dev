@@ -4,7 +4,7 @@
 @section('description', 'Chip Tuning, profesionalno uklanjanje DPF filtera i gašenje EGR ventila, rešenje problema sa toplim startom, brisanje grešaka, Sabac, Srbija i okolina.')
 @section('facebook_type', 'website')
 @section('twitter_card', 'summary_large_image')
-@section('twitter_image', asset('images/logo-600x304.jpg'))
+@section('twitter_image', asset('images/logo.jpg'))
 
 @section('styles')
     <link rel="stylesheet" type="text/css" href="{{ asset('css/rev-slider.css') }}">

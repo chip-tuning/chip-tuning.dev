@@ -575,14 +575,41 @@
   @include transition(all linear 0.2s);
 }
 
+.header .logo {
+  margin: 10px 0 0;
+  max-width: 226px;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .header .logo {
+    margin: 12px 0 0;
+    max-width: 208px;
+  }
+}
+
+@media (max-width: 767px) {
+  .header .logo {
+    margin: 5px 5px 0;
+    max-width: 157px;
+  }
+}
+
 .fixed-header-on {
   .header .logo {
-    margin: 0px 0 -5px 0;
-    display: none;
+    margin: 5px 0 0;
+
+    @media (min-width: 768px) and (max-width: 991px) {
+      margin: 7px 0 0;
+      max-width: 208px;
+    }
   }
 
   .header .logo img {
-    max-height: 30px;
+    max-height: 53px;
+  
+    @media (min-width: 768px) and (max-width: 991px) {
+      max-height: 49px;
+    }
   }
 
   .header.fixed-before .logo img {

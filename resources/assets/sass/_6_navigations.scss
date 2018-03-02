@@ -11,12 +11,6 @@
   border-color: transparent;
   background-color: transparent;
   font-weight: 400;
-
-  ul {
-    &.navbar-nav {
-      margin: 0 -15px;
-    }
-  }
 }
 /* first level menu item */
 .navbar-default .navbar-nav > li > a {
@@ -444,7 +438,7 @@ header .dropdown-menu > li.active > a i.fa-circle-o:before {
 /* Medium devices (tablets landscape to portrait) */
 @media (min-width: 768px) and (max-width: 991px) {
   .header .main-navigation .navbar-nav {
-    @include float (left !important);
+    //@include float (left !important);
   }
 
   body:not(.fixed-header-on) .header:not(.dark) .navbar-default .navbar-nav > li > a {

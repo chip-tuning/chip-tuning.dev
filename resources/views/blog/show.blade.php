@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', $article->title . ' - ' . config('app.name', 'RPCT'))
-@section('description', str_limit(strip_tags(str_replace('><', '> <', $article->summary)), 317))
+@section('description', words(strip_tags(str_replace('><', '> <', $article->summary)), 40, $end = ''))
 @section('facebook_type', 'article')
 @section('facebook_image')
 <meta property="og:image" content="{{ asset('/storage/' . $article->picture) }}">

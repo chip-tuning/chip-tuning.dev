@@ -755,13 +755,44 @@ tbody {
   transition: all linear 0.2s;
 }
 
+.header .logo {
+  margin: 10px 0 0;
+  max-width: 226px;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .header .logo {
+    margin: 12px 0 0;
+    max-width: 208px;
+  }
+}
+
+@media (max-width: 767px) {
+  .header .logo {
+    margin: 5px 5px 0;
+    max-width: 157px;
+  }
+}
+
 .fixed-header-on .header .logo {
-  margin: 0px 0 -5px 0;
-  display: none;
+  margin: 5px 0 0;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .fixed-header-on .header .logo {
+    margin: 7px 0 0;
+    max-width: 208px;
+  }
 }
 
 .fixed-header-on .header .logo img {
-  max-height: 30px;
+  max-height: 53px;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .fixed-header-on .header .logo img {
+    max-height: 49px;
+  }
 }
 
 .fixed-header-on .header.fixed-before .logo img {
@@ -5177,10 +5208,6 @@ fieldset[disabled] .form-control {
   font-weight: 400;
 }
 
-.navbar.navbar-default ul.navbar-nav {
-  margin: 0 -15px;
-}
-
 /* first level menu item */
 
 .navbar-default .navbar-nav > li > a {
@@ -5622,10 +5649,6 @@ header .dropdown-menu > li.active > a i.fa-circle-o:before {
 /* Medium devices (tablets landscape to portrait) */
 
 @media (min-width: 768px) and (max-width: 991px) {
-  .header .main-navigation .navbar-nav {
-    float: left !important;
-  }
-
   body:not(.fixed-header-on) .header:not(.dark) .navbar-default .navbar-nav > li > a {
     border-top: 1px solid transparent;
   }
@@ -6106,14 +6129,15 @@ header .dropdown-menu > li.active > a i.fa-circle-o:before {
 /* Logo, Site Slogan
 ---------------------------------- */
 
-#logo img:hover,
-#logo-mobile img:hover {
-  opacity: 0.8;
-  filter: alpha(opacity=80);
+.logo-footer {
+  margin-bottom: 20px;
+  max-width: 180px;
 }
 
-#logo-footer {
-  margin-bottom: 20px;
+@media (max-width: 767px) {
+  .logo-footer {
+    max-width: 160px;
+  }
 }
 
 /* Small devices (tablets, phones less than 991px) */
@@ -6125,15 +6149,6 @@ header .dropdown-menu > li.active > a i.fa-circle-o:before {
 
   body.full-page header .logo img {
     margin: 0;
-  }
-}
-
-/* Small devices (tablets, phones less than 767px) */
-
-@media (max-width: 767px) {
-  .navbar-header #logo img,
-  .navbar-header #logo-mobile img {
-    margin-left: 0;
   }
 }
 
