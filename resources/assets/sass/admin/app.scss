@@ -1,0 +1,135 @@
+// Setup
+@import "setup/breakpoints";
+@import "setup/fonts";
+@import "setup/brand_colors";
+@import "setup/material_colors";
+@import "setup/base_colors";
+@import "setup/borders";
+@import "setup/placeholder";
+@import "setup/clearfix";
+@import "setup/media_queries_ranges";
+
+// Bootstrap
+@import "~bootstrap/scss/bootstrap";
+
+// Reset
+@import "reset/base";
+
+// Components
+@import "components/sidebar";
+@import "components/topbar";
+@import "components/page_container";
+@import "components/progress_bar";
+@import "components/forms";
+@import "components/loader";
+@import "components/footer";
+
+// Utilities
+@import "utilities/mixins/media_query_condition";
+@import "utilities/mixins/generate_responsive";
+@import "utilities/center";
+@import "utilities/gap";
+@import "utilities/peers";
+@import "utilities/layers";
+@import "utilities/flex";
+@import "utilities/layout";
+@import "utilities/lists";
+@import "utilities/margin";
+@import "utilities/objects";
+@import "utilities/padding";
+@import "utilities/positions";
+@import "utilities/sizes";
+@import "utilities/typography";
+@import "utilities/border";
+@import "utilities/pseudo";
+@import "utilities/colors";
+
+// Vendor
+@import '~themify-icons/scss/themify-icons';
+@import "~font-awesome/scss/font-awesome";
+@import 'vendor/magicsuggest';
+
+.card {
+	margin: 0.2rem 0;
+
+	a {
+		&.btn {
+			&:focus {
+				color: #FFF;
+			}
+		}
+	}
+
+	.card-header {
+		padding: 0.5rem 0.5rem 0;
+		background-color: #f8f9fa;
+		a {
+			&.btn {
+				margin: 0 0 0 0.4rem;
+			}
+		}
+		button {
+			&.btn-title {
+				padding: 0.1rem 0.75rem 0.7rem;
+				&:hover, &:focus {
+					text-decoration: none;
+				}
+			}
+		}
+	}
+}
+
+.form-control-file.is-invalid {
+	border-color: #f44336;
+}
+
+.form-control-file.is-invalid:focus {
+	border-color: #f44336;
+	text-indent: -9999px;
+	webkit-box-shadow: 0 0 0 0.2rem rgba(244, 67, 54, 0.25);
+	box-shadow: 0 0 0 0.2rem rgba(244, 67, 54, 0.25);
+}
+
+.form-control-file.is-invalid ~ .invalid-feedback,
+.form-control-file.is-invalid ~ .invalid-tooltip {
+	display: block;
+}
+
+.dropzone {
+	$height: 180px;
+
+	cursor: pointer;
+	padding: 10px;
+	min-height: $height;
+	border-radius: 0.25rem;
+	border: 2px dashed #2196F3;
+	
+	.message {
+		text-align: center;
+		line-height: $height - 24px;
+		font-size: 1.09375rem;
+	}
+
+	.preview {
+		margin: 10px 0;
+		padding-left: 10px;
+		padding-right: 10px;
+		display: inline-block;
+		cursor: auto;
+	
+		canvas {
+			border-radius: 0.25rem;
+		}
+	}
+}
+
+.uploaded {
+	.preview {
+		margin: 0 0 20px;
+		cursor: auto;
+
+		img {
+			border-radius: 0.25rem;
+		}
+	}	
+}
