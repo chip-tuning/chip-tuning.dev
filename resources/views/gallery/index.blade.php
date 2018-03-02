@@ -17,7 +17,7 @@
 				<div class="col-md-8 text-center col-md-offset-2 pv-30">
 					<h1 class="object-non-visible" data-animation-effect="zoomIn" data-effect-delay="100">Naši radovi</h1>
 					<div class="separator object-non-visible" data-animation-effect="zoomIn" data-effect-delay="100"></div>
-					<p class="large text-center object-non-visible" data-animation-effect="zoomIn" data-effect-delay="200">Atque ducimus velit, earum quidem, iusto dolorem. Ex ipsam totam quas blanditiis, pariatur maxime ipsa iste, doloremque neque doloribus, error. Corrupti, tenetur.</p>
+					<p class="large text-center object-non-visible" data-animation-effect="zoomIn" data-effect-delay="200">Koristeći savremeni software I originalne interfejse naši radovi govore sami za sebe. Više naših radova možete pogledati putem Instagrama.</p>
 					<p class="text-center"><a target="_blank" href="https://www.instagram.com/{{ config('app.socials.instagram', '') }}" class="btn btn-lg btn-gray-transparent object-non-visible" data-animation-effect="zoomIn" data-effect-delay="300"><i class="fa fa-instagram fa-fw"></i> Instagram</a></p>
 				</div>
 			</div>
@@ -63,7 +63,7 @@
                         <div class="row">
                             <div class="col-sm-8 col-sm-offset-2">
                                 <h2 class="title">Brendovi</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus error pariatur deserunt laudantium nam, mollitia quas nihil inventore, quibusdam?</p>
+                                <p>Nudimo savremena rešenja za veliki broj brendova iz celog sveta bilo da je u pitanju teretni, putnicki ili poljoprivredni program.</p>
                                 <div class="separator"></div>      
                             </div>
                         </div>
