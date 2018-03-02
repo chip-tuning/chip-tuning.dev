@@ -22,7 +22,7 @@
 				<div class="col-md-8 text-center col-md-offset-2 pv-20">
 					<h1 class="page-title text-center">Kontakt</h1>
 					<div class="separator"></div>
-					<p class="lead text-center">It would be great to hear from you! Just drop us a line and ask for anything with which you think we could be helpful. We are looking forward to hearing from you!</p>
+					<p class="lead text-center">Zanima Vas koliko se povećava  snaga a smanjuje potrošnja Vašeg vozila? Nemojte se ustručavati da nas kontaktirate. </p>
 					<ul class="list-inline mb-20 text-center">
 						<li><i class="text-default fa fa-map-marker pr-5"></i>{{ config('app.details.address', 'Bore Tirića 60, 15000 Šabac') }}</li>
 						<li><i class="text-default fa fa-phone pl-10 pr-5"></i>{{ config('app.details.phone', '+381 65 55 666 14') }}</li>
