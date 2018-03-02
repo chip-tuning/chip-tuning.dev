@@ -14,12 +14,12 @@ try {
  * Modernizr, Isotope, Magnific Popup, Waypoints, CountTo, Parallax, Validate, OwlCarousel2
  */
 require('./modernizr.js');
-require('./jquery/isotope.pkgd.js');
-require('./jquery/magnific-popup.js');
-require('./jquery/waypoints.js');
-require('./jquery/countTo.js');
-require('./jquery/parallax.js');
-require('./jquery/validate.js');
+require('./plugins/isotope.pkgd.js');
+require('./plugins/magnific-popup.js');
+require('./plugins/waypoints.js');
+require('./plugins/countTo.js');
+require('./plugins/parallax.js');
+require('./plugins/validate.js');
 require('owl.carousel');
 
 /**

@@ -7,11 +7,11 @@
 @section('twitter_image', asset('images/logo.jpg'))
 
 @section('styles')
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/rev-slider.css') }}">
+<link rel="stylesheet" type="text/css" href="/css/rev-slider.css">
 @endsection
 
 @section('scripts')
-    <script type="text/javascript" src="{{ asset('js/rev-slider.js') }}"></script>
+<script src="/js/rev-slider.js"></script>
 @endsection
 
 @section('content')

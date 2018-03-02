@@ -2,6 +2,12 @@
 ----------------------------------------------------------------------------- */
 /* Logo, Site Slogan
 ---------------------------------- */
+#logo img:hover,
+#logo-mobile img:hover {
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+}
+
 .logo-footer {
   margin-bottom: 20px;
   max-width: 180px;
@@ -9,6 +15,11 @@
   @media (max-width: 767px) {
     max-width: 160px;
   }
+}
+
+.logo-blank {
+  max-width: 180px;
+  padding: 10px;
 }
 
 /* Small devices (tablets, phones less than 991px) */
