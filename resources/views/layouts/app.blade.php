@@ -43,8 +43,8 @@
 	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 	<link rel="manifest" href="/manifest.json">
 	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=PT+Sans|Raleway:300,400,700|Roboto:300,300i,400,400i,500,500i,700&amp;subset=latin-ext">
+	@yield('styles')
 	<link rel="stylesheet" type="text/css" href="/css/app.css">
-	@yield('styles')	
 	<link rel="alternate" type="application/json" title="{{ config('app.name', 'RPCT') }}" href="{{ route('feed.json') }}">
 	<link rel="alternate" type="application/atom+xml" title="{{ config('app.name', 'RPCT') }}" href="{{ route('feed.rss') }}">
 	<script type="application/ld+json">
@@ -267,7 +267,7 @@
 			</div>
 		</footer>
 	</div>
-	<script src="/js/app.js"></script>    
+	<script src="/js/app.js"></script>
 	@yield('scripts')
 	<!--
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-104289219-1"></script>
