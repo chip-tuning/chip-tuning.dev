@@ -1646,8 +1646,22 @@ textarea {
   resize: vertical;
 }
 
-.sidebar form {
-  margin: 5px 0 20px 0;
+.sidebar {
+  form[name='search'] {
+    margin: 5px 0;
+    
+    .form-group {
+      margin-bottom: 0;    
+    }
+
+    button {
+      margin: 0;
+      padding: 9px 18px;
+      border-radius: 5px;
+      border-color: #e1e1e1;
+      border: 1px solid #ccc;
+    }
+  }
 }
 
 .form-control {

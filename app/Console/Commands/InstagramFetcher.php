@@ -7,7 +7,6 @@ use App\Photo;
 use App\Services\Instagram\Instagram;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Cache;
 use Intervention\Image\Facades\Image;
 use Symfony\Component\HttpFoundation\File\MimeType\ExtensionGuesser;
 
@@ -53,83 +52,71 @@ class InstagramFetcher extends Command
 	 * @return string
 	 */
 	protected function guessExt(string $mime) : string
-    {
-        $guesser = ExtensionGuesser::getInstance();
-        return $guesser->guess($mime);
-    }
+	{
+		$guesser = ExtensionGuesser::getInstance();
+		return $guesser->guess($mime);
+	}
 
-    /**
-     * Make proper path to store grabbed image
-     * 
-     * @param  string $hash
-     * @param  string $size
-     * @param  string $ext
-     * @return string
-     */
-    protected function makePath(string $hash, string $size, string $ext) : string
-    {
-    	return "photos/{$hash}_{$size}.{$ext}";
-    }
+	/**
+	 * Make proper path to store grabbed image
+	 * 
+	 * @param  string $hash
+	 * @param  string $size
+	 * @param  string $ext
+	 * @return string
+	 */
+	protected function makePath(string $hash, string $size, string $ext) : string
+	{
+		return "photos/{$hash}_{$size}.{$ext}";
+	}
 
-    /**
-     * Store photos to disk
-     * 
-     * @param  string $url
-     * @return array
-     */
-    protected function makePhotos(string $url) : array
-    {
+	/**
+	 * Store photos to disk
+	 * 
+	 * @param  string $url
+	 * @return array
+	 */
+	protected function makePhotos(string $url) : array
+	{
 		$photo = Image::make($url);
 
 		// Intervention image backup is expensive and don't pull data from Instagram again.
 		$thumb = $photo;
 
-    	$time = now()->format('YmdHis');
-    	$hash = hash('md5', $time . $url);
-    	$extension = $this->guessExt($photo->mime());
-    	$lgPath = $this->makePath($hash, 'lg', $extension);
-    	Storage::disk('public')->put($lgPath, (string)$photo->encode());
-    	$photo->fit(640, 396, function ($constraint) {
-    		$constraint->upsize();
+		$time = now()->format('YmdHis');
+		$hash = hash('md5', $time . $url);
+		$extension = $this->guessExt($photo->mime());
+		$lgPath = $this->makePath($hash, 'lg', $extension);
+		Storage::disk('public')->put($lgPath, (string)$photo->encode());
+		$photo->fit(640, 396, function ($constraint) {
+			$constraint->upsize();
 		});
-    	$mdPath = $this->makePath($hash, 'md', $extension);
-    	Storage::disk('public')->put($mdPath, (string)$photo->encode());
-    	$thumb->fit(237, 147, function ($constraint) {
-    		$constraint->upsize();
+		$mdPath = $this->makePath($hash, 'md', $extension);
+		Storage::disk('public')->put($mdPath, (string)$photo->encode());
+		$thumb->fit(237, 147, function ($constraint) {
+			$constraint->upsize();
 		});
-    	$smPath = $this->makePath($hash, 'sm', $extension);
-    	Storage::disk('public')->put($smPath, (string)$thumb->encode());
+		$smPath = $this->makePath($hash, 'sm', $extension);
+		Storage::disk('public')->put($smPath, (string)$thumb->encode());
 
-    	return ['small' => $smPath, 'medium' => $mdPath, 'large' => $lgPath];
-    }
+		return ['small' => $smPath, 'medium' => $mdPath, 'large' => $lgPath];
+	}
 
-    /**
-     * Find album ids
-     * 
-     * @param  array  $tags
-     * @return int
-     */
-    protected function findAlbum(array $tags) : int
-    {
-    	if (in_array('kamioni', $tags)) 
-    		return 2;
-    	else if (in_array('oprema', $tags))
-    		return 3;
+	/**
+	 * Find album ids
+	 * 
+	 * @param  array  $tags
+	 * @return int
+	 */
+	protected function findAlbum(array $tags) : int
+	{
+		if (in_array('kamioni', $tags)) 
+			return 2;
+		else if (in_array('oprema', $tags))
+			return 3;
 
-    	return 1;
-    }
-
-    /**
-     * Forget cached photos
-     * 
-     * @param  string $key
-     * @return void
-     */
-    protected function forgetCache($key)
-    {
-    	if (Cache::has($key))
-    		Cache::forget($key);
-    }
+		return 1;
+	}
 
 	/**
 	 * Execute the console command.
@@ -157,8 +144,6 @@ class InstagramFetcher extends Command
 						)
 					);
 				}
-
-				$this->forgetCache('latest_photos');
 			}
 			else
 			{
@@ -178,8 +163,6 @@ class InstagramFetcher extends Command
 							);
 						}
 					}
-
-					$this->forgetCache('latest_photos');
 				}
 			}
 		}

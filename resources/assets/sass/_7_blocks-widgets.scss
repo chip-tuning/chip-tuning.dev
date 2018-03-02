@@ -2,14 +2,13 @@
 ----------------------------------------------------------------------------- */
 /* Logo, Site Slogan
 ---------------------------------- */
-#logo img:hover,
-#logo-mobile img:hover {
-  opacity: 0.8;
-  filter: alpha(opacity=80);
-}
-
-#logo-footer {
+.logo-footer {
   margin-bottom: 20px;
+  max-width: 180px;
+
+  @media (max-width: 767px) {
+    max-width: 160px;
+  }
 }
 
 /* Small devices (tablets, phones less than 991px) */
@@ -23,13 +22,6 @@
   }
 }
 
-/* Small devices (tablets, phones less than 767px) */
-@media (max-width: 767px) {
-  .navbar-header #logo img,
-  .navbar-header #logo-mobile img {
-    margin-left: 0;
-  }
-}
 /* Small devices (phones less than 480px) */
 @media (max-width: 480px) {
   header:not(.full-width) .header-dropdown-buttons + .logo img {
@@ -1446,4 +1438,16 @@ h6.media-heading {
     line-height: 36px;
     font-size: 20px;
   }
+}
+
+.algolia {
+    img {
+      display: inline-block;
+      max-height: 16px;
+    }
+    p {
+      margin: 0;
+      display: inline-block;
+      font-size: 11px;
+    }
 }

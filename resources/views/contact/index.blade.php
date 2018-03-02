@@ -4,7 +4,7 @@
 @section('description', 'Opis stranice, iskoristiti rec koja je u title-u.')
 @section('facebook_type', 'website')
 @section('twitter_card', 'summary_large_image')
-@section('twitter_image', asset('images/logo-600x304.jpg'))
+@section('twitter_image', asset('images/logo.jpg'))
 
 @section('scripts')
 <!--<script src="https://www.google.com/recaptcha/api.js" async defer></script>-->

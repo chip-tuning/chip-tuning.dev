@@ -9,28 +9,43 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>@yield('title')</title>
 	<meta name="description" content="@yield('description')">
-    <meta property="og:type" content="@yield('facebook_type')">
+	<meta property="og:type" content="@yield('facebook_type')">
 	<meta property="og:url" content="{{ url()->current() }}">
-    <meta property="og:title" content="@yield('title')">
+	<meta property="og:title" content="@yield('title')">
 	<meta property="og:description" content="@yield('description')">
 	@yield('facebook_image')
-    <meta property="og:image" content="{{ asset('images/logo-600x304.jpg') }}">
-    <meta property="og:locale" content="sr_RS">
+<meta property="og:image" content="{{ asset('images/logo.jpg') }}">
+	<meta property="og:locale" content="sr_RS">
 	<meta property="og:site_name" content="{{ config('app.name', 'RPCT') }}">
 	<meta property="fb:admins" content="">
 	<meta property="fb:app_id" content="">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:site" content="{{ "@".config('app.socials.twitter', '') }}">
 	<meta name="twitter:title" content="@yield('title')">
-    <meta name="twitter:description" content="@yield('description')">
+	<meta name="twitter:description" content="@yield('description')">
 	<meta name="twitter:image" content="@yield('twitter_image')">
 	<meta name="csrf-token" content="{{ csrf_token() }}">
-	<link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}">
-	<link rel="apple-touch-icon" href="{{ asset('images/apple-touch-icon.png') }}">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+	<link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/manifest.json">
 	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=PT+Sans|Raleway:300,400,700|Roboto:300,300i,400,400i,500,500i,700&amp;subset=latin-ext">
-	<link rel="stylesheet" type="text/css" href="{{ asset('css/vendor.css') }}">
+	<link rel="stylesheet" type="text/css" href="/css/vendor.css">
 @yield('styles')
-	<link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
+	<link rel="stylesheet" type="text/css" href="/css/app.css">
 	<link rel="alternate" type="application/json" title="{{ config('app.name', 'RPCT') }}" href="{{ route('feed.json') }}">
 	<link rel="alternate" type="application/atom+xml" title="{{ config('app.name', 'RPCT') }}" href="{{ route('feed.rss') }}">
 	<script type="application/ld+json">
@@ -89,7 +104,9 @@
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
 							</button>
-							@include('partials.logo')
+							<div id="logo" class="logo">
+								<a href="{{ url('/') }}"><img class="img-responsive" src="/images/logo.png" alt="{{ config('app.name', 'RPCT') }}"></a>
+							</div>	
 						</div>
 						<div class="collapse navbar-collapse" id="navbar-collapse">
 							<ul class="nav navbar-nav navbar-right">
@@ -158,13 +175,13 @@
 							<div class="col-md-3">
 								<div class="footer-content">
 									<div class="logo-footer">
-										<a href="{{ url('/') }}"><img id="logo-footer" src="public/images/logo_light_blue.png" alt="{{ config('app.name', 'RPCT') }}"></a>
+										<a href="{{ url('/') }}"><img class="img-responsive" src="/images/logo.png" alt="{{ config('app.name', 'RPCT') }}"></a>
 									</div>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus illo vel dolorum soluta consectetur doloribus sit. Delectus non tenetur odit dicta vitae debitis suscipit doloribus. Ipsa, aut voluptas quaerat... <a href="page-about.html">Learn More<i class="fa fa-long-arrow-right pl-5"></i></a></p>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus illo vel dolorum soluta consectetur doloribus sit. Delectus non tenetur odit dicta vitae debitis suscipit doloribus. Ipsa, aut voluptas quaerat.</p>
 									<div class="separator-2"></div>
 									<nav>
 										<ul class="nav nav-pills nav-stacked">
-											<li><a href="{{ route('feed.rss') }}">RSS</a></li>
+											<li><a href="{{ route('feed.rss') }}">RSS/ATOM</a></li>
 											<li><a href="{{ route('faq.index') }}">Česta pitanja</a></li>
 											<li><a href="{{ route('terms.index') }}">Uslovi korišćenja</a></li>
 											<li><a href="{{ route('privacy.index') }}">Politika privatnosti</a></li>
@@ -180,8 +197,8 @@
 										@foreach($articles as $article)
 											<div class="media margin-clear">
 												<div class="media-body">
-													<h6 class="media-heading"><a href="{{ route('blog.show', $article->slug) }}">{{ words($article->title, 6, "...") }}</a></h6>
-													<p class="small margin-clear"><i class="fa fa-calendar pr-10"></i>Objavljeno {{ $article->created_at->diffForHumans() }}</p>
+													<h6 class="media-heading"><a href="{{ route('blog.show', $article->slug) }}">{{ words($article->title, 6) }}</a></h6>
+													<p class="small margin-clear"><i class="fa fa-calendar pr-10"></i>Objavljeno {{ $article->published_at->diffForHumans() }}</p>
 												</div>
 												<hr>
 											</div>
@@ -203,8 +220,8 @@
 										@foreach ($photos as $photo)
 											<div class="col-xs-4 col-md-6">
 												<div class="overlay-container mb-10">
-													<img src="{{ asset('/storage/' . $photo->small) }}" alt="{{ $photo->title }}">
-													<a href="{{ asset('/storage/' . $photo->large) }}" class="overlay-link small"><i class="fa fa-image"></i></a>
+													<img src="/storage/{{ $photo->small }}" alt="{{ $photo->title }}">
+													<a href="/storage/{{ $photo->large }}" class="overlay-link small"><i class="fa fa-image"></i></a>
 												</div>
 											</div>                                
 										@endforeach
@@ -251,9 +268,9 @@
 			</div>
 		</footer>
 	</div>
-	<script type="text/javascript" src="{{ asset('js/vendor.js') }}"></script>
+	<script type="text/javascript" src="/js/vendor.js"></script>
 	@yield('scripts')
-	<script type="text/javascript" src="{{ asset('js/app.js') }}"></script>    
+	<script type="text/javascript" src="/js/app.js"></script>    
 	<!--
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-104289219-1"></script>
 	<script>

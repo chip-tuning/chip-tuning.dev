@@ -4,7 +4,7 @@
 @section('description', 'Opis stranice, iskoristiti rec koja je u title-u.')
 @section('facebook_type', 'website')
 @section('twitter_card', 'summary_large_image')
-@section('twitter_image', asset('images/logo-600x304.jpg'))
+@section('twitter_image', asset('images/logo.jpg'))
 
 @section('content')
 <div id="blog">
@@ -39,35 +39,17 @@
 					<div class="separator-2"></div>
 						@if ($articles->isNotEmpty())
 							@foreach ($articles as $article)
-								<article class="blogpost">
-									<div class="overlay-container">
-										<img src="{{ asset('/storage/' . $article->picture) }}" alt="{{ $article->title }}">
-										<a class="overlay-link" href="{{ route('blog.show', $article->slug) }}"><i class="fa fa-link"></i></a>
-									</div>
-									<header>
-										<h2><a href="{{ route('blog.show', $article->slug) }}">{{ $article->title }}</a></h2>
-										@component('components.articles.info')
-											@slot('date', $article->created_at->diffForHumans())
-											@slot('author', $article->author->name)
-										@endcomponent
-									</header>
-									<div class="blogpost-content text-justify">{!! $article->summary !!}</div>
-									<footer class="clearfix">
-										@if ($article->tags->isNotEmpty())
-											@component('components.articles.tags')
-												@slot('tags', $article->tags)
-											@endcomponent
-										@endif
-										<div class="link pull-right">
-											<i class="fa fa-link"></i> <a href="{{ route('blog.show', $article->slug) }}">Pročitaj ceo članak</a>
-										</div>
-									</footer>
-								</article>
+								@component('components.articles', ['date' => $article->published_at->diffForHumans(), 'author' => $article->author->name])
+									@slot('picture', $article->picture)
+									@slot('title', $article->title)
+									@slot('summary', $article->summary)
+									@slot('slug', $article->slug)
+								@endcomponent
 							@endforeach
 							{{ $articles->links('partials.pagination') }}
 						@else
 							<p>Trenutno ne postoji nijedan članak</p>
-						@endif	
+						@endif
 				</div>
 				@include('partials.sidebar')
 			</div>
