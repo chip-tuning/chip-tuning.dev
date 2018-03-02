@@ -23,7 +23,6 @@ class CreateArticlesTable extends Migration
             $table->text('content');
             $table->timestamps();
             $table->timestamp('published_at')->nullable();
-            $table->softDeletes();
         });
     }
 

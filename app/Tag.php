@@ -3,33 +3,10 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Cache;
 
 class Tag extends Model
 {
-	use SoftDeletes;
-
-	/**
-	 * Boot the model.
-	 */
-	protected static function boot()
-	{
-		parent::boot();
-
-		static::saved(function () {
-			Cache::forget('tags');
-		});
-
-		static::deleted(function () {
-			Cache::forget('tags');
-		});
-
-		static::restored(function () {
-			Cache::forget('tags');
-		});
-	}
-
 	/**
 	 * The attributes that are mass assignable.
 	 *
@@ -45,11 +22,20 @@ class Tag extends Model
 	protected $hidden = ['pivot'];
 
 	/**
-	 * The attributes that should be mutated to dates.
-	 *
-	 * @var array
+	 * Boot the model.
 	 */
-	protected $dates = ['deleted_at'];
+	protected static function boot()
+	{
+		parent::boot();
+
+		static::saved(function () {
+			Cache::forget('tags');
+		});
+
+		static::deleted(function () {
+			Cache::forget('tags');
+		});
+	}
 
 	/**
 	 * Get the route key name.

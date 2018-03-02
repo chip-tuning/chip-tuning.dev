@@ -18,12 +18,22 @@ trait Fileable
 
     /**
      * Associate files with specific model.
-     * @param  array $paths
+     * @param  array $ids
      * @return void
      */
-    public function associate(array $paths)
+    public function associate(array $ids)
     {
-    	$files = File::whereIn('path', $paths)->get();
+    	$files = File::whereIn('id', $ids)->get();
     	$this->files()->saveMany($files);
+    }
+
+    /**
+     * Disassociate files with specific model.
+     * @param  array $ids
+     * @return void
+     */
+    public function disassociate()
+    {
+        $this->files()->update(['fileable_type' => NULL, 'fileable_id' => NULL]);
     }
 }
