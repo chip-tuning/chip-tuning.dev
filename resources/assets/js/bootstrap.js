@@ -18,9 +18,9 @@ require('./plugins/isotope.pkgd.js');
 require('./plugins/magnific-popup.js');
 require('./plugins/waypoints.js');
 require('./plugins/countTo.js');
-require('./plugins/parallax.js');
 require('./plugins/validate.js');
 require('owl.carousel');
+require('./plugins/nice-select.js');
 
 /**
  * The axios HTTP library 

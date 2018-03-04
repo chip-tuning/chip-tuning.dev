@@ -6,6 +6,20 @@
 |--------------------------------------------------------------------------
 */
 Route::get('/', 'HomeController@index')->name('home.index');
+Route::group(['prefix' => 'usluge', 'as' => 'services.',], function() {
+	Route::get('automobili', 'ServiceController@cars')->name('cars');
+	Route::get('kamioni', 'ServiceController@trucks')->name('trucks');
+	Route::get('poljoprivredne-masine', 'ServiceController@machines')->name('machines');
+	Route::get('dpf-off', 'ServiceController@dpf')->name('dpf');
+	Route::get('egr-off', 'ServiceController@egr')->name('egr');
+	Route::get('dtc-off', 'ServiceController@dtc')->name('dtc');
+	Route::get('ad-blue-off', 'ServiceController@adblue')->name('adblue');
+	Route::get('swirl-flaps-off', 'ServiceController@swirlflaps')->name('swirlflaps');
+	Route::get('speed-limit-off', 'ServiceController@speedlimit')->name('speedlimit');
+	Route::get('hot-start-fix', 'ServiceController@hotstart')->name('hotstart');
+	Route::get('gps-pracenje', 'ServiceController@gps')->name('gps');
+	Route::get('dijagnostika', 'ServiceController@diagnostics')->name('diagnostics');
+});
 Route::get('blog', 'ArticleController@index')->name('blog.index');
 Route::get('blog/pretraga', 'ArticleController@search')->name('blog.search');
 Route::get('blog/tagovi', 'ArticleController@tags')->name('blog.tags');

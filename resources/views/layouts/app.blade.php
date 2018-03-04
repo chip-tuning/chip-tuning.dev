@@ -121,33 +121,33 @@
 														<div class="col-sm-6 col-md-3">
 															<div class="divider"></div>
 															<ul class="menu">
-																<li><a href="#"><i class="fa fa-star pr-10"></i>Automobili</a></li>
-																<li><a href="#"><i class="fa fa-star pr-10"></i>Kamioni</a></li>
-																<li><a href="#"><i class="fa fa-star pr-10"></i>Poljoprivredne mašine</a></li>
+																<li class="{{ set_active('usluge/automobili') }}"><a href="{{ route('services.cars') }}"><i class="fa fa-star pr-10"></i>Automobili</a></li>
+																<li class="{{ set_active('usluge/kamioni') }}"><a href="{{ route('services.trucks') }}"><i class="fa fa-star pr-10"></i>Kamioni</a></li>
+																<li class="{{ set_active('usluge/poljoprivredne-masine') }}"><a href="{{ route('services.machines') }}"><i class="fa fa-star pr-10"></i>Poljoprivredne mašine</a></li>
 															</ul>
 														</div>
 														<div class="col-sm-6 col-md-3">
 															<div class="divider"></div>
 															<ul class="menu">
-																<li ><a href="#"><i class="fa fa-star pr-10"></i>DPF OFF</a></li>
-																<li ><a href="#"><i class="fa fa-star pr-10"></i>EGR OFF</a></li>
-																<li ><a href="#"><i class="fa fa-star pr-10"></i>DTC OFF</a></li>
+																<li class="{{ set_active('usluge/dpf-off') }}"><a href="{{ route('services.dpf') }}"><i class="fa fa-star pr-10"></i>DPF OFF</a></li>
+																<li class="{{ set_active('usluge/egr-off') }}"><a href="{{ route('services.egr') }}"><i class="fa fa-star pr-10"></i>EGR OFF</a></li>
+																<li class="{{ set_active('usluge/dtc-off') }}"><a href="{{ route('services.dtc') }}"><i class="fa fa-star pr-10"></i>DTC OFF</a></li>
 															</ul>
 														</div>
 														<div class="col-sm-6 col-md-3">
 															<div class="divider"></div>
 															<ul class="menu">
-																<li><a href="#"><i class="fa fa-star pr-10"></i>AD Blue OFF</a></li>
-																<li><a href="#"><i class="fa fa-clock-o pr-10"></i>Swirl Flaps OFF</a></li>
-																<li><a href="#"><i class="fa fa-star pr-10"></i>Speed Limit OFF</a></li>
+																<li class="{{ set_active('usluge/ad-blue-off') }}"><a href="{{ route('services.adblue') }}"><i class="fa fa-star pr-10"></i>AD Blue OFF</a></li>
+																<li class="{{ set_active('usluge/swirl-flaps-off') }}"><a href="{{ route('services.swirlflaps') }}"><i class="fa fa-clock-o pr-10"></i>Swirl Flaps OFF</a></li>
+																<li class="{{ set_active('usluge/speed-limit-off') }}"><a href="{{ route('services.speedlimit') }}"><i class="fa fa-star pr-10"></i>Speed Limit OFF</a></li>
 															</ul>
 														</div>
 														<div class="col-sm-6 col-md-3">
 															<div class="divider"></div>
 															<ul class="menu">
-																<li><a href="#"><i class="fa fa-star pr-10"></i>Topli Start OFF</a></li>
-																<li><a href="#"><i class="fa fa-clock-o pr-10"></i>GPS Pracenje</a></li>
-																<li><a href="#"><i class="fa fa-star pr-10"></i>Dijagnostika</a></li>
+																<li class="{{ set_active('usluge/hot-start-fix') }}"><a href="{{ route('services.hotstart') }}"><i class="fa fa-star pr-10"></i>Hot Start Fix</a></li>
+																<li class="{{ set_active('usluge/gps-pracenje') }}"><a href="{{ route('services.gps') }}"><i class="fa fa-clock-o pr-10"></i>GPS Pracenje</a></li>
+																<li class="{{ set_active('usluge/dijagnostika') }}"><a href="{{ route('services.diagnostics') }}"><i class="fa fa-star pr-10"></i>Dijagnostika</a></li>
 															</ul>
 														</div>
 													</div>
@@ -237,7 +237,7 @@
 								<div class="footer-content">
 									<h2 class="title">Kontakt</h2>
 									<div class="separator-2"></div>
-									<p>Naše radove možete pratiti i putem svih popularnih društvenih mreža. Pridružite nam se na nekoj od njih i budite uvek u toku.</p>
+									<p>Naše aktivnosti možete pratiti i na svim popularnim društvenim mrežama. Pridružite nam se na nekoj od njih i budite uvek u toku.</p>
 									<ul class="social-links circle animated-effect-1">
 										@include('partials.socials')
 									</ul>

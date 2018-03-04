@@ -11422,6 +11422,119 @@ __webpack_require__(11);
 						gridheight: 750
 					});
 				});
+
+				// Nice select
+				var select = $('select').niceSelect();
+				select.on('change', function (event) {
+					$(this).valid();
+				});
+
+				// Prices
+				$.validator.addMethod("valueNotEquals", function (value, element, arg) {
+					return arg !== element.value;
+				}, "Value must not equal arg.");
+				$("#prices-form").validate({
+					ignore: [],
+					submitHandler: function submitHandler(form) {
+						$.ajax({
+							type: "POST",
+							url: "api/send",
+							data: {
+								"brand": $("#prices-form #brand").val(),
+								"type": $("#prices-form #type").val(),
+								"engine": $("#prices-form #engine").val(),
+								"power": $("#prices-form #power").val(),
+								"year": $("#prices-form #year").val(),
+								"service": $("#prices-form #service").val(),
+								"name": $("#prices-form #name").val(),
+								"email": $("#prices-form #email").val()
+							},
+							dataType: "json",
+							success: function success(data) {
+								if (data.sent == "yes") {
+									$(".submit-button").html('Poslato <i class="fa fa-check"></i>');
+									$("#prices-form .form-control").each(function () {
+										$(this).prop('value', '').parent().removeClass("has-success").removeClass("has-error");
+									});
+								}
+							}
+						});
+					},
+					errorPlacement: function errorPlacement(error, element) {
+						error.insertBefore(element);
+					},
+					onkeyup: false,
+					onclick: false,
+					rules: {
+						brand: {
+							required: true
+						},
+						type: {
+							required: true
+						},
+						engine: {
+							required: true
+						},
+						power: {
+							required: true,
+							number: true
+						},
+						year: {
+							required: true,
+							number: true
+						},
+						service: {
+							valueNotEquals: "0"
+						},
+						name: {
+							required: true,
+							minlength: 6
+						},
+						email: {
+							required: true,
+							email: true
+						}
+					},
+					messages: {
+						brand: {
+							required: "Unesite marku vozila!"
+						},
+						type: {
+							required: "Unesite model vozila!"
+						},
+						engine: {
+							required: "Unesite tip motora!"
+						},
+						power: {
+							required: "Unesite snagu motora!",
+							number: "Unesite ispravnu snagu motora!"
+						},
+						year: {
+							required: "Unesite godinu proizvodnje!",
+							number: "Unesite ispravnu godinu proizvodnje!"
+						},
+						service: {
+							valueNotEquals: "Odaberite uslugu!"
+						},
+						name: {
+							required: "Unesite vaše ime i prezime!",
+							minlength: "Unesite ispravno ime i prezime!"
+						},
+						email: {
+							required: "Unesite vašu email adresu!",
+							email: "Unesite ispravnu email adresu!"
+						}
+					},
+					errorElement: "span",
+					highlight: function highlight(element) {
+						$(element).parent().removeClass("has-success").addClass("has-error");
+						$(element).siblings("label").addClass("hide");
+					},
+					success: function success(element) {
+						$(element).parent().removeClass("has-error").addClass("has-success");
+						$(element).siblings("label").removeClass("hide");
+					}
+				});
 			}
 
 			// Gallery
@@ -11491,7 +11604,15 @@ __webpack_require__(11);
 
 		// Services
 		//-----------------------------------------------
-
+		if ($("#services").length > 0) {
+			console.log('servisi');
+			$(".service-img").magnificPopup({
+				type: "image",
+				gallery: {
+					enabled: true
+				}
+			});
+		}
 
 		// Blog
 		//-----------------------------------------------
@@ -11680,7 +11801,7 @@ __webpack_require__(11);
 		}
 
 		if ($('#faq').length > 0) {
-			// Contact form
+			// Faq form
 			$("#faq-form").validate({
 				submitHandler: function submitHandler(form) {
 					$('.submit-button').button("loading");
@@ -11823,79 +11944,6 @@ __webpack_require__(11);
 			});
 		};
 
-		if ($("#rsvp").length > 0) {
-			$("#rsvp").validate({
-				submitHandler: function submitHandler(form) {
-					$('.submit-button').button("loading");
-					$.ajax({
-						type: "POST",
-						url: "php/email-sender.php",
-						data: {
-							"name": $("#rsvp #name").val(),
-							"email": $("#rsvp #email").val(),
-							"guests": $("#rsvp #guests").val(),
-							"subject": "RSVP",
-							"events": $("#rsvp #events").val()
-						},
-						dataType: "json",
-						success: function success(data) {
-							if (data.sent == "yes") {
-								$("#MessageSent").removeClass("hidden");
-								$("#MessageNotSent").addClass("hidden");
-								$(".submit-button").removeClass("btn-default").addClass("btn-success").prop('value', 'Message Sent');
-								$("#rsvp .form-control").each(function () {
-									$(this).prop('value', '').parent().removeClass("has-success").removeClass("has-error");
-								});
-							} else {
-								$("#MessageNotSent").removeClass("hidden");
-								$("#MessageSent").addClass("hidden");
-							}
-						}
-					});
-				},
-				errorPlacement: function errorPlacement(error, element) {
-					error.insertAfter(element);
-				},
-				onkeyup: false,
-				onclick: false,
-				rules: {
-					name: {
-						required: true,
-						minlength: 2
-					},
-					email: {
-						required: true,
-						email: true
-					},
-					guests: {
-						required: true
-					},
-					events: {
-						required: true
-					}
-				},
-				messages: {
-					name: {
-						required: "Please specify your name",
-						minlength: "Your name must be longer than 2 characters"
-					},
-					email: {
-						required: "We need your email address to contact you",
-						email: "Please enter a valid email address e.g. name@domain.com"
-					}
-				},
-				errorElement: "span",
-				highlight: function highlight(element) {
-					$(element).parent().removeClass("has-success").addClass("has-error");
-					$(element).siblings("label").addClass("hide");
-				},
-				success: function success(element) {
-					$(element).parent().removeClass("has-error").addClass("has-success");
-					$(element).siblings("label").removeClass("hide");
-				}
-			});
-		};
-
 		// Affix Menu
 		//-----------------------------------------------
 		if ($(".affix-menu").length > 0) {
@@ -11968,38 +12016,6 @@ __webpack_require__(11);
 				});
 			}
 		}
-
-		// Parallax section
-		//-----------------------------------------------
-		if ($(".parallax").length > 0 && !Modernizr.touch) {
-			$(".parallax").parallax("50%", 0.2);
-		};
-		if ($(".parallax-2").length > 0 && !Modernizr.touch) {
-			$(".parallax-2").parallax("50%", 0.3);
-		};
-		if ($(".parallax-3").length > 0 && !Modernizr.touch) {
-			$(".parallax-3").parallax("50%", 0.4);
-		};
-
-		// Notify Plugin
-		//-----------------------------------------------
-		if ($(".btn-alert").length > 0) {
-			$(".btn-alert").on('click', function (event) {
-				$.notify({
-					// options
-					message: 'Great! you have just created this message :-) you can configure this into the template.js file'
-				}, {
-					// settings
-					type: 'info',
-					delay: 4000,
-					offset: {
-						y: 100,
-						x: 20
-					}
-				});
-				return false;
-			});
-		};
 
 		// Full Width Image Overlay
 		//-----------------------------------------------
@@ -37666,80 +37682,6 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
 
 /***/ }),
 /* 20 */
-/***/ (function(module, exports) {
-
-/*
-Plugin: jQuery Parallax
-Version 1.1.3
-Author: Ian Lunn
-Twitter: @IanLunn
-Author URL: http://www.ianlunn.co.uk/
-Plugin URL: http://www.ianlunn.co.uk/plugins/jquery-parallax/
-
-Dual licensed under the MIT and GPL licenses:
-http://www.opensource.org/licenses/mit-license.php
-http://www.gnu.org/licenses/gpl.html
-*/
-
-(function ($) {
-	var $window = $(window);
-	var windowHeight = $window.height();
-
-	$window.resize(function () {
-		windowHeight = $window.height();
-	});
-
-	$.fn.parallax = function (xpos, speedFactor, outerHeight) {
-		var $this = $(this);
-		var getHeight;
-		var firstTop;
-		var paddingTop = 0;
-
-		//get the starting position of each element to have parallax applied to it		
-		$this.each(function () {
-			firstTop = $this.offset().top;
-		});
-
-		if (outerHeight) {
-			getHeight = function getHeight(jqo) {
-				return jqo.outerHeight(true);
-			};
-		} else {
-			getHeight = function getHeight(jqo) {
-				return jqo.height();
-			};
-		}
-
-		// setup defaults if arguments aren't specified
-		if (arguments.length < 1 || xpos === null) xpos = "50%";
-		if (arguments.length < 2 || speedFactor === null) speedFactor = 0.1;
-		if (arguments.length < 3 || outerHeight === null) outerHeight = true;
-
-		// function to be called whenever the window is scrolled or resized
-		function update() {
-			var pos = $window.scrollTop();
-
-			$this.each(function () {
-				var $element = $(this);
-				var top = $element.offset().top;
-				var height = getHeight($element);
-
-				// Check if totally above or totally below viewport
-				if (top + height < pos || top > pos + windowHeight) {
-					return;
-				}
-
-				$this.css('backgroundPosition', xpos + " " + Math.round((firstTop - pos) * speedFactor) + "px");
-			});
-		}
-
-		$window.bind('scroll', update).resize(update);
-		update();
-	};
-})(jQuery);
-
-/***/ }),
-/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
@@ -39295,7 +39237,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 });
 
 /***/ }),
-/* 22 */
+/* 21 */
 /***/ (function(module, exports) {
 
 /**
@@ -42572,6 +42514,186 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 
 })(window.Zepto || window.jQuery, window, document);
 
+
+/***/ }),
+/* 22 */
+/***/ (function(module, exports) {
+
+/*  jQuery Nice Select - v1.1.0
+    https://github.com/hernansartorio/jquery-nice-select
+    Made by Hernán Sartorio  */
+
+(function ($) {
+
+  $.fn.niceSelect = function (method) {
+
+    // Methods
+    if (typeof method == 'string') {
+      if (method == 'update') {
+        this.each(function () {
+          var $select = $(this);
+          var $dropdown = $(this).next('.nice-select');
+          var open = $dropdown.hasClass('open');
+
+          if ($dropdown.length) {
+            $dropdown.remove();
+            create_nice_select($select);
+
+            if (open) {
+              $select.next().trigger('click');
+            }
+          }
+        });
+      } else if (method == 'destroy') {
+        this.each(function () {
+          var $select = $(this);
+          var $dropdown = $(this).next('.nice-select');
+
+          if ($dropdown.length) {
+            $dropdown.remove();
+            $select.css('display', '');
+          }
+        });
+        if ($('.nice-select').length == 0) {
+          $(document).off('.nice_select');
+        }
+      } else {
+        console.log('Method "' + method + '" does not exist.');
+      }
+      return this;
+    }
+
+    // Hide native select
+    this.hide();
+
+    // Create custom markup
+    this.each(function () {
+      var $select = $(this);
+
+      if (!$select.next().hasClass('nice-select')) {
+        create_nice_select($select);
+      }
+    });
+
+    function create_nice_select($select) {
+      $select.after($('<div></div>').addClass('nice-select').addClass($select.attr('class') || '').addClass($select.attr('disabled') ? 'disabled' : '').attr('tabindex', $select.attr('disabled') ? null : '0').html('<span class="current"></span><ul class="list"></ul>'));
+
+      var $dropdown = $select.next();
+      var $options = $select.find('option');
+      var $selected = $select.find('option:selected');
+
+      $dropdown.find('.current').html($selected.data('display') || $selected.text());
+
+      $options.each(function (i) {
+        var $option = $(this);
+        var display = $option.data('display');
+
+        $dropdown.find('ul').append($('<li></li>').attr('data-value', $option.val()).attr('data-display', display || null).addClass('option' + ($option.is(':selected') ? ' selected' : '') + ($option.is(':disabled') ? ' disabled' : '')).html($option.text()));
+      });
+    }
+
+    /* Event listeners */
+
+    // Unbind existing events in case that the plugin has been initialized before
+    $(document).off('.nice_select');
+
+    // Open/close
+    $(document).on('click.nice_select', '.nice-select', function (event) {
+      var $dropdown = $(this);
+
+      $('.nice-select').not($dropdown).removeClass('open');
+      $dropdown.toggleClass('open');
+
+      if ($dropdown.hasClass('open')) {
+        $dropdown.find('.option');
+        $dropdown.find('.focus').removeClass('focus');
+        $dropdown.find('.selected').addClass('focus');
+      } else {
+        $dropdown.focus();
+      }
+    });
+
+    // Close when clicking outside
+    $(document).on('click.nice_select', function (event) {
+      if ($(event.target).closest('.nice-select').length === 0) {
+        $('.nice-select').removeClass('open').find('.option');
+      }
+    });
+
+    // Option click
+    $(document).on('click.nice_select', '.nice-select .option:not(.disabled)', function (event) {
+      var $option = $(this);
+      var $dropdown = $option.closest('.nice-select');
+
+      $dropdown.find('.selected').removeClass('selected');
+      $option.addClass('selected');
+
+      var text = $option.data('display') || $option.text();
+      $dropdown.find('.current').text(text);
+
+      $dropdown.prev('select').val($option.data('value')).trigger('change');
+    });
+
+    // Keyboard events
+    $(document).on('keydown.nice_select', '.nice-select', function (event) {
+      var $dropdown = $(this);
+      var $focused_option = $($dropdown.find('.focus') || $dropdown.find('.list .option.selected'));
+
+      // Space or Enter
+      if (event.keyCode == 32 || event.keyCode == 13) {
+        if ($dropdown.hasClass('open')) {
+          $focused_option.trigger('click');
+        } else {
+          $dropdown.trigger('click');
+        }
+        return false;
+        // Down
+      } else if (event.keyCode == 40) {
+        if (!$dropdown.hasClass('open')) {
+          $dropdown.trigger('click');
+        } else {
+          var $next = $focused_option.nextAll('.option:not(.disabled)').first();
+          if ($next.length > 0) {
+            $dropdown.find('.focus').removeClass('focus');
+            $next.addClass('focus');
+          }
+        }
+        return false;
+        // Up
+      } else if (event.keyCode == 38) {
+        if (!$dropdown.hasClass('open')) {
+          $dropdown.trigger('click');
+        } else {
+          var $prev = $focused_option.prevAll('.option:not(.disabled)').first();
+          if ($prev.length > 0) {
+            $dropdown.find('.focus').removeClass('focus');
+            $prev.addClass('focus');
+          }
+        }
+        return false;
+        // Esc
+      } else if (event.keyCode == 27) {
+        if ($dropdown.hasClass('open')) {
+          $dropdown.trigger('click');
+        }
+        // Tab
+      } else if (event.keyCode == 9) {
+        if ($dropdown.hasClass('open')) {
+          return false;
+        }
+      }
+    });
+
+    // Detect CSS pointer-events support, for IE <= 10. From Modernizr.
+    var style = document.createElement('a').style;
+    style.cssText = 'pointer-events:auto';
+    if (style.pointerEvents !== 'auto') {
+      $('html').addClass('no-csspointerevents');
+    }
+
+    return this;
+  };
+})(jQuery);
 
 /***/ }),
 /* 23 */

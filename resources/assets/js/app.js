@@ -273,6 +273,119 @@ require('./bootstrap');
 						gridheight:750
 					});
 				});	
+
+				// Nice select
+				var select = $('select').niceSelect();
+				select.on('change', function (event) {
+					$(this).valid();
+				});
+
+				// Prices
+				$.validator.addMethod("valueNotEquals", function(value, element, arg) {
+					return arg !== element.value;
+				}, "Value must not equal arg.");
+				$("#prices-form").validate({
+					ignore: [],
+					submitHandler: function(form) {
+						$.ajax({
+							type: "POST",
+							url: "api/send",
+							data: {
+								"brand": $("#prices-form #brand").val(),
+								"type": $("#prices-form #type").val(),
+								"engine": $("#prices-form #engine").val(),
+								"power": $("#prices-form #power").val(),
+								"year": $("#prices-form #year").val(),
+								"service": $("#prices-form #service").val(),
+								"name": $("#prices-form #name").val(),
+								"email": $("#prices-form #email").val()
+							},
+							dataType: "json",
+							success: function (data) {
+								if (data.sent == "yes") {
+									$(".submit-button").html('Poslato <i class="fa fa-check"></i>');
+									$("#prices-form .form-control").each(function() {
+										$(this).prop('value', '').parent().removeClass("has-success").removeClass("has-error");
+									});
+								}
+							}
+						});
+					},
+					errorPlacement: function(error, element) {
+						error.insertBefore( element );
+					},
+					onkeyup: false,
+					onclick: false,
+					rules: {
+						brand: {
+							required: true
+						},
+						type: {
+							required: true
+						},
+						engine: {
+							required: true
+						},
+						power: {
+							required: true,
+							number: true
+						},
+						year: {
+							required: true,
+							number: true
+						},
+						service: {
+							valueNotEquals: "0"
+						},
+						name: {
+							required: true,
+							minlength: 6
+						},
+						email: {
+							required: true,
+							email: true
+						}
+					},
+					messages: {
+						brand: {
+							required: "Unesite marku vozila!"
+						},
+						type: {
+							required: "Unesite model vozila!"
+						},
+						engine: {
+							required: "Unesite tip motora!"
+						},
+						power: {
+							required: "Unesite snagu motora!",
+							number: "Unesite ispravnu snagu motora!"
+						},
+						year: {
+							required: "Unesite godinu proizvodnje!",
+							number: "Unesite ispravnu godinu proizvodnje!"
+						},
+						service: {
+							valueNotEquals: "Odaberite uslugu!"
+						},
+						name: {
+							required: "Unesite vaše ime i prezime!",
+							minlength: "Unesite ispravno ime i prezime!"
+						},
+						email: {
+							required: "Unesite vašu email adresu!",
+							email: "Unesite ispravnu email adresu!"
+						}
+					},
+					errorElement: "span",
+					highlight: function (element) {
+						$(element).parent().removeClass("has-success").addClass("has-error");
+						$(element).siblings("label").addClass("hide");
+					},
+					success: function (element) {
+						$(element).parent().removeClass("has-error").addClass("has-success");
+						$(element).siblings("label").removeClass("hide");
+					}
+				});
 			}
 
 			// Gallery
@@ -342,6 +455,16 @@ require('./bootstrap');
 
 		// Services
 		//-----------------------------------------------
+		if (($("#services").length > 0))
+		{
+			console.log('servisi')
+			$(".service-img").magnificPopup({
+				type:"image",
+				gallery: {
+					enabled: true,
+				}
+			});
+		}
 
 
 		// Blog
@@ -531,7 +654,7 @@ require('./bootstrap');
 		}
 
 		if ($('#faq').length > 0) {
-			// Contact form
+			// Faq form
 			$("#faq-form").validate({
 				submitHandler: function(form) {
 					$('.submit-button').button("loading");
@@ -674,80 +797,6 @@ require('./bootstrap');
 			});
 		};
 
-		if($("#rsvp").length>0) {
-			$("#rsvp").validate({
-				submitHandler: function(form) {
-					$('.submit-button').button("loading");
-					$.ajax({
-						type: "POST",
-						url: "php/email-sender.php",
-						data: {
-							"name": $("#rsvp #name").val(),
-							"email": $("#rsvp #email").val(),
-							"guests": $("#rsvp #guests").val(),
-							"subject": "RSVP",
-							"events": $("#rsvp #events").val()
-						},
-						dataType: "json",
-						success: function (data) {
-							if (data.sent == "yes") {
-								$("#MessageSent").removeClass("hidden");
-								$("#MessageNotSent").addClass("hidden");
-								$(".submit-button").removeClass("btn-default").addClass("btn-success").prop('value', 'Message Sent');
-								$("#rsvp .form-control").each(function() {
-									$(this).prop('value', '').parent().removeClass("has-success").removeClass("has-error");
-								});
-							} else {
-								$("#MessageNotSent").removeClass("hidden");
-								$("#MessageSent").addClass("hidden");
-							}
-						}
-					});
-				},
-				errorPlacement: function(error, element) {
-					error.insertAfter( element );
-				},
-				onkeyup: false,
-				onclick: false,
-				rules: {
-					name: {
-						required: true,
-						minlength: 2
-					},
-					email: {
-						required: true,
-						email: true
-					},
-					guests: {
-						required: true
-					},
-					events: {
-						required: true
-					}
-				},
-				messages: {
-					name: {
-						required: "Please specify your name",
-						minlength: "Your name must be longer than 2 characters"
-					},
-					email: {
-						required: "We need your email address to contact you",
-						email: "Please enter a valid email address e.g. name@domain.com"
-					}
-				},
-				errorElement: "span",
-				highlight: function (element) {
-					$(element).parent().removeClass("has-success").addClass("has-error");
-					$(element).siblings("label").addClass("hide");
-				},
-				success: function (element) {
-					$(element).parent().removeClass("has-error").addClass("has-success");
-					$(element).siblings("label").removeClass("hide");
-				}
-			});
-		};
-
-
 		// Affix Menu
 		//-----------------------------------------------
 		if ($(".affix-menu").length>0) {
@@ -820,38 +869,6 @@ require('./bootstrap');
 				});
 			}
 		}
-
-		// Parallax section
-		//-----------------------------------------------
-		if (($(".parallax").length>0)  && !Modernizr.touch ){
-			$(".parallax").parallax("50%", 0.2);
-		};
-		if (($(".parallax-2").length>0)  && !Modernizr.touch ){
-			$(".parallax-2").parallax("50%", 0.3);
-		};
-		if (($(".parallax-3").length>0)  && !Modernizr.touch ){
-			$(".parallax-3").parallax("50%", 0.4);
-		};
-
-		// Notify Plugin
-		//-----------------------------------------------
-		if ($(".btn-alert").length>0){
-			$(".btn-alert").on('click', function(event) {
-				$.notify({
-					// options
-					message: 'Great! you have just created this message :-) you can configure this into the template.js file'
-				},{
-					// settings
-					type: 'info',
-					delay: 4000,
-					offset : {
-						y: 100,
-						x: 20
-					}
-				});
-				return false;
-			});
-		};
 
 		// Full Width Image Overlay
 		//-----------------------------------------------
