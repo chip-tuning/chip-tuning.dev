@@ -3,12 +3,9 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Album extends Model
 {
-	use SoftDeletes;
-
 	/**
 	 * The attributes that are mass assignable.
 	 *
@@ -17,11 +14,14 @@ class Album extends Model
 	protected $fillable = ['title'];
 
 	/**
-	 * The attributes that should be mutated to dates.
+	 * Get the route key name.
 	 *
-	 * @var array
+	 * @return string
 	 */
-	protected $dates = ['deleted_at'];
+	public function getRouteKeyName()
+	{
+		return 'id';
+	}
 
 	/**
 	 * An album may have many photos.

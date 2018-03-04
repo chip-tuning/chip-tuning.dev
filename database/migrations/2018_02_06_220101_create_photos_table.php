@@ -21,7 +21,6 @@ class CreatePhotosTable extends Migration
             $table->string('medium');
             $table->string('large');
             $table->timestamps();
-            $table->softDeletes();
             $table->foreign('album_id')->references('id')->on('albums')->onDelete('cascade'); 
         });
     }

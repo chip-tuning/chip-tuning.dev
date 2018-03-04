@@ -6,10 +6,6 @@
 @section('twitter_card', 'summary_large_image')
 @section('twitter_image', asset('images/logo.jpg'))
 
-@section('scripts')
-<!--<script src="https://www.google.com/recaptcha/api.js" async defer></script>-->
-@endsection
-
 @section('content')
 <div id="faq">
 	@component('components.breadcrumb')

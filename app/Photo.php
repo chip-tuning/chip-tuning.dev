@@ -3,12 +3,16 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Cache;
 
 class Photo extends Model
 {
-	use SoftDeletes;
+	/**
+	 * The attributes that are mass assignable.
+	 *
+	 * @var array
+	 */
+	protected $fillable = ['title', 'small', 'medium', 'large', 'created_at'];
 
 	/**
 	 * Boot the model.
@@ -24,25 +28,17 @@ class Photo extends Model
 		static::deleted(function () {
 			Cache::forget('photos');
 		});
-
-		static::restored(function () {
-			Cache::forget('photos');
-		});
 	}
 
 	/**
-	 * The attributes that are mass assignable.
+	 * Get the route key name.
 	 *
-	 * @var array
+	 * @return string
 	 */
-	protected $fillable = ['title', 'small', 'medium', 'large', 'created_at'];
-
-	/**
-	 * The attributes that should be mutated to dates.
-	 *
-	 * @var array
-	 */
-	protected $dates = ['deleted_at'];
+	public function getRouteKeyName()
+	{
+		return 'id';
+	}
 
 	/**
 	 * A photo belongs to an album.

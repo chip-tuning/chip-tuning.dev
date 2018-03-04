@@ -14,7 +14,7 @@
 	<meta property="og:title" content="@yield('title')">
 	<meta property="og:description" content="@yield('description')">
 	@yield('facebook_image')
-<meta property="og:image" content="{{ asset('images/logo.jpg') }}">
+	<meta property="og:image" content="{{ asset('images/logo.jpg') }}">
 	<meta property="og:locale" content="sr_RS">
 	<meta property="og:site_name" content="{{ config('app.name', 'RPCT') }}">
 	<meta property="fb:admins" content="">
@@ -43,23 +43,22 @@
 	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 	<link rel="manifest" href="/manifest.json">
 	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=PT+Sans|Raleway:300,400,700|Roboto:300,300i,400,400i,500,500i,700&amp;subset=latin-ext">
-	<link rel="stylesheet" type="text/css" href="/css/vendor.css">
-@yield('styles')
+	@yield('styles')
 	<link rel="stylesheet" type="text/css" href="/css/app.css">
 	<link rel="alternate" type="application/json" title="{{ config('app.name', 'RPCT') }}" href="{{ route('feed.json') }}">
 	<link rel="alternate" type="application/atom+xml" title="{{ config('app.name', 'RPCT') }}" href="{{ route('feed.rss') }}">
 	<script type="application/ld+json">
-	  {
-		"@context": "http://schema.org",
-		"@type": "Organization",
-		"name": "{{ config('app.name', 'RPCT') }}",
-		"url": "{{ config('app.url', 'https://www.chip-tuning.rs') }}",
-		"sameAs": [
-		  "https://www.facebook.com/{{ config('app.socials.facebook', '') }}",
-		  "https://www.twitter.com/{{ config('app.socials.twitter', '') }}",
-		  "https://www.instagram.com/{{ config('app.socials.instagram', '') }}"
-		]
-	  }
+		{
+			"@context": "http://schema.org",
+			"@type": "Organization",
+			"name": "{{ config('app.name', 'RPCT') }}",
+			"url": "{{ config('app.url', 'https://www.chip-tuning.rs') }}",
+			"sameAs": [
+				"https://www.facebook.com/{{ config('app.socials.facebook', '') }}",
+				"https://www.twitter.com/{{ config('app.socials.twitter', '') }}",
+				"https://www.instagram.com/{{ config('app.socials.instagram', '') }}"
+			]
+		}
 	</script>
 </head>
 <body class="no-trans front-page transparent-header">
@@ -105,7 +104,7 @@
 								<span class="icon-bar"></span>
 							</button>
 							<div id="logo" class="logo">
-								<a href="{{ url('/') }}"><img class="img-responsive" src="/images/logo.png" alt="{{ config('app.name', 'RPCT') }}"></a>
+								<a href="{{ url('/') }}"><img src="/images/logo.png" alt="{{ config('app.name', 'RPCT') }}"></a>
 							</div>	
 						</div>
 						<div class="collapse navbar-collapse" id="navbar-collapse">
@@ -122,33 +121,33 @@
 														<div class="col-sm-6 col-md-3">
 															<div class="divider"></div>
 															<ul class="menu">
-																<li><a href="#"><i class="fa fa-star pr-10"></i>Automobili</a></li>
-																<li><a href="#"><i class="fa fa-star pr-10"></i>Kamioni</a></li>
-																<li><a href="#"><i class="fa fa-star pr-10"></i>Poljoprivredne mašine</a></li>
+																<li class="{{ set_active('usluge/automobili') }}"><a href="{{ route('services.cars') }}"><i class="fa fa-star pr-10"></i>Automobili</a></li>
+																<li class="{{ set_active('usluge/kamioni') }}"><a href="{{ route('services.trucks') }}"><i class="fa fa-star pr-10"></i>Kamioni</a></li>
+																<li class="{{ set_active('usluge/poljoprivredne-masine') }}"><a href="{{ route('services.machines') }}"><i class="fa fa-star pr-10"></i>Poljoprivredne mašine</a></li>
 															</ul>
 														</div>
 														<div class="col-sm-6 col-md-3">
 															<div class="divider"></div>
 															<ul class="menu">
-																<li ><a href="#"><i class="fa fa-star pr-10"></i>DPF OFF</a></li>
-																<li ><a href="#"><i class="fa fa-star pr-10"></i>EGR OFF</a></li>
-																<li ><a href="#"><i class="fa fa-star pr-10"></i>DTC OFF</a></li>
+																<li class="{{ set_active('usluge/dpf-off') }}"><a href="{{ route('services.dpf') }}"><i class="fa fa-star pr-10"></i>DPF OFF</a></li>
+																<li class="{{ set_active('usluge/egr-off') }}"><a href="{{ route('services.egr') }}"><i class="fa fa-star pr-10"></i>EGR OFF</a></li>
+																<li class="{{ set_active('usluge/dtc-off') }}"><a href="{{ route('services.dtc') }}"><i class="fa fa-star pr-10"></i>DTC OFF</a></li>
 															</ul>
 														</div>
 														<div class="col-sm-6 col-md-3">
 															<div class="divider"></div>
 															<ul class="menu">
-																<li><a href="#"><i class="fa fa-star pr-10"></i>AD Blue OFF</a></li>
-																<li><a href="#"><i class="fa fa-clock-o pr-10"></i>Swirl Flaps OFF</a></li>
-																<li><a href="#"><i class="fa fa-star pr-10"></i>Speed Limit OFF</a></li>
+																<li class="{{ set_active('usluge/ad-blue-off') }}"><a href="{{ route('services.adblue') }}"><i class="fa fa-star pr-10"></i>AD Blue OFF</a></li>
+																<li class="{{ set_active('usluge/swirl-flaps-off') }}"><a href="{{ route('services.swirlflaps') }}"><i class="fa fa-clock-o pr-10"></i>Swirl Flaps OFF</a></li>
+																<li class="{{ set_active('usluge/speed-limit-off') }}"><a href="{{ route('services.speedlimit') }}"><i class="fa fa-star pr-10"></i>Speed Limit OFF</a></li>
 															</ul>
 														</div>
 														<div class="col-sm-6 col-md-3">
 															<div class="divider"></div>
 															<ul class="menu">
-																<li><a href="#"><i class="fa fa-star pr-10"></i>Topli Start OFF</a></li>
-																<li><a href="#"><i class="fa fa-clock-o pr-10"></i>GPS Pracenje</a></li>
-																<li><a href="#"><i class="fa fa-star pr-10"></i>Dijagnostika</a></li>
+																<li class="{{ set_active('usluge/hot-start-fix') }}"><a href="{{ route('services.hotstart') }}"><i class="fa fa-star pr-10"></i>Hot Start Fix</a></li>
+																<li class="{{ set_active('usluge/gps-pracenje') }}"><a href="{{ route('services.gps') }}"><i class="fa fa-clock-o pr-10"></i>GPS Pracenje</a></li>
+																<li class="{{ set_active('usluge/dijagnostika') }}"><a href="{{ route('services.diagnostics') }}"><i class="fa fa-star pr-10"></i>Dijagnostika</a></li>
 															</ul>
 														</div>
 													</div>
@@ -175,7 +174,7 @@
 							<div class="col-md-3">
 								<div class="footer-content">
 									<div class="logo-footer">
-										<a href="{{ url('/') }}"><img class="img-responsive" src="/images/logo.png" alt="{{ config('app.name', 'RPCT') }}"></a>
+										<a href="{{ url('/') }}"><img src="/images/logo.png" alt="{{ config('app.name', 'RPCT') }}"></a>
 									</div>
 									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus illo vel dolorum soluta consectetur doloribus sit. Delectus non tenetur odit dicta vitae debitis suscipit doloribus. Ipsa, aut voluptas quaerat.</p>
 									<div class="separator-2"></div>
@@ -238,7 +237,7 @@
 								<div class="footer-content">
 									<h2 class="title">Kontakt</h2>
 									<div class="separator-2"></div>
-									<p>Naše radove možete pratiti i putem svih popularnih društvenih mreža. Pridružite nam se na nekoj od njih i budite uvek u toku.</p>
+									<p>Naše aktivnosti možete pratiti i na svim popularnim društvenim mrežama. Pridružite nam se na nekoj od njih i budite uvek u toku.</p>
 									<ul class="social-links circle animated-effect-1">
 										@include('partials.socials')
 									</ul>
@@ -268,9 +267,8 @@
 			</div>
 		</footer>
 	</div>
-	<script type="text/javascript" src="/js/vendor.js"></script>
+	<script src="/js/app.js"></script>
 	@yield('scripts')
-	<script type="text/javascript" src="/js/app.js"></script>    
 	<!--
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-104289219-1"></script>
 	<script>

@@ -7,11 +7,11 @@
 @section('twitter_image', asset('images/logo.jpg'))
 
 @section('styles')
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/rev-slider.css') }}">
+<link rel="stylesheet" type="text/css" href="/css/rev-slider.css">
 @endsection
 
 @section('scripts')
-    <script type="text/javascript" src="{{ asset('js/rev-slider.js') }}"></script>
+<script src="/js/rev-slider.js"></script>
 @endsection
 
 @section('content')
@@ -37,7 +37,7 @@
                         @endslot
                         @slot('title', 'Automobili')
                         @slot('description', 'Chip Tuning za vozila koja poseduju turbo dizel ili turbo benzinski motor. Povećanje snage uz smanjenje potrošnje.')
-                        @slot('link', '#')
+                        @slot('link', route('services.cars'))
                     @endcomponent
                     @component('components.groups')
                         @slot('delay', 50)
@@ -46,7 +46,7 @@
                         @endslot
                         @slot('title', 'Kamioni')
                         @slot('description', 'Chip Tuningom kamiona dobija se značajno povećanje snage dok se potrošnja smanjuje do 3l, čime se postiže velika ušteda.')
-                        @slot('link', '#')
+                        @slot('link', route('services.trucks'))
                     @endcomponent
                     @component('components.groups')
                         @slot('delay', 25)
@@ -55,19 +55,22 @@
                         @endslot
                         @slot('title', 'Poljoprivredne mašine')
                         @slot('description', 'Povećanje snage i smanjenje potrošnje moguće je postići i na poljoprivrednim mašinama.')
-                        @slot('link', '#')
+                        @slot('link', route('services.machines'))
                     @endcomponent
                 </div>
                 <div class="col-md-6">
-                    <img src="{{ asset('images/service-image-1.png') }}" alt="Nase usluge">
+                    <img src="/images/tools-1.png" alt="Usluge">
                 </div>
+            </div>
+            <div class="row">
+                <div class="pv-20">
                 @component('components.service')
                     @slot('icon')
                         <i class="fa fa-diamond"></i>
                     @endslot
                     @slot('title', 'DPF OFF')
                     @slot('description', 'Problem sa DPF filterom rešavamo trajno softverskim i fizičkim uklanjanjem.')
-                    @slot('link', '#')
+                    @slot('link', route('services.dpf'))
                 @endcomponent
                 @component('components.service')
                     @slot('icon')
@@ -75,7 +78,7 @@
                     @endslot
                     @slot('title', 'EGR OFF')
                     @slot('description', 'Problem sa EGR ventilom rešavamo trajno softverskim gašenjem i fizičkim zatvaranjem.')
-                    @slot('link', '#')
+                    @slot('link', route('services.egr'))
                 @endcomponent
                 @component('components.service')
                     @slot('icon')
@@ -83,7 +86,7 @@
                     @endslot
                     @slot('title', 'DTC OFF')
                     @slot('description', 'Ukoliko se javi potreba vršimo selektivno brisanje grešaka iz motornog računara vozila.')
-                    @slot('link', '#')
+                    @slot('link', route('services.dtc'))
                 @endcomponent
                 @component('components.service')
                     @slot('icon')
@@ -91,7 +94,7 @@
                     @endslot
                     @slot('title', 'AD Blue OFF')
                     @slot('description', 'Softversko gašenje AdBlue sistema kojim je opremljena većina vozila novije proizvodnje.')
-                    @slot('link', '#')
+                    @slot('link', route('services.adblue'))
                 @endcomponent
                 @component('components.service')
                     @slot('icon')
@@ -99,7 +102,7 @@
                     @endslot
                     @slot('title', 'Swirl Flaps OFF')
                     @slot('description', 'Klapne usisne grane – Swirl/Flaps su veoma osetljive i često prouzrokuju probleme u radu motora.')
-                    @slot('link', '#')
+                    @slot('link', route('services.swirlflaps'))
                 @endcomponent
                 @component('components.service')
                     @slot('icon')
@@ -107,15 +110,15 @@
                     @endslot
                     @slot('title', 'Speed Limit OFF')
                     @slot('description', 'Neki proizvođači postavljaju ograničenje brzine na svoja vozila, taj limit je moguće ukinuti.')
-                    @slot('link', '#')
+                    @slot('link', route('services.speedlimit'))
                 @endcomponent
                 @component('components.service')
                     @slot('icon')
                         <i class="fa fa-diamond"></i>
                     @endslot
-                    @slot('title', 'Topli Start OFF')
-                    @slot('description', 'Veoma čest problem kod VAG grupacije. Kad motor postigne radnu temperaturu ne može da upali ili jako dugo vergla da bi upalio.')
-                    @slot('link', '#')
+                    @slot('title', 'Hot Start Fix')
+                    @slot('description', 'Nakon postizanja radne temperature, motor ne može da upali ili dugo vergla da bi upalio.')
+                    @slot('link', route('services.hotstart'))
                 @endcomponent
                 @component('components.service')
                     @slot('icon')
@@ -123,36 +126,37 @@
                     @endslot
                     @slot('title', 'GPS Praćenje')
                     @slot('description', 'Satelitsko praćenje vozila u zemilji i inostranstvu, praćenje parametara motora, potrošnje, pređenog puta.')
-                    @slot('link', '#')
+                    @slot('link', route('services.gps'))
                 @endcomponent
                 @component('components.service')
                     @slot('icon')
                         <i class="fa fa-diamond"></i>
                     @endslot
                     @slot('title', 'Dijagnostika')
-                    @slot('description', 'Posedujemo najsavremenije dijagnostičke uređaje koji nam omogućavaju rad na vozilima poslednje generacije.')
-                    @slot('link', '#')
+                    @slot('description', 'Posedujemo savremene uređaje za dijagnostiku koji nam omogućavaju rad na vozilima poslednje generacije.')
+                    @slot('link', route('services.diagnostics'))
                 @endcomponent
+                </div>
             </div>
         </div>
     </section>
-    @include('partials.calculator')
+    @include('partials.prices')
     <section class="pv-30">
         <div class="container">
             <div class="row">
-                <div class="col-md-8 col-md-offset-2">
+                <div class="col-md-10 col-md-offset-1">
                     <h2 class="text-center">Zašto <strong>baš</strong> mi</h2>
                     <div class="separator"></div>
-                    <p class="large text-center">Firma Racing Performance Chip Tuning bavi se prvenstveno povećanjem snage vozila uz smanjenje potrošnje. Ono što nas izdvaja u odnosu na ostale firme jeste oprema i software poslednje generacije koji nam omogućava brz, kvalitetan i efikasan rad.</p>
+                    <p class="large text-center">Bavimo se prvenstveno povećanjem snage vozila uz smanjenje potrošnje. Ono što nas izdvaja u odnosu na ostale firme jeste oprema i software poslednje generacije koji nam omogućava brz, kvalitetan i efikasan rad.</p>
                     <br>
                 </div>
                 <div class="col-md-6">
-                    <img src="{{ asset('images/section-image-1.png') }}" alt="Zasto bas mi">
+                    <img class="space-bottom" src="/images/img-1.jpg" alt="Zasto bas mi">
                 </div>
                 <div class="col-md-6">
-                    <p class="space-top">Lorem ipsum dolor sit amet, consectetur adipisicing elit. At provident modi nobis dolores ratione, maiores beatae vel iste illo incidunt officia sed id cupiditate quasi excepturi</p>
+                    <p class="hidden-md">Lorem ipsum dolor sit amet, consectetur adipisicing elit. At provident modi nobis dolores ratione, maiores beatae vel iste illo incidunt officia</p>
                     @component('components.feature')
-                        @slot('delay', 100)
+                        @slot('delay', 50)
                         @slot('icon')
                             <i class="fa fa-clock-o"></i>
                         @endslot
@@ -165,10 +169,10 @@
                             <i class="fa fa-tachometer"></i>
                         @endslot
                         @slot('title', 'Detaljna provera vozila')
-                        @slot('description', 'Posedujemo uređaje poslednje generacije za kompletnu dijagnostiku vašeg vozila.')
+                        @slot('description', 'Posedujemo najmodernije uređaje za dijagnostičke za detaljnu i preciznu proveru vašeg vozila.')
                     @endcomponent
                     @component('components.feature')
-                        @slot('delay', 100)
+                        @slot('delay', 150)
                         @slot('icon')
                             <i class="fa fa-car"></i>
                         @endslot
@@ -181,15 +185,15 @@
                 <div class="col-md-6">
                     <h2>Šta <strong>nudimo</strong></h2>
                     <div class="separator-2"></div>
-                    <p>Nudimo jedinstveno rešenje za svako vozilo. Za razliku od ostalih Tuning kuca ne učitavamo gotove mape već svako vozilo mapiramo posebno. </p>
-                    <ul class="list-icons">
-                        <li class="object-non-visible animated object-visible fadeInUpSmall" data-animation-effect="fadeInUpSmall" data-effect-delay="100"><i class="fa fa-check-square-o"></i> Oprema poslednje generacije</li>
-                        <li class="object-non-visible animated object-visible fadeInUpSmall" data-animation-effect="fadeInUpSmall" data-effect-delay="150"><i class="fa fa-check-square-o"></i> Profesionalnost</li>
-                        <li class="object-non-visible animated object-visible fadeInUpSmall" data-animation-effect="fadeInUpSmall" data-effect-delay="200"><i class="fa fa-check-square-o"></i> Efikasnost</li>
-                        <li class="object-non-visible animated object-visible fadeInUpSmall" data-animation-effect="fadeInUpSmall" data-effect-delay="250"><i class="fa fa-check-square-o"></i> Iskustvo</li>
+                    <p>Jedinstveno rešenje za svako vozilo. Za razliku od većine drugih, ne učitavamo gotove mape već svako vozilo mapiramo posebno u cilju postizanja optimalnih performansi vašeg vozila.
+                    <p>Chip tuningom teretnih mašina postiže se značajno smanjenje potrošnje, koje se kreće od 1 do 3L na 100 predjenih kilometara u zavisnosti od samog vozila.</p>
+                    <ul class="list-icons space-bottom">
+                        <li class="object-non-visible" data-animation-effect="fadeInUpSmall" data-effect-delay="100"><i class="fa fa-check-square-o"></i> Profesionalna usluga</li>
+                        <li class="object-non-visible" data-animation-effect="fadeInUpSmall" data-effect-delay="150"><i class="fa fa-check-square-o"></i> Izrada jedinstvene mape za vaše vozilo</li>
+                        <li class="object-non-visible" data-animation-effect="fadeInUpSmall" data-effect-delay="200"><i class="fa fa-check-square-o"></i> Remapiranje teretnih i putničkih vozila</li>
+                        <li class="object-non-visible" data-animation-effect="fadeInUpSmall" data-effect-delay="250"><i class="fa fa-check-square-o"></i> Originalni interfejsi za čitanje i upis mapa</li>
+                        <li class="object-non-visible" data-animation-effect="fadeInUpSmall" data-effect-delay="300"><i class="fa fa-check-square-o"></i> Originalne mape vašeg vozila se trajno čuvaju</li>
                     </ul>
-                    <p>Chip Tuning za kompletan teretni i putnički program. <strong>Značajno smanjenje potrošnje kod kamiona</strong>, koje ide od 1 do 3l na 100 km u zavisnosti od vozila.</p>
-                    <a href="page-about.html" class="btn btn-default btn-hvr hvr-shutter-out-horizontal btn-lg"><i class="fa fa-users pr-10"></i>Learn More</a>
                 </div>
                 <div class="col-md-6">
                     <br>
@@ -205,7 +209,7 @@
                         <div class="tab-content">
                             <div role="tabpanel" class="tab-pane fade in active" id="home">
                                 <div class="overlay-container overlay-visible">
-                                    <img src="{{ asset('images/section-image-3.jpg') }}" alt="">
+                                    <img src="/images/section-image-3.jpg" alt="">
                                     <a href="#" class="overlay-link"><i class="fa fa-link"></i></a>
                                     <div class="overlay-bottom hidden-xs">
                                         <div class="text">
@@ -232,34 +236,14 @@
             </div>
         </div>
     </section>
-    <section class="section default-bg clearfix">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="call-to-action text-center">
-                        <div class="row">
-                            <div class="col-sm-8">
-                                <h1 class="title">Kontaktirajte nas</h1>
-                                <p>Ukoliko imate bilo kakve nedoumice vezane za naše usluge, kontaktirajte nas. Rado ćemo odgovoriti na sva Vaša pitanja.</p>
-                            </div>
-                            <div class="col-sm-4">
-                                <br>
-                                <p><a href="#" class="btn btn-lg btn-gray-transparent btn-animated">Learn More<i class="fa fa-arrow-right pl-20"></i></a></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    @include('partials.contact')
     <section class="pv-30 light-gray-bg padding-bottom-clear">
         <div class="container">
             <div class="row">
-                <div class="col-md-8 col-md-offset-2">
-                    <h2 class="object-non-visible text-center" data-animation-effect="zoomIn" data-effect-delay="100">Naši <strong>Radovi</strong></h2>
+                <div class="col-md-10 col-md-offset-1">
+                    <h2 class="text-center">Naši <strong>Radovi</strong></h2>
                     <div class="separator"></div>
-                    <p class="large text-center object-non-visible" data-animation-effect="zoomIn" data-effect-delay="200">Koristeći savremeni software I originalne interfejse naši radovi govore sami za sebe. Trudimo se da sve detaljno zabeležimo i opišemo kako bi budućim klijentima pokazali zašto smo drugačiji od drugih.</p>
-                    <br>
+                    <p class="large text-center">Koristeći savremeni software i originalne interfejse naši radovi govore sami za sebe. Trudimo se da sve detaljno zabeležimo i opišemo kako bi budućim klijentima pokazali zašto smo drugačiji od drugih.</p>
                 </div>
             </div>
         </div>
@@ -267,7 +251,7 @@
             <div class="owl-carousel carousel">
                 @foreach ($photos as $photo)
                     <div class="image-box shadow">
-                        <img src="{{ asset('/storage/' . $photo->medium) }}" alt="{{ $photo->title }}">
+                        <img src="/storage/{{ $photo->medium }}" alt="{{ $photo->title }}">
                     </div>
                 @endforeach
             </div>
@@ -277,7 +261,7 @@
                         <div class="col-md-8 col-md-offset-2">
                             <div class="testimonial text-center">
                                 <div class="testimonial-image">
-                                    <img src="{{ asset('images/testimonial-1.jpg') }}" alt="Jane Doe" title="Jane Doe" class="img-circle">
+                                    <img src="images/testimonial-1.jpg" alt="Jane Doe" title="Jane Doe" class="img-circle">
                                 </div>
                                 <h3>Racing Performance</h3>
                                 <div class="separator"></div>
@@ -297,7 +281,7 @@
                         <div class="col-md-8 col-md-offset-2">
                             <div class="testimonial text-center">
                                 <div class="testimonial-image">
-                                    <img src="{{ asset('images/testimonial-2.jpg') }}" alt="Jane Doe" title="Jane Doe" class="img-circle">
+                                    <img src="/images/testimonial-2.jpg" alt="Jane Doe" title="Jane Doe" class="img-circle">
                                 </div>
                                 <h3>Chip Tuning</h3>
                                 <div class="separator"></div>
@@ -315,7 +299,7 @@
             </div>
         </div>
     </section>
-    <section class="pv-40 stats padding-bottom-clear dark-translucent-bg hovered background-img-1" style="background-position: 50% 50%;">
+    <section class="pv-40 stats padding-bottom-clear dark-translucent-bg hovered background-img-1">
         <div class="clearfix">
             <div class="col-md-3 col-xs-6 text-center">
                 <div class="feature-box object-non-visible" data-animation-effect="fadeIn" data-effect-delay="300">

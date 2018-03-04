@@ -7,8 +7,7 @@
 @section('twitter_image', asset('images/logo.jpg'))
 
 @section('scripts')
-<!--<script src="https://www.google.com/recaptcha/api.js" async defer></script>-->
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;key=AIzaSyCxZ57FI-nzDlM7PmBJUgEzEe_ARclGoR4"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;key=AIzaSyCxZ57FI-nzDlM7PmBJUgEzEe_ARclGoR4"></script>
 @endsection
 
 @section('content')

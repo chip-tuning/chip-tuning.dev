@@ -6,17 +6,14 @@ use App\Filters\ArticleFilters;
 use App\Traits\Fileable;
 use App\Traits\Taggable;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Cache;
 use Laravel\Scout\Searchable;
-use Stevebauman\Purify\Facades\Purify;
 
 class Article extends Model
 {
 	use Taggable;
 	use Fileable;
 	use Searchable;
-	use SoftDeletes;
 
 	/**
 	 * The attributes that are mass assignable.
@@ -37,7 +34,7 @@ class Article extends Model
 	 *
 	 * @var array
 	 */
-	protected $dates = ['published_at', 'deleted_at'];
+	protected $dates = ['published_at'];
 
 	/**
 	 * Boot the model.
@@ -53,12 +50,6 @@ class Article extends Model
 		});
 
 		static::deleted(function () {
-			Cache::forget('popular');
-			Cache::forget('articles');
-			Cache::forget('archives');
-		});
-
-		static::restored(function () {
 			Cache::forget('popular');
 			Cache::forget('articles');
 			Cache::forget('archives');
@@ -109,7 +100,7 @@ class Article extends Model
 	 */
 	public function setSummaryAttribute($value)
 	{
-		$this->attributes['summary'] = preg_replace("/[\n\r]/", "", Purify::clean($value));
+		$this->attributes['summary'] = preg_replace("/[\t\n\r]/", "", $value);
 	}
 
 	/**
@@ -120,7 +111,7 @@ class Article extends Model
 	 */
 	public function setContentAttribute($value)
 	{
-		$this->attributes['content'] = Purify::clean($value);
+		$this->attributes['content'] = preg_replace("/[\t\n\r]/", "", $value); 
 	}
 
 	/**
