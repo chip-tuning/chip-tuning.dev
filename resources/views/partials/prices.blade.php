@@ -11,7 +11,7 @@
 						</div>
 					</div>
 					<div class="row">
-						<form id="prices-form" class="margin-clear has-feedback">
+						<form id="prices-form" class="prices margin-clear has-feedback">
 							<div class="col-sm-6 col-md-3">
 								<div class="form-group">
 									<label for="brand">Marka:</label>
@@ -44,17 +44,16 @@
 								</div>
 							</div>
 							<div class="col-sm-6 col-md-3">
-								<div class="form-group">
-									<label for="service">Usluga:</label>
-									<select id="service" class="form-control" name="service" required>
-										<option value="0" data-display="Izaberite...">Izaberite...</option>
+								<div class="form-group multipleselect">
+									<label for="service">Usluge:</label>
+									<select id="service" class="form-control" name="service" multiple>
 										<option value="Chip Tuning">Chip Tuning</option>
 										<option value="EGR OFF">EGR OFF</option>
 										<option value="DTC OFF">DTC OFF</option>
 										<option value="AD Blue OFF">AD Blue OFF</option>
 										<option value="Swirl Flaps OFF">Swirl Flaps OFF</option>
 										<option value="Speed Limit OFF">Speed Limit OFF</option>
-										<option value="Topli Start OFF">Topli Start OFF</option>
+										<option value="Hot Start Fix">Hot Start Fix</option>
 										<option value="GPS Praćenje">GPS Praćenje</option>
 										<option value="Dijagnostika">Dijagnostika</option>
 									</select>	

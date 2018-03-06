@@ -248,6 +248,7 @@
             </div>
         </div>
         <div class="space-bottom">
+            @if ($photos->isNotEmpty())
             <div class="owl-carousel carousel">
                 @foreach ($photos as $photo)
                     <div class="image-box shadow">
@@ -255,48 +256,38 @@
                     </div>
                 @endforeach
             </div>
-            <div class="owl-carousel content-slider">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-8 col-md-offset-2">
-                            <div class="testimonial text-center">
-                                <div class="testimonial-image">
-                                    <img src="images/testimonial-1.jpg" alt="Jane Doe" title="Jane Doe" class="img-circle">
-                                </div>
-                                <h3>Racing Performance</h3>
-                                <div class="separator"></div>
-                                <div class="testimonial-body">
-                                    <blockquote>
-                                        <p>“Nikad nisam išao na pravi izlet, nikad nisam išao na odmor. Najbolji odmor je za mene u mojoj garaži kad su svi drugi na godišnjem.”</p>
-                                    </blockquote>
-                                    <div class="testimonial-info-1">Enzo Ferrari</div>
-                                    <div class="testimonial-info-2">Osnivač Italijanske fabrike sportskih automobila.</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-8 col-md-offset-2">
-                            <div class="testimonial text-center">
-                                <div class="testimonial-image">
-                                    <img src="/images/testimonial-2.jpg" alt="Jane Doe" title="Jane Doe" class="img-circle">
-                                </div>
-                                <h3>Chip Tuning</h3>
-                                <div class="separator"></div>
-                                <div class="testimonial-body">
-                                    <blockquote>
-                                        <p>"Osvajao sam titule jer sam davao gas tamo gde su drugi kocili."</p>
-                                    </blockquote>
-                                    <div class="testimonial-info-1">Michael Schumacher</div>
-                                    <div class="testimonial-info-2">Vozač F1</div>
+            @endif
+            @if ($testimonials->isNotEmpty())
+                <div class="owl-carousel content-slider">
+                    @foreach($testimonials as $testimonial)    
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-8 col-md-offset-2">
+                                    <div class="testimonial text-center">
+                                        <div class="testimonial-stars">
+                                            @for ($i = 0; $i < 5; $i++)
+                                                @if ($i < $testimonial['stars'])
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                @else
+                                                    <i class="fa fa-star-o" aria-hidden="true"></i> 
+                                                @endif
+                                            @endfor
+                                        </div>
+                                        <div class="separator"></div>
+                                        <div class="testimonial-body">
+                                            <blockquote>
+                                                <p>{{ words($testimonial['content'], 60) }}</p>
+                                            </blockquote>
+                                            <div class="testimonial-reviewer">{{ $testimonial['author'] }}</div>
+                                            <div class="testimonial-channel">- via Facebook reviews</div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    @endforeach
                 </div>
-            </div>
+            @endif
         </div>
     </section>
     <section class="pv-40 stats padding-bottom-clear dark-translucent-bg hovered background-img-1">

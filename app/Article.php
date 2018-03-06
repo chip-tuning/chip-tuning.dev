@@ -145,7 +145,7 @@ class Article extends Model
 	{
 		return static::withoutGlobalScopes()
 		->take($limit)
-		->latest()
+		->latest('published_at')
 		->get(['id', 'title', 'slug', 'published_at']);
 	}
 
