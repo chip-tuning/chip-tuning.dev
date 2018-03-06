@@ -35,10 +35,17 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    'facebook' => [
+        'app_id' => env('FACEBOOK_APP_ID'),
+        'app_secret' => env('FACEBOOK_APP_SECRET'),
+        'default_graph_version' => 'v2.12',
+        'default_access_token' => env('FACEBOOK_APP_TOKEN')
+    ],
+
     'instagram' => [
-        'id'     => env('INSTAGRAM_API_ID'),
+        'id' => env('INSTAGRAM_API_ID'),
         'secret' => env('INSTAGRAM_API_SECRET'),
-        'token'  => env('INSTAGRAM_API_TOKEN'),
-        'api'    => 'https://api.instagram.com/v1/',
+        'token' => env('INSTAGRAM_API_TOKEN'),
+        'api' => 'https://api.instagram.com/v1/',
     ],
 ];

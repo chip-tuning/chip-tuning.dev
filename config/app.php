@@ -192,6 +192,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\InstagramServiceProvider::class,
+        App\Providers\FacebookServiceProvider::class,
     ],
 
     /*
