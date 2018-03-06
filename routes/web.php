@@ -33,7 +33,7 @@ Route::get('politika-privatnosti', 'PrivacyPolicyController@index')->name('priva
 
 // Feeds
 Route::group(['prefix' => 'feed', 'as' => 'feed.',], function() {
-	Route::get('rss', 'FeedController@rss')->name('rss');
+	Route::get('atom', 'FeedController@atom')->name('atom');
 	Route::get('json', 'FeedController@json')->name('json');
 });
 

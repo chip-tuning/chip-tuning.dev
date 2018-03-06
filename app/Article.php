@@ -47,12 +47,16 @@ class Article extends Model
 			Cache::forget('archives');
 			Cache::forget('popular');
 			Cache::forget('articles');
+			Cache::forget('feed-atom');
+			Cache::forget('feed-json');
 		});
 
 		static::deleted(function () {
 			Cache::forget('popular');
 			Cache::forget('articles');
 			Cache::forget('archives');
+			Cache::forget('feed-atom');
+			Cache::forget('feed-json');		
 		});
 
 		static::addGlobalScope('author', function($builder) {
