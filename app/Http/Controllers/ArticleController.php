@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Article;
 use App\Filters\ArticleFilters;
-use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
@@ -16,7 +15,7 @@ class ArticleController extends Controller
 	public function index()
 	{
 		$articles = Article::select(['id', 'user_id', 'title', 'slug', 'picture', 'summary', 'published_at'])
-		->latest()
+		->latest('published_at')
 		->paginate(5);
 	
 		return view('blog.index', compact('articles'));
@@ -59,7 +58,7 @@ class ArticleController extends Controller
 	public function tags(ArticleFilters $filters)
 	{
 		$articles = Article::select(['id', 'user_id', 'title', 'slug', 'picture', 'summary', 'published_at'])
-			->latest()
+			->latest('published_at')
 			->filter($filters)
 			->paginate(5);
 	
@@ -75,7 +74,7 @@ class ArticleController extends Controller
 	public function archive(ArticleFilters $filters)
 	{
 		$articles = Article::select(['id', 'user_id', 'title', 'slug', 'picture', 'summary', 'published_at'])
-			->latest()
+			->latest('published_at')
 			->filter($filters)
 			->paginate(5);
 	

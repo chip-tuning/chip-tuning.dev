@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'https://wwww.chip-tuning.rs'),
+    'url' => env('APP_URL', 'https://www.chip-tuning.rs'),
 
     /*
     |--------------------------------------------------------------------------
