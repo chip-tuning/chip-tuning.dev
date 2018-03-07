@@ -805,6 +805,15 @@ h6.media-heading {
   margin-bottom: 15px;
 }
 
+.dark-bg {
+  .testimonial {
+    .testimonial-stars {
+      margin-top: 0;
+      color: #FFFFFF;
+    }
+  }
+}
+
 /* Brands
 ---------------------------------- */
 .brands-container {

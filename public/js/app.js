@@ -11425,9 +11425,10 @@ __webpack_require__(11);
 
 				var services = $('#service').multiselect({
 					numberDisplayed: 1,
+					checkboxName: 'services[]',
 					nonSelectedText: 'Izaberite...',
 					nSelectedText: 'izabrane usluge...',
-					allSelectedText: 'Izabrali ste sve usluge',
+					allSelectedText: 'Sve usluge izabrane',
 					onChange: function onChange(option, checked, select) {
 						if (checked) $('.multiselect').addClass('selected');else $('.multiselect').removeClass('selected');
 					}
@@ -11532,7 +11533,7 @@ __webpack_require__(11);
 							minlength: "Unesite ispravnu godinu proizvodnje!"
 						},
 						service: {
-							needsSelection: "Odaberite uslugu!"
+							needsSelection: "Odaberite usluge!"
 						},
 						name: {
 							required: "Unesite vaše ime i prezime!",
@@ -11577,18 +11578,6 @@ __webpack_require__(11);
 							items: 4
 						}
 					}
-				});
-
-				// Testimonial	
-				$(".owl-carousel.content-slider").owlCarousel({
-					items: 1,
-					autoplay: true,
-					autoplayTimeout: 8000,
-					autoplaySpeed: 750,
-					loop: true,
-					nav: false,
-					navText: false,
-					dots: false
 				});
 			}
 
@@ -11680,29 +11669,6 @@ __webpack_require__(11);
 					}
 				});
 			}
-
-			$(".owl-carousel.brands").owlCarousel({
-				items: 2,
-				autoplay: true,
-				autoplayTimeout: 5000,
-				autoplaySpeed: 700,
-				loop: true,
-				dots: false,
-				responsive: {
-					479: {
-						items: 3
-					},
-					768: {
-						items: 4
-					},
-					992: {
-						items: 4
-					},
-					1200: {
-						items: 6
-					}
-				}
-			});
 		}
 
 		// Contact
@@ -11961,6 +11927,21 @@ __webpack_require__(11);
 				}
 			});
 		};
+
+		// Testimonials
+		//-----------------------------------------------
+		if ($(".content-slider").length > 0) {
+			$(".owl-carousel.content-slider").owlCarousel({
+				items: 1,
+				autoplay: true,
+				autoplayTimeout: 8000,
+				autoplaySpeed: 750,
+				loop: true,
+				nav: false,
+				navText: false,
+				dots: false
+			});
+		}
 
 		// Affix Menu
 		//-----------------------------------------------
