@@ -146,7 +146,7 @@
 															<div class="divider"></div>
 															<ul class="menu">
 																<li class="{{ set_active('usluge/hot-start-fix') }}"><a href="{{ route('services.hotstart') }}"><i class="fa fa-star pr-10"></i>Hot Start Fix</a></li>
-																<li class="{{ set_active('usluge/gps-pracenje') }}"><a href="{{ route('services.gps') }}"><i class="fa fa-clock-o pr-10"></i>GPS Pracenje</a></li>
+																<li class="{{ set_active('usluge/gps-pracenje') }}"><a href="{{ route('services.gps') }}"><i class="fa fa-clock-o pr-10"></i>GPS Praćenje</a></li>
 																<li class="{{ set_active('usluge/dijagnostika') }}"><a href="{{ route('services.diagnostics') }}"><i class="fa fa-star pr-10"></i>Dijagnostika</a></li>
 															</ul>
 														</div>

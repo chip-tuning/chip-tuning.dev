@@ -7,29 +7,25 @@
 @section('twitter_image', asset('images/logo.jpg'))
 
 @section('scripts')
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;key=AIzaSyCxZ57FI-nzDlM7PmBJUgEzEe_ARclGoR4"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3&amp;key=AIzaSyCxZ57FI-nzDlM7PmBJUgEzEe_ARclGoR4"></script>
 @endsection
 
 @section('content')
 <div id="contact">
-	<div class="banner dark-translucent-bg background-img-3" style="background-position: 50% 30%;">
+	<div class="banner dark-translucent-bg background-img-4" style="background-position: 50% 30%;">
 		@component('components.breadcrumb')
 		    <li class="active">Kontakt</li>
 		@endcomponent
 		<div class="container">
 			<div class="row">
-				<div class="col-md-8 text-center col-md-offset-2 pv-20">
+				<div class="col-md-8 text-center col-md-offset-2 pv-25">
 					<h1 class="page-title text-center">Kontakt</h1>
 					<div class="separator"></div>
-					<p class="lead text-center">Zanima Vas koliko se povećava  snaga a smanjuje potrošnja Vašeg vozila? Nemojte se ustručavati da nas kontaktirate. </p>
+					<p class="lead text-center">Zanima Vas koliko se povećava  snaga a smanjuje potrošnja Vašeg vozila? Nemojte se ustručavati da nas kontaktirate.</p>
 					<ul class="list-inline mb-20 text-center">
 						<li><i class="text-default fa fa-map-marker pr-5"></i>{{ config('app.details.address', 'Bore Tirića 60, 15000 Šabac') }}</li>
 						<li><i class="text-default fa fa-phone pl-10 pr-5"></i>{{ config('app.details.phone', '+381 65 55 666 14') }}</li>
 						<li><i class="text-default fa fa-envelope-o pl-10 pr-5"></i>{{ config('app.details.email', 'office@chip-tuning.rs') }}</li>
-					</ul>
-					<div class="separator"></div>
-					<ul class="social-links circle animated-effect-1 margin-clear text-center space-bottom">
-						@include('partials.socials')
 					</ul>
 				</div>
 			</div>
@@ -85,6 +81,14 @@
 								<li><i class="fa fa-phone pr-10 text-default"></i><abbr title="Phone">M:</abbr> {{ config('app.details.phone', '+381 65 55 666 14') }}</li>
 								<li><i class="fa fa-phone pr-10 text-default"></i><abbr title="Phone">M:</abbr> {{ config('app.details.phone_alt', '+381 60 02 262 17') }}</li>
 								<li><i class="fa fa-envelope pr-10 text-default"></i><a href="{{ config('app.details.email', 'office@chip-tuning.rs') }}">{{ config('app.details.email', 'office@chip-tuning.rs') }}</a></li>
+							</ul>
+						</div>
+
+						<div class="block clearfix">
+							<h3 class="title">Pratite nas</h3>
+							<div class="separator-2"></div>
+							<ul class="social-links circle margin-clear clearfix animated-effect-1">
+								@include('partials.socials')
 							</ul>
 						</div>
 					</div>

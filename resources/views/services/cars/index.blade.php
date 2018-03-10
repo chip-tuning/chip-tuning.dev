@@ -8,15 +8,15 @@
 
 @section('content')
 <div id="services">
-	<div class="banner border-clear dark-translucent-bg" style="background-image:url('/images/page-about-banner-2.jpg');">
+	<div class="banner border-clear services-bg-img-1 dark-translucent-bg">
 		@component('components.breadcrumb')
-			<li>Usluge</li>
+			<li class="active">Usluge</li>
 			<li class="active">Automobili</li>
 		@endcomponent		
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 pv-20">
-					<h2 class="title"><strong>Wellcome</strong> To The Project</h2>
+					<h2 class="title"><strong>Chip</strong> Tuning</h2>
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi perferendis magnam ea necessitatibus, officiis voluptas odit! Aperiam omnis, cupiditate laudantium velit nostrum, exercitationem accusamus, possimus soluta illo deserunt tempora qui.</p>
 				</div>
 			</div>
@@ -26,7 +26,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="main col-md-12">
-					<h1 class="title">About Us</h1>
+					<h1 class="title">Automobili</h1>
 					<div class="separator-2"></div>
 					<div class="row">
 						<div class="col-md-6">

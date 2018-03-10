@@ -72,7 +72,7 @@
 								</div>
 							</div>
 							<div class="col-sm-12 text-center">
-								<button type="submit" class="btn btn-lg btn-gray-transparent btn-animated submit-button">Pošalji upit <i class="fa fa-send"></i></button>
+								<button type="submit" class="submit-button btn btn-lg btn-gray-transparent btn-animated">Pošalji upit <i class="fa fa-send"></i></button>
 							</div>
 						</form>
 					</div>

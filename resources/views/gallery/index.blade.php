@@ -8,17 +8,19 @@
 
 @section('content')
 <div id="gallery">
-	<div class="banner pv-45 dark-translucent-bg background-img-2" style="background-position: 50% 30%;">
+	<div class="banner dark-translucent-bg background-img-3">
 		@component('components.breadcrumb')
-		    <li class="active">Naši radovi</li>
+			<li class="active">Naši radovi</li>
 		@endcomponent
 		<div class="container">
 			<div class="row">
-				<div class="col-md-8 text-center col-md-offset-2 pv-30">
-					<h1 class="object-non-visible" data-animation-effect="zoomIn" data-effect-delay="100">Naši radovi</h1>
-					<div class="separator object-non-visible" data-animation-effect="zoomIn" data-effect-delay="100"></div>
-					<p class="large text-center object-non-visible" data-animation-effect="zoomIn" data-effect-delay="200">Koristeći savremeni software I originalne interfejse naši radovi govore sami za sebe. Više naših radova možete pogledati putem Instagrama.</p>
-					<p class="text-center"><a target="_blank" href="https://www.instagram.com/{{ config('app.socials.instagram', '') }}" class="btn btn-lg btn-gray-transparent object-non-visible" data-animation-effect="zoomIn" data-effect-delay="300"><i class="fa fa-instagram fa-fw"></i> Instagram</a></p>
+				<div class="col-md-8 text-center col-md-offset-2 pv-25">
+					<h1 class="page-title text-center">Naši radovi</h1>
+					<div class="separator"></div>
+					<p class="lead text-center">Koristeći savremeni software i originalne interfejse naši radovi govore sami za sebe. Više naših radova možete pogledati putem Instagrama.</p>
+					<ul class="social-links circle animated-effect-1 margin-clear text-center">
+						@include('partials.socials')
+					</ul>
 				</div>
 			</div>
 		</div>
@@ -45,7 +47,7 @@
 									<div class="overlay-container">
 										<img src="{{ asset('/storage/' . $photo->medium) }}" alt="{{ $photo->title }}">
 										<a href="{{ asset('/storage/' . $photo->large) }}" class="overlay-link medium" title="{{ $photo->title }}"><i class="fa fa-image"></i></a>
-	                                </div>
+									</div>
 								</div>
 							</div>						
 							@endforeach
@@ -55,36 +57,11 @@
 			</div>
 		</div>
 	</section>
-    <section class="section dark-bg pv-40 clearfix">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="call-to-action text-center">
-                        <div class="row">
-                            <div class="col-sm-8 col-sm-offset-2">
-                                <h2 class="title">Brendovi</h2>
-                                <p>Nudimo savremena rešenja za veliki broj brendova iz celog sveta bilo da je u pitanju teretni, putnicki ili poljoprivredni program.</p>
-                                <div class="separator"></div>      
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container-fluid">
-			<div class="owl-carousel brands">
-				<div class="brand"><img src="{{ asset('images/client-1.png') }}" alt=""></div>
-				<div class="brand"><img src="{{ asset('images/client-1.png') }}" alt=""></div>
-				<div class="brand"><img src="{{ asset('images/client-1.png') }}" alt=""></div>
-				<div class="brand"><img src="{{ asset('images/client-1.png') }}" alt=""></div>
-				<div class="brand"><img src="{{ asset('images/client-1.png') }}" alt=""></div>
-				<div class="brand"><img src="{{ asset('images/client-1.png') }}" alt=""></div>
-				<div class="brand"><img src="{{ asset('images/client-1.png') }}" alt=""></div>
-				<div class="brand"><img src="{{ asset('images/client-1.png') }}" alt=""></div>
-				<div class="brand"><img src="{{ asset('images/client-1.png') }}" alt=""></div>
-				<div class="brand"><img src="{{ asset('images/client-1.png') }}" alt=""></div>
-			</div>
-        </div>
-    </section>
+	<section class="section dark-bg pv-40 clearfix">
+		@if ($testimonials->isNotEmpty())
+			@component('components.testimonials', ['testimonials' => $testimonials])
+			@endcomponent
+		@endif
+	</section>
 </div>
 @endsection
