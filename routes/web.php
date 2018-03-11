@@ -31,6 +31,12 @@ Route::get('cesta-pitanja', 'FaqController@index')->name('faq.index');
 Route::get('uslovi-koriscenja', 'TermsOfUseController@index')->name('terms.index');
 Route::get('politika-privatnosti', 'PrivacyPolicyController@index')->name('privacy.index');
 
+Route::group(['prefix' => 'subscription', 'as' => 'subscription.',], function() {
+	Route::post('subscribe', 'SubscriberController@store')->name('store');
+	Route::get('confirm/{subscriber}', 'SubscriberController@edit')->name('edit');
+	Route::get('unsubscribe/{subscriber}', 'SubscriberController@destroy')->name('destroy');
+});
+
 // Feeds
 Route::group(['prefix' => 'feed', 'as' => 'feed.',], function() {
 	Route::get('atom', 'FeedController@atom')->name('atom');

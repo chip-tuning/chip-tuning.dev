@@ -23433,9 +23433,18 @@ fieldset[disabled] .btn-default {
 }
 
 .dark-bg .btn-gray-transparent:hover {
-  border-color: #ffffff;
   color: #777777;
+  border-color: #ffffff;
   background-color: #ffffff;
+}
+
+.dark-bg .btn-gray-transparent.focus,
+.dark-bg .btn-gray-transparent:focus,
+.dark-bg .btn-gray-transparent:active,
+.dark-bg .btn-gray-transparent.active {
+  color: #ffffff;
+  background-color: transparent;
+  border-color: #777777;
 }
 
 .dark-translucent-bg .btn-gray-transparent,

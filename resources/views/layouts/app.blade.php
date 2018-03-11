@@ -65,6 +65,10 @@
 	<div class="scrollToTop circle"><i class="fa fa-chevron-up"></i></div>
 	<div class="page-wrapper">
 		<div class="header-container">
+			@if (session('message'))
+				@component('components.announcement', ['title' => session('message')['title'], 'body' => session('message')['body']])
+				@endcomponent
+			@endif
 			<div class="header-top dark">
 				<div class="container">
 					<div class="row">

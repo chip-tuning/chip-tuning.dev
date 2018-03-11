@@ -11439,9 +11439,6 @@ __webpack_require__(11);
 				});
 
 				// Prices
-				$.validator.addMethod("valueNotEquals", function (value, element, arg) {
-					return arg !== element.value;
-				}, "Value must not equal arg.");
 				$.validator.addMethod("needsSelection", function (value, element) {
 					var count = $(element).find('option:selected').length;
 					return count > 0;
@@ -11452,9 +11449,6 @@ __webpack_require__(11);
 						$.ajax({
 							type: "POST",
 							url: "api/send",
-							beforeSend: function beforeSend() {
-								console.log($('#service').val());
-							},
 							data: {
 								"brand": $("#prices-form #brand").val(),
 								"type": $("#prices-form #type").val(),
@@ -11940,6 +11934,78 @@ __webpack_require__(11);
 				nav: false,
 				navText: false,
 				dots: false
+			});
+		}
+
+		// Newsletter
+		if ($('#subscribe-form').length > 0) {
+			$.validator.addMethod("regexEmail", function (value, element) {
+				return this.optional(element) || /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(value);
+			}, 'Please enter a valid email address.');
+			$("#subscribe-form").validate({
+				submitHandler: function submitHandler(form) {
+					$.ajax({
+						type: "POST",
+						headers: {
+							'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+						},
+						beforeSend: function beforeSend() {
+							$("#subscribe-form button").prop('disabled', true);
+						},
+						url: "/subscription/subscribe",
+						data: {
+							"email": $("#subscribe-form #email").val()
+						},
+						dataType: "json",
+						success: function success(data) {
+							var message = $('<div />', {
+								'id': 'message'
+							});
+
+							if (data.success) {
+								$('#error').remove();
+								$("#subscribe-form button").html('Poslato <i class="fa fa-check"></i>');
+								$("#subscribe-form .form-control").each(function () {
+									$(this).prop('value', '').parent().removeClass("has-success").removeClass("has-error");
+								});
+								message.html(data.message);
+								$('#subscribe-form').after(message);
+							}
+						},
+						error: function error(data) {
+							var error = $('<div />', {
+								'id': 'error'
+							});
+							$('#error').remove();
+							$("#subscribe-form .form-control").each(function () {
+								$(this).prop('value', '').parent().addClass("has-error");
+							});
+							error.html('Uneta email adresa nije ispravna.');
+							$('#subscribe-form').after(error);
+							$("#subscribe-form button").prop('disabled', false);
+						}
+					});
+				},
+				errorPlacement: function errorPlacement(error, element) {
+					return true;
+				},
+				onkeyup: false,
+				onclick: false,
+				rules: {
+					email: {
+						required: true,
+						regexEmail: true
+					}
+				},
+				highlight: function highlight(element) {
+					$(element).parent().removeClass("has-success").addClass("has-error");
+				},
+				unhighlight: function unhighlight(element) {
+					$(element).parent().removeClass('has-error').addClass('has-success');
+				},
+				success: function success(element) {
+					$(element).parent().removeClass("has-error").addClass("has-success");
+				}
 			});
 		}
 
