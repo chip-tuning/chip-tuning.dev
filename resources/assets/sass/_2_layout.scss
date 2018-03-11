@@ -204,35 +204,27 @@
 }
 
 .background-img-3 {
-  background: url("../images/background-img-3.jpg") 50% 0px no-repeat;
+  background-image: url("../images/background-img-3.jpg");
+  background-position: 50% 55% !important;
 }
 
 .background-img-4 {
   background: url("../images/background-img-4.jpg") 50% 0px no-repeat;
 }
 
-.background-img-5 {
-  background: url("../images/background-img-5.jpg") 50% 0px no-repeat;
-}
-
-.background-img-6 {
-  background: url("../images/background-img-6.jpg") 50% 0px no-repeat;
-}
-
-.background-img-7 {
-  background: url("../images/background-img-7.jpg") 50% 0px no-repeat;
-}
-
-.background-img-8 {
-  background: url("../images/background-img-8.jpg") 50% 0px no-repeat;
-}
-
-.background-img-9 {
-  background: url("../images/background-img-9.jpg") 50% 0px no-repeat;
-}
-
-.background-img-10 {
-  background: url("../images/background-img-10.jpg") 50% 0px no-repeat;
+.services-bg-img-1,
+.services-bg-img-2,
+.services-bg-img-3,
+.services-bg-img-4,
+.services-bg-img-5,
+.services-bg-img-6,
+.services-bg-img-7,
+.services-bg-img-8,
+.services-bg-img-9,
+.services-bg-img-10,
+.services-bg-img-11,
+.services-bg-img-12 {
+  background: url("../images/page-about-banner-2.jpg") 50% 50% no-repeat;
 }
 
 .fullscreen-bg {
@@ -1199,6 +1191,12 @@ h5 + .separator {
   padding-top: 20px;
   padding-bottom: 20px;
 }
+
+.pv-25 {
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
 
 .pv-30 {
   padding-top: 30px;

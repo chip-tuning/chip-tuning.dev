@@ -32,7 +32,7 @@
 	<link rel="stylesheet" type="text/css" href="/css/vendor.css">
 	<link rel="stylesheet" type="text/css" href="/css/app.css">
 	<link rel="alternate" type="application/json" title="{{ config('app.name', 'RPCT') }}" href="{{ route('feed.json') }}">
-	<link rel="alternate" type="application/atom+xml" title="{{ config('app.name', 'RPCT') }}" href="{{ route('feed.rss') }}">
+	<link rel="alternate" type="application/atom+xml" title="{{ config('app.name', 'RPCT') }}" href="{{ route('feed.atom') }}">
 	<script type="application/ld+json">
 		{
 			"@context": "http://schema.org",

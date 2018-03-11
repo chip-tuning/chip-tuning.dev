@@ -46,7 +46,7 @@
 	@yield('styles')
 	<link rel="stylesheet" type="text/css" href="/css/app.css">
 	<link rel="alternate" type="application/json" title="{{ config('app.name', 'RPCT') }}" href="{{ route('feed.json') }}">
-	<link rel="alternate" type="application/atom+xml" title="{{ config('app.name', 'RPCT') }}" href="{{ route('feed.rss') }}">
+	<link rel="alternate" type="application/atom+xml" title="{{ config('app.name', 'RPCT') }}" href="{{ route('feed.atom') }}">
 	<script type="application/ld+json">
 		{
 			"@context": "http://schema.org",
@@ -180,7 +180,7 @@
 									<div class="separator-2"></div>
 									<nav>
 										<ul class="nav nav-pills nav-stacked">
-											<li><a href="{{ route('feed.rss') }}">RSS/ATOM</a></li>
+											<li><a href="{{ route('feed.atom') }}">RSS/ATOM</a></li>
 											<li><a href="{{ route('faq.index') }}">Česta pitanja</a></li>
 											<li><a href="{{ route('terms.index') }}">Uslovi korišćenja</a></li>
 											<li><a href="{{ route('privacy.index') }}">Politika privatnosti</a></li>

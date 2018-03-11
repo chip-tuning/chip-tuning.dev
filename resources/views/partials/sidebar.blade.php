@@ -81,7 +81,7 @@
 			<div class="separator-2"></div>
 			<nav>
 				<ul class="nav nav-pills nav-stacked">
-					<li><a href="{{ route('feed.rss') }}">RSS/ATOM</a></li>
+					<li><a href="{{ route('feed.atom') }}">RSS/ATOM</a></li>
 					<li><a href="{{ route('feed.json') }}">JSON</a></li>
 				</ul>
 			</nav>

@@ -274,9 +274,21 @@ require('./bootstrap');
 					});
 				});	
 
-				// Nice select
-				var select = $('select').niceSelect();
-				select.on('change', function (event) {
+				var services = $('#service').multiselect({
+					numberDisplayed: 1,
+					checkboxName: 'services[]',
+					nonSelectedText: 'Izaberite...',
+					nSelectedText: 'izabrane usluge...',
+					allSelectedText: 'Sve usluge izabrane',
+					onChange: function(option, checked, select) {
+						if (checked)
+							$('.multiselect').addClass('selected');
+						else
+							$('.multiselect').removeClass('selected');
+					}
+				});
+				
+				services.on('change', function (event) {
 					$(this).valid();
 				});
 
@@ -284,12 +296,19 @@ require('./bootstrap');
 				$.validator.addMethod("valueNotEquals", function(value, element, arg) {
 					return arg !== element.value;
 				}, "Value must not equal arg.");
+				$.validator.addMethod("needsSelection", function (value, element) {
+					var count = $(element).find('option:selected').length;
+					return count > 0;
+				});
 				$("#prices-form").validate({
 					ignore: [],
 					submitHandler: function(form) {
 						$.ajax({
 							type: "POST",
 							url: "api/send",
+							beforeSend: function() {
+								console.log($('#service').val());
+							},
 							data: {
 								"brand": $("#prices-form #brand").val(),
 								"type": $("#prices-form #type").val(),
@@ -307,6 +326,7 @@ require('./bootstrap');
 									$("#prices-form .form-control").each(function() {
 										$(this).prop('value', '').parent().removeClass("has-success").removeClass("has-error");
 									});
+									$('#service').multiselect('refresh');
 								}
 							}
 						});
@@ -332,10 +352,11 @@ require('./bootstrap');
 						},
 						year: {
 							required: true,
-							number: true
+							number: true,
+							minlength: 4
 						},
 						service: {
-							valueNotEquals: "0"
+							needsSelection: true,
 						},
 						name: {
 							required: true,
@@ -362,10 +383,11 @@ require('./bootstrap');
 						},
 						year: {
 							required: "Unesite godinu proizvodnje!",
-							number: "Unesite ispravnu godinu proizvodnje!"
+							number: "Unesite ispravnu godinu proizvodnje!",
+							minlength: "Unesite ispravnu godinu proizvodnje!"
 						},
 						service: {
-							valueNotEquals: "Odaberite uslugu!"
+							needsSelection: "Odaberite usluge!"
 						},
 						name: {
 							required: "Unesite vaše ime i prezime!",
@@ -410,18 +432,6 @@ require('./bootstrap');
 							items:4
 						}
 					}
-				});
-
-			// Testimonial	
-			$(".owl-carousel.content-slider").owlCarousel({
-					items: 1,
-					autoplay: true,
-					autoplayTimeout: 5000,
-					autoplaySpeed: 700,
-					loop: true,
-					nav: false,
-					navText: false,
-					dots: false
 				});
 			}
 
@@ -517,29 +527,6 @@ require('./bootstrap');
 					}
 				});				
 			}
-
-			$(".owl-carousel.brands").owlCarousel({
-				items:2,
-				autoplay: true,
-				autoplayTimeout: 5000,
-				autoplaySpeed: 700,
-				loop: true,
-				dots: false,
-				responsive:{
-					479:{
-						items:3
-					},
-					768:{
-						items:4
-					},
-					992:{
-						items:4
-					},
-					1200:{
-						items:6
-					}
-				}
-			});
 		}
 
 		// Contact
@@ -631,6 +618,7 @@ require('./bootstrap');
 				var map, myLatlng, myZoom, marker;
 				myLatlng = new google.maps.LatLng(44.76892191864368, 19.688599705696106);
 				myZoom = 13;
+
 				function initialize() {
 					var mapOptions = {
 						zoom: myZoom,
@@ -638,10 +626,10 @@ require('./bootstrap');
 						center: myLatlng,
 						scrollwheel: false
 					};
-					map = new google.maps.Map(document.getElementById("map-canvas"),mapOptions);
+					map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 					marker = new google.maps.Marker({
-						map:map,
-						draggable:true,
+						map: map,
+						draggable: true,
 						animation: google.maps.Animation.DROP,
 						position: myLatlng
 					});
@@ -796,6 +784,22 @@ require('./bootstrap');
 				}
 			});
 		};
+
+
+		// Testimonials
+		//-----------------------------------------------
+		if ($(".content-slider").length>0) {
+			$(".owl-carousel.content-slider").owlCarousel({
+				items: 1,
+				autoplay: true,
+				autoplayTimeout: 8000,
+				autoplaySpeed: 750,
+				loop: true,
+				nav: false,
+				navText: false,
+				dots: false
+			});
+		}
 
 		// Affix Menu
 		//-----------------------------------------------

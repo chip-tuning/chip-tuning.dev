@@ -776,36 +776,44 @@ h6.media-heading {
   padding: 20px 0;
 }
 
+.testimonial-stars {
+  font-size: 26px;
+  margin-bottom: 0;
+  margin-top: 15px;
+  color: $base-color;
+}
+
 .testimonial blockquote {
   margin: 0;
 }
 
 .testimonial .separator {
-  margin: 15px auto 5px;
+  margin: 10px auto 5px;
 }
 
-.testimonial-image {
-  width: 90px;
-  margin: 0 auto;
-}
-
-.testimonial-info-1 {
-  font-size: 12px;
-}
-
-.testimonial-info-2 {
+.testimonial-reviewer {
   font-size: 12px;
   font-weight: 400;
 }
 
-.testimonial h3 {
-  margin-bottom: 0;
-  margin-top: 15px;
+.testimonial-channel {
+  font-size: 12px;
+  font-style: italic;
 }
 
 .testimonial p {
   margin-bottom: 15px;
 }
+
+.dark-bg {
+  .testimonial {
+    .testimonial-stars {
+      margin-top: 0;
+      color: #FFFFFF;
+    }
+  }
+}
+
 /* Brands
 ---------------------------------- */
 .brands-container {

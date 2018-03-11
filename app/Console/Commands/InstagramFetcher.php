@@ -15,7 +15,7 @@ class InstagramFetcher extends Command
 	/**
 	 * Instagram
 	 * 
-	 * @var object
+	 * @var Instagram
 	 */
 	protected $instagram;
 	
@@ -145,23 +145,20 @@ class InstagramFetcher extends Command
 					);
 				}
 			}
-			else
+			elseif ($photo->created_at->timestamp < (int)$response['data'][0]['created_time'])
 			{
-				if ($photo->created_at->timestamp < (int)$response['data'][0]['created_time'])
+				foreach (array_reverse($response['data']) as $value)
 				{
-					foreach (array_reverse($response['data']) as $value)
+					if ($photo->created_at->timestamp < (int)$value['created_time'])
 					{
-						if ($photo->created_at->timestamp < (int)$value['created_time'])
-						{
-							$album = Album::find($this->findAlbum($value['tags']));
-							$album->photos()->create(array_merge([
-									'title' => trim(strtok($value['caption']['text'], "\n")),
-									'created_at' => (int)$value['created_time']
-								], 
-								$this->makePhotos($value['images']['standard_resolution']['url'])
-								)
-							);
-						}
+						$album = Album::find($this->findAlbum($value['tags']));
+						$album->photos()->create(array_merge([
+								'title' => trim(strtok($value['caption']['text'], "\n")),
+								'created_at' => (int)$value['created_time']
+							], 
+							$this->makePhotos($value['images']['standard_resolution']['url'])
+							)
+						);
 					}
 				}
 			}

@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'https://wwww.chip-tuning.rs'),
+    'url' => env('APP_URL', 'https://www.chip-tuning.rs'),
 
     /*
     |--------------------------------------------------------------------------
@@ -192,6 +192,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\InstagramServiceProvider::class,
+        App\Providers\FacebookServiceProvider::class,
     ],
 
     /*

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Photo;
-use Illuminate\Http\Request;
+use App\Testimonial;
 
 class HomeController extends Controller
 {
@@ -14,8 +14,9 @@ class HomeController extends Controller
 	 */
 	public function index()
 	{
-		$photos = Photo::take(12)->latest()->get();
+		$photos = Photo::fetchLatest(12);
+		$testimonials = Testimonial::fetchLatest(12);
 
-		return view('home.index', compact('photos'));
+		return view('home.index', compact(['photos', 'testimonials']));
 	}
 }

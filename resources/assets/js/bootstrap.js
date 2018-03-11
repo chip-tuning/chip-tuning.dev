@@ -20,7 +20,7 @@ require('./plugins/waypoints.js');
 require('./plugins/countTo.js');
 require('./plugins/validate.js');
 require('owl.carousel');
-require('./plugins/nice-select.js');
+require('bootstrap-multiselect');
 
 /**
  * The axios HTTP library 

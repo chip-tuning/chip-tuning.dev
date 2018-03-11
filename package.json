@@ -12,6 +12,8 @@
     "devDependencies": {
         "axios": "^0.17",
         "bootstrap": "^4.0.0",
+        "bootstrap-multiselect": "^0.9.13-1",
+        "bootstrap-sass": "^3.3.7",
         "clipboard": "^1.7.1",
         "cross-env": "^5.1",
         "font-awesome": "^4.7.0",
