@@ -59,8 +59,7 @@ class PhotoController extends Controller
 	 */
 	public function edit(Photo $photo)
 	{
-		dd($photo);
-		
+		//
 	}
 
 	/**

@@ -98,7 +98,7 @@ class ArticleController extends Controller
 	public function update(Article $article)
 	{
 		request()->validate([
-			'title' => 'required|max:60|unique:articles,' . $article->id,
+			'title' => 'required|max:60|unique:articles,title,' . $article->id,
 			'picture' => 'image|max:3072',
 			'summary' => 'required',
 			'content' => 'required',
