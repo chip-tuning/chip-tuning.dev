@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Subscriber;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ConfirmSubscriptionMail;
 
 class SubscriberController extends Controller
 {
@@ -27,15 +29,29 @@ class SubscriberController extends Controller
             );
 
         if ($subscriber->wasRecentlyCreated)
-            return response()->json(['success' => true, 'message' => 'Uspešna prijava! Molimo proverite i potvrdite svoj email.'], 200);
+        {
+            Mail::to($subscriber)
+                ->send(new ConfirmSubscriptionMail($subscriber));
+
+            return response()->json([
+                'success' => true, 
+                'message' => 'Uspešna prijava! Molimo proverite i potvrdite svoj email.',
+            ], 200);
+        }
 
         if ($subscriber->trashed())
         {
             $subscriber->restore();
-            return response()->json(['success' => true, 'message' => 'Dobrodošli nazad! Uspešno ste se prijavili na newsletter.'], 200);
+
+            return response()->json([
+                'success' => true, 
+                'message' => 'Dobrodošli nazad! Uspešno ste se prijavili na newsletter.',
+            ], 200);
         }
 
-        return response()->json(['success' => true, 'message' => 'Već ste prijavljeni na naš newsletter.'], 200);         
+        return response()->json(['success' => true,
+            'message' => 'Već ste prijavljeni na naš newsletter.',
+        ], 200);         
     }
 
     /**

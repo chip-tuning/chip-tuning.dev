@@ -7,7 +7,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class ConfirmSubscription extends Mailable
+class ConfirmSubscriptionMail extends Mailable
 {
     use Queueable, SerializesModels;
 

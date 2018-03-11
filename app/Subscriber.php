@@ -27,18 +27,6 @@ class Subscriber extends Model
     ];
 
 	/**
-	 * Boot the model.
-	 */
-	protected static function boot()
-	{
-		parent::boot();
-
-		static::created(function ($subscriber) {
-			  event(new NewSubscription($subscriber));    
-		});
-	}
-
-	/**
 	 * Get the route key name.
 	 *
 	 * @return string
