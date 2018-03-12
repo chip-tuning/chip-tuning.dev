@@ -1,4 +1,4 @@
-<div class="media object-non-visible" data-animation-effect="fadeInDownSmall" data-effect-delay="{{ $delay }}">
+<div class="media">
 	<div class="media-left pr-20">
 		<span class="icon circle small default-bg">{{ $icon }}</span>
 	</div>

@@ -31,7 +31,6 @@
                 </div>
                 <div class="col-md-6 space-top">
                     @component('components.groups')
-                        @slot('delay', 25)
                         @slot('icon')
                             <i class="fa fa-arrows"></i>
                         @endslot
@@ -40,7 +39,6 @@
                         @slot('link', route('services.cars'))
                     @endcomponent
                     @component('components.groups')
-                        @slot('delay', 50)
                         @slot('icon')
                             <i class="fa fa-arrows"></i>
                         @endslot
@@ -49,7 +47,6 @@
                         @slot('link', route('services.trucks'))
                     @endcomponent
                     @component('components.groups')
-                        @slot('delay', 25)
                         @slot('icon')
                             <i class="fa fa-arrows"></i>
                         @endslot
@@ -156,7 +153,6 @@
                 <div class="col-md-6">
                     <p class="hidden-md">Lorem ipsum dolor sit amet, consectetur adipisicing elit. At provident modi nobis dolores ratione, maiores beatae vel iste illo incidunt officia</p>
                     @component('components.feature')
-                        @slot('delay', 50)
                         @slot('icon')
                             <i class="fa fa-clock-o"></i>
                         @endslot
@@ -164,7 +160,6 @@
                         @slot('description', 'Čitanje i upis vrši se putem ODB konektora bez skidanja računara, uređajima poslednje generacije.')
                     @endcomponent
                     @component('components.feature')
-                        @slot('delay', 100)
                         @slot('icon')
                             <i class="fa fa-tachometer"></i>
                         @endslot
@@ -172,7 +167,6 @@
                         @slot('description', 'Posedujemo najmodernije uređaje za dijagnostičke za detaljnu i preciznu proveru vašeg vozila.')
                     @endcomponent
                     @component('components.feature')
-                        @slot('delay', 150)
                         @slot('icon')
                             <i class="fa fa-car"></i>
                         @endslot
@@ -188,11 +182,11 @@
                     <p>Jedinstveno rešenje za svako vozilo. Za razliku od većine drugih, ne učitavamo gotove mape već svako vozilo mapiramo posebno u cilju postizanja optimalnih performansi vašeg vozila.
                     <p>Chip tuningom teretnih mašina postiže se značajno smanjenje potrošnje, koje se kreće od 1 do 3L na 100 predjenih kilometara u zavisnosti od samog vozila.</p>
                     <ul class="list-icons space-bottom">
-                        <li class="object-non-visible" data-animation-effect="fadeInUpSmall" data-effect-delay="100"><i class="fa fa-check-square-o"></i> Profesionalna usluga</li>
-                        <li class="object-non-visible" data-animation-effect="fadeInUpSmall" data-effect-delay="150"><i class="fa fa-check-square-o"></i> Izrada jedinstvene mape za vaše vozilo</li>
-                        <li class="object-non-visible" data-animation-effect="fadeInUpSmall" data-effect-delay="200"><i class="fa fa-check-square-o"></i> Remapiranje teretnih i putničkih vozila</li>
-                        <li class="object-non-visible" data-animation-effect="fadeInUpSmall" data-effect-delay="250"><i class="fa fa-check-square-o"></i> Originalni interfejsi za čitanje i upis mapa</li>
-                        <li class="object-non-visible" data-animation-effect="fadeInUpSmall" data-effect-delay="300"><i class="fa fa-check-square-o"></i> Originalne mape vašeg vozila se trajno čuvaju</li>
+                        <li><i class="fa fa-check-square-o"></i> Profesionalna usluga</li>
+                        <li><i class="fa fa-check-square-o"></i> Izrada jedinstvene mape za vaše vozilo</li>
+                        <li><i class="fa fa-check-square-o"></i> Remapiranje teretnih i putničkih vozila</li>
+                        <li><i class="fa fa-check-square-o"></i> Originalni interfejsi za čitanje i upis mapa</li>
+                        <li><i class="fa fa-check-square-o"></i> Originalne mape vašeg vozila se trajno čuvaju</li>
                     </ul>
                 </div>
                 <div class="col-md-6">
@@ -266,28 +260,28 @@
     <section class="pv-40 stats padding-bottom-clear dark-translucent-bg hovered background-img-1">
         <div class="clearfix">
             <div class="col-md-3 col-xs-6 text-center">
-                <div class="feature-box object-non-visible" data-animation-effect="fadeIn" data-effect-delay="300">
+                <div class="feature-box">
                     <span class="icon default-bg large circle"><i class="fa fa-users"></i></span>
                     <h3><strong>Klijenata</strong></h3>
                     <span class="counter" data-to="1525" data-speed="5000">0</span>
                 </div>
             </div>
             <div class="col-md-3 col-xs-6 text-center">
-                <div class="feature-box object-non-visible" data-animation-effect="fadeIn" data-effect-delay="300">
+                <div class="feature-box">
                     <span class="icon default-bg large circle"><i class="fa fa-microchip"></i></span>
                     <h3><strong>Remapiranja</strong></h3>
                     <span class="counter" data-to="1225" data-speed="5000">0</span>
                 </div>
             </div>
             <div class="col-md-3 col-xs-6 text-center">
-                <div class="feature-box object-non-visible" data-animation-effect="fadeIn" data-effect-delay="300">
+                <div class="feature-box">
                     <span class="icon default-bg large circle"><i class="fa fa-wrench"></i></span>
                     <h3><strong>Opreme</strong></h3>
                     <span class="counter" data-to="12235" data-speed="5000">0</span>
                 </div>
             </div>
             <div class="col-md-3 col-xs-6 text-center">
-                <div class="feature-box object-non-visible" data-animation-effect="fadeIn" data-effect-delay="300">
+                <div class="feature-box">
                     <span class="icon default-bg large circle"><i class="fa fa-handshake-o"></i></span>
                     <h3><strong>Partnera</strong></h3>
                     <span class="counter" data-to="15002" data-speed="5000">0</span>
