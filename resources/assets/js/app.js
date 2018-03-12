@@ -274,7 +274,7 @@ require('./bootstrap');
 					});
 				});	
 
-				var services = $('#service').multiselect({
+				var services = $('#services').multiselect({
 					numberDisplayed: 1,
 					checkboxName: 'services[]',
 					nonSelectedText: 'Izaberite...',
@@ -297,30 +297,41 @@ require('./bootstrap');
 					var count = $(element).find('option:selected').length;
 					return count > 0;
 				});
+				$.validator.addMethod("regexEmail", function (value, element) {
+					return this.optional(element) || /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(value);
+				}, 'Please enter a valid email address.');
+
 				$("#prices-form").validate({
 					ignore: [],
 					submitHandler: function(form) {
 						$.ajax({
 							type: "POST",
-							url: "api/send",
+							headers: {
+								'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+							},
+							beforeSend: function() {
+								$('#prices-form button[type="submit"]').prop('disabled', true);
+							},
+							url: "email/price",
 							data: {
 								"brand": $("#prices-form #brand").val(),
 								"type": $("#prices-form #type").val(),
 								"engine": $("#prices-form #engine").val(),
 								"power": $("#prices-form #power").val(),
 								"year": $("#prices-form #year").val(),
-								"service": $("#prices-form #service").val(),
+								"services": $("#prices-form #services").val(),
 								"name": $("#prices-form #name").val(),
 								"email": $("#prices-form #email").val()
 							},
 							dataType: "json",
 							success: function (data) {
-								if (data.sent == "yes") {
-									$(".submit-button").html('Poslato <i class="fa fa-check"></i>');
+								if (data.success) {
+									$('#prices-form button.multiselect').removeClass('selected');
+									$('#prices-form button[type="submit"]').html('Poslato <i class="fa fa-check"></i>');
 									$("#prices-form .form-control").each(function() {
 										$(this).prop('value', '').parent().removeClass("has-success").removeClass("has-error");
 									});
-									$('#service').multiselect('refresh');
+									$('#services').multiselect('refresh');
 								}
 							}
 						});
@@ -349,7 +360,7 @@ require('./bootstrap');
 							number: true,
 							minlength: 4
 						},
-						service: {
+						services: {
 							needsSelection: true,
 						},
 						name: {
@@ -358,7 +369,7 @@ require('./bootstrap');
 						},
 						email: {
 							required: true,
-							email: true
+							regexEmail: true
 						}
 					},
 					messages: {
@@ -380,7 +391,7 @@ require('./bootstrap');
 							number: "Unesite ispravnu godinu proizvodnje!",
 							minlength: "Unesite ispravnu godinu proizvodnje!"
 						},
-						service: {
+						services: {
 							needsSelection: "Odaberite usluge!"
 						},
 						name: {
@@ -389,7 +400,7 @@ require('./bootstrap');
 						},
 						email: {
 							required: "Unesite vašu email adresu!",
-							email: "Unesite ispravnu email adresu!"
+							regexEmail: "Unesite ispravnu email adresu!"
 						}
 					},
 					errorElement: "span",
@@ -461,7 +472,6 @@ require('./bootstrap');
 		//-----------------------------------------------
 		if (($("#services").length > 0))
 		{
-			console.log('servisi')
 			$(".service-img").magnificPopup({
 				type:"image",
 				gallery: {
@@ -637,30 +647,40 @@ require('./bootstrap');
 
 		if ($('#faq').length > 0) {
 			// Faq form
+			$.validator.addMethod("regexEmail", function (value, element) {
+				return this.optional(element) || /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(value);
+			}, 'Please enter a valid email address.');
+
 			$("#faq-form").validate({
 				submitHandler: function(form) {
-					$('.submit-button').button("loading");
 					$.ajax({
 						type: "POST",
-						url: "api/send",
+						headers: {
+							'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+						},
+						beforeSend: function() {
+							$('#faq-form button[type="submit"]').prop('disabled', true);
+						},
+						url: "cesta-pitanja",
 						data: {
 							"name": $("#faq-form #name").val(),
 							"email": $("#faq-form #email").val(),
-							"question": $("#faq-form #question").val(),
-							"g-recaptcha-response": $("#g-recaptcha-response").val()
+							"question": $("#faq-form #question").val()
 						},
 						dataType: "json",
 						success: function (data) {
-							if (data.sent == "yes") {
-								$("#MessageSent").removeClass("hidden");
-								$("#MessageNotSent").addClass("hidden");
-								$(".submit-button").removeClass("btn-default").addClass("btn-success").prop('value', 'Poslato');
+							var message = $('<div />', {
+								'id': 'message',
+								'class': 'alert alert-success'
+							});
+
+							if (data.success) {
+								$('#faq-form button[type="submit"]').html('Poslato');
 								$("#faq-form .form-control").each(function() {
 									$(this).prop('value', '').parent().removeClass("has-success").removeClass("has-error");
 								});
-							} else {
-								$("#MessageNotSent").removeClass("hidden");
-								$("#MessageSent").addClass("hidden");
+								message.html(data.message);
+								$('#faq-form button[type="submit"]').before(message);
 							}
 						}
 					});
@@ -676,9 +696,9 @@ require('./bootstrap');
 					},
 					email: {
 						required: true,
-						email: true
+						regexEmail: true
 					},
-					message: {
+					question: {
 						required: true
 					}
 				},
@@ -688,9 +708,9 @@ require('./bootstrap');
 					},
 					email: {
 						required: "Unesite vašu email adresu",
-						email: "Unesite ispravnu email adresu"
+						regexEmail: "Unesite ispravnu email adresu"
 					},
-					message: {
+					question: {
 						required: "Unesite vaše pitanje",
 					}
 				},
@@ -705,80 +725,6 @@ require('./bootstrap');
 				}
 			});
 		}
-		if($("#sidebar-form").length>0) {
-
-			$("#sidebar-form").validate({
-				submitHandler: function(form) {
-					$('.submit-button').button("loading");
-					$.ajax({
-						type: "POST",
-						url: "php/email-sender.php",
-						data: {
-							"name": $("#sidebar-form #name3").val(),
-							"email": $("#sidebar-form #email3").val(),
-							"subject": "Message from FAQ page",
-							"category": $("#sidebar-form #category").val(),
-							"message": $("#sidebar-form #message3").val()
-						},
-						dataType: "json",
-						success: function (data) {
-							if (data.sent == "yes") {
-								$("#MessageSent3").removeClass("hidden");
-								$("#MessageNotSent3").addClass("hidden");
-								$(".submit-button").removeClass("btn-default").addClass("btn-success").prop('value', 'Message Sent');
-								$("#sidebar-form .form-control").each(function() {
-									$(this).prop('value', '').parent().removeClass("has-success").removeClass("has-error");
-								});
-							} else {
-								$("#MessageNotSent3").removeClass("hidden");
-								$("#MessageSent3").addClass("hidden");
-							}
-						}
-					});
-				},
-				errorPlacement: function(error, element) {
-					error.insertAfter( element );
-				},
-				onkeyup: false,
-				onclick: false,
-				rules: {
-					name3: {
-						required: true,
-						minlength: 2
-					},
-					email3: {
-						required: true,
-						email: true
-					},
-					message3: {
-						required: true,
-						minlength: 10
-					}
-				},
-				messages: {
-					name3: {
-						required: "Please specify your name",
-						minlength: "Your name must be longer than 2 characters"
-					},
-					email3: {
-						required: "We need your email address to contact you",
-						email: "Please enter a valid email address e.g. name@domain.com"
-					},
-					message3: {
-						required: "Please enter a message",
-						minlength: "Your message must be longer than 10 characters"
-					}
-				},
-				errorElement: "span",
-				highlight: function (element) {
-					$(element).parent().removeClass("has-success").addClass("has-error");
-				},
-				success: function (element) {
-					$(element).parent().removeClass("has-error").addClass("has-success");
-				}
-			});
-		};
-
 
 		// Testimonials
 		//-----------------------------------------------
@@ -866,30 +812,6 @@ require('./bootstrap');
 					$(element).parent().removeClass("has-error").addClass("has-success");
 				}
 			});
-		}
-
-		// Affix Menu
-		//-----------------------------------------------
-		if ($(".affix-menu").length>0) {
-			setTimeout(function () {
-				var $sideBar = $('.sidebar')
-
-				$sideBar.affix({
-					offset: {
-						top: function () {
-							var offsetTop = $sideBar.offset().top
-							return (this.top = offsetTop - 65)
-						},
-						bottom: function () {
-							var affixBottom = $(".footer").outerHeight(true) + $(".subfooter").outerHeight(true)
-							if ($(".footer-top").length>0) {
-								affixBottom = affixBottom + $(".footer-top").outerHeight(true)
-							}
-							return (this.bottom = affixBottom+50)
-						}
-					}
-				})
-			}, 100)
 		}
 
 		//Scroll Spy

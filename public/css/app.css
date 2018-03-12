@@ -21034,7 +21034,8 @@ img.mfp-img {
 
 .multipleselect .btn-group .btn-default .caret {
   position: absolute;
-  left: 92%;
+  right: 0;
+  margin-right: 15px;
   top: 48%;
 }
 
@@ -23262,8 +23263,8 @@ h5 + .separator {
 .btn-default.disabled,
 .btn-default[disabled],
 fieldset[disabled] .btn-default {
-  background-color: #992020;
-  border-color: #681313;
+  background-color: #992020 !important;
+  border-color: #681313 !important;
 }
 
 .btn-default-transparent {
