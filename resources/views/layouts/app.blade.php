@@ -17,8 +17,6 @@
 	<meta property="og:image" content="{{ asset('images/logo.jpg') }}">
 	<meta property="og:locale" content="sr_RS">
 	<meta property="og:site_name" content="{{ config('app.name', 'RPCT') }}">
-	<meta property="fb:admins" content="">
-	<meta property="fb:app_id" content="">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:site" content="{{ "@".config('app.socials.twitter', '') }}">
 	<meta name="twitter:title" content="@yield('title')">
