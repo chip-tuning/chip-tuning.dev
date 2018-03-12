@@ -42,32 +42,25 @@
 						<form id="contact-form" class="margin-clear" role="form">
 							<div class="form-group has-feedback">
 								<label for="name">Ime i prezime*</label>
-								<input type="text" class="form-control" id="name" name="name" placeholder="Unesite vaše ime i prezime">
+								<input id="name" class="form-control" name="name" type="text" placeholder="Unesite vaše ime i prezime">
 								<i class="fa fa-user form-control-feedback"></i>
 							</div>
 							<div class="form-group has-feedback">
 								<label for="email">Email*</label>
-								<input type="email" class="form-control" id="email" name="email" placeholder="Unesite vašu email adresu">
+								<input id="email" class="form-control" name="email" type="email" placeholder="Unesite vašu email adresu">
 								<i class="fa fa-envelope form-control-feedback"></i>
 							</div>
 							<div class="form-group has-feedback">
 								<label for="subject">Naslov poruke*</label>
-								<input type="text" class="form-control" id="subject" name="subject" placeholder="Unesite naslov vaše poruke">
+								<input id="subject" class="form-control" name="subject" type="text" placeholder="Unesite naslov vaše poruke">
 								<i class="fa fa-navicon form-control-feedback"></i>
 							</div>
 							<div class="form-group has-feedback">
 								<label for="message">Poruka*</label>
-								<textarea class="form-control" rows="6" id="message" name="message" placeholder="Unesite vašu poruku"></textarea>
+								<textarea id="message" class="form-control" name="message" rows="6" placeholder="Unesite vašu poruku"></textarea>
 								<i class="fa fa-pencil form-control-feedback"></i>
 							</div>
-							<div class="g-recaptcha" data-sitekey="your_site_key"></div>
-							<div class="alert alert-success hidden" id="MessageSent">
-								Vaša poruka je poslata, očekujte uskoro naš odgovor.
-							</div>
-							<div class="alert alert-danger hidden" id="MessageNotSent">
-								Ups! Nešto je pošlo naopako, molimo verifikujte da niste bot ili osvežite stranicu i probajte opet.
-							</div>
-							<input type="submit" value="Pošalji" class="submit-button btn btn-default">
+							<button type="submit" class="btn btn-default">Pošalji</button>
 						</form>
 					</div>
 				</div>
@@ -80,7 +73,7 @@
 								<li><i class="fa fa-map-marker pr-10 text-default"></i>{{ config('app.name', 'RPCT') }}<br><span class="pl-20">{{ config('app.details.address', 'Bore Tirića 60, 15000 Šabac') }}</span></li>
 								<li><i class="fa fa-phone pr-10 text-default"></i><abbr title="Phone">M:</abbr> {{ config('app.details.phone', '+381 65 55 666 14') }}</li>
 								<li><i class="fa fa-phone pr-10 text-default"></i><abbr title="Phone">M:</abbr> {{ config('app.details.phone_alt', '+381 60 02 262 17') }}</li>
-								<li><i class="fa fa-envelope pr-10 text-default"></i><a href="{{ config('app.details.email', 'office@chip-tuning.rs') }}">{{ config('app.details.email', 'office@chip-tuning.rs') }}</a></li>
+								<li><i class="fa fa-envelope pr-10 text-default"></i><a href="mailto:{{ config('app.details.email', 'office@chip-tuning.rs') }}">{{ config('app.details.email', 'office@chip-tuning.rs') }}</a></li>
 							</ul>
 						</div>
 

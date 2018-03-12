@@ -27,6 +27,7 @@ Route::get('blog/arhiva', 'ArticleController@archive')->name('blog.archive');
 Route::get('blog/{article}', 'ArticleController@show')->name('blog.show');
 Route::get('nasi-radovi', 'GalleryController@index')->name('gallery.index');
 Route::get('kontakt', 'ContactController@index')->name('contact.index');
+Route::post('kontakt', 'ContactController@store')->name('contact.store');
 Route::get('cesta-pitanja', 'FaqController@index')->name('faq.index');
 Route::post('cesta-pitanja', 'FaqController@store')->name('faq.store');
 Route::get('uslovi-koriscenja', 'TermsOfUseController@index')->name('terms.index');

@@ -60,941 +60,18 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 9);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(1);
-__webpack_require__(2);
-module.exports = __webpack_require__(3);
-
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
-__webpack_require__(43);
-
-/**
- * jQuery plugin to handle Animations and Waypoint
- */
-(function ($) {
-	$.fn.animateWaypoint = function (options) {
-		var settings = $.extend({
-			offset: '95%'
-		}, options);
-		this.filter("[data-animation-effect]").each(function () {
-			if (Modernizr.csstransitions) {
-				var waypoints = $(this).waypoint(function (direction) {
-					var appearDelay = $(this.element).attr("data-effect-delay"),
-					    animatedObject = $(this.element);
-					setTimeout(function () {
-						animatedObject.addClass('animated object-visible ' + animatedObject.attr("data-animation-effect"));
-					}, appearDelay);
-					this.destroy();
-				}, {
-					offset: settings.offset
-				});
-			} else {
-				$(this).addClass('object-visible');
-			}
-		});
-
-		return this;
-	};
-})(jQuery);
-
-/**
- * Magnific popup extend
- */
-(function ($) {
-	$.extend(true, $.magnificPopup.defaults, {
-		tClose: 'Zatvori (Esc)',
-		tLoading: 'Ucitavanje...',
-		gallery: {
-			tPrev: 'Prethodna',
-			tNext: 'Naredna',
-			tCounter: '%curr% od %total%'
-		},
-		image: {
-			tError: '<a href="%url%">Slika</a> se ne moze ucitati.'
-		},
-		ajax: {
-			tError: '<a href="%url%">Sadrzaj</a> se ne moze ucitati.'
-		}
-	});
-})(jQuery);
-
-/**
- * Center element
- */
-(function ($) {
-	$.fn.center = function () {
-		this.css("margin-top", ($(window).height() - this.height()) / 2 + "px");
-		return this;
-	};
-})(jQuery);
-
-(function ($) {
-	$(window).on("load", function () {
-		$("body").removeClass("no-trans");
-
-		if ($(".transparent-header").length > 0) {
-			trHeaderHeight = $("header.header").outerHeight();
-			$(".transparent-header .tp-bannertimer").css("marginTop", trHeaderHeight + "px");
-		}
-
-		if ($("#fullscreen").length > 0) {
-			$('#fullscreen').center();
-		}
-	});
-	$(window).on("resize", function () {
-		var headerTopHeight = $(".header-top").outerHeight();
-		var headerHeight = $("header.header.fixed").outerHeight();
-
-		if ($(this).scrollTop() < headerTopHeight + headerHeight - 5 && $(window).width() > 767) {
-			headerTopHeight = $(".header-top").outerHeight(), headerHeight = $("header.header.fixed").outerHeight();
-		}
-
-		if ($(".transparent-header").length > 0) {
-			if ($(this).scrollTop() < headerTopHeight + headerHeight - 5) {
-				trHeaderHeight = $("header.header").outerHeight();
-				$(".transparent-header .tp-bannertimer").css("marginTop", trHeaderHeight + "px");
-			}
-		}
-
-		if ($("#fullscreen").length > 0) {
-			$('#fullscreen').center();
-		}
-	});
-})(jQuery);
-
-/**
- * Chip Tuning App
- */
-(function ($) {
-	$(document).ready(function () {
-		// Setup
-		//-----------------------------------------------
-		var timer_tr;
-		var headerTopHeight = $(".header-top").outerHeight();
-		var headerHeight = $("header.header.fixed").outerHeight();
-
-		if ($(".transparent-header").length > 0) {
-			$(window).scroll(function () {
-				if ($(this).scrollTop() == 0) {
-					if (timer_tr) {
-						window.clearTimeout(timer_tr);
-					};
-					timer_tr = window.setTimeout(function () {
-						trHeaderHeight = $("header.header").outerHeight();
-						$(".transparent-header .tp-bannertimer").css("marginTop", trHeaderHeight + "px");
-					}, 300);
-				};
-			});
-		}
-
-		if ($(".transparent-header .slideshow").length > 0) {
-			$(".header-container header.header").addClass("transparent-header-on");
-		} else {
-			$(".header-container header.header").removeClass("transparent-header-on");
-		}
-
-		$(window).scroll(function () {
-			if ($(".header.fixed:not(.fixed-before)").length > 0 && !($(".transparent-header .slideshow").length > 0)) {
-				if ($(this).scrollTop() > headerTopHeight + headerHeight && $(window).width() > 767) {
-					$("body").addClass("fixed-header-on");
-					$(".header.fixed:not(.fixed-before)").addClass('animated object-visible fadeInDown');
-					$(".header-container").css("paddingBottom", headerHeight + "px");
-				} else {
-					$("body").removeClass("fixed-header-on");
-					$(".header-container").css("paddingBottom", 0 + "px");
-					$(".header.fixed:not(.fixed-before)").removeClass('animated object-visible fadeInDown');
-				}
-			} else if ($(".header.fixed:not(.fixed-before)").length > 0) {
-				if ($(this).scrollTop() > headerTopHeight + headerHeight && $(window).width() > 767) {
-					$("body").addClass("fixed-header-on");
-					$(".header.fixed:not(.fixed-before)").addClass('animated object-visible fadeInDown');
-				} else {
-					$("body").removeClass("fixed-header-on");
-					$(".header.fixed:not(.fixed-before)").removeClass('animated object-visible fadeInDown');
-				}
-			};
-		});
-
-		$(window).scroll(function () {
-			if ($(".header.fixed.fixed-before").length > 0 && !($(".transparent-header .slideshow").length > 0)) {
-				if ($(this).scrollTop() > headerTopHeight && $(window).width() > 767) {
-					$("body").addClass("fixed-header-on");
-					$(".header.fixed.fixed-before").addClass('object-visible');
-					$(".header-container").css("paddingBottom", headerHeight + "px");
-				} else {
-					$("body").removeClass("fixed-header-on");
-					$(".header-container").css("paddingBottom", 0 + "px");
-					$(".header.fixed.fixed-before").removeClass('object-visible');
-				}
-			} else if ($(".header.fixed.fixed-before").length > 0) {
-				if ($(this).scrollTop() > headerTopHeight && $(window).width() > 767) {
-					$("body").addClass("fixed-header-on");
-					$(".header.fixed.fixed-before").addClass('object-visible');
-				} else {
-					$("body").removeClass("fixed-header-on");
-					$(".header.fixed.fixed-before").removeClass('object-visible');
-				}
-			};
-		});
-
-		if ($('.pagination').length > 0) {
-			$('ul.pagination li.active a, ul.pagination li.disabled a').on('click', function (event) {
-				event.preventDefault();
-			});
-		}
-
-		// Animations
-		//-----------------------------------------------
-		if ($("[data-animation-effect]").length > 0) {
-			if (typeof revApi !== 'undefined') {
-				$('.feature-box-2').addClass('object-non-visible');
-				revApi.one('revolution.slide.onloaded', function () {
-					$("[data-animation-effect]").animateWaypoint();
-				});
-			} else {
-				$("[data-animation-effect]").animateWaypoint();
-			}
-		}
-
-		//Scroll totop
-		//-----------------------------------------------
-		$(window).scroll(function () {
-			if ($(this).scrollTop() != 0) {
-				$(".scrollToTop").addClass("fadeToTop");
-				$(".scrollToTop").removeClass("fadeToBottom");
-			} else {
-				$(".scrollToTop").removeClass("fadeToTop");
-				$(".scrollToTop").addClass("fadeToBottom");
-			}
-		});
-
-		$(".scrollToTop").click(function () {
-			$("body,html").animate({ scrollTop: 0 }, 800);
-		});
-
-		//Modal
-		//-----------------------------------------------
-		if ($(".modal").length > 0) {
-			$(".modal").each(function () {
-				$(".modal").prependTo("body");
-			});
-		}
-
-		// Home
-		//-----------------------------------------------
-		if ($("#home").length > 0) {
-
-			// Revolution slider
-			if ($(".slider-revolution-5-container").length > 0) {
-				var revApi = $(document).ready(function () {
-					$(".tp-bannertimer").show();
-					$('.transparent-header .slider-revolution-5-container .slider-banner-fullscreen').revolution({
-						sliderType: "standard",
-						sliderLayout: "fullscreen",
-						delay: 9000,
-						autoHeight: "on",
-						responsiveLevels: [1199, 991, 767, 480],
-						fullScreenOffsetContainer: ".header-top, .offset-container",
-						navigation: {
-							onHoverStop: "off",
-							arrows: {
-								style: "hebe",
-								enable: true,
-								tmp: '<div class="tp-title-wrap"><span class="tp-arr-titleholder">{{title}}</span></div>',
-								left: {
-									h_align: "left",
-									v_align: "center",
-									h_offset: 0,
-									v_offset: 0
-								},
-								right: {
-									h_align: "right",
-									v_align: "center",
-									h_offset: 0,
-									v_offset: 0
-								}
-							},
-							bullets: {
-								style: "",
-								enable: true,
-								hide_onleave: true,
-								direction: "horizontal",
-								space: 3,
-								h_align: "center",
-								v_align: "bottom",
-								h_offset: 0,
-								v_offset: 20
-							}
-						},
-						gridwidth: 1140,
-						gridheight: 750
-					});
-				});
-
-				var services = $('#services').multiselect({
-					numberDisplayed: 1,
-					checkboxName: 'services[]',
-					nonSelectedText: 'Izaberite...',
-					nSelectedText: 'izabrane usluge...',
-					allSelectedText: 'Sve usluge izabrane',
-					onChange: function onChange(option, checked, select) {
-						if (checked) $('.multiselect').addClass('selected');else $('.multiselect').removeClass('selected');
-					}
-				});
-
-				services.on('change', function (event) {
-					$(this).valid();
-				});
-
-				// Prices
-				$.validator.addMethod("needsSelection", function (value, element) {
-					var count = $(element).find('option:selected').length;
-					return count > 0;
-				});
-				$.validator.addMethod("regexEmail", function (value, element) {
-					return this.optional(element) || /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(value);
-				}, 'Please enter a valid email address.');
-
-				$("#prices-form").validate({
-					ignore: [],
-					submitHandler: function submitHandler(form) {
-						$.ajax({
-							type: "POST",
-							headers: {
-								'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-							},
-							beforeSend: function beforeSend() {
-								$('#prices-form button[type="submit"]').prop('disabled', true);
-							},
-							url: "email/price",
-							data: {
-								"brand": $("#prices-form #brand").val(),
-								"type": $("#prices-form #type").val(),
-								"engine": $("#prices-form #engine").val(),
-								"power": $("#prices-form #power").val(),
-								"year": $("#prices-form #year").val(),
-								"services": $("#prices-form #services").val(),
-								"name": $("#prices-form #name").val(),
-								"email": $("#prices-form #email").val()
-							},
-							dataType: "json",
-							success: function success(data) {
-								if (data.success) {
-									$('#prices-form button.multiselect').removeClass('selected');
-									$('#prices-form button[type="submit"]').html('Poslato <i class="fa fa-check"></i>');
-									$("#prices-form .form-control").each(function () {
-										$(this).prop('value', '').parent().removeClass("has-success").removeClass("has-error");
-									});
-									$('#services').multiselect('refresh');
-								}
-							}
-						});
-					},
-					errorPlacement: function errorPlacement(error, element) {
-						error.insertBefore(element);
-					},
-					onkeyup: false,
-					onclick: false,
-					rules: {
-						brand: {
-							required: true
-						},
-						type: {
-							required: true
-						},
-						engine: {
-							required: true
-						},
-						power: {
-							required: true,
-							number: true
-						},
-						year: {
-							required: true,
-							number: true,
-							minlength: 4
-						},
-						services: {
-							needsSelection: true
-						},
-						name: {
-							required: true,
-							minlength: 6
-						},
-						email: {
-							required: true,
-							regexEmail: true
-						}
-					},
-					messages: {
-						brand: {
-							required: "Unesite marku vozila!"
-						},
-						type: {
-							required: "Unesite model vozila!"
-						},
-						engine: {
-							required: "Unesite tip motora!"
-						},
-						power: {
-							required: "Unesite snagu motora!",
-							number: "Unesite ispravnu snagu motora!"
-						},
-						year: {
-							required: "Unesite godinu proizvodnje!",
-							number: "Unesite ispravnu godinu proizvodnje!",
-							minlength: "Unesite ispravnu godinu proizvodnje!"
-						},
-						services: {
-							needsSelection: "Odaberite usluge!"
-						},
-						name: {
-							required: "Unesite vaše ime i prezime!",
-							minlength: "Unesite ispravno ime i prezime!"
-						},
-						email: {
-							required: "Unesite vašu email adresu!",
-							regexEmail: "Unesite ispravnu email adresu!"
-						}
-					},
-					errorElement: "span",
-					highlight: function highlight(element) {
-						$(element).parent().removeClass("has-success").addClass("has-error");
-						$(element).siblings("label").addClass("hide");
-					},
-					success: function success(element) {
-						$(element).parent().removeClass("has-error").addClass("has-success");
-						$(element).siblings("label").removeClass("hide");
-					}
-				});
-			}
-
-			// Gallery
-			if ($('.owl-carousel').length > 0 || $('.owl-carousel.content-slider').length > 0) {
-				$(".owl-carousel.carousel").owlCarousel({
-					items: 1,
-					dots: false,
-					nav: true,
-					loop: true,
-					navText: false,
-					responsive: {
-						479: {
-							items: 2
-						},
-						768: {
-							items: 2
-						},
-						992: {
-							items: 4
-						},
-						1200: {
-							items: 4
-						}
-					}
-				});
-			}
-
-			$('.magnific').magnificPopup({
-				delegate: 'a',
-				type: 'image',
-				titleSrc: 'title',
-				gallery: {
-					enabled: true
-				}
-			});
-
-			// Stats Count To
-			if ($(".stats [data-to]").length > 0) {
-				$(".stats [data-to]").each(function () {
-					var stat_item = $(this),
-					    offset = stat_item.offset().top;
-					if ($(window).scrollTop() > offset - 800 && !stat_item.hasClass('counting')) {
-						stat_item.addClass('counting');
-						stat_item.countTo();
-					};
-					$(window).scroll(function () {
-						if ($(window).scrollTop() > offset - 800 && !stat_item.hasClass('counting')) {
-							stat_item.addClass('counting');
-							stat_item.countTo();
-						}
-					});
-				});
-			}
-		}
-
-		// Services
-		//-----------------------------------------------
-		if ($("#services").length > 0) {
-			$(".service-img").magnificPopup({
-				type: "image",
-				gallery: {
-					enabled: true
-				}
-			});
-		}
-
-		// Blog
-		//-----------------------------------------------
-		if ($("#blog").length > 0) {
-			$(".popup-img").magnificPopup({
-				type: "image"
-			});
-		}
-
-		// Gallery
-		//-----------------------------------------------
-		if ($("#gallery").length > 0 || $("#mini-gallery").length > 0) {
-
-			if ($('.isotope-container').length > 0) {
-				$('.isotope-container').fadeIn();
-				$('.isotope-container').magnificPopup({
-					delegate: 'a:visible',
-					type: 'image',
-					titleSrc: 'title',
-					gallery: {
-						enabled: true
-					}
-				});
-				var $container = $('.isotope-container').isotope({
-					itemSelector: '.isotope-item',
-					layoutMode: 'masonry',
-					transitionDuration: '0.6s',
-					filter: "*"
-				});
-
-				$('.filters').on('click', 'ul.nav li a', function () {
-					var filterValue = $(this).attr('data-filter');
-					$(".filters").find("li.active").removeClass("active");
-					$(this).parent().addClass("active");
-					$container.isotope({ filter: filterValue });
-					return false;
-				});
-			}
-
-			if ($("#mini-gallery").length > 0) {
-				$('.mini-magnific').magnificPopup({
-					delegate: 'a',
-					type: 'image',
-					titleSrc: 'title',
-					gallery: {
-						enabled: true
-					}
-				});
-			}
-		}
-
-		// Contact
-		//-----------------------------------------------
-		if ($("#contact").length > 0) {
-
-			// Contact form
-			$("#contact-form").validate({
-				submitHandler: function submitHandler(form) {
-					$('.submit-button').button("loading");
-					$.ajax({
-						type: "POST",
-						url: "api/send",
-						data: {
-							"name": $("#contact-form #name").val(),
-							"email": $("#contact-form #email").val(),
-							"subject": $("#contact-form #subject").val(),
-							"message": $("#contact-form #message").val(),
-							"g-recaptcha-response": $("#g-recaptcha-response").val()
-						},
-						dataType: "json",
-						success: function success(data) {
-							if (data.sent == "yes") {
-								$("#MessageSent").removeClass("hidden");
-								$("#MessageNotSent").addClass("hidden");
-								$(".submit-button").removeClass("btn-default").addClass("btn-success").prop('value', 'Poslato');
-								$("#contact-form .form-control").each(function () {
-									$(this).prop('value', '').parent().removeClass("has-success").removeClass("has-error");
-								});
-							} else {
-								$("#MessageNotSent").removeClass("hidden");
-								$("#MessageSent").addClass("hidden");
-							}
-						}
-					});
-				},
-				errorPlacement: function errorPlacement(error, element) {
-					error.insertBefore(element);
-				},
-				onkeyup: false,
-				onclick: false,
-				rules: {
-					name: {
-						required: true,
-						minlength: 6
-					},
-					email: {
-						required: true,
-						email: true
-					},
-					subject: {
-						required: true
-					},
-					message: {
-						required: true,
-						minlength: 10
-					}
-				},
-				messages: {
-					name: {
-						required: "Molimo unesite vaše ime i prezime",
-						minlength: "Ime i prezime mora imati više od 6 karaktera"
-					},
-					email: {
-						required: "Molimo unesite vašu email adresu",
-						email: "Molimo unesite ispravnu email adresu"
-					},
-					subject: {
-						required: "Molimo unesite naslov vaše poruke"
-					},
-					message: {
-						required: "Molimo unesite vašu poruku",
-						minlength: "Vaša poruka mora biti duža od 10 karaktera"
-					}
-				},
-				errorElement: "span",
-				highlight: function highlight(element) {
-					$(element).parent().removeClass("has-success").addClass("has-error");
-					$(element).siblings("label").addClass("hide");
-				},
-				success: function success(element) {
-					$(element).parent().removeClass("has-error").addClass("has-success");
-					$(element).siblings("label").removeClass("hide");
-				}
-			});
-
-			// Google Maps
-			if ($("#map-canvas").length > 0) {
-				var initialize = function initialize() {
-					var mapOptions = {
-						zoom: myZoom,
-						mapTypeId: google.maps.MapTypeId.ROADMAP,
-						center: myLatlng,
-						scrollwheel: false
-					};
-					map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-					marker = new google.maps.Marker({
-						map: map,
-						draggable: true,
-						animation: google.maps.Animation.DROP,
-						position: myLatlng
-					});
-					google.maps.event.addDomListener(window, "resize", function () {
-						map.setCenter(myLatlng);
-					});
-				};
-
-				var map, myLatlng, myZoom, marker;
-				myLatlng = new google.maps.LatLng(44.76892191864368, 19.688599705696106);
-				myZoom = 13;
-
-				google.maps.event.addDomListener(window, "load", initialize);
-			}
-		}
-
-		if ($('#faq').length > 0) {
-			// Faq form
-			$.validator.addMethod("regexEmail", function (value, element) {
-				return this.optional(element) || /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(value);
-			}, 'Please enter a valid email address.');
-
-			$("#faq-form").validate({
-				submitHandler: function submitHandler(form) {
-					$.ajax({
-						type: "POST",
-						headers: {
-							'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-						},
-						beforeSend: function beforeSend() {
-							$('#faq-form button[type="submit"]').prop('disabled', true);
-						},
-						url: "cesta-pitanja",
-						data: {
-							"name": $("#faq-form #name").val(),
-							"email": $("#faq-form #email").val(),
-							"subject": $("#faq-form #subject").val(),
-							"question": $("#faq-form #question").val()
-						},
-						dataType: "json",
-						success: function success(data) {
-							var message = $('<div />', {
-								'id': 'message',
-								'class': 'alert alert-success'
-							});
-
-							if (data.success) {
-								$('#faq-form button[type="submit"]').html('Poslato');
-								$("#faq-form .form-control").each(function () {
-									$(this).prop('value', '').parent().removeClass("has-success").removeClass("has-error");
-								});
-								message.html(data.message);
-								$('#faq-form button[type="submit"]').before(message);
-							}
-						}
-					});
-				},
-				errorPlacement: function errorPlacement(error, element) {
-					error.insertBefore(element);
-				},
-				onkeyup: false,
-				onclick: false,
-				rules: {
-					name: {
-						required: true
-					},
-					email: {
-						required: true,
-						regexEmail: true
-					},
-					subject: {
-						required: true
-					},
-					question: {
-						required: true
-					}
-				},
-				messages: {
-					name: {
-						required: "Unesite vaše ime i prezime"
-					},
-					email: {
-						required: "Unesite vašu email adresu",
-						regexEmail: "Unesite ispravnu email adresu"
-					},
-					subject: {
-						required: "Unesite naslov vaše poruke"
-					},
-					question: {
-						required: "Unesite vaše pitanje"
-					}
-				},
-				errorElement: "span",
-				highlight: function highlight(element) {
-					$(element).parent().removeClass("has-success").addClass("has-error");
-					$(element).siblings("label").addClass("hide");
-				},
-				success: function success(element) {
-					$(element).parent().removeClass("has-error").addClass("has-success");
-					$(element).siblings("label").removeClass("hide");
-				}
-			});
-		}
-
-		// Testimonials
-		//-----------------------------------------------
-		if ($(".content-slider").length > 0) {
-			$(".owl-carousel.content-slider").owlCarousel({
-				items: 1,
-				autoplay: true,
-				autoplayTimeout: 8000,
-				autoplaySpeed: 750,
-				loop: true,
-				nav: false,
-				navText: false,
-				dots: false
-			});
-		}
-
-		// Newsletter
-		if ($('#subscribe-form').length > 0) {
-			$.validator.addMethod("regexEmail", function (value, element) {
-				return this.optional(element) || /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(value);
-			}, 'Please enter a valid email address.');
-			$("#subscribe-form").validate({
-				submitHandler: function submitHandler(form) {
-					$.ajax({
-						type: "POST",
-						headers: {
-							'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-						},
-						beforeSend: function beforeSend() {
-							$("#subscribe-form button").prop('disabled', true);
-						},
-						url: "/subscription/subscribe",
-						data: {
-							"email": $("#subscribe-form #email").val()
-						},
-						dataType: "json",
-						success: function success(data) {
-							var message = $('<div />', {
-								'id': 'message'
-							});
-
-							if (data.success) {
-								$('#error').remove();
-								$("#subscribe-form button").html('Poslato <i class="fa fa-check"></i>');
-								$("#subscribe-form .form-control").each(function () {
-									$(this).prop('value', '').parent().removeClass("has-success").removeClass("has-error");
-								});
-								message.html(data.message);
-								$('#subscribe-form').after(message);
-							}
-						},
-						error: function error(data) {
-							var error = $('<div />', {
-								'id': 'error'
-							});
-							$('#error').remove();
-							$("#subscribe-form .form-control").each(function () {
-								$(this).prop('value', '').parent().addClass("has-error");
-							});
-							error.html('Uneta email adresa nije ispravna.');
-							$('#subscribe-form').after(error);
-							$("#subscribe-form button").prop('disabled', false);
-						}
-					});
-				},
-				errorPlacement: function errorPlacement(error, element) {
-					return true;
-				},
-				onkeyup: false,
-				onclick: false,
-				rules: {
-					email: {
-						required: true,
-						regexEmail: true
-					}
-				},
-				highlight: function highlight(element) {
-					$(element).parent().removeClass("has-success").addClass("has-error");
-				},
-				unhighlight: function unhighlight(element) {
-					$(element).parent().removeClass('has-error').addClass('has-success');
-				},
-				success: function success(element) {
-					$(element).parent().removeClass("has-error").addClass("has-success");
-				}
-			});
-		}
-
-		//Scroll Spy
-		//-----------------------------------------------
-		if ($(".scrollspy").length > 0) {
-			$("body").addClass("scroll-spy");
-			if ($(".fixed.header").length > 0) {
-				$('body').scrollspy({
-					target: '.scrollspy',
-					offset: 85
-				});
-			} else {
-				$('body').scrollspy({
-					target: '.scrollspy',
-					offset: 20
-				});
-			}
-		}
-
-		//Smooth Scroll
-		//-----------------------------------------------
-		if ($(".smooth-scroll").length > 0) {
-			if ($(".header.fixed").length > 0 && Modernizr.mq('only all and (min-width: 768px)')) {
-				$('.smooth-scroll a, a.smooth-scroll').click(function () {
-					if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-						var target = $(this.hash);
-						target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-						if (target.length) {
-							$('html,body').animate({
-								scrollTop: target.offset().top - 63
-							}, 1000);
-							return false;
-						}
-					}
-				});
-			} else {
-				$('.smooth-scroll a, a.smooth-scroll').click(function () {
-					if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-						var target = $(this.hash);
-						target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-						if (target.length) {
-							$('html,body').animate({
-								scrollTop: target.offset().top
-							}, 1000);
-							return false;
-						}
-					}
-				});
-			}
-		}
-
-		// Full Width Image Overlay
-		//-----------------------------------------------
-		if ($(".full-image-overlay").length > 0) {
-			overlayHeight = $(".full-image-overlay").outerHeight();
-			$(".full-image-overlay").css("marginTop", -overlayHeight / 2);
-		};
-	});
-})(jQuery);
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 4 */,
-/* 5 */,
-/* 6 */,
-/* 7 */,
-/* 8 */,
-/* 9 */,
-/* 10 */,
-/* 11 */,
-/* 12 */,
-/* 13 */,
-/* 14 */,
-/* 15 */,
-/* 16 */,
-/* 17 */,
-/* 18 */,
-/* 19 */,
-/* 20 */,
-/* 21 */,
-/* 22 */,
-/* 23 */,
-/* 24 */,
-/* 25 */,
-/* 26 */,
-/* 27 */,
-/* 28 */,
-/* 29 */,
-/* 30 */,
-/* 31 */,
-/* 32 */,
-/* 33 */,
-/* 34 */
-/***/ (function(module, exports, __webpack_require__) {
-
 "use strict";
 
 
-var bind = __webpack_require__(38);
-var isBuffer = __webpack_require__(57);
+var bind = __webpack_require__(4);
+var isBuffer = __webpack_require__(25);
 
 /*global toString:true*/
 
@@ -1297,7 +374,7 @@ module.exports = {
 
 
 /***/ }),
-/* 35 */
+/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -11668,14 +10745,14 @@ return jQuery;
 
 
 /***/ }),
-/* 36 */
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
-var utils = __webpack_require__(34);
-var normalizeHeaderName = __webpack_require__(60);
+var utils = __webpack_require__(0);
+var normalizeHeaderName = __webpack_require__(28);
 
 var DEFAULT_CONTENT_TYPE = {
   'Content-Type': 'application/x-www-form-urlencoded'
@@ -11691,10 +10768,10 @@ function getDefaultAdapter() {
   var adapter;
   if (typeof XMLHttpRequest !== 'undefined') {
     // For browsers use XHR adapter
-    adapter = __webpack_require__(39);
+    adapter = __webpack_require__(5);
   } else if (typeof process !== 'undefined') {
     // For node use HTTP adapter
-    adapter = __webpack_require__(39);
+    adapter = __webpack_require__(5);
   }
   return adapter;
 }
@@ -11765,10 +10842,10 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 
 module.exports = defaults;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(59)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(27)))
 
 /***/ }),
-/* 37 */
+/* 3 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -11796,7 +10873,7 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 38 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11814,19 +10891,19 @@ module.exports = function bind(fn, thisArg) {
 
 
 /***/ }),
-/* 39 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(34);
-var settle = __webpack_require__(61);
-var buildURL = __webpack_require__(63);
-var parseHeaders = __webpack_require__(64);
-var isURLSameOrigin = __webpack_require__(65);
-var createError = __webpack_require__(40);
-var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(66);
+var utils = __webpack_require__(0);
+var settle = __webpack_require__(29);
+var buildURL = __webpack_require__(31);
+var parseHeaders = __webpack_require__(32);
+var isURLSameOrigin = __webpack_require__(33);
+var createError = __webpack_require__(6);
+var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(34);
 
 module.exports = function xhrAdapter(config) {
   return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -11923,7 +11000,7 @@ module.exports = function xhrAdapter(config) {
     // This is only done if running in a standard browser environment.
     // Specifically not if we're in a web worker, or react-native.
     if (utils.isStandardBrowserEnv()) {
-      var cookies = __webpack_require__(67);
+      var cookies = __webpack_require__(35);
 
       // Add xsrf header
       var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ?
@@ -12001,13 +11078,13 @@ module.exports = function xhrAdapter(config) {
 
 
 /***/ }),
-/* 40 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var enhanceError = __webpack_require__(62);
+var enhanceError = __webpack_require__(30);
 
 /**
  * Create an Error with the specified message, config, error code, request and response.
@@ -12026,7 +11103,7 @@ module.exports = function createError(message, config, code, request, response) 
 
 
 /***/ }),
-/* 41 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12038,7 +11115,7 @@ module.exports = function isCancel(value) {
 
 
 /***/ }),
-/* 42 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12064,37 +11141,927 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 43 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
-window._ = __webpack_require__(44);
+__webpack_require__(10);
+__webpack_require__(43);
+module.exports = __webpack_require__(44);
+
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/**
+ * First we will load all of this project's JavaScript dependencies which
+ * includes Vue and other libraries. It is a great starting point when
+ * building robust, powerful web applications using Vue and Laravel.
+ */
+__webpack_require__(11);
+
+/**
+ * jQuery plugin to handle Animations and Waypoint
+ */
+(function ($) {
+	$.fn.animateWaypoint = function (options) {
+		var settings = $.extend({
+			offset: '95%'
+		}, options);
+		this.filter("[data-animation-effect]").each(function () {
+			if (Modernizr.csstransitions) {
+				var waypoints = $(this).waypoint(function (direction) {
+					var appearDelay = $(this.element).attr("data-effect-delay"),
+					    animatedObject = $(this.element);
+					setTimeout(function () {
+						animatedObject.addClass('animated object-visible ' + animatedObject.attr("data-animation-effect"));
+					}, appearDelay);
+					this.destroy();
+				}, {
+					offset: settings.offset
+				});
+			} else {
+				$(this).addClass('object-visible');
+			}
+		});
+
+		return this;
+	};
+})(jQuery);
+
+/**
+ * Magnific popup extend
+ */
+(function ($) {
+	$.extend(true, $.magnificPopup.defaults, {
+		tClose: 'Zatvori (Esc)',
+		tLoading: 'Ucitavanje...',
+		gallery: {
+			tPrev: 'Prethodna',
+			tNext: 'Naredna',
+			tCounter: '%curr% od %total%'
+		},
+		image: {
+			tError: '<a href="%url%">Slika</a> se ne moze ucitati.'
+		},
+		ajax: {
+			tError: '<a href="%url%">Sadrzaj</a> se ne moze ucitati.'
+		}
+	});
+})(jQuery);
+
+/**
+ * Center element
+ */
+(function ($) {
+	$.fn.center = function () {
+		this.css("margin-top", ($(window).height() - this.height()) / 2 + "px");
+		return this;
+	};
+})(jQuery);
+
+(function ($) {
+	$(window).on("load", function () {
+		$("body").removeClass("no-trans");
+
+		if ($(".transparent-header").length > 0) {
+			trHeaderHeight = $("header.header").outerHeight();
+			$(".transparent-header .tp-bannertimer").css("marginTop", trHeaderHeight + "px");
+		}
+
+		if ($("#fullscreen").length > 0) {
+			$('#fullscreen').center();
+		}
+	});
+	$(window).on("resize", function () {
+		var headerTopHeight = $(".header-top").outerHeight();
+		var headerHeight = $("header.header.fixed").outerHeight();
+
+		if ($(this).scrollTop() < headerTopHeight + headerHeight - 5 && $(window).width() > 767) {
+			headerTopHeight = $(".header-top").outerHeight(), headerHeight = $("header.header.fixed").outerHeight();
+		}
+
+		if ($(".transparent-header").length > 0) {
+			if ($(this).scrollTop() < headerTopHeight + headerHeight - 5) {
+				trHeaderHeight = $("header.header").outerHeight();
+				$(".transparent-header .tp-bannertimer").css("marginTop", trHeaderHeight + "px");
+			}
+		}
+
+		if ($("#fullscreen").length > 0) {
+			$('#fullscreen').center();
+		}
+	});
+})(jQuery);
+
+/**
+ * Chip Tuning App
+ */
+(function ($) {
+	$(document).ready(function () {
+		// Setup
+		//-----------------------------------------------
+		var timer_tr;
+		var headerTopHeight = $(".header-top").outerHeight();
+		var headerHeight = $("header.header.fixed").outerHeight();
+
+		if ($(".transparent-header").length > 0) {
+			$(window).scroll(function () {
+				if ($(this).scrollTop() == 0) {
+					if (timer_tr) {
+						window.clearTimeout(timer_tr);
+					};
+					timer_tr = window.setTimeout(function () {
+						trHeaderHeight = $("header.header").outerHeight();
+						$(".transparent-header .tp-bannertimer").css("marginTop", trHeaderHeight + "px");
+					}, 300);
+				};
+			});
+		}
+
+		if ($(".transparent-header .slideshow").length > 0) {
+			$(".header-container header.header").addClass("transparent-header-on");
+		} else {
+			$(".header-container header.header").removeClass("transparent-header-on");
+		}
+
+		$(window).scroll(function () {
+			if ($(".header.fixed:not(.fixed-before)").length > 0 && !($(".transparent-header .slideshow").length > 0)) {
+				if ($(this).scrollTop() > headerTopHeight + headerHeight && $(window).width() > 767) {
+					$("body").addClass("fixed-header-on");
+					$(".header.fixed:not(.fixed-before)").addClass('animated object-visible fadeInDown');
+					$(".header-container").css("paddingBottom", headerHeight + "px");
+				} else {
+					$("body").removeClass("fixed-header-on");
+					$(".header-container").css("paddingBottom", 0 + "px");
+					$(".header.fixed:not(.fixed-before)").removeClass('animated object-visible fadeInDown');
+				}
+			} else if ($(".header.fixed:not(.fixed-before)").length > 0) {
+				if ($(this).scrollTop() > headerTopHeight + headerHeight && $(window).width() > 767) {
+					$("body").addClass("fixed-header-on");
+					$(".header.fixed:not(.fixed-before)").addClass('animated object-visible fadeInDown');
+				} else {
+					$("body").removeClass("fixed-header-on");
+					$(".header.fixed:not(.fixed-before)").removeClass('animated object-visible fadeInDown');
+				}
+			};
+		});
+
+		$(window).scroll(function () {
+			if ($(".header.fixed.fixed-before").length > 0 && !($(".transparent-header .slideshow").length > 0)) {
+				if ($(this).scrollTop() > headerTopHeight && $(window).width() > 767) {
+					$("body").addClass("fixed-header-on");
+					$(".header.fixed.fixed-before").addClass('object-visible');
+					$(".header-container").css("paddingBottom", headerHeight + "px");
+				} else {
+					$("body").removeClass("fixed-header-on");
+					$(".header-container").css("paddingBottom", 0 + "px");
+					$(".header.fixed.fixed-before").removeClass('object-visible');
+				}
+			} else if ($(".header.fixed.fixed-before").length > 0) {
+				if ($(this).scrollTop() > headerTopHeight && $(window).width() > 767) {
+					$("body").addClass("fixed-header-on");
+					$(".header.fixed.fixed-before").addClass('object-visible');
+				} else {
+					$("body").removeClass("fixed-header-on");
+					$(".header.fixed.fixed-before").removeClass('object-visible');
+				}
+			};
+		});
+
+		if ($('.pagination').length > 0) {
+			$('ul.pagination li.active a, ul.pagination li.disabled a').on('click', function (event) {
+				event.preventDefault();
+			});
+		}
+
+		// Animations
+		//-----------------------------------------------
+		if ($("[data-animation-effect]").length > 0) {
+			if (typeof revApi !== 'undefined') {
+				$('.feature-box-2').addClass('object-non-visible');
+				revApi.one('revolution.slide.onloaded', function () {
+					$("[data-animation-effect]").animateWaypoint();
+				});
+			} else {
+				$("[data-animation-effect]").animateWaypoint();
+			}
+		}
+
+		//Scroll totop
+		//-----------------------------------------------
+		$(window).scroll(function () {
+			if ($(this).scrollTop() != 0) {
+				$(".scrollToTop").addClass("fadeToTop");
+				$(".scrollToTop").removeClass("fadeToBottom");
+			} else {
+				$(".scrollToTop").removeClass("fadeToTop");
+				$(".scrollToTop").addClass("fadeToBottom");
+			}
+		});
+
+		$(".scrollToTop").click(function () {
+			$("body,html").animate({ scrollTop: 0 }, 800);
+		});
+
+		//Modal
+		//-----------------------------------------------
+		if ($(".modal").length > 0) {
+			$(".modal").each(function () {
+				$(".modal").prependTo("body");
+			});
+		}
+
+		// Home
+		//-----------------------------------------------
+		if ($("#home").length > 0) {
+
+			// Revolution slider
+			if ($(".slider-revolution-5-container").length > 0) {
+				var revApi = $(document).ready(function () {
+					$(".tp-bannertimer").show();
+					$('.transparent-header .slider-revolution-5-container .slider-banner-fullscreen').revolution({
+						sliderType: "standard",
+						sliderLayout: "fullscreen",
+						delay: 9000,
+						autoHeight: "on",
+						responsiveLevels: [1199, 991, 767, 480],
+						fullScreenOffsetContainer: ".header-top, .offset-container",
+						navigation: {
+							onHoverStop: "off",
+							arrows: {
+								style: "hebe",
+								enable: true,
+								tmp: '<div class="tp-title-wrap"><span class="tp-arr-titleholder">{{title}}</span></div>',
+								left: {
+									h_align: "left",
+									v_align: "center",
+									h_offset: 0,
+									v_offset: 0
+								},
+								right: {
+									h_align: "right",
+									v_align: "center",
+									h_offset: 0,
+									v_offset: 0
+								}
+							},
+							bullets: {
+								style: "",
+								enable: true,
+								hide_onleave: true,
+								direction: "horizontal",
+								space: 3,
+								h_align: "center",
+								v_align: "bottom",
+								h_offset: 0,
+								v_offset: 20
+							}
+						},
+						gridwidth: 1140,
+						gridheight: 750
+					});
+				});
+
+				var services = $('#services').multiselect({
+					numberDisplayed: 1,
+					checkboxName: 'services[]',
+					nonSelectedText: 'Izaberite...',
+					nSelectedText: 'izabrane usluge...',
+					allSelectedText: 'Sve usluge izabrane',
+					onChange: function onChange(option, checked, select) {
+						if (checked) $('.multiselect').addClass('selected');else $('.multiselect').removeClass('selected');
+					}
+				});
+
+				services.on('change', function (event) {
+					$(this).valid();
+				});
+
+				// Prices
+				$.validator.addMethod("needsSelection", function (value, element) {
+					var count = $(element).find('option:selected').length;
+					return count > 0;
+				});
+				$.validator.addMethod("regexEmail", function (value, element) {
+					return this.optional(element) || /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(value);
+				}, 'Please enter a valid email address.');
+
+				$("#prices-form").validate({
+					ignore: [],
+					submitHandler: function submitHandler(form) {
+						$.ajax({
+							type: "POST",
+							headers: {
+								'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+							},
+							beforeSend: function beforeSend() {
+								$('#prices-form button[type="submit"]').prop('disabled', true);
+							},
+							url: "email/price",
+							data: {
+								"brand": $("#prices-form #brand").val(),
+								"type": $("#prices-form #type").val(),
+								"engine": $("#prices-form #engine").val(),
+								"power": $("#prices-form #power").val(),
+								"year": $("#prices-form #year").val(),
+								"services": $("#prices-form #services").val(),
+								"name": $("#prices-form #name").val(),
+								"email": $("#prices-form #email").val()
+							},
+							dataType: "json",
+							success: function success(data) {
+								if (data.success) {
+									$('#prices-form button.multiselect').removeClass('selected');
+									$('#prices-form button[type="submit"]').html('Poslato <i class="fa fa-check"></i>');
+									$("#prices-form .form-control").each(function () {
+										$(this).prop('value', '').parent().removeClass("has-success").removeClass("has-error");
+									});
+									$('#services').multiselect('refresh');
+								}
+							}
+						});
+					},
+					errorPlacement: function errorPlacement(error, element) {
+						error.insertBefore(element);
+					},
+					onkeyup: false,
+					onclick: false,
+					rules: {
+						brand: {
+							required: true
+						},
+						type: {
+							required: true
+						},
+						engine: {
+							required: true
+						},
+						power: {
+							required: true,
+							number: true
+						},
+						year: {
+							required: true,
+							number: true,
+							minlength: 4
+						},
+						services: {
+							needsSelection: true
+						},
+						name: {
+							required: true,
+							minlength: 6
+						},
+						email: {
+							required: true,
+							regexEmail: true
+						}
+					},
+					messages: {
+						brand: {
+							required: "Unesite marku vozila!"
+						},
+						type: {
+							required: "Unesite model vozila!"
+						},
+						engine: {
+							required: "Unesite tip motora!"
+						},
+						power: {
+							required: "Unesite snagu motora!",
+							number: "Unesite ispravnu snagu motora!"
+						},
+						year: {
+							required: "Unesite godinu proizvodnje!",
+							number: "Unesite ispravnu godinu proizvodnje!",
+							minlength: "Unesite ispravnu godinu proizvodnje!"
+						},
+						services: {
+							needsSelection: "Odaberite usluge!"
+						},
+						name: {
+							required: "Unesite vaše ime i prezime!",
+							minlength: "Unesite ispravno ime i prezime!"
+						},
+						email: {
+							required: "Unesite vašu email adresu!",
+							regexEmail: "Unesite ispravnu email adresu!"
+						}
+					},
+					errorElement: "span",
+					highlight: function highlight(element) {
+						$(element).parent().removeClass("has-success").addClass("has-error");
+						$(element).siblings("label").addClass("hide");
+					},
+					success: function success(element) {
+						$(element).parent().removeClass("has-error").addClass("has-success");
+						$(element).siblings("label").removeClass("hide");
+					}
+				});
+			}
+
+			// Gallery
+			if ($('.owl-carousel').length > 0 || $('.owl-carousel.content-slider').length > 0) {
+				$(".owl-carousel.carousel").owlCarousel({
+					items: 1,
+					dots: false,
+					nav: true,
+					loop: true,
+					navText: false,
+					responsive: {
+						479: {
+							items: 2
+						},
+						768: {
+							items: 2
+						},
+						992: {
+							items: 4
+						},
+						1200: {
+							items: 4
+						}
+					}
+				});
+			}
+
+			$('.magnific').magnificPopup({
+				delegate: 'a',
+				type: 'image',
+				titleSrc: 'title',
+				gallery: {
+					enabled: true
+				}
+			});
+
+			// Stats Count To
+			if ($(".stats [data-to]").length > 0) {
+				$(".stats [data-to]").each(function () {
+					var stat_item = $(this),
+					    offset = stat_item.offset().top;
+					if ($(window).scrollTop() > offset - 800 && !stat_item.hasClass('counting')) {
+						stat_item.addClass('counting');
+						stat_item.countTo();
+					};
+					$(window).scroll(function () {
+						if ($(window).scrollTop() > offset - 800 && !stat_item.hasClass('counting')) {
+							stat_item.addClass('counting');
+							stat_item.countTo();
+						}
+					});
+				});
+			}
+		}
+
+		// Services
+		//-----------------------------------------------
+		if ($("#services").length > 0) {
+			$(".service-img").magnificPopup({
+				type: "image",
+				gallery: {
+					enabled: true
+				}
+			});
+		}
+
+		// Blog
+		//-----------------------------------------------
+		if ($("#blog").length > 0) {
+			$(".popup-img").magnificPopup({
+				type: "image"
+			});
+		}
+
+		// Gallery
+		//-----------------------------------------------
+		if ($("#gallery").length > 0 || $("#mini-gallery").length > 0) {
+
+			if ($('.isotope-container').length > 0) {
+				$('.isotope-container').fadeIn();
+				$('.isotope-container').magnificPopup({
+					delegate: 'a:visible',
+					type: 'image',
+					titleSrc: 'title',
+					gallery: {
+						enabled: true
+					}
+				});
+				var $container = $('.isotope-container').isotope({
+					itemSelector: '.isotope-item',
+					layoutMode: 'masonry',
+					transitionDuration: '0.6s',
+					filter: "*"
+				});
+
+				$('.filters').on('click', 'ul.nav li a', function () {
+					var filterValue = $(this).attr('data-filter');
+					$(".filters").find("li.active").removeClass("active");
+					$(this).parent().addClass("active");
+					$container.isotope({ filter: filterValue });
+					return false;
+				});
+			}
+
+			if ($("#mini-gallery").length > 0) {
+				$('.mini-magnific').magnificPopup({
+					delegate: 'a',
+					type: 'image',
+					titleSrc: 'title',
+					gallery: {
+						enabled: true
+					}
+				});
+			}
+		}
+
+		// Contact
+		//-----------------------------------------------
+		if ($("#contact").length > 0) {
+			// Contact form
+			$.validator.addMethod("regexEmail", function (value, element) {
+				return this.optional(element) || /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(value);
+			}, 'Please enter a valid email address.');
+
+			$("#contact-form").validate({
+				submitHandler: function submitHandler(form) {
+					$.ajax({
+						type: "POST",
+						headers: {
+							'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+						},
+						beforeSend: function beforeSend() {
+							$('#contact-form button[type="submit"]').prop('disabled', true);
+						},
+						url: "kontakt",
+						data: {
+							"name": $("#contact-form #name").val(),
+							"email": $("#contact-form #email").val(),
+							"subject": $("#contact-form #subject").val(),
+							"message": $("#contact-form #message").val()
+						},
+						dataType: "json",
+						success: function success(data) {
+							var message = $('<div />', {
+								'id': 'message',
+								'class': 'alert alert-success'
+							});
+
+							if (data.success) {
+								$('#contact-form button[type="submit"]').html('Poslato');
+								$("#contact-form .form-control").each(function () {
+									$(this).prop('value', '').parent().removeClass("has-success").removeClass("has-error");
+								});
+								message.html(data.message);
+								$('#contact-form button[type="submit"]').before(message);
+							}
+						}
+					});
+				},
+				errorPlacement: function errorPlacement(error, element) {
+					error.insertBefore(element);
+				},
+				onkeyup: false,
+				onclick: false,
+				rules: {
+					name: {
+						required: true,
+						minlength: 6
+					},
+					email: {
+						required: true,
+						regexEmail: true
+					},
+					subject: {
+						required: true
+					},
+					message: {
+						required: true,
+						minlength: 10
+					}
+				},
+				messages: {
+					name: {
+						required: "Molimo unesite vaše ime i prezime",
+						minlength: "Ime i prezime mora imati više od 6 karaktera"
+					},
+					email: {
+						required: "Molimo unesite vašu email adresu",
+						regexEmail: "Molimo unesite ispravnu email adresu"
+					},
+					subject: {
+						required: "Molimo unesite naslov vaše poruke"
+					},
+					message: {
+						required: "Molimo unesite vašu poruku",
+						minlength: "Vaša poruka mora biti duža od 10 karaktera"
+					}
+				},
+				errorElement: "span",
+				highlight: function highlight(element) {
+					$(element).parent().removeClass("has-success").addClass("has-error");
+					$(element).siblings("label").addClass("hide");
+				},
+				success: function success(element) {
+					$(element).parent().removeClass("has-error").addClass("has-success");
+					$(element).siblings("label").removeClass("hide");
+				}
+			});
+
+			// Google Maps
+			if ($("#map-canvas").length > 0) {
+				var initialize = function initialize() {
+					var mapOptions = {
+						zoom: myZoom,
+						mapTypeId: google.maps.MapTypeId.ROADMAP,
+						center: myLatlng,
+						scrollwheel: false
+					};
+					map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+					marker = new google.maps.Marker({
+						map: map,
+						draggable: true,
+						animation: google.maps.Animation.DROP,
+						position: myLatlng
+					});
+					google.maps.event.addDomListener(window, "resize", function () {
+						map.setCenter(myLatlng);
+					});
+				};
+
+				var map, myLatlng, myZoom, marker;
+				myLatlng = new google.maps.LatLng(44.76892191864368, 19.688599705696106);
+				myZoom = 13;
+
+				google.maps.event.addDomListener(window, "load", initialize);
+			}
+		}
+
+		if ($('#faq').length > 0) {
+			// Faq form
+			$.validator.addMethod("regexEmail", function (value, element) {
+				return this.optional(element) || /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(value);
+			}, 'Please enter a valid email address.');
+
+			$("#faq-form").validate({
+				submitHandler: function submitHandler(form) {
+					$.ajax({
+						type: "POST",
+						headers: {
+							'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+						},
+						beforeSend: function beforeSend() {
+							$('#faq-form button[type="submit"]').prop('disabled', true);
+						},
+						url: "cesta-pitanja",
+						data: {
+							"name": $("#faq-form #name").val(),
+							"email": $("#faq-form #email").val(),
+							"subject": $("#faq-form #subject").val(),
+							"question": $("#faq-form #question").val()
+						},
+						dataType: "json",
+						success: function success(data) {
+							var message = $('<div />', {
+								'id': 'message',
+								'class': 'alert alert-success'
+							});
+
+							if (data.success) {
+								$('#faq-form button[type="submit"]').html('Poslato');
+								$("#faq-form .form-control").each(function () {
+									$(this).prop('value', '').parent().removeClass("has-success").removeClass("has-error");
+								});
+								message.html(data.message);
+								$('#faq-form button[type="submit"]').before(message);
+							}
+						}
+					});
+				},
+				errorPlacement: function errorPlacement(error, element) {
+					error.insertBefore(element);
+				},
+				onkeyup: false,
+				onclick: false,
+				rules: {
+					name: {
+						required: true
+					},
+					email: {
+						required: true,
+						regexEmail: true
+					},
+					subject: {
+						required: true
+					},
+					question: {
+						required: true
+					}
+				},
+				messages: {
+					name: {
+						required: "Unesite vaše ime i prezime"
+					},
+					email: {
+						required: "Unesite vašu email adresu",
+						regexEmail: "Unesite ispravnu email adresu"
+					},
+					subject: {
+						required: "Unesite naslov vaše poruke"
+					},
+					question: {
+						required: "Unesite vaše pitanje"
+					}
+				},
+				errorElement: "span",
+				highlight: function highlight(element) {
+					$(element).parent().removeClass("has-success").addClass("has-error");
+					$(element).siblings("label").addClass("hide");
+				},
+				success: function success(element) {
+					$(element).parent().removeClass("has-error").addClass("has-success");
+					$(element).siblings("label").removeClass("hide");
+				}
+			});
+		}
+
+		// Testimonials
+		//-----------------------------------------------
+		if ($(".content-slider").length > 0) {
+			$(".owl-carousel.content-slider").owlCarousel({
+				items: 1,
+				autoplay: true,
+				autoplayTimeout: 8000,
+				autoplaySpeed: 750,
+				loop: true,
+				nav: false,
+				navText: false,
+				dots: false
+			});
+		}
+
+		// Newsletter
+		if ($('#subscribe-form').length > 0) {
+			$.validator.addMethod("regexEmail", function (value, element) {
+				return this.optional(element) || /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(value);
+			}, 'Please enter a valid email address.');
+			$("#subscribe-form").validate({
+				submitHandler: function submitHandler(form) {
+					$.ajax({
+						type: "POST",
+						headers: {
+							'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+						},
+						beforeSend: function beforeSend() {
+							$("#subscribe-form button").prop('disabled', true);
+						},
+						url: "/subscription/subscribe",
+						data: {
+							"email": $("#subscribe-form #email").val()
+						},
+						dataType: "json",
+						success: function success(data) {
+							var message = $('<div />', {
+								'id': 'message'
+							});
+
+							if (data.success) {
+								$('#error').remove();
+								$("#subscribe-form button").html('Poslato <i class="fa fa-check"></i>');
+								$("#subscribe-form .form-control").each(function () {
+									$(this).prop('value', '').parent().removeClass("has-success").removeClass("has-error");
+								});
+								message.html(data.message);
+								$('#subscribe-form').after(message);
+							}
+						},
+						error: function error(data) {
+							var error = $('<div />', {
+								'id': 'error'
+							});
+							$('#error').remove();
+							$("#subscribe-form .form-control").each(function () {
+								$(this).prop('value', '').parent().addClass("has-error");
+							});
+							error.html('Uneta email adresa nije ispravna.');
+							$('#subscribe-form').after(error);
+							$("#subscribe-form button").prop('disabled', false);
+						}
+					});
+				},
+				errorPlacement: function errorPlacement(error, element) {
+					return true;
+				},
+				onkeyup: false,
+				onclick: false,
+				rules: {
+					email: {
+						required: true,
+						regexEmail: true
+					}
+				},
+				highlight: function highlight(element) {
+					$(element).parent().removeClass("has-success").addClass("has-error");
+				},
+				unhighlight: function unhighlight(element) {
+					$(element).parent().removeClass('has-error').addClass('has-success');
+				},
+				success: function success(element) {
+					$(element).parent().removeClass("has-error").addClass("has-success");
+				}
+			});
+		}
+
+		//Scroll Spy
+		//-----------------------------------------------
+		if ($(".scrollspy").length > 0) {
+			$("body").addClass("scroll-spy");
+			if ($(".fixed.header").length > 0) {
+				$('body').scrollspy({
+					target: '.scrollspy',
+					offset: 85
+				});
+			} else {
+				$('body').scrollspy({
+					target: '.scrollspy',
+					offset: 20
+				});
+			}
+		}
+
+		//Smooth Scroll
+		//-----------------------------------------------
+		if ($(".smooth-scroll").length > 0) {
+			if ($(".header.fixed").length > 0 && Modernizr.mq('only all and (min-width: 768px)')) {
+				$('.smooth-scroll a, a.smooth-scroll').click(function () {
+					if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+						var target = $(this.hash);
+						target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+						if (target.length) {
+							$('html,body').animate({
+								scrollTop: target.offset().top - 63
+							}, 1000);
+							return false;
+						}
+					}
+				});
+			} else {
+				$('.smooth-scroll a, a.smooth-scroll').click(function () {
+					if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+						var target = $(this.hash);
+						target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+						if (target.length) {
+							$('html,body').animate({
+								scrollTop: target.offset().top
+							}, 1000);
+							return false;
+						}
+					}
+				});
+			}
+		}
+
+		// Full Width Image Overlay
+		//-----------------------------------------------
+		if ($(".full-image-overlay").length > 0) {
+			overlayHeight = $(".full-image-overlay").outerHeight();
+			$(".full-image-overlay").css("marginTop", -overlayHeight / 2);
+		};
+	});
+})(jQuery);
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+window._ = __webpack_require__(12);
 
 /**
  * jQuery and the Bootstrap jQuery plugin
  */
 try {
-  window.$ = window.jQuery = __webpack_require__(35);
+  window.$ = window.jQuery = __webpack_require__(1);
 
-  __webpack_require__(46);
+  __webpack_require__(14);
 } catch (e) {}
 
 /**
  * Load theme based libraries
  * Modernizr, Isotope, Magnific Popup, Waypoints, CountTo, Parallax, Validate, OwlCarousel2
  */
-__webpack_require__(47);
-__webpack_require__(48);
-__webpack_require__(49);
-__webpack_require__(50);
-__webpack_require__(51);
-__webpack_require__(52);
-__webpack_require__(53);
-__webpack_require__(54);
+__webpack_require__(15);
+__webpack_require__(16);
+__webpack_require__(17);
+__webpack_require__(18);
+__webpack_require__(19);
+__webpack_require__(20);
+__webpack_require__(21);
+__webpack_require__(22);
 
 /**
  * The axios HTTP library 
  */
-window.axios = __webpack_require__(55);
+window.axios = __webpack_require__(23);
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 var token = document.head.querySelector('meta[name="csrf-token"]');
@@ -12120,7 +12087,7 @@ if (token) {
 // });
 
 /***/ }),
-/* 44 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, module) {var __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -29222,10 +29189,10 @@ if (token) {
   }
 }.call(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(45), __webpack_require__(37)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(13), __webpack_require__(3)(module)))
 
 /***/ }),
-/* 45 */
+/* 13 */
 /***/ (function(module, exports) {
 
 var g;
@@ -29252,7 +29219,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 46 */
+/* 14 */
 /***/ (function(module, exports) {
 
 /*!
@@ -31635,7 +31602,7 @@ if (typeof jQuery === 'undefined') {
 
 
 /***/ }),
-/* 47 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(module) {var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
@@ -31802,10 +31769,10 @@ if (typeof jQuery === 'undefined') {
     Modernizr._q[F]();
   }e.Modernizr = Modernizr;
 }(window, document);
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(37)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)(module)))
 
 /***/ }),
-/* 48 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var __WEBPACK_LOCAL_MODULE_1__, __WEBPACK_LOCAL_MODULE_1__factory, __WEBPACK_LOCAL_MODULE_1__module;var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_LOCAL_MODULE_2__;var __WEBPACK_LOCAL_MODULE_3__, __WEBPACK_LOCAL_MODULE_3__factory, __WEBPACK_LOCAL_MODULE_3__module;var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_LOCAL_MODULE_4__;var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_LOCAL_MODULE_5__;var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_LOCAL_MODULE_6__;var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_LOCAL_MODULE_7__;var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_LOCAL_MODULE_8__;var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_LOCAL_MODULE_9__;var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_LOCAL_MODULE_10__;var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_LOCAL_MODULE_11__;var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_LOCAL_MODULE_12__;var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
@@ -31833,7 +31800,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var __WEBPACK_LO
   /*jshint strict: false */ /* globals define, module, require */
   if (true) {
     // AMD
-    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(35)], __WEBPACK_AMD_DEFINE_RESULT__ = (function (jQuery) {
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(1)], __WEBPACK_AMD_DEFINE_RESULT__ = (function (jQuery) {
       return factory(window, jQuery);
     }).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -35190,7 +35157,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var __WEBPACK_LO
 });
 
 /***/ }),
-/* 49 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
@@ -35201,7 +35168,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 ;(function (factory) {
 	if (true) {
 		// AMD. Register as an anonymous module. 
-		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(35)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(1)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
 				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
 				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -36992,7 +36959,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 });
 
 /***/ }),
-/* 50 */
+/* 18 */
 /***/ (function(module, exports) {
 
 /*!
@@ -37633,7 +37600,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
 })();
 
 /***/ }),
-/* 51 */
+/* 19 */
 /***/ (function(module, exports) {
 
 (function ($) {
@@ -37718,7 +37685,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
 })(jQuery);
 
 /***/ }),
-/* 52 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
@@ -37733,7 +37700,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
  */
 (function (factory) {
 	if (true) {
-		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(35)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(1)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
 				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
 				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -39274,7 +39241,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 });
 
 /***/ }),
-/* 53 */
+/* 21 */
 /***/ (function(module, exports) {
 
 /**
@@ -42553,7 +42520,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 
 
 /***/ }),
-/* 54 */
+/* 22 */
 /***/ (function(module, exports) {
 
 /**
@@ -43975,22 +43942,22 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 
 
 /***/ }),
-/* 55 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(56);
+module.exports = __webpack_require__(24);
 
 /***/ }),
-/* 56 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(34);
-var bind = __webpack_require__(38);
-var Axios = __webpack_require__(58);
-var defaults = __webpack_require__(36);
+var utils = __webpack_require__(0);
+var bind = __webpack_require__(4);
+var Axios = __webpack_require__(26);
+var defaults = __webpack_require__(2);
 
 /**
  * Create an instance of Axios
@@ -44023,15 +43990,15 @@ axios.create = function create(instanceConfig) {
 };
 
 // Expose Cancel & CancelToken
-axios.Cancel = __webpack_require__(42);
-axios.CancelToken = __webpack_require__(73);
-axios.isCancel = __webpack_require__(41);
+axios.Cancel = __webpack_require__(8);
+axios.CancelToken = __webpack_require__(41);
+axios.isCancel = __webpack_require__(7);
 
 // Expose all/spread
 axios.all = function all(promises) {
   return Promise.all(promises);
 };
-axios.spread = __webpack_require__(74);
+axios.spread = __webpack_require__(42);
 
 module.exports = axios;
 
@@ -44040,7 +44007,7 @@ module.exports.default = axios;
 
 
 /***/ }),
-/* 57 */
+/* 25 */
 /***/ (function(module, exports) {
 
 /*!
@@ -44067,16 +44034,16 @@ function isSlowBuffer (obj) {
 
 
 /***/ }),
-/* 58 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var defaults = __webpack_require__(36);
-var utils = __webpack_require__(34);
-var InterceptorManager = __webpack_require__(68);
-var dispatchRequest = __webpack_require__(69);
+var defaults = __webpack_require__(2);
+var utils = __webpack_require__(0);
+var InterceptorManager = __webpack_require__(36);
+var dispatchRequest = __webpack_require__(37);
 
 /**
  * Create a new instance of Axios
@@ -44153,7 +44120,7 @@ module.exports = Axios;
 
 
 /***/ }),
-/* 59 */
+/* 27 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -44343,13 +44310,13 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 60 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(34);
+var utils = __webpack_require__(0);
 
 module.exports = function normalizeHeaderName(headers, normalizedName) {
   utils.forEach(headers, function processHeader(value, name) {
@@ -44362,13 +44329,13 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 
 
 /***/ }),
-/* 61 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var createError = __webpack_require__(40);
+var createError = __webpack_require__(6);
 
 /**
  * Resolve or reject a Promise based on response status.
@@ -44395,7 +44362,7 @@ module.exports = function settle(resolve, reject, response) {
 
 
 /***/ }),
-/* 62 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -44423,13 +44390,13 @@ module.exports = function enhanceError(error, config, code, request, response) {
 
 
 /***/ }),
-/* 63 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(34);
+var utils = __webpack_require__(0);
 
 function encode(val) {
   return encodeURIComponent(val).
@@ -44498,13 +44465,13 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 
 
 /***/ }),
-/* 64 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(34);
+var utils = __webpack_require__(0);
 
 // Headers whose duplicates are ignored by node
 // c.f. https://nodejs.org/api/http.html#http_message_headers
@@ -44558,13 +44525,13 @@ module.exports = function parseHeaders(headers) {
 
 
 /***/ }),
-/* 65 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(34);
+var utils = __webpack_require__(0);
 
 module.exports = (
   utils.isStandardBrowserEnv() ?
@@ -44633,7 +44600,7 @@ module.exports = (
 
 
 /***/ }),
-/* 66 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -44676,13 +44643,13 @@ module.exports = btoa;
 
 
 /***/ }),
-/* 67 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(34);
+var utils = __webpack_require__(0);
 
 module.exports = (
   utils.isStandardBrowserEnv() ?
@@ -44736,13 +44703,13 @@ module.exports = (
 
 
 /***/ }),
-/* 68 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(34);
+var utils = __webpack_require__(0);
 
 function InterceptorManager() {
   this.handlers = [];
@@ -44795,18 +44762,18 @@ module.exports = InterceptorManager;
 
 
 /***/ }),
-/* 69 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(34);
-var transformData = __webpack_require__(70);
-var isCancel = __webpack_require__(41);
-var defaults = __webpack_require__(36);
-var isAbsoluteURL = __webpack_require__(71);
-var combineURLs = __webpack_require__(72);
+var utils = __webpack_require__(0);
+var transformData = __webpack_require__(38);
+var isCancel = __webpack_require__(7);
+var defaults = __webpack_require__(2);
+var isAbsoluteURL = __webpack_require__(39);
+var combineURLs = __webpack_require__(40);
 
 /**
  * Throws a `Cancel` if cancellation has been requested.
@@ -44888,13 +44855,13 @@ module.exports = function dispatchRequest(config) {
 
 
 /***/ }),
-/* 70 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(34);
+var utils = __webpack_require__(0);
 
 /**
  * Transform the data for a request or a response
@@ -44915,7 +44882,7 @@ module.exports = function transformData(data, headers, fns) {
 
 
 /***/ }),
-/* 71 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -44936,7 +44903,7 @@ module.exports = function isAbsoluteURL(url) {
 
 
 /***/ }),
-/* 72 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -44957,13 +44924,13 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 
 
 /***/ }),
-/* 73 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var Cancel = __webpack_require__(42);
+var Cancel = __webpack_require__(8);
 
 /**
  * A `CancelToken` is an object that can be used to request cancellation of an operation.
@@ -45021,7 +44988,7 @@ module.exports = CancelToken;
 
 
 /***/ }),
-/* 74 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -45053,6 +45020,18 @@ module.exports = function spread(callback) {
   };
 };
 
+
+/***/ }),
+/* 43 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 44 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);

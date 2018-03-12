@@ -536,33 +536,42 @@ require('./bootstrap');
 		// Contact
 		//-----------------------------------------------
 		if ($("#contact").length > 0) {
-
 			// Contact form
+			$.validator.addMethod("regexEmail", function (value, element) {
+				return this.optional(element) || /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(value);
+			}, 'Please enter a valid email address.');
+
 			$("#contact-form").validate({
 				submitHandler: function(form) {
-					$('.submit-button').button("loading");
 					$.ajax({
 						type: "POST",
-						url: "api/send",
+						headers: {
+							'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+						},
+						beforeSend: function() {
+							$('#contact-form button[type="submit"]').prop('disabled', true);
+						},
+						url: "kontakt",
 						data: {
 							"name": $("#contact-form #name").val(),
 							"email": $("#contact-form #email").val(),
 							"subject": $("#contact-form #subject").val(),
-							"message": $("#contact-form #message").val(),
-							"g-recaptcha-response": $("#g-recaptcha-response").val()
+							"message": $("#contact-form #message").val()
 						},
 						dataType: "json",
 						success: function (data) {
-							if (data.sent == "yes") {
-								$("#MessageSent").removeClass("hidden");
-								$("#MessageNotSent").addClass("hidden");
-								$(".submit-button").removeClass("btn-default").addClass("btn-success").prop('value', 'Poslato');
+							var message = $('<div />', {
+								'id': 'message',
+								'class': 'alert alert-success'
+							});
+
+							if (data.success) {
+								$('#contact-form button[type="submit"]').html('Poslato');
 								$("#contact-form .form-control").each(function() {
 									$(this).prop('value', '').parent().removeClass("has-success").removeClass("has-error");
 								});
-							} else {
-								$("#MessageNotSent").removeClass("hidden");
-								$("#MessageSent").addClass("hidden");
+								message.html(data.message);
+								$('#contact-form button[type="submit"]').before(message);
 							}
 						}
 					});
@@ -579,7 +588,7 @@ require('./bootstrap');
 					},
 					email: {
 						required: true,
-						email: true
+						regexEmail: true
 					},
 					subject: {
 						required: true
@@ -596,7 +605,7 @@ require('./bootstrap');
 					},
 					email: {
 						required: "Molimo unesite vašu email adresu",
-						email: "Molimo unesite ispravnu email adresu"
+						regexEmail: "Molimo unesite ispravnu email adresu"
 					},
 					subject: {
 						required: "Molimo unesite naslov vaše poruke"
