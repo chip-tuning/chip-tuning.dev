@@ -16,7 +16,7 @@
                         <div class="separator"></div>
                         <div class="testimonial-body">
                             <blockquote>
-                                <p>{{ words($testimonial->content, 30) }}</p>
+                                <p class="text-left">{{ words($testimonial->content, 35) }}</p>
                             </blockquote>
                             <div class="testimonial-reviewer">{{ $testimonial->author }}</div>
                             <div class="testimonial-channel">- via Facebook reviews</div>

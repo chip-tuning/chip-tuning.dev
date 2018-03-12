@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Testimonial;
-use Illuminate\Http\Request;
 
 class TestimonialController extends Controller
 {
@@ -14,7 +14,9 @@ class TestimonialController extends Controller
      */
     public function index()
     {
-        //
+        $testimonials = Testimonial::latest()->paginate(16);
+
+        return view('admin.testimonials.index', compact('testimonials'));
     }
 
     /**
@@ -30,10 +32,9 @@ class TestimonialController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
         //
     }
@@ -57,19 +58,25 @@ class TestimonialController extends Controller
      */
     public function edit(Testimonial $testimonial)
     {
-        //
+        return view('admin.testimonials.edit', compact('testimonial'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @param  \App\Testimonial  $testimonial
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Testimonial $testimonial)
+    public function update(Testimonial $testimonial)
     {
-        //
+        request()->validate([
+            'content' => 'required',
+        ]);
+
+        $testimonial->content = request('content');
+        $testimonial->save();
+
+        return redirect()->route('admin.testimonials.index')->with('message', 'Testimonial successfully updated.');
     }
 
     /**
@@ -80,6 +87,8 @@ class TestimonialController extends Controller
      */
     public function destroy(Testimonial $testimonial)
     {
-        //
+        $testimonial->delete();
+
+        return redirect()->route('admin.testimonials.index')->with('message', 'Testimonial successfully deleted.');
     }
 }

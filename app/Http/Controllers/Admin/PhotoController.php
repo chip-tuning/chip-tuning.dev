@@ -88,6 +88,6 @@ class PhotoController extends Controller
 		]))
 			$photo->delete();
 
-		return redirect()->back()->with('message', 'Photo successfully deleted.');
+		return redirect()->route('admin.photos.index')->with('message', 'Photo successfully deleted.');
 	}
 }

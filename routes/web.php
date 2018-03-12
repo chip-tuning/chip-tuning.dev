@@ -70,10 +70,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin'], 'namespace
 	});
 	
 	Route::get('/', 'DashboardController@index')->name('dashboard.index');
-	Route::resource('articles', 'ArticleController');
-	Route::resource('faqs', 'FaqController');
-	Route::resource('photos', 'PhotoController');
 	Route::resource('tags', 'TagController');
+	Route::resource('articles', 'ArticleController');
+	Route::resource('photos', 'PhotoController');
+	Route::resource('testimonials', 'TestimonialController');
+	Route::resource('faqs', 'FaqController');
 
 	// Registration Routes
 	//Route::get('register', 'RegisterController@showRegistrationForm')->name('register');

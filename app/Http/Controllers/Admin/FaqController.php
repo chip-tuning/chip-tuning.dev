@@ -48,7 +48,7 @@ class FaqController extends Controller
 			'answer' => request('answer'),
 		]);
 
-		return redirect()->back()->with('message', 'Q&A successfully created.');
+		return redirect()->route('admin.faqs.index')->with('message', 'Q&A successfully created.');
 	}
 
 	/**
@@ -92,7 +92,7 @@ class FaqController extends Controller
 		$faq->answer = request('answer');
 		$faq->save();
 
-		return redirect()->back()->with('message', 'Q&A successfully updated.');
+		return redirect()->route('admin.faqs.index')->with('message', 'Q&A successfully updated.');
 	}
 
 	/**
@@ -105,6 +105,6 @@ class FaqController extends Controller
 	{
 		$faq->delete();	
 
-		return redirect()->back()->with('message', 'Q&A successfully deleted.');
+		return redirect()->route('admin.faqs.index')->with('message', 'Q&A successfully deleted.');
 	}
 }

@@ -15,18 +15,6 @@ class Testimonial extends Model
 	protected $fillable = ['content', 'stars', 'author', 'created_at'];
 
 	/**
-	 * Boot the model.
-	 */
-    protected static function boot()
-    {
-        parent::boot();
-
-        static::addGlobalScope('stars', function (Builder $builder) {
-            $builder->where('stars', '>', 3);
-        });
-    }
-
-	/**
 	 * Set the content.
 	 *
 	 * @param  string  $value
@@ -38,13 +26,25 @@ class Testimonial extends Model
 	}
 
 	/**
-	 * Get latest articles
+     * Scope a query to only include popular testimonials.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+	public function scopePopular($query)
+	{
+		return $query->where('stars', '>', 3);
+	}
+
+	/**
+	 * Get latest testimonials
 	 *
 	 * @param  int limit
 	 */
 	public static function fetchLatest(int $limit)
 	{
-		return static::take($limit)
+		return static::popular()
+		->take($limit)
 		->latest()
 		->get(['content', 'stars', 'author']);
 	}
