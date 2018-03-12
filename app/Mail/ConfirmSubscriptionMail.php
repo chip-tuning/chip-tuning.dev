@@ -35,8 +35,7 @@ class ConfirmSubscriptionMail extends Mailable
      */
     public function build()
     {
-    	return $this->from('noreply@chip-tuning.rs', 'RP Chip Tuning')
-            ->subject('Potvrdite email adresu')
+    	return $this->subject('Potvrdite email adresu')
             ->markdown('emails.confirm-subscription');
     }
 }
