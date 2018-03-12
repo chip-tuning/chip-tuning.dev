@@ -62,18 +62,16 @@
 									<i class="fa fa-envelope form-control-feedback"></i>
 								</div>
 								<div class="form-group has-feedback">
+									<label for="subject">Naslov*</label>
+									<input id="subject" class="form-control" name="subject" type="text" placeholder="Unesite naslov poruke">
+									<i class="fa fa-navicon form-control-feedback"></i>
+								</div>
+								<div class="form-group has-feedback">
 									<label for="question">Pitanje*</label>
 									<textarea id="question" class="form-control" name="question" rows="4" placeholder="Unesite vaše pitanje"></textarea>
 									<i class="fa fa-pencil form-control-feedback"></i>
 								</div>
-								<div class="g-recaptcha" data-sitekey="your_site_key"></div>
-								<div class="alert alert-success hidden" id="MessageSent">
-									Vaše pitanje je poslato. Očekujte uskoro naš odgovor.
-								</div>
-								<div class="alert alert-danger hidden" id="MessageNotSent">
-									Upsss! Nešto je pošlo naopako, molimo probajte opet.
-								</div>
-								<input class="submit-button btn btn-default" type="submit" value="Pošalji">
+								<button class="btn btn-default" type="submit">Pošalji</button>
 							</form>
 						</div>														
 					</div>

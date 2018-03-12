@@ -31,8 +31,8 @@
 .btn-default.disabled,
 .btn-default[disabled],
 fieldset[disabled] .btn-default {
-  background-color: $base-color;
-  border-color: $base-color-hover;
+  background-color: $base-color !important;
+  border-color: $base-color-hover !important;
 }
 
 .btn-default-transparent {

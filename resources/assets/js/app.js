@@ -665,6 +665,7 @@ require('./bootstrap');
 						data: {
 							"name": $("#faq-form #name").val(),
 							"email": $("#faq-form #email").val(),
+							"subject": $("#faq-form #subject").val(),
 							"question": $("#faq-form #question").val()
 						},
 						dataType: "json",
@@ -698,6 +699,9 @@ require('./bootstrap');
 						required: true,
 						regexEmail: true
 					},
+					subject: {
+						required: true
+					},
 					question: {
 						required: true
 					}
@@ -709,6 +713,9 @@ require('./bootstrap');
 					email: {
 						required: "Unesite vašu email adresu",
 						regexEmail: "Unesite ispravnu email adresu"
+					},
+					subject: {
+						required: "Unesite naslov vaše poruke",
 					},
 					question: {
 						required: "Unesite vaše pitanje",

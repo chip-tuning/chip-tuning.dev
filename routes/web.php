@@ -28,8 +28,13 @@ Route::get('blog/{article}', 'ArticleController@show')->name('blog.show');
 Route::get('nasi-radovi', 'GalleryController@index')->name('gallery.index');
 Route::get('kontakt', 'ContactController@index')->name('contact.index');
 Route::get('cesta-pitanja', 'FaqController@index')->name('faq.index');
+Route::post('cesta-pitanja', 'FaqController@store')->name('faq.store');
 Route::get('uslovi-koriscenja', 'TermsOfUseController@index')->name('terms.index');
 Route::get('politika-privatnosti', 'PrivacyPolicyController@index')->name('privacy.index');
+
+Route::resource('email/price', 'PriceController', ['only' => [
+    'index', 'store'
+]]);
 
 Route::group(['prefix' => 'subscription', 'as' => 'subscription.',], function() {
 	Route::post('subscribe', 'SubscriberController@store')->name('store');
