@@ -1,4 +1,4 @@
-<div class="feature-box-2 right" data-animation-effect="fadeInDownSmall" data-effect-delay="{{ $delay }}">
+<div class="feature-box-2 right">
     <span class="icon without-bg">{{ $icon }}</span>
     <div class="body">
         <h4 class="title text-default">{{ $title }}</h4>

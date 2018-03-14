@@ -21034,7 +21034,8 @@ img.mfp-img {
 
 .multipleselect .btn-group .btn-default .caret {
   position: absolute;
-  left: 92%;
+  right: 0;
+  margin-right: 15px;
   top: 48%;
 }
 
@@ -23262,8 +23263,8 @@ h5 + .separator {
 .btn-default.disabled,
 .btn-default[disabled],
 fieldset[disabled] .btn-default {
-  background-color: #992020;
-  border-color: #681313;
+  background-color: #992020 !important;
+  border-color: #681313 !important;
 }
 
 .btn-default-transparent {
@@ -23433,9 +23434,18 @@ fieldset[disabled] .btn-default {
 }
 
 .dark-bg .btn-gray-transparent:hover {
-  border-color: #ffffff;
   color: #777777;
+  border-color: #ffffff;
   background-color: #ffffff;
+}
+
+.dark-bg .btn-gray-transparent.focus,
+.dark-bg .btn-gray-transparent:focus,
+.dark-bg .btn-gray-transparent:active,
+.dark-bg .btn-gray-transparent.active {
+  color: #ffffff;
+  background-color: transparent;
+  border-color: #777777;
 }
 
 .dark-translucent-bg .btn-gray-transparent,

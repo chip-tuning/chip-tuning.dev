@@ -41,7 +41,7 @@ class ArticleController extends Controller
 	public function store()
 	{
 		request()->validate([
-			'title' => 'required|max:60|unique:articles,title',
+			'title' => 'required|max:60|unique:articles',
 			'picture' => 'required|image|max:3072',
 			'summary' => 'required',
 			'content' => 'required',

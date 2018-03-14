@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Album;
+use App\Testimonial;
 
 class GalleryController extends Controller
 {
@@ -17,6 +18,8 @@ class GalleryController extends Controller
             $query->orderByDesc('created_at')->limit(32);
         }])->get();
 
-        return view('gallery.index', compact('albums'));
+        $testimonials = Testimonial::fetchLatest(12);
+
+        return view('gallery.index', compact(['albums', 'testimonials']));
     }
 }

@@ -13,7 +13,7 @@
 	<div class="blogpost-content text-justify">{!! $summary !!}</div>
 	<footer class="clearfix">
 		<div class="pull-right">
-			<a href="{{ route('blog.show', $slug) }}" class="btn btn-animated btn-default btn-md">Pročitaj <i class="fa fa-arrow-right"></i></a>
+			<a href="{{ route('blog.show', $slug) }}" class="btn btn-animated btn-default btn-sm">Pročitaj <i class="fa fa-arrow-right"></i></a>
 		</div>
 	</footer>
 </article>

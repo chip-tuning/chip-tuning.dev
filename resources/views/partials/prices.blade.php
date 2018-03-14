@@ -45,8 +45,8 @@
 							</div>
 							<div class="col-sm-6 col-md-3">
 								<div class="form-group multipleselect">
-									<label for="service">Usluge:</label>
-									<select id="service" class="form-control" name="service" multiple>
+									<label for="services">Usluge:</label>
+									<select id="services" class="form-control" name="services" multiple>
 										<option value="Chip Tuning">Chip Tuning</option>
 										<option value="EGR OFF">EGR OFF</option>
 										<option value="DTC OFF">DTC OFF</option>
@@ -72,7 +72,7 @@
 								</div>
 							</div>
 							<div class="col-sm-12 text-center">
-								<button type="submit" class="btn btn-lg btn-gray-transparent btn-animated submit-button">Pošalji upit <i class="fa fa-send"></i></button>
+								<button type="submit" class="btn btn-lg btn-gray-transparent btn-animated">Pošalji upit <i class="fa fa-send"></i></button>
 							</div>
 						</form>
 					</div>

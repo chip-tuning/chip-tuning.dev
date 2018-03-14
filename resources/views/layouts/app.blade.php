@@ -17,8 +17,6 @@
 	<meta property="og:image" content="{{ asset('images/logo.jpg') }}">
 	<meta property="og:locale" content="sr_RS">
 	<meta property="og:site_name" content="{{ config('app.name', 'RPCT') }}">
-	<meta property="fb:admins" content="">
-	<meta property="fb:app_id" content="">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:site" content="{{ "@".config('app.socials.twitter', '') }}">
 	<meta name="twitter:title" content="@yield('title')">
@@ -65,6 +63,10 @@
 	<div class="scrollToTop circle"><i class="fa fa-chevron-up"></i></div>
 	<div class="page-wrapper">
 		<div class="header-container">
+			@if (session('message'))
+				@component('components.announcement', ['title' => session('message')['title'], 'body' => session('message')['body']])
+				@endcomponent
+			@endif
 			<div class="header-top dark">
 				<div class="container">
 					<div class="row">
@@ -146,7 +148,7 @@
 															<div class="divider"></div>
 															<ul class="menu">
 																<li class="{{ set_active('usluge/hot-start-fix') }}"><a href="{{ route('services.hotstart') }}"><i class="fa fa-star pr-10"></i>Hot Start Fix</a></li>
-																<li class="{{ set_active('usluge/gps-pracenje') }}"><a href="{{ route('services.gps') }}"><i class="fa fa-clock-o pr-10"></i>GPS Pracenje</a></li>
+																<li class="{{ set_active('usluge/gps-pracenje') }}"><a href="{{ route('services.gps') }}"><i class="fa fa-clock-o pr-10"></i>GPS Praćenje</a></li>
 																<li class="{{ set_active('usluge/dijagnostika') }}"><a href="{{ route('services.diagnostics') }}"><i class="fa fa-star pr-10"></i>Dijagnostika</a></li>
 															</ul>
 														</div>

@@ -27,9 +27,21 @@ Route::get('blog/arhiva', 'ArticleController@archive')->name('blog.archive');
 Route::get('blog/{article}', 'ArticleController@show')->name('blog.show');
 Route::get('nasi-radovi', 'GalleryController@index')->name('gallery.index');
 Route::get('kontakt', 'ContactController@index')->name('contact.index');
+Route::post('kontakt', 'ContactController@store')->name('contact.store');
 Route::get('cesta-pitanja', 'FaqController@index')->name('faq.index');
+Route::post('cesta-pitanja', 'FaqController@store')->name('faq.store');
 Route::get('uslovi-koriscenja', 'TermsOfUseController@index')->name('terms.index');
 Route::get('politika-privatnosti', 'PrivacyPolicyController@index')->name('privacy.index');
+
+Route::resource('email/price', 'PriceController', ['only' => [
+    'index', 'store'
+]]);
+
+Route::group(['prefix' => 'subscription', 'as' => 'subscription.',], function() {
+	Route::post('subscribe', 'SubscriberController@store')->name('store');
+	Route::get('confirm/{subscriber}', 'SubscriberController@edit')->name('edit');
+	Route::get('unsubscribe/{subscriber}', 'SubscriberController@destroy')->name('destroy');
+});
 
 // Feeds
 Route::group(['prefix' => 'feed', 'as' => 'feed.',], function() {
@@ -58,10 +70,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin'], 'namespace
 	});
 	
 	Route::get('/', 'DashboardController@index')->name('dashboard.index');
-	Route::resource('articles', 'ArticleController');
-	Route::resource('faqs', 'FaqController');
-	Route::resource('photos', 'PhotoController');
 	Route::resource('tags', 'TagController');
+	Route::resource('articles', 'ArticleController');
+	Route::resource('photos', 'PhotoController');
+	Route::resource('testimonials', 'TestimonialController');
+	Route::resource('faqs', 'FaqController');
 
 	// Registration Routes
 	//Route::get('register', 'RegisterController@showRegistrationForm')->name('register');
