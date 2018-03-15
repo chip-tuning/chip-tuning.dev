@@ -17,7 +17,7 @@
 			<div class="row">
 				<div class="col-md-8 pv-20">
 					<h2 class="title"><strong>Chip</strong> Tuning</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi perferendis magnam ea necessitatibus, officiis voluptas odit! Aperiam omnis, cupiditate laudantium velit nostrum, exercitationem accusamus, possimus soluta illo deserunt tempora qui.</p>
+					<p>Chip Tuning kamiona se radi iz više razloga, pri čemu se kao najbitniji izdvajajaju povećanje snage vozila i vozačima često najbitniji smanjenje potrošnje. Prema dosadašnjem iskustvu, čipovanjem kamiona njihova potrošnja se smanjuje od 1 do 3 litre na 100 pređenih kilometara. </p>
 				</div>
 			</div>
 		</div>
@@ -30,13 +30,13 @@
 					<div class="separator-2"></div>
 					<div class="row">
 						<div class="col-md-6">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus illo vero cupiditate, sed enim voluptatibus provident consectetur. Quo dolor sunt nostrum, eligendi illo accusamus odit, ipsam excepturi voluptatem nulla minus.</p>
-							<p>Blanditiis aspernatur, non quasi, maxime corporis officiis quia. Cupiditate, voluptatibus ducimus, natus, labore mollitia dolorem incidunt voluptatum, delectus eius fugit porro placeat animi voluptatem autem hic eligendi sint. Amet pariatur odit repudiandae sunt. Rem ipsum dolor sit amet, consectetur adipisicing elit. Sunt asperiores a.</p>
+							<p>Kamioni na kojima smo mi radili chip tuning imaju dosta više snage od kamiona koji koriste fabričke mape, što se posebno primećuje kada su opterećeni teretom kao i kada prolaze kroz brdovite i planinske krajeve.</p>
+							<p>Chip Tuning kod većine kamiona moguće je uraditi putem OBD dijagnostičkog porta, samo mali broj kamiona zahteva skidanje motornog računara (ECU). Sama procedura traje 2 do 3 sata. Posedujemo i opremu za rad na terenu i izlazimo na teren kada su u pitanju teretna vozila u cilju minimizacije troškova naših klijenata.</p>
 							<ul class="list-icons">
-								<li><i class="fa fa-check-square-o"></i> We are here to support you</li>
-								<li><i class="fa fa-check-square-o"></i> Free updates</li>
-								<li><i class="fa fa-check-square-o"></i> Unlimited options and variations</li>
-								<li><i class="fa fa-check-square-o"></i> ipsam asperiores fugiat quo</li>
+								<li><i class="fa fa-check-square-o"></i> Osetno povećanje snage</li>
+								<li><i class="fa fa-check-square-o"></i> Smanjenje potrošnje od 1 do 3l</li>
+								<li><i class="fa fa-check-square-o"></i> Povećanje obrtnog momenta</li>
+								<li><i class="fa fa-check-square-o"></i> Izlazak na teren</li>
 							</ul>
 						</div>
 						<div class="col-md-6">
