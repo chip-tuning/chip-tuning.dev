@@ -17,7 +17,7 @@
 			<div class="row">
 				<div class="col-md-8 pv-20">
 					<h2 class="title"><strong>Dijagnostika</strong></h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi perferendis magnam ea necessitatibus, officiis voluptas odit! Aperiam omnis, cupiditate laudantium velit nostrum, exercitationem accusamus, possimus soluta illo deserunt tempora qui.</p>
+					<p>Svako vozilo se pre Chip Tuninga detaljno proverava dijagnostički. Posedujemo veliki broj dijagnostičkih uređaja koji nam omogućavaju da radimo sve poznate brendove.</p>
 				</div>
 			</div>
 		</div>
@@ -30,13 +30,13 @@
 					<div class="separator-2"></div>
 					<div class="row">
 						<div class="col-md-6">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus illo vero cupiditate, sed enim voluptatibus provident consectetur. Quo dolor sunt nostrum, eligendi illo accusamus odit, ipsam excepturi voluptatem nulla minus.</p>
-							<p>Blanditiis aspernatur, non quasi, maxime corporis officiis quia. Cupiditate, voluptatibus ducimus, natus, labore mollitia dolorem incidunt voluptatum, delectus eius fugit porro placeat animi voluptatem autem hic eligendi sint. Amet pariatur odit repudiandae sunt. Rem ipsum dolor sit amet, consectetur adipisicing elit. Sunt asperiores a.</p>
+							<p>Kako su se automobili razvijali vremenom dijagnostika je postala neizostavni faktor ukoliko se bavite bilo kakvim popravkama na automobilu. Moderna vozila poseduju gomilu modula u kojima beleže razne greške čijim čitanjem se lakše dolazi do kvara na samom vozilu.</p>
+							<p>Sem našim klijentima, dijagnostiku radimo uslužno za veliki broj auto servisa i majstorskih radionica koje nisu dovoljno opremljene u tom pogledu. Ukoliko Vam sija neka greška na tabli a niste sigurni šta je u pitanju, kontaktirajte nas, naš tim će brzo i efikasno dijagnostikovati problem.</p>
 							<ul class="list-icons">
-								<li><i class="fa fa-check-square-o"></i> We are here to support you</li>
-								<li><i class="fa fa-check-square-o"></i> Free updates</li>
-								<li><i class="fa fa-check-square-o"></i> Unlimited options and variations</li>
-								<li><i class="fa fa-check-square-o"></i> ipsam asperiores fugiat quo</li>
+								<li><i class="fa fa-check-square-o"></i> Dijagnostika za sva vozila</li>
+								<li><i class="fa fa-check-square-o"></i> Praćenje live parametara</li>
+								<li><i class="fa fa-check-square-o"></i> Brisanje grešaka</li>
+								<li><i class="fa fa-check-square-o"></i> Izlazak na teren</li>
 							</ul>
 						</div>
 						<div class="col-md-6">

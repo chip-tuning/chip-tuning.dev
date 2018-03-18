@@ -17,7 +17,7 @@
 			<div class="row">
 				<div class="col-md-8 pv-20">
 					<h2 class="title"><strong>Hot Start</strong> Fix</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi perferendis magnam ea necessitatibus, officiis voluptas odit! Aperiam omnis, cupiditate laudantium velit nostrum, exercitationem accusamus, possimus soluta illo deserunt tempora qui.</p>
+					<p>Hot Start ili Topli start je veoma čest problem kod VAG (Audi, Seat, VW, Škoda) grupacije. Problem je lako uočljiv, kad je automobil zagrejan drugo vergla i teško pali a u nekim slučajevima neće da upali uopšte.</p>
 				</div>
 			</div>
 		</div>
@@ -30,13 +30,13 @@
 					<div class="separator-2"></div>
 					<div class="row">
 						<div class="col-md-6">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus illo vero cupiditate, sed enim voluptatibus provident consectetur. Quo dolor sunt nostrum, eligendi illo accusamus odit, ipsam excepturi voluptatem nulla minus.</p>
-							<p>Blanditiis aspernatur, non quasi, maxime corporis officiis quia. Cupiditate, voluptatibus ducimus, natus, labore mollitia dolorem incidunt voluptatum, delectus eius fugit porro placeat animi voluptatem autem hic eligendi sint. Amet pariatur odit repudiandae sunt. Rem ipsum dolor sit amet, consectetur adipisicing elit. Sunt asperiores a.</p>
+							<p>Problem Toplog Starta je čisto softverske prirode. Mi ga rešavamo brzo i jednostavno promenom parametara u mapi motornog računara. Takođe napominjemo da se ovom metodom problem trajno rešava.</p>
+							<p>Često se dešava da se obratite majstoru za rešenje ovog problema, na automobilu se izmenja gomila delova, potroši se dosta novca a problem ostane prisutan. Naš tim problem rešava bez otvaranja haube putem dijagnostičkog OBD porta za samo sat vremena.</p>
 							<ul class="list-icons">
-								<li><i class="fa fa-check-square-o"></i> We are here to support you</li>
-								<li><i class="fa fa-check-square-o"></i> Free updates</li>
-								<li><i class="fa fa-check-square-o"></i> Unlimited options and variations</li>
-								<li><i class="fa fa-check-square-o"></i> ipsam asperiores fugiat quo</li>
+								<li><i class="fa fa-check-square-o"></i> Trajno rešenje problema</li>
+								<li><i class="fa fa-check-square-o"></i> Softversko rešenje</li>
+								<li><i class="fa fa-check-square-o"></i> Otklanjanje problema dugog verglanja</li>
+								<li><i class="fa fa-check-square-o"></i> Brzo i efikasno</li>
 							</ul>
 						</div>
 						<div class="col-md-6">

@@ -17,7 +17,7 @@
 			<div class="row">
 				<div class="col-md-8 pv-20">
 					<h2 class="title"><strong>EGR</strong> OFF</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi perferendis magnam ea necessitatibus, officiis voluptas odit! Aperiam omnis, cupiditate laudantium velit nostrum, exercitationem accusamus, possimus soluta illo deserunt tempora qui.</p>
+					<p>Imamo veoma napredno i kvalitetno rešenje za uklanjanje EGR ventila. Naše softversko rešenje za isključivanje EGR ventil je jednostavna i efikasna metoda koja čak poboljšava efikasnost vašeg motora a takođe je i trajno rešenje.</p>
 				</div>
 			</div>
 		</div>
@@ -30,13 +30,13 @@
 					<div class="separator-2"></div>
 					<div class="row">
 						<div class="col-md-6">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus illo vero cupiditate, sed enim voluptatibus provident consectetur. Quo dolor sunt nostrum, eligendi illo accusamus odit, ipsam excepturi voluptatem nulla minus.</p>
-							<p>Blanditiis aspernatur, non quasi, maxime corporis officiis quia. Cupiditate, voluptatibus ducimus, natus, labore mollitia dolorem incidunt voluptatum, delectus eius fugit porro placeat animi voluptatem autem hic eligendi sint. Amet pariatur odit repudiandae sunt. Rem ipsum dolor sit amet, consectetur adipisicing elit. Sunt asperiores a.</p>
+							<p>Reprogramiranje ECU u cilju uklanjanja EGR ventila rezultira nižim temperaturama motora (ne dolazi do prekomernog zagrevanja i stalnog uključivanja ventilatora), poboljšani odziv na gas (drastično se smanjuje ili skroz nestaje turbo lag), produžava vek motora tako što smanjuje nagomilavanje larbonskih naslaga na istom. </p>
+							<p>Pored softverskog gašenja radimo i fizičko blokiranje EGR ventila. Glavni simptom kod poremećene funkcije EGR ventila je nepravilan rad motora.</p>
 							<ul class="list-icons">
-								<li><i class="fa fa-check-square-o"></i> We are here to support you</li>
-								<li><i class="fa fa-check-square-o"></i> Free updates</li>
-								<li><i class="fa fa-check-square-o"></i> Unlimited options and variations</li>
-								<li><i class="fa fa-check-square-o"></i> ipsam asperiores fugiat quo</li>
+								<li><i class="fa fa-check-square-o"></i> Bolji odziv na gas</li>
+								<li><i class="fa fa-check-square-o"></i> Nema pregrevanja motora</li>
+								<li><i class="fa fa-check-square-o"></i> Gubitak Turbo Laga</li>
+								<li><i class="fa fa-check-square-o"></i> Trajno rešenje problema</li>
 							</ul>
 						</div>
 						<div class="col-md-6">

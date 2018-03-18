@@ -17,7 +17,7 @@
 			<div class="row">
 				<div class="col-md-8 pv-20">
 					<h2 class="title"><strong>GPS</strong> Praćenje</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi perferendis magnam ea necessitatibus, officiis voluptas odit! Aperiam omnis, cupiditate laudantium velit nostrum, exercitationem accusamus, possimus soluta illo deserunt tempora qui.</p>
+					<p>U mogućnosti smo da Vam ponudimo GPS praćenje za sve tipove vozila. Praćenje je moguće vršiti u zemilji i inostranstvu. Instalacija ugređaja je brza i jednostavna.</p>
 				</div>
 			</div>
 		</div>
@@ -30,13 +30,13 @@
 					<div class="separator-2"></div>
 					<div class="row">
 						<div class="col-md-6">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus illo vero cupiditate, sed enim voluptatibus provident consectetur. Quo dolor sunt nostrum, eligendi illo accusamus odit, ipsam excepturi voluptatem nulla minus.</p>
-							<p>Blanditiis aspernatur, non quasi, maxime corporis officiis quia. Cupiditate, voluptatibus ducimus, natus, labore mollitia dolorem incidunt voluptatum, delectus eius fugit porro placeat animi voluptatem autem hic eligendi sint. Amet pariatur odit repudiandae sunt. Rem ipsum dolor sit amet, consectetur adipisicing elit. Sunt asperiores a.</p>
+							<p>GPS praćenje vozila u zemlji i inostranstvu. Pored standardnog praćenja u ponudi imamo sonde za rezervoar, mogućnost čekiranja vozača i još mnogo toga.</p>
+							<p>Aplikacija za GPS praćenje je kompatibilna sa svim mobilnim uređajima kao i sa PC računarima. Moguće je pratiti gomilu parametara vezanih za samo vozilo kao što su: potrošnja, stil vožnje, da li je vozilo u radu ili ne itd. Aplikacija takođe poseduje dobar sistem za izveštavanje.</p>
 							<ul class="list-icons">
-								<li><i class="fa fa-check-square-o"></i> We are here to support you</li>
-								<li><i class="fa fa-check-square-o"></i> Free updates</li>
-								<li><i class="fa fa-check-square-o"></i> Unlimited options and variations</li>
-								<li><i class="fa fa-check-square-o"></i> ipsam asperiores fugiat quo</li>
+								<li><i class="fa fa-check-square-o"></i> Pozicija vozila</li>
+								<li><i class="fa fa-check-square-o"></i> Brzina kretanja</li>
+								<li><i class="fa fa-check-square-o"></i> Istorija kretanja</li>
+								<li><i class="fa fa-check-square-o"></i> Definisanje alarma</li>
 							</ul>
 						</div>
 						<div class="col-md-6">
