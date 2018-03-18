@@ -17,7 +17,7 @@
 			<div class="row">
 				<div class="col-md-8 pv-20">
 					<h2 class="title"><strong>Speed Limit</strong> OFF</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi perferendis magnam ea necessitatibus, officiis voluptas odit! Aperiam omnis, cupiditate laudantium velit nostrum, exercitationem accusamus, possimus soluta illo deserunt tempora qui.</p>
+					<p>U zavisnosti od namene vozila ono može imati ograničenje brzine tzv. Speed Limit. To ograničenje moguće je promeniti reprogramiranjem ECU vozila.</p>
 				</div>
 			</div>
 		</div>
@@ -30,13 +30,13 @@
 					<div class="separator-2"></div>
 					<div class="row">
 						<div class="col-md-6">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus illo vero cupiditate, sed enim voluptatibus provident consectetur. Quo dolor sunt nostrum, eligendi illo accusamus odit, ipsam excepturi voluptatem nulla minus.</p>
-							<p>Blanditiis aspernatur, non quasi, maxime corporis officiis quia. Cupiditate, voluptatibus ducimus, natus, labore mollitia dolorem incidunt voluptatum, delectus eius fugit porro placeat animi voluptatem autem hic eligendi sint. Amet pariatur odit repudiandae sunt. Rem ipsum dolor sit amet, consectetur adipisicing elit. Sunt asperiores a.</p>
+							<p>Ograničenje krajnje brzine postavlja se iz više razloga, proizvođači vozila time štite motor u vozilu. Pojedine firme postavljaju Speed limit kako bi kontrolisale radnike i izbegle plaćanje kazni, a često se i vozačima početnicima limitira max brzina.</p>
+							<p>Speed limit ili ograničenje brzine moguće je promeniti remapiranjem (reprogram motornog računara). Remapiranje se vrši profesionalnim originalnim alatima poslednje generacije.</p>
 							<ul class="list-icons">
-								<li><i class="fa fa-check-square-o"></i> We are here to support you</li>
-								<li><i class="fa fa-check-square-o"></i> Free updates</li>
-								<li><i class="fa fa-check-square-o"></i> Unlimited options and variations</li>
-								<li><i class="fa fa-check-square-o"></i> ipsam asperiores fugiat quo</li>
+								<li><i class="fa fa-check-square-o"></i> Brzo i efikasno</li>
+								<li><i class="fa fa-check-square-o"></i> Najsavremeniji software</li>
+								<li><i class="fa fa-check-square-o"></i> Podrška za sve brendove vozila</li>
+								<li><i class="fa fa-check-square-o"></i> Originalni interfejsi</li>
 							</ul>
 						</div>
 						<div class="col-md-6">

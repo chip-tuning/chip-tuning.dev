@@ -17,7 +17,7 @@
 			<div class="row">
 				<div class="col-md-8 pv-20">
 					<h2 class="title"><strong>Ad Blue</strong> OFF</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi perferendis magnam ea necessitatibus, officiis voluptas odit! Aperiam omnis, cupiditate laudantium velit nostrum, exercitationem accusamus, possimus soluta illo deserunt tempora qui.</p>
+					<p>Softversko gašenje AdBlue sistema za sva vozila. AdBlue je sistem kojim su opremljena novija vozila u cilju smanjenja emisije azotnih oksida (NOx). Održavanje ovog sistema je jako skupo zato što zahteva specijalnu tečnost koja se ubrizgava u izduvni sistem. </p>
 				</div>
 			</div>
 		</div>
@@ -30,13 +30,13 @@
 					<div class="separator-2"></div>
 					<div class="row">
 						<div class="col-md-6">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus illo vero cupiditate, sed enim voluptatibus provident consectetur. Quo dolor sunt nostrum, eligendi illo accusamus odit, ipsam excepturi voluptatem nulla minus.</p>
-							<p>Blanditiis aspernatur, non quasi, maxime corporis officiis quia. Cupiditate, voluptatibus ducimus, natus, labore mollitia dolorem incidunt voluptatum, delectus eius fugit porro placeat animi voluptatem autem hic eligendi sint. Amet pariatur odit repudiandae sunt. Rem ipsum dolor sit amet, consectetur adipisicing elit. Sunt asperiores a.</p>
+							<p>Kako bi ste smanjili troškove mi Vam nudimo mogućnost trajnog uklanjanja AD Blue sistema, čime prestaje obaveza kontrole I dolivanja AD Blue tečnosti. A samim tim I troškovi održavanja se smanjuju. Uklanjanje se vrši softverski bez tzv "varalice" tj dodatnih modula.</p>
+							<p>Moramo da napomenemo da tzv "Varalice" za ADblue kod vozila novije generacije prave gomilu problema. Mi Vam nudimo profesionalno rešenje remapiranjem računara koje nema nikakvih štetnih posledica po Vaše vozilo.</p>
 							<ul class="list-icons">
-								<li><i class="fa fa-check-square-o"></i> We are here to support you</li>
-								<li><i class="fa fa-check-square-o"></i> Free updates</li>
-								<li><i class="fa fa-check-square-o"></i> Unlimited options and variations</li>
-								<li><i class="fa fa-check-square-o"></i> ipsam asperiores fugiat quo</li>
+								<li><i class="fa fa-check-square-o"></i> Softversko gašenje</li>
+								<li><i class="fa fa-check-square-o"></i> Ne ugrađuju se dodatni moduli</li>
+								<li><i class="fa fa-check-square-o"></i> Trajno rešenje problema</li>
+								<li><i class="fa fa-check-square-o"></i> Značajna ušteda</li>
 							</ul>
 						</div>
 						<div class="col-md-6">

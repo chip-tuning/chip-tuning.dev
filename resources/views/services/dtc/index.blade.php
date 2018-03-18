@@ -17,7 +17,7 @@
 			<div class="row">
 				<div class="col-md-8 pv-20">
 					<h2 class="title"><strong>DTC</strong> OFF</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi perferendis magnam ea necessitatibus, officiis voluptas odit! Aperiam omnis, cupiditate laudantium velit nostrum, exercitationem accusamus, possimus soluta illo deserunt tempora qui.</p>
+					<p>DTC (Diagnostic Trouble Code) – Dijagnostički kod greške. Nudimo uslugu trajnog brisanja grešaka iz motornog računara. NE BRIŠEMO JEDINO GREŠKE VEZANE ZA AIRBAG / ABS. </p>
 				</div>
 			</div>
 		</div>
@@ -30,13 +30,13 @@
 					<div class="separator-2"></div>
 					<div class="row">
 						<div class="col-md-6">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus illo vero cupiditate, sed enim voluptatibus provident consectetur. Quo dolor sunt nostrum, eligendi illo accusamus odit, ipsam excepturi voluptatem nulla minus.</p>
-							<p>Blanditiis aspernatur, non quasi, maxime corporis officiis quia. Cupiditate, voluptatibus ducimus, natus, labore mollitia dolorem incidunt voluptatum, delectus eius fugit porro placeat animi voluptatem autem hic eligendi sint. Amet pariatur odit repudiandae sunt. Rem ipsum dolor sit amet, consectetur adipisicing elit. Sunt asperiores a.</p>
+							<p>Reprogramiranjem motornog računara u vozilu moguće je trajno uklanjanje kodova grešaka. Ovo se obično radi kada su u pitanju greške koje ne utiču na funkcionisanje motora vozila.</p>
+							<p>Ukoliko je u pitanju neki ozbiljniji kvar ne preporučujemo da se greška gasi trajno već da se reši problem. Ako imate bilo kakvih nedoumica oko grešaka na Vašem automobilu obratite se našem timu, a mi ćemo dijagnostičkim alatima poslednje generacije ustanoviti kvar.</p>
 							<ul class="list-icons">
-								<li><i class="fa fa-check-square-o"></i> We are here to support you</li>
-								<li><i class="fa fa-check-square-o"></i> Free updates</li>
-								<li><i class="fa fa-check-square-o"></i> Unlimited options and variations</li>
-								<li><i class="fa fa-check-square-o"></i> ipsam asperiores fugiat quo</li>
+								<li><i class="fa fa-check-square-o"></i> Selektivno brisanje grešaka</li>
+								<li><i class="fa fa-check-square-o"></i> Najsavremeniji dijagnostički uređaji</li>
+								<li><i class="fa fa-check-square-o"></i> Brzo i efikasno</li>
+								<li><i class="fa fa-check-square-o"></i> Tim sa dugogodišnjim iskustvom</li>
 							</ul>
 						</div>
 						<div class="col-md-6">

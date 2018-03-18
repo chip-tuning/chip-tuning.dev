@@ -17,7 +17,7 @@
 			<div class="row">
 				<div class="col-md-8 pv-20">
 					<h2 class="title"><strong>Chip</strong> Tuning</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi perferendis magnam ea necessitatibus, officiis voluptas odit! Aperiam omnis, cupiditate laudantium velit nostrum, exercitationem accusamus, possimus soluta illo deserunt tempora qui.</p>
+					<p>Chip Tuning poljoprivrednih mašina je veoma popularan u poslednje vreme, kod nas tek treba da zaživi ali mi idemo u korak sa vremenom. Nudimo kompletna rešenja kada je u pitanju Chip Tuning traktora novije generacije, kao i ostalih poljoprivrednih mašina. </p>
 				</div>
 			</div>
 		</div>
@@ -30,13 +30,13 @@
 					<div class="separator-2"></div>
 					<div class="row">
 						<div class="col-md-6">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus illo vero cupiditate, sed enim voluptatibus provident consectetur. Quo dolor sunt nostrum, eligendi illo accusamus odit, ipsam excepturi voluptatem nulla minus.</p>
-							<p>Blanditiis aspernatur, non quasi, maxime corporis officiis quia. Cupiditate, voluptatibus ducimus, natus, labore mollitia dolorem incidunt voluptatum, delectus eius fugit porro placeat animi voluptatem autem hic eligendi sint. Amet pariatur odit repudiandae sunt. Rem ipsum dolor sit amet, consectetur adipisicing elit. Sunt asperiores a.</p>
+							<p>Kao glavne prednosti Chip Tuninga traktora i drugih poljoprivrednih mašina izdvajamo drastično povećanje snage i osetno smanjenje potrošnje. Ako uzmemo u obzir smanjenje potrošnje na godišnjem nivou se postiže značajna ušteda.</p>
+							<p>Pored Chip Tuninga nudimo i uslugu softverskog gašenja Adblue sistema bez ugradnje bilo kakvih „varalica“. AdBlue je sistem kojim su opremljena novija vozila u cilju smanjenja emisije azotnih oksida(NOX).  Održavanje ovog sistema je veoma skupo, pa se njegovim uklanjanjem postiže velika novčana ušteda.</p>
 							<ul class="list-icons">
-								<li><i class="fa fa-check-square-o"></i> We are here to support you</li>
-								<li><i class="fa fa-check-square-o"></i> Free updates</li>
-								<li><i class="fa fa-check-square-o"></i> Unlimited options and variations</li>
-								<li><i class="fa fa-check-square-o"></i> ipsam asperiores fugiat quo</li>
+								<li><i class="fa fa-check-square-o"></i> Povećanje snage</li>
+								<li><i class="fa fa-check-square-o"></i> Smanjenje potrošnje</li>
+								<li><i class="fa fa-check-square-o"></i> Izlazak na teren</li>
+								<li><i class="fa fa-check-square-o"></i> Brzo i profesionalno</li>
 							</ul>
 						</div>
 						<div class="col-md-6">

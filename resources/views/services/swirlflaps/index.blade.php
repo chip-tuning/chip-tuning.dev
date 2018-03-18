@@ -17,7 +17,7 @@
 			<div class="row">
 				<div class="col-md-8 pv-20">
 					<h2 class="title"><strong>Swirl Flaps</strong> OFF</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi perferendis magnam ea necessitatibus, officiis voluptas odit! Aperiam omnis, cupiditate laudantium velit nostrum, exercitationem accusamus, possimus soluta illo deserunt tempora qui.</p>
+					<p>Swirl/Flaps – Klapne na usisnoj grani su prisutne kod velikog broja vozila novije generacije. Kada su ispravne one služe da regulišu odnos goriva i vazduha u odnosu na broj obrtaja i druge parametre. Ukoliko klapne ne funkcionišu kako treba to prouzrokuje nepravilan rad motora.</p>
 				</div>
 			</div>
 		</div>
@@ -30,13 +30,13 @@
 					<div class="separator-2"></div>
 					<div class="row">
 						<div class="col-md-6">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus illo vero cupiditate, sed enim voluptatibus provident consectetur. Quo dolor sunt nostrum, eligendi illo accusamus odit, ipsam excepturi voluptatem nulla minus.</p>
-							<p>Blanditiis aspernatur, non quasi, maxime corporis officiis quia. Cupiditate, voluptatibus ducimus, natus, labore mollitia dolorem incidunt voluptatum, delectus eius fugit porro placeat animi voluptatem autem hic eligendi sint. Amet pariatur odit repudiandae sunt. Rem ipsum dolor sit amet, consectetur adipisicing elit. Sunt asperiores a.</p>
+							<p>Klapne na usisu ili tzv. Flapsevi spadaju u veoma osetljive komponente I mogu da prouzrokuju velike probleme u samom radu motora. Često se dešava da usled dotrajalosti pojedini delovi otpadnu I prouzrokuju veliku štetu. </p>
+							<p>Kako bi se to izbeglo mi Vam nudimo profesionalno I trajno rešenje. Nakon gašenja klapni automobil funkcioniše savršeno i nema rizika od oštećenja od vitalnih komponenti vozila.</p>
 							<ul class="list-icons">
-								<li><i class="fa fa-check-square-o"></i> We are here to support you</li>
-								<li><i class="fa fa-check-square-o"></i> Free updates</li>
-								<li><i class="fa fa-check-square-o"></i> Unlimited options and variations</li>
-								<li><i class="fa fa-check-square-o"></i> ipsam asperiores fugiat quo</li>
+								<li><i class="fa fa-check-square-o"></i> Softversko uklanjanje</li>
+								<li><i class="fa fa-check-square-o"></i> Trajno rešenje</li>
+								<li><i class="fa fa-check-square-o"></i> Uklanjanje rizika od oštećenja vozila</li>
+								<li><i class="fa fa-check-square-o"></i> Fizičko isključivanje</li>
 							</ul>
 						</div>
 						<div class="col-md-6">
