@@ -212,9 +212,20 @@
   background: url("../images/background-img-4.jpg") 50% 0px no-repeat;
 }
 
-.services-bg-img-1,
-.services-bg-img-2,
-.services-bg-img-3,
+.services-bg-img-1 {
+  background: url("../images/background-services-1.jpg");
+  background-position: 50% 50% !important;
+}
+
+.services-bg-img-2 {
+  background: url("../images/background-services-2.jpg");
+}
+
+.services-bg-img-3 {
+  background: url("../images/background-services-3.jpg");
+  background-position: 50% 58% !important;
+}
+
 .services-bg-img-4,
 .services-bg-img-5,
 .services-bg-img-6,
@@ -224,7 +235,8 @@
 .services-bg-img-10,
 .services-bg-img-11,
 .services-bg-img-12 {
-  background: url("../images/page-about-banner-2.jpg") 50% 50% no-repeat;
+  background: url("../images/background-services.jpg");
+  background-position: 50% 25% !important;
 }
 
 .fullscreen-bg {

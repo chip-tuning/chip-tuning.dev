@@ -21511,7 +21511,7 @@ tbody {
 }
 
 .background-img-2 {
-  background: url(/images/background-img-2.jpg?209d84b0b81d2a00a15a32b27fdf5c11) 50% 0px no-repeat;
+  background: url(/images/background-img-2.jpg?ebfb2e964d61357ef42d098fcfa51775) 50% 0px no-repeat;
 }
 
 .background-img-3 {
@@ -21520,12 +21520,22 @@ tbody {
 }
 
 .background-img-4 {
-  background: url(/images/background-img-4.jpg?209d84b0b81d2a00a15a32b27fdf5c11) 50% 0px no-repeat;
+  background: url(/images/background-img-4.jpg?cd996137ab2a31b6d152f58ec798b112) 50% 0px no-repeat;
 }
 
-.services-bg-img-1,
-.services-bg-img-2,
-.services-bg-img-3,
+.services-bg-img-1 {
+  background: url(/images/background-services-1.jpg?4a9ca8f017c3171f5fd3190b9fc47f69);
+  background-position: 50% 50% !important;
+}
+
+.services-bg-img-2 {
+}
+
+.services-bg-img-3 {
+  background: url(/images/background-services-3.jpg?bd37d6ddd3556c20a1acf4dc505eabd0);
+  background-position: 50% 58% !important;
+}
+
 .services-bg-img-4,
 .services-bg-img-5,
 .services-bg-img-6,
@@ -21535,7 +21545,7 @@ tbody {
 .services-bg-img-10,
 .services-bg-img-11,
 .services-bg-img-12 {
-  background: url(/images/page-about-banner-2.jpg?93184e653137955cd52762bcefc4ace1) 50% 50% no-repeat;
+  background-position: 50% 25% !important;
 }
 
 .fullscreen-bg {
