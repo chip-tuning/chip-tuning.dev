@@ -17,8 +17,7 @@
 				<div class="col-md-8 text-center col-md-offset-2 pv-30">
 					<h1 class="page-title text-center">Blog</h1>
 					<div class="separator"></div>
-					<p class="lead text-center">Potrudićemo se da putem bloga pokrijemo sve aktuelne teme kada je u pitanju Chip Tuning. Osim naše primarne delatnosti posvetićemo se i nekim čestim kvarovima a takođe ćemo se truditi da Vas što bolje upoznamo sa vozilima na kojima smo radili. 
-</p>
+					<p class="lead text-center">Osim aktuelnih tema vezanih za naše primarne delatnosti posvetićemo se i još nekim čestim kvarovima vozila. Uz sve to, ovde se možete upoznati i sa nekim našim radovima na pojedinim vozilima.</p>
 				</div>
 			</div>
 		</div>

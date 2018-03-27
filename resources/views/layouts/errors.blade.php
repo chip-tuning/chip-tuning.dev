@@ -53,7 +53,7 @@
 		<div class="pv-40 dark-translucent-bg">
 			<div class="container">
 				<div class="row">
-					<div class="text-center>
+					<div class="text-center">
 						<div class="info-block center-block p-15 logo-blank">
 								<a href="{{ url('/') }}"><img src="/images/logo-white.png" alt="{{ config('app.name', 'RPCT') }}"></a>
 						</div>
