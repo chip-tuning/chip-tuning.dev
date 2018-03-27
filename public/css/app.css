@@ -21529,10 +21529,12 @@ tbody {
 }
 
 .services-bg-img-2 {
+  background: url(/images/background-services-2.jpg?d05b7379ff5c84ae4fddef753c7c9dad);
+  background-position: 50% 55% !important;
 }
 
 .services-bg-img-3 {
-  background: url(/images/background-services-3.jpg?bd37d6ddd3556c20a1acf4dc505eabd0);
+  background: url(/images/background-services-3.jpg?e324998d0809f366ab98d31fbf528321);
   background-position: 50% 58% !important;
 }
 
@@ -21545,6 +21547,7 @@ tbody {
 .services-bg-img-10,
 .services-bg-img-11,
 .services-bg-img-12 {
+  background: url(/images/background-services.jpg?27913d9b038ef0777c73636746348b6a);
   background-position: 50% 25% !important;
 }
 
